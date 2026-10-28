@@ -4,7 +4,7 @@
     {
       "id": "activate-linux",
       "name": "Activate Linux Watermark",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "official": false,
       "author": "Preston Corless (pgattic)",
       "description": "Adds a watermark to the bottom-right of the screen similar to the one found on unactivated Windows 10/11",
@@ -19,7 +19,7 @@
     {
       "id": "agent-session-status",
       "name": "Agent Session Status",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "nzlov",
       "description": "Runs a local MCP HTTP service for agents to report session status and shows active sessions in the bar.",
@@ -38,7 +38,7 @@
     {
       "id": "air-quality",
       "name": "Air Quality",
-      "version": "1.1.2",
+      "version": "1.1.3",
       "official": false,
       "author": "adriamartin91",
       "description": "Displays real-time air quality data with EPA color coding. Supports Open-Meteo and AQICN data sources. Shows AQI index and pollutant breakdown.",
@@ -57,7 +57,7 @@
     {
       "id": "arch-updater",
       "name": "Arch Updater",
-      "version": "2.1.10",
+      "version": "2.1.11",
       "official": false,
       "author": "Ast",
       "description": "A plugin to manage updates on Arch",
@@ -77,7 +77,7 @@
     {
       "id": "assistant-panel",
       "name": "Assistant Panel",
-      "version": "2.1.6",
+      "version": "2.1.7",
       "official": false,
       "author": "j-1in",
       "description": "AI Chat and Translation panel",
@@ -96,7 +96,7 @@
     {
       "id": "asus-um5606-fan-state",
       "name": "ASUS UM5606 Fan State",
-      "version": "1.1.7",
+      "version": "1.1.8",
       "official": false,
       "author": "ThatOneCalculator",
       "description": "Set the fan state on the ZenBook S 16 UM5606",
@@ -112,7 +112,7 @@
     {
       "id": "battery-actions",
       "name": "Battery Actions",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "official": false,
       "author": "itscrystalline",
       "description": "A plugin that allows you to run custom actions when battery state changes.",
@@ -127,7 +127,7 @@
     {
       "id": "battery-and-power-management",
       "name": "Battery & Power Management Plugin",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "official": false,
       "author": "Piero-93",
       "description": "A lightweight, efficient battery status bar widget and interactive control popup. This plugin displays real-time battery diagnostics (including dynamic power draw in Watts) and provides desktop controls to switch system power profiles or adjust hardware battery charge thresholds safely without needing root privileges.",
@@ -145,7 +145,7 @@
     {
       "id": "battery-monitor-plus",
       "name": "Battery Monitor Plus",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "krteke",
       "description": "Extended battery monitor with current power draw, remaining time, battery health, and current power profile.",
@@ -163,7 +163,7 @@
     {
       "id": "battery-threshold",
       "name": "Battery Threshold Control",
-      "version": "1.2.5",
+      "version": "1.2.6",
       "official": false,
       "author": "Wilfred Mallawa",
       "description": "Set the battery threshold for laptop batteries to extend battery lifespan",
@@ -180,7 +180,7 @@
     {
       "id": "calendar-widget",
       "name": "Desktop Calendar",
-      "version": "1.0.10",
+      "version": "1.0.11",
       "official": false,
       "author": "Simon",
       "description": "Monthly calendar with today highlighted.",
@@ -196,7 +196,7 @@
     {
       "id": "calibre-provider",
       "name": "Calibre Provider",
-      "version": "1.3.3",
+      "version": "1.3.4",
       "official": false,
       "author": "Krendil",
       "description": "Search for books in your Calibre library",
@@ -211,7 +211,7 @@
     {
       "id": "catwalk",
       "name": "Catwalk",
-      "version": "1.1.7",
+      "version": "1.1.8",
       "official": false,
       "author": "MannuVilasara",
       "description": "A cute animated cat for your bar.",
@@ -229,7 +229,7 @@
     {
       "id": "claude-code-panel",
       "name": "Claude Code Panel",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "official": false,
       "author": "d7om",
       "description": "Claude Code (Anthropic agentic CLI) with full tool access, permission controls, session management, MCP servers, and device integration",
@@ -247,7 +247,7 @@
     {
       "id": "clipboard",
       "name": "Clipboard",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "official": false,
       "author": "yanekyuk",
       "description": "Clipboard history panel with search, pinning, and image previews.",
@@ -264,7 +264,7 @@
     {
       "id": "clipper",
       "name": "Clipper",
-      "version": "2.4.4",
+      "version": "2.4.5",
       "official": false,
       "author": "blackbartblues",
       "description": "Advanced clipboard manager with history, search, keyboard navigation, ToDo integration, pinned items, notecards/sticky notes, and selection-to-notecard feature. Fully translated with comprehensive i18n support.",
@@ -281,7 +281,7 @@
     {
       "id": "cloudflare-warp",
       "name": "Cloudflare WARP",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "official": false,
       "author": "ToRvaLDz",
       "description": "Toggle Cloudflare WARP from the bar. Shows connection status and mode.",
@@ -298,7 +298,7 @@
     {
       "id": "coin-flip",
       "name": "Coin Flipper",
-      "version": "1.2.2",
+      "version": "1.2.3",
       "official": false,
       "author": "DanisDeveloper",
       "description": "Simple bar widget with notification about result",
@@ -312,7 +312,7 @@
     {
       "id": "color-scheme-creator",
       "name": "Color Scheme Creator",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "official": true,
       "author": "Noctalia Team",
       "description": "Create and manage custom predefined color schemes with a visual color editor.",
@@ -328,7 +328,7 @@
     {
       "id": "cookie-clock",
       "name": "Cookie Clock",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "official": false,
       "author": "elrondforwin",
       "description": "An analog cookie-shaped clock desktop widget. Features a sine-wave cookie background, hour/minute/second hands, dial marks and date bubbless.",
@@ -344,7 +344,7 @@
     {
       "id": "currency-exchange",
       "name": "Currency Exchange",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "official": false,
       "author": "balor",
       "description": "Currency conversion utility via launcher and bar widget",
@@ -360,7 +360,7 @@
     {
       "id": "custom-commands",
       "name": "Custom Commands",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "official": true,
       "author": "Noctalia Team",
       "description": "Define and run custom shell commands from the launcher",
@@ -375,7 +375,7 @@
     {
       "id": "custom-sticker",
       "name": "Custom Stickers",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "official": false,
       "author": "spiros132",
       "description": "Custom stickers (images) that you can put on the desktop as desktop widgets.",
@@ -391,7 +391,7 @@
     {
       "id": "daily-wallpaper",
       "name": "Daily Wallpaper",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "official": false,
       "author": "DigitallyRefined",
       "description": "Fetches a new daily wallpaper from Bing or NASA",
@@ -408,7 +408,7 @@
     {
       "id": "deskvis",
       "name": "DeskVis",
-      "version": "2.0.2",
+      "version": "2.0.3",
       "official": false,
       "author": "HAVEKziad",
       "description": "Audio visualizer desktop widget — bars, wave, or mirror. Supports all directions. Transparent, follows color scheme.",
@@ -423,7 +423,7 @@
     {
       "id": "display-settings",
       "name": "Display Settings",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "fstanis",
       "description": "View live display settings from wlr-randr and permanent niri KDL output configuration",
@@ -441,7 +441,7 @@
     {
       "id": "dmenu",
       "name": "Dmenu Provider",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "Ben Hilton",
       "description": "An IPC-driven dmenu replacement that lets external scripts present choices through a Noctalia panel.",
@@ -460,7 +460,7 @@
     {
       "id": "dns-switcher",
       "name": "DNS Switcher",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "official": false,
       "author": "Ronin-CK",
       "description": "DNS Manager with custom server support for Noctalia.",
@@ -476,7 +476,7 @@
     {
       "id": "ds4-colors",
       "name": "DS4 Colors",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "Hy4ri",
       "description": "Change the lightbar color of your DualShock 4 or DualSense controller with a color picker and recent color history.",
@@ -493,7 +493,7 @@
     {
       "id": "fancy-audiovisualizer",
       "name": "Fancy Audiovisualizer",
-      "version": "1.1.2",
+      "version": "1.1.3",
       "official": true,
       "author": "Noctalia Team",
       "description": "Lemmy's fancy circular audio visualizer.",
@@ -509,7 +509,7 @@
     {
       "id": "file-search",
       "name": "File Search",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "official": false,
       "author": "ericbreh",
       "description": "File search from the launcher.",
@@ -525,7 +525,7 @@
     {
       "id": "giphy-search",
       "name": "Giphy Search",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "official": false,
       "author": "Sergio Mendolia",
       "description": "Search for GIFs on Giphy from the Launcher.",
@@ -542,7 +542,7 @@
     {
       "id": "git-companion",
       "name": "Git Companion",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "Thomas Philippo",
       "description": "Monitor your git repositories from the Noctalia bar. See open issues and pull requests at a glance, without leaving your desktop.",
@@ -560,7 +560,7 @@
     {
       "id": "github-feed",
       "name": "GitHub Feed",
-      "version": "1.3.1",
+      "version": "1.3.2",
       "official": false,
       "author": "linuxmobile",
       "description": "Display GitHub activity from users you follow and activity on your repos",
@@ -578,7 +578,7 @@
     {
       "id": "habitica",
       "name": "Habitica for Noctalia",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "vasqs",
       "description": "Habitica dashboard and task scorer for Noctalia Shell with official avatar sprite rendering.",
@@ -596,7 +596,7 @@
     {
       "id": "hassio",
       "name": "Home Assistant",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "official": false,
       "author": "Pozzoo",
       "description": "Monitor and control Home Assistant entities from the bar. Requires qt6-websockets.",
@@ -613,7 +613,7 @@
     {
       "id": "hello-world",
       "name": "Hello World",
-      "version": "1.2.4",
+      "version": "1.2.5",
       "official": true,
       "author": "Noctalia Team",
       "description": "A simple Hello World plugin demonstrating functionalities. For developers only.",
@@ -628,7 +628,7 @@
     {
       "id": "hot-corners",
       "name": "Hot Corners",
-      "version": "0.0.2",
+      "version": "0.0.3",
       "official": false,
       "author": "sapjax",
       "description": "A macOS-style hot corners plugin for Noctalia Shell.",
@@ -644,7 +644,7 @@
     {
       "id": "hyprland-steam-overlay",
       "name": "Steam Overlay (Hyprland)",
-      "version": "2.2.0",
+      "version": "2.2.1",
       "official": false,
       "author": "blacku",
       "description": "[DEPRECATED — not maintained from Hyprland 0.55+] Steam overlay with automatic window management for Hyprland. Due to Hyprland 0.55 deprecating hyprlang in favour of Lua (changing hyprctl dispatch parsing and popup/xdg handling), this plugin is no longer actively maintained. The 2.2.0 release adds a best-effort dual-mode dispatch fix and an optional custom Lua layout, but no further updates are planned. Automatically moves all Steam windows (except fullscreen games) to an overlay workspace; main 3 windows (Friends, Client, Chat) positioned in a row, fully responsive percentage-based layout. Requires Hyprland window manager.",
@@ -657,7 +657,7 @@
     {
       "id": "hyprland-visual-editor",
       "name": "Hyprland Visual Editor",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "official": false,
       "author": "XimoCP",
       "description": "Elevate your Hyprland experience. A modular plugin to safely inject custom animations, borders, and visual effects on the fly.",
@@ -678,7 +678,7 @@
     {
       "id": "ideapad-battery-health",
       "name": "Ideapad Battery Health",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "official": false,
       "author": "Christophe Branchereau",
       "description": "Set the battery charging mode for ideapad laptop batteries, to extend battery lifespan",
@@ -695,7 +695,7 @@
     {
       "id": "ip-monitor",
       "name": "IP Monitor",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "official": false,
       "author": "deepalpha",
       "description": "Plugin showing current external IP",
@@ -710,7 +710,7 @@
     {
       "id": "kagi-quick-search",
       "name": "Kagi Quick Search",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "official": false,
       "author": "Kainoa Kanter",
       "description": "Get AI answers from Kagi in your launcher",
@@ -726,7 +726,7 @@
     {
       "id": "kaomoji-provider",
       "name": "Kaomoji Provider",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "official": true,
       "author": "Noctalia Team",
       "description": "Browse and search kaomoji emoticons from the launcher",
@@ -742,7 +742,7 @@
     {
       "id": "kde-connect",
       "name": "KDE Connect",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "official": false,
       "author": "WerWolv",
       "description": "A Plugin integrating your mobile devices into a panel using KDEConnect",
@@ -760,7 +760,7 @@
     {
       "id": "keep-awake-plus",
       "name": "Keep Awake+",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "official": false,
       "author": "Noam Stolero",
       "description": "Duration+scope Keep Awake with persistent last-choice and partial/full inhibit modes.",
@@ -777,7 +777,7 @@
     {
       "id": "keybind-cheatsheet",
       "name": "Keybind Cheatsheet",
-      "version": "3.7.4",
+      "version": "3.7.5",
       "official": false,
       "author": "blacku",
       "description": "Universal keyboard shortcuts keymap that automatically detects and displays keybindings for Hyprland, Niri, or MangoWC compositors.",
@@ -798,7 +798,7 @@
     {
       "id": "khal-agenda-widget",
       "name": "Khal Agenda Info",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "official": false,
       "author": "Simon",
       "description": "Shows khal agenda.",
@@ -814,7 +814,7 @@
     {
       "id": "kubectl-ctx",
       "name": "Kubectl Context",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "official": false,
       "author": "ultherego",
       "description": "Kubernetes context and namespace switcher with resource browser powered by kubectl.",
@@ -832,7 +832,7 @@
     {
       "id": "latency-monitor",
       "name": "Latency Monitor",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "official": false,
       "author": "Borhaneddine GUEMIDI <guemidiborhane@gmail.com>",
       "description": "Network latency monitor — multi-host, windowed averages, sparkline graphs",
@@ -849,7 +849,7 @@
     {
       "id": "launcher-pass",
       "name": "Launcher pass",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "Marco Melletti",
       "description": "Noctalia Launcher gnu pass provider",
@@ -864,7 +864,7 @@
     {
       "id": "linux-wallpaperengine-controller",
       "name": "Linux WallpaperEngine Controller",
-      "version": "1.3.1",
+      "version": "1.3.2",
       "official": false,
       "author": "PaloMiku",
       "description": "Control linux-wallpaperengine from Noctalia with per-screen wallpaper selection.",
@@ -881,7 +881,7 @@
     {
       "id": "lyrics-fetch",
       "name": "Lyrics Fetch/Bar Display",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "official": false,
       "author": "Pever3ll",
       "description": "Uses MPRIS data to fetch song lyrics from lrclib.net and displays it in the bar.",
@@ -897,7 +897,7 @@
     {
       "id": "mangowc-layout-switcher",
       "name": "mango layout switcher",
-      "version": "3.1.0",
+      "version": "3.1.1",
       "official": false,
       "author": "atheeq-rhxn",
       "description": "Switch between different mangowc layouts",
@@ -914,7 +914,7 @@
     {
       "id": "mawaqit",
       "name": "Mawaqit",
-      "version": "1.3.7",
+      "version": "1.3.8",
       "official": false,
       "author": "User",
       "description": "Shows prayer times with a live countdown and a Hijri calendar with Islamic events.",
@@ -930,7 +930,7 @@
     {
       "id": "mimeapp-gui",
       "name": "MimeApp GUI",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "official": false,
       "author": "Mathew-D",
       "description": "GUI for inspecting MIME handlers and updating default applications in mimeapps.list (requires python3).",
@@ -948,7 +948,7 @@
     {
       "id": "mini-docker",
       "name": "Mini Docker",
-      "version": "2.2.0",
+      "version": "2.2.1",
       "official": false,
       "author": "MannuVilasara",
       "description": "Manage Docker containers, images, volumes & networks",
@@ -965,7 +965,7 @@
     {
       "id": "mirror-mirror",
       "name": "Mirror Mirror",
-      "version": "0.1.4",
+      "version": "0.1.5",
       "official": false,
       "author": "Mathew-D",
       "description": "Mirror one monitor to another using wl-mirror.",
@@ -983,7 +983,7 @@
     {
       "id": "model-usage",
       "name": "Model Usage",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "official": false,
       "author": "cmptr",
       "description": "Shows AI coding assistant usage stats in the bar with detail panel (Claude Code, Codex, Copilot, Gemini, OpenRouter, Zen)",
@@ -1000,7 +1000,7 @@
     {
       "id": "monique",
       "name": "Monique",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "official": false,
       "author": "ToRvaLDz",
       "description": "Switch monitor profiles from the bar. Shows the active profile and lets you switch between saved configurations.",
@@ -1017,7 +1017,7 @@
     {
       "id": "monitor-layout",
       "name": "Monitor Layout",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "Mathew-D",
       "description": "Arrange multiple displays visually and change their resolutions from a Noctalia panel.",
@@ -1037,7 +1037,7 @@
     {
       "id": "mpd",
       "name": "MPD",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "official": false,
       "author": "Ido Perlmuter",
       "description": "MPD plugin for Noctalia",
@@ -1054,7 +1054,7 @@
     {
       "id": "mpris-lyric",
       "name": "MPRIS Lyric",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "official": false,
       "author": "DBeidachazi",
       "description": "Display synchronized lyrics from MPRIS-compatible music players (e.g., go-musicfox) in the bar.",
@@ -1070,7 +1070,7 @@
     {
       "id": "mpvpaper",
       "name": "Mpvpaper",
-      "version": "1.6.4",
+      "version": "1.6.5",
       "official": false,
       "author": "spiros132",
       "description": "A plugin that allows having video wallpapers using mpvpaper.",
@@ -1088,7 +1088,7 @@
     {
       "id": "mullvad",
       "name": "Mullvad VPN",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "official": false,
       "author": "OCSPG",
       "description": "Control Mullvad VPN from the bar: connect/disconnect, pick relays, toggle lockdown mode, multihop and more.",
@@ -1105,7 +1105,7 @@
     {
       "id": "music-search",
       "name": "Music Search",
-      "version": "1.2.2",
+      "version": "1.2.3",
       "official": false,
       "author": "kevichi7",
       "description": "Search YouTube, play audio in the background with mpv, and save favorites into a persistent library.",
@@ -1124,7 +1124,7 @@
     {
       "id": "netbird",
       "name": "NetBird",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "official": false,
       "author": "Cleboost",
       "description": "Show NetBird VPN status in the menu bar.",
@@ -1141,7 +1141,7 @@
     {
       "id": "network-indicator",
       "name": "Network Indicator",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "official": false,
       "author": "tonigineer",
       "description": "A `lively` network traffic indicator.",
@@ -1158,7 +1158,7 @@
     {
       "id": "network-manager-vpn",
       "name": "Network Manager VPN",
-      "version": "1.3.0",
+      "version": "1.3.1",
       "official": false,
       "author": "nZO",
       "description": "Connect to VPN via NetworkManager",
@@ -1175,7 +1175,7 @@
     {
       "id": "news",
       "name": "News Bar",
-      "version": "1.2.6",
+      "version": "1.2.7",
       "official": false,
       "author": "LazarH",
       "description": "Display scrolling news headlines from various sources using NewsAPI.org",
@@ -1193,7 +1193,7 @@
     {
       "id": "niri-animation-picker",
       "name": "Niri Animation Picker",
-      "version": "1.1.3",
+      "version": "1.1.4",
       "official": false,
       "author": "Duncan-Rose",
       "description": "Pick a KDL animation preset and write it as an include into your niri config",
@@ -1211,7 +1211,7 @@
     {
       "id": "niri-auto-tile",
       "name": "Auto-Tile",
-      "version": "1.4.2",
+      "version": "1.4.3",
       "official": false,
       "author": "pir0c0pter0",
       "description": "Automatically redistributes niri column widths evenly when windows open or close",
@@ -1229,7 +1229,7 @@
     {
       "id": "niri-overview-launcher",
       "name": "Niri Overview Launcher",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "eliahreeves",
       "description": "Opens the launcher when typing in niri's overview mode",
@@ -1244,7 +1244,7 @@
     {
       "id": "niri-screensaver",
       "name": "Niri Screensaver",
-      "version": "0.8.0",
+      "version": "0.8.1",
       "official": false,
       "author": "jfreed-dev",
       "description": "Idle-aware terminal screensaver for niri, driven by TerminalTextEffects.",
@@ -1261,7 +1261,7 @@
     {
       "id": "niri-urgent-on-notification",
       "name": "Set Niri Window to Urgent on Notification",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "matt-hb",
       "description": "Sets windows to urgent when they receive a notification and sets them back to normal when their notifications are cleared (Niri only!)",
@@ -1278,7 +1278,7 @@
     {
       "id": "niri-workspaces",
       "name": "Niri Workspaces",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "Kohányi Róbert",
       "description": "Filter, jump to, rename or reset Niri workspaces from the launcher.",
@@ -1295,7 +1295,7 @@
     {
       "id": "noctalia-calculator",
       "name": "Calculator",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "official": false,
       "author": "pir0c0pter0",
       "description": "Theme-aware calculator plugin for Noctalia on Niri with bar widget, floating panel and keyboard support",
@@ -1312,7 +1312,7 @@
     {
       "id": "noctalia-supergfxctl",
       "name": "SuperGFX Control",
-      "version": "0.0.3",
+      "version": "0.0.4",
       "official": false,
       "author": "cod3d <cod3ddot@proton.me>",
       "description": "GPU control with supergfxctl for noctalia.",
@@ -1329,7 +1329,7 @@
     {
       "id": "not-just-text",
       "name": "Not Just Text",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "official": false,
       "author": "blackteaextract",
       "description": "Displays custom text, fortune quotes, or a random entry from a user-provided text file in the bar.",
@@ -1345,7 +1345,7 @@
     {
       "id": "notes-scratchpad",
       "name": "Notes Scratchpad",
-      "version": "1.1.6",
+      "version": "1.1.7",
       "official": false,
       "author": "apt-get",
       "description": "A simple scratchpad for quick notes.",
@@ -1362,7 +1362,7 @@
     {
       "id": "ntfy-notifications",
       "name": "ntfy Notifications",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "maxe",
       "description": "Subscribe to ntfy topics and receive push notifications directly in your bar, with full theming support",
@@ -1380,7 +1380,7 @@
     {
       "id": "nvibrant",
       "name": "NVibrant",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "official": false,
       "author": "NoFilterA1",
       "description": "Toggle NVIDIA digital vibrance (color saturation) via nvibrant.",
@@ -1397,7 +1397,7 @@
     {
       "id": "nvim-session-provider",
       "name": "Neovim Session Provider",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "official": false,
       "author": "Krendil",
       "description": "Open Neovim Sessions",
@@ -1413,7 +1413,7 @@
     {
       "id": "obs-control",
       "name": "OBS Control",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "official": false,
       "author": "ayagmar",
       "description": "OBS recording, replay, and stream status widget for Noctalia.",
@@ -1431,7 +1431,7 @@
     {
       "id": "obsidian-provider",
       "name": "Obsidian Provider",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "0b10headedcalf",
       "description": "Switch between Obsidian vaults from the launcher.",
@@ -1447,7 +1447,7 @@
     {
       "id": "openhue",
       "name": "Openhue widget",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "official": false,
       "author": "alxndrv",
       "description": "Plugin for controlling Philips Hue lights from the taskbar",
@@ -1463,7 +1463,7 @@
     {
       "id": "osk-toggle",
       "name": "OSK Toggle",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "official": false,
       "author": "blackteaextract",
       "description": "Toggle an on-screen keyboard (Squeekboard or wvkbd) with live availability detection, hover icons, and configurable settings. Supersedes squeekboard-toggle.",
@@ -1480,7 +1480,7 @@
     {
       "id": "parallax-wallpaper",
       "name": "Parallax Wallpaper",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "official": false,
       "author": "Qholin",
       "description": "A customizable parallax effect for the wallpaper based on the active workspace.",
@@ -1495,7 +1495,7 @@
     {
       "id": "plugin-manager",
       "name": "Plugin Manager",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "official": false,
       "author": "blacku",
       "description": "A full-featured plugin manager with browsing, installation, and README viewer for Noctalia plugins.",
@@ -1512,7 +1512,7 @@
     {
       "id": "polkit-agent",
       "name": "Polkit Agent",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "official": true,
       "author": "Noctalia Team <team@noctalia.dev>",
       "description": "Provides a Polkit authentication agent.",
@@ -1528,7 +1528,7 @@
     {
       "id": "pomodoro",
       "name": "Pomodoro",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "official": false,
       "author": "notprayasmitra",
       "description": "A pomodoro timer plugin to help boost productivity.",
@@ -1544,7 +1544,7 @@
     {
       "id": "port-monitor",
       "name": "Port Monitor",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "official": false,
       "author": "adriamartin91",
       "description": "Monitor listening ports and their processes. Shows TCP/UDP ports with process info and kill functionality.",
@@ -1563,7 +1563,7 @@
     {
       "id": "privacy-indicator",
       "name": "Privacy Indicator",
-      "version": "1.2.13",
+      "version": "1.2.14",
       "official": true,
       "author": "Noctalia Team",
       "description": "A privacy indicator widget that shows when microphone, camera or screen sharing is active.",
@@ -1580,7 +1580,7 @@
     {
       "id": "protonvpn",
       "name": "ProtonVPN Status",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "blessonmathewsam",
       "description": "Shows ProtonVPN connection status in the bar with a panel for connect/disconnect, kill switch toggle, and quick connect options. Requires the ProtonVPN CLI (protonvpn-cli) installed and authenticated.",
@@ -1597,7 +1597,7 @@
     {
       "id": "ramadan-iftar",
       "name": "Ramadan Iftar",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "official": false,
       "author": "User",
       "description": "Shows prayer times and a countdown to Iftar during Ramadan.",
@@ -1612,7 +1612,7 @@
     {
       "id": "rss-feed",
       "name": "RSS Feed Reader",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "official": false,
       "author": "Lokize",
       "description": "Monitor and read RSS/Atom feeds directly from your desktop",
@@ -1625,7 +1625,7 @@
     {
       "id": "ru-menu",
       "name": "RU Menu",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "official": false,
       "author": "Kermut572",
       "description": "A simple plugin that fetches the current, past, and future weeks menu for UCLouvain's Restaurants Universitaires",
@@ -1641,7 +1641,7 @@
     {
       "id": "saved-desktop-widgets",
       "name": "Saved Desktop Widgets",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "official": false,
       "author": "spiros132",
       "description": "A plugin that allows you to have multiple setups for your desktop widgets based on the wallpaper.",
@@ -1657,7 +1657,7 @@
     {
       "id": "screen-recorder",
       "name": "Screen Recorder",
-      "version": "1.3.7",
+      "version": "1.3.8",
       "official": true,
       "author": "Noctalia Team",
       "description": "Hardware-accelerated screen recording using gpu-screen-recorder with customizable video and audio settings",
@@ -1673,7 +1673,7 @@
     {
       "id": "screen-shot-and-record",
       "name": "ScreenShot & Record",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "official": false,
       "author": "Pulsar",
       "description": "A screenshot plugin with OCR, Google Lens integration, and screen recording. Supports Sway, Hyprland and MangoWM.",
@@ -1692,7 +1692,7 @@
     {
       "id": "screen-toolkit",
       "name": "Screen Toolkit",
-      "version": "1.3.3",
+      "version": "1.3.4",
       "official": false,
       "author": "ycf-anon",
       "description": "A set of screen tools: color picker, annotate, record, pin, OCR, QR scanner, palette, measure, and webcam mirror (deps: README).",
@@ -1710,7 +1710,7 @@
     {
       "id": "screenshot",
       "name": "Screenshot",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "official": false,
       "author": "Cleboost",
       "description": "Quick screenshot button in bar for Hyprland, Sway, and Niri",
@@ -1726,7 +1726,7 @@
     {
       "id": "shell-profiles",
       "name": "Profiles",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "official": false,
       "author": "Archlexx",
       "description": "Save, load, and manage Noctalia configuration profiles.",
@@ -1744,7 +1744,7 @@
     {
       "id": "show-keys",
       "name": "Show Keys",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "official": false,
       "author": "onez3r0",
       "description": "Floating OSD that displays keyboard input in real-time via evtest.",
@@ -1760,7 +1760,7 @@
     {
       "id": "simple-notes",
       "name": "Simple Notes",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "official": false,
       "author": "fusuyfusuy",
       "description": "A simple note taking plugin for Noctalia Shell.",
@@ -1777,7 +1777,7 @@
     {
       "id": "slowbongo",
       "name": "Slow Bongo",
-      "version": "0.8.0",
+      "version": "0.8.1",
       "official": false,
       "author": "tui",
       "description": "A bongo cat that sits in your bar and slaps when you type.",
@@ -1794,7 +1794,7 @@
     {
       "id": "special-workspaces",
       "name": "Special Workspaces (Hyprland)",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "official": false,
       "author": "Qholin",
       "description": "Configurable Hyprland special workspaces indicator for the bar.",
@@ -1811,7 +1811,7 @@
     {
       "id": "squeekboard-toggle",
       "name": "Squeekboard Toggle",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "official": false,
       "author": "blackteaextract",
       "description": "Toggle the Squeekboard on-screen keyboard with live availability detection, hover icons, and configurable settings. Note: This plugin is deprecated and got consolidated in osk-toggle.",
@@ -1828,7 +1828,7 @@
     {
       "id": "ssh-sessions",
       "name": "SSH Sessions",
-      "version": "1.1.2",
+      "version": "1.1.3",
       "official": false,
       "author": "adriamartin91",
       "description": "Manage SSH connections from ~/.ssh/config with active session detection and launcher integration.",
@@ -1847,7 +1847,7 @@
     {
       "id": "steam-price-watcher",
       "name": "Steam Price Watcher",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "official": false,
       "author": "Lokize",
       "description": "Monitor Steam game prices and get notified when they reach your target price",
@@ -1860,7 +1860,7 @@
     {
       "id": "sticky-notes",
       "name": "Sticky Notes",
-      "version": "0.0.6",
+      "version": "0.0.7",
       "official": false,
       "author": "sapjax",
       "description": "A local quick notes plugin with Markdown support.",
@@ -1877,7 +1877,7 @@
     {
       "id": "syncthing-status",
       "name": "Syncthing Status",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "official": false,
       "author": "Pir0c0pter0",
       "description": "Theme-aware Syncthing status plugin with bar and panel integration",
@@ -1895,7 +1895,7 @@
     {
       "id": "sys-info-widget",
       "name": "System Info",
-      "version": "1.0.8",
+      "version": "1.0.9",
       "official": false,
       "author": "Simon",
       "description": "Shows Distribution, Kernel, Uptime and IP addresses.",
@@ -1911,7 +1911,7 @@
     {
       "id": "tailscale",
       "name": "Tailscale",
-      "version": "1.5.2",
+      "version": "1.5.3",
       "official": false,
       "author": "nineluj",
       "description": "Show Tailscale status in the menu bar and send/receive files via Taildrop.",
@@ -1928,7 +1928,7 @@
     {
       "id": "tamagotchi",
       "name": "Tamagochi",
-      "version": "1.1.2",
+      "version": "1.1.3",
       "official": false,
       "author": "Joaquin Righetti, Lucia Bollati",
       "description": "A lightweight taskbar Tamagotchi that lives and evolves while you use your computer.",
@@ -1945,7 +1945,7 @@
     {
       "id": "thinkpad-fan",
       "name": "ThinkPad - Fan & Thermal Control",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "official": false,
       "author": "Piero-93",
       "description": "Monitors system temperatures and provides manual overrides for fan speed profiles via sysfs.",
@@ -1963,7 +1963,7 @@
     {
       "id": "timer",
       "name": "Timer",
-      "version": "1.1.4",
+      "version": "1.1.5",
       "official": true,
       "author": "Noctalia Team",
       "description": "A timer and stopwatch plugin for the bar & control center.",
@@ -1979,7 +1979,7 @@
     {
       "id": "todo",
       "name": "Todo List",
-      "version": "1.10.0",
+      "version": "1.10.1",
       "official": false,
       "author": "lonerOrz <lonerOrz@qq.com>",
       "description": "A simple todo list manager plugin for Noctalia Shell.",
@@ -1997,7 +1997,7 @@
     {
       "id": "translator",
       "name": "Translator",
-      "version": "1.2.6",
+      "version": "1.2.7",
       "official": false,
       "author": "Cleboost",
       "description": "Quick translate in launcher",
@@ -2012,7 +2012,7 @@
     {
       "id": "unicode-picker",
       "name": "Unicode Picker",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "official": false,
       "author": "Daddeffe",
       "description": "Browse and search Unicode characters from the launcher",
@@ -2028,7 +2028,7 @@
     {
       "id": "update-count",
       "name": "Update Count",
-      "version": "1.0.14",
+      "version": "1.0.15",
       "official": false,
       "author": "BukoMoon",
       "description": "Checks for system updates and shows the update count. Click to run update command in a terminal.",
@@ -2044,7 +2044,7 @@
     {
       "id": "usb-drive-manager",
       "name": "USB Drive Manager",
-      "version": "1.4.0",
+      "version": "1.4.1",
       "official": false,
       "author": "hennifant",
       "description": "Manage USB drives: detect, mount, unmount, safely eject, and browse files",
@@ -2061,7 +2061,7 @@
     {
       "id": "valent-connect",
       "name": "Valent Connect",
-      "version": "1.2.2",
+      "version": "1.2.3",
       "official": false,
       "author": "Suyash",
       "description": "A plugin integrating your mobile devices into a panel using Valent",
@@ -2079,7 +2079,7 @@
     {
       "id": "video-wallpaper",
       "name": "Video Wallpaper",
-      "version": "2.0.9",
+      "version": "2.0.10",
       "official": false,
       "author": "spiros132",
       "description": "A plugin that uses a backend renderer to play videos as your wallpaper.",
@@ -2097,7 +2097,7 @@
     {
       "id": "vscode-provider",
       "name": "VS Code Provider",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "official": false,
       "author": "Krendil",
       "description": "Open VS Code Folders and Workspaces",
@@ -2113,7 +2113,7 @@
     {
       "id": "wallcards",
       "name": "Wallcards",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "official": false,
       "author": "tonigineer",
       "description": "A `lively` wallpaper selector.",
@@ -2129,7 +2129,7 @@
     {
       "id": "weather-indicator",
       "name": "Weather Indicator",
-      "version": "1.1.7",
+      "version": "1.1.8",
       "official": false,
       "author": "Sovereign",
       "description": "Shows the current weather condition and temperature.",
@@ -2144,7 +2144,7 @@
     {
       "id": "web-search",
       "name": "Web Search",
-      "version": "1.1.3",
+      "version": "1.1.4",
       "official": false,
       "author": "Rigelyon",
       "description": "Search the Internet from the Launcher.",
@@ -2160,7 +2160,7 @@
     {
       "id": "weekly-calendar",
       "name": "Weekly Calendar",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "official": false,
       "author": "dodaars",
       "description": "A weekly calendar plugin complementing Noctalia's inbuilt calendar service.",
@@ -2177,7 +2177,7 @@
     {
       "id": "workspace-overview",
       "name": "Workspace Overview for Hyprland",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "official": false,
       "author": "doughbran",
       "description": "Workspace overview with live window previews and wallpaper backgrounds for Hyprland.",
@@ -2195,7 +2195,7 @@
     {
       "id": "world-clock",
       "name": "World Clock",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "official": false,
       "author": "Lokize",
       "description": "Display time from multiple timezones around the world with automatic rotation.",
@@ -2208,7 +2208,7 @@
     {
       "id": "zed-provider",
       "name": "Zed Provider",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "official": false,
       "author": "justKevv",
       "description": "A zed provider for opening project easier using zed code editor",

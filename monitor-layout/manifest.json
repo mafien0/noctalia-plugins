@@ -1,7 +1,7 @@
 {
   "id": "monitor-layout",
   "name": "Monitor Layout",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minNoctaliaVersion": "4.6.6",
   "author": "Mathew-D",
   "license": "MIT",

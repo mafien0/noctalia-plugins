@@ -1,7 +1,7 @@
 {
   "id": "niri-workspaces",
   "name": "Niri Workspaces",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minNoctaliaVersion": "4.4.1",
   "author": "Kohányi Róbert",
   "license": "MIT",

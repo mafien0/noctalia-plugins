@@ -1,7 +1,7 @@
 {
   "id": "port-monitor",
   "name": "Port Monitor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "minNoctaliaVersion": "3.6.0",
   "author": "adriamartin91",
   "license": "MIT",
