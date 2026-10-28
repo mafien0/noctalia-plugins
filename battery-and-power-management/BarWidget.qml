@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import qs.Services.System
@@ -24,11 +25,11 @@ Item {
 
     property color profileBackgroundColor: {
         if (mouseArea.containsMouse) {
-            return Color.mHover;
+            return Commons.Color.mHover;
         }
 
         if (root.batStatus === pluginApi.tr("battery.status-charging")) {
-            return Color.mPrimary;
+            return Commons.Color.mPrimary;
         }
 
         if (root.colorizeByProfile) {
@@ -41,14 +42,14 @@ Item {
 
     property color profileForegroundColor: {
         if (mouseArea.containsMouse || root.batStatus === pluginApi.tr("battery.status-charging")) {
-            return Color.mOnPrimary;
+            return Commons.Color.mOnPrimary;
         }
         
         if (root.colorizeByProfile && (root.currentProfile === "power-saver" || root.currentProfile === "performance")) {
-            return Color.mOnPrimary;
+            return Commons.Color.mOnPrimary;
         }
         
-        return Color.mOnSurface;
+        return Commons.Color.mOnSurface;
 }
 
     property int batPercent: 0
@@ -72,12 +73,12 @@ Item {
     property string colorPowerSaver:
         pluginApi?.pluginSettings?.colorPowerSaver ??
         pluginApi?.manifest?.metadata?.defaultSettings?.colorPowerSaver ??
-        Color.mSecondary
+        Commons.Color.mSecondary
 
     property string colorPerformance:
         pluginApi?.pluginSettings?.colorPerformance ??
         pluginApi?.manifest?.metadata?.defaultSettings?.colorPerformance ??
-        Color.mError
+        Commons.Color.mError
 
     property bool showProfile:
         pluginApi?.pluginSettings?.showProfile ??
@@ -282,10 +283,10 @@ Item {
         radius: Style.radiusL
         
         color: mouseArea.containsMouse 
-            ? Color.mHover 
-            : (root.batStatus === pluginApi.tr("battery.status-charging") ? Color.mPrimary : root.profileBackgroundColor)
+            ? Commons.Color.mHover 
+            : (root.batStatus === pluginApi.tr("battery.status-charging") ? Commons.Color.mPrimary : root.profileBackgroundColor)
 
-        border.color: root.batStatus === pluginApi.tr("battery.status-charging") ? Color.mPrimary : Style.capsuleBorderColor
+        border.color: root.batStatus === pluginApi.tr("battery.status-charging") ? Commons.Color.mPrimary : Style.capsuleBorderColor
         border.width: Style.capsuleBorderWidth
 
         RowLayout {

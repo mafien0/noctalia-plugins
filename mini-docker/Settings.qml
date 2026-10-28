@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -81,7 +82,7 @@ ColumnLayout {
 
         Text {
             text: ((pluginApi && pluginApi.tr) ? pluginApi.tr("settings.current_value") : "Selected: {value} ms").replace("{value}", root.valueRefreshInterval)
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             font.pointSize: Style.fontSizeS
         }
 

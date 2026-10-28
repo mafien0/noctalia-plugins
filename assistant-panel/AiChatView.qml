@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import "Constants.js" as Constants
@@ -38,14 +39,14 @@ Item {
 
       NIcon {
         icon: getProviderIcon()
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
         pointSize: Style.fontSizeM
         applyUiScale: false
       }
 
       NText {
         text: model
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
         pointSize: Style.fontSizeS
         applyUiScale: false
         font.weight: Font.Medium
@@ -56,7 +57,7 @@ Item {
       NIcon {
         icon: "loader-2"
         visible: isGenerating
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
         pointSize: Style.fontSizeS
         applyUiScale: false
 
@@ -75,7 +76,7 @@ Item {
         text: pluginApi?.tr("chat.clearHistory")
         property bool enabledClear: messages.length > 0 && !isGenerating
         property bool hovered: false
-        color: clearHistoryText.enabledClear ? (clearHistoryText.hovered ? Color.mOnSurface : Color.mOnSurfaceVariant) : Color.mOnSurfaceVariant
+        color: clearHistoryText.enabledClear ? (clearHistoryText.hovered ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant) : Commons.Color.mOnSurfaceVariant
         pointSize: Style.fontSizeXS
         applyUiScale: false
         font.weight: clearHistoryText.hovered ? Font.Medium : Font.Normal
@@ -102,7 +103,7 @@ Item {
     Rectangle {
       Layout.fillWidth: true
       Layout.fillHeight: true
-      color: Color.mSurface
+      color: Commons.Color.mSurface
       radius: Style.radiusM
       clip: true
 
@@ -118,7 +119,7 @@ Item {
           NIcon {
             Layout.alignment: Qt.AlignHCenter
             icon: "sparkles"
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             pointSize: Style.fontSizeXXL * 2
             applyUiScale: false
           }
@@ -126,7 +127,7 @@ Item {
           NText {
             Layout.alignment: Qt.AlignHCenter
             text: pluginApi?.tr("chat.emptyTitle")
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             pointSize: Style.fontSizeM
             applyUiScale: false
             font.weight: Font.Medium
@@ -135,7 +136,7 @@ Item {
           NText {
             Layout.alignment: Qt.AlignHCenter
             text: pluginApi?.tr("chat.emptyHint")
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             pointSize: Style.fontSizeS
             applyUiScale: false
           }
@@ -258,7 +259,7 @@ Item {
         width: 32
         height: 32
         radius: width / 2
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
         visible: !chatFlickable.autoScrollEnabled && messages.length > 0
         opacity: scrollButtonMouse.containsMouse ? 1.0 : 0.8
 
@@ -271,7 +272,7 @@ Item {
         NIcon {
           anchors.centerIn: parent
           icon: "chevron-down"
-          color: Color.mOnPrimary
+          color: Commons.Color.mOnPrimary
           pointSize: Style.fontSizeM
           applyUiScale: false
         }
@@ -293,7 +294,7 @@ Item {
     Rectangle {
       Layout.fillWidth: true
       Layout.preferredHeight: errorRow.implicitHeight + Style.marginS * 2
-      color: Qt.alpha(Color.mError, 0.2)
+      color: Qt.alpha(Commons.Color.mError, 0.2)
       radius: Style.radiusS
       visible: errorMessage !== ""
 
@@ -305,14 +306,14 @@ Item {
 
         NIcon {
           icon: "alert-triangle"
-          color: Color.mError
+          color: Commons.Color.mError
           pointSize: Style.fontSizeM
         }
 
         TextEdit {
           Layout.fillWidth: true
           text: errorMessage
-          color: Color.mError
+          color: Commons.Color.mError
           font.pointSize: Math.max(1, Style.fontSizeS * Settings.data.ui.fontDefaultScale * Style.uiScaleRatio)
           font.family: Settings.data.ui.fontDefault
           wrapMode: TextEdit.Wrap
@@ -328,7 +329,7 @@ Item {
     Rectangle {
       Layout.fillWidth: true
       Layout.preferredHeight: inputLayout.implicitHeight + Style.marginS * 2
-      color: Color.mSurface
+      color: Commons.Color.mSurface
       radius: Style.radiusM
 
       RowLayout {
@@ -345,8 +346,8 @@ Item {
             id: inputField
             text: initialInputText
             placeholderText: pluginApi?.tr("chat.placeholder")
-            placeholderTextColor: Color.mOnSurfaceVariant
-            color: Color.mOnSurface
+            placeholderTextColor: Commons.Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurface
             font.pointSize: Style.fontSizeM
             wrapMode: TextArea.Wrap
             background: null
@@ -398,7 +399,7 @@ Item {
         NIconButton {
           id: sendButton
           icon: isGenerating ? "player-stop" : "send"
-          colorFg: isGenerating ? Color.mError : (inputField.text.trim() !== "" ? Color.mPrimary : Color.mOnSurfaceVariant)
+          colorFg: isGenerating ? Commons.Color.mError : (inputField.text.trim() !== "" ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant)
           enabled: isGenerating || inputField.text.trim() !== ""
           tooltipText: isGenerating ? pluginApi?.tr("chat.stop") : pluginApi?.tr("chat.send")
           onClicked: {

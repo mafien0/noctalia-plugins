@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import "../utils/utils.js" as U
@@ -53,12 +54,12 @@ Item {
             spacing: Style.marginS
             NIcon {
                 icon: "qrcode"
-                color: Color.mPrimary
+                color: Commons.Color.mPrimary
                 anchors.verticalCenter: parent.verticalCenter
             }
             NText {
                 text: pluginApi?.tr("tools.qr")
-                color: Color.mPrimary
+                color: Commons.Color.mPrimary
                 font.weight: Font.Bold
                 pointSize: Style.fontSizeS
                 anchors.verticalCenter: parent.verticalCenter
@@ -91,13 +92,13 @@ Item {
             height: 26
             width: qrBadge.implicitWidth + Style.marginM * 2
             radius: Style.radiusS
-            color: Qt.alpha(Color.mPrimary, 0.15)
+            color: Qt.alpha(Commons.Color.mPrimary, 0.15)
             NText {
                 id: qrBadge
                 anchors.centerIn: parent
                 font.weight: Font.Bold
                 pointSize: Style.fontSizeXS
-                color: Color.mPrimary
+                color: Commons.Color.mPrimary
                 text: root.qrType === "url" ? "🔗 URL"
                     : root.qrType === "wifi" ? "📶 WiFi"
                     : root.qrType === "contact" ? "👤 Contact"
@@ -114,7 +115,7 @@ Item {
                 width: parent.width
                 height: 38
                 radius: Style.radiusM
-                color: Color.mSurface
+                color: Commons.Color.mSurface
                 border.color: Style.capsuleBorderColor
                 border.width: Style.capsuleBorderWidth
                 Row {
@@ -123,11 +124,11 @@ Item {
                     spacing: Style.marginS
                     NIcon {
                         icon: "wifi"
-                        color: Color.mPrimary
+                        color: Commons.Color.mPrimary
                     }
                     NText {
                         text: root.qrWifiName || "Unknown"
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         font.weight: Font.Bold
                         pointSize: Style.fontSizeS
                     }
@@ -137,7 +138,7 @@ Item {
                 width: parent.width
                 height: 38
                 radius: Style.radiusM
-                color: wph.containsMouse ? Color.mHover : Color.mSurface
+                color: wph.containsMouse ? Commons.Color.mHover : Commons.Color.mSurface
                 border.color: Style.capsuleBorderColor
                 border.width: Style.capsuleBorderWidth
                 Row {
@@ -146,16 +147,16 @@ Item {
                     spacing: Style.marginS
                     NIcon {
                         icon: "key"
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                     }
                     NText {
                         text: root.qrWifiPass ? "••••••••" : pluginApi?.tr("panel.noPassword")
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         pointSize: Style.fontSizeS
                     }
                     NIcon {
                         icon: "copy"
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                     }
                 }
                 MouseArea {
@@ -175,7 +176,7 @@ Item {
             width: parent.width
             height: 120 * Style.uiScaleRatio
             radius: Style.radiusM
-            color: Color.mSurface
+            color: Commons.Color.mSurface
             clip: true
             border.color: Style.capsuleBorderColor
             border.width: Style.capsuleBorderWidth
@@ -192,11 +193,11 @@ Item {
                     width: qrFlick.width
                     text: root.qrResult
                     wrapMode: TextEdit.WordWrap
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     font.pointSize: Style.fontSizeS
                     selectByMouse: true
-                    selectionColor: Color.mPrimary
-                    selectedTextColor: Color.mOnPrimary
+                    selectionColor: Commons.Color.mPrimary
+                    selectedTextColor: Commons.Color.mOnPrimary
                     WheelHandler {
                         onWheel: event => {
                             qrFlick.flick(0, event.angleDelta.y * 5)
@@ -213,8 +214,8 @@ Item {
                 width: parent.width - 46
                 height: 38
                 radius: Style.radiusM
-                color: qah.containsMouse ? Color.mPrimary : Color.mSurface
-                border.color: Color.mPrimary
+                color: qah.containsMouse ? Commons.Color.mPrimary : Commons.Color.mSurface
+                border.color: Commons.Color.mPrimary
                 border.width: Style.capsuleBorderWidth
                 Row {
                     anchors.centerIn: parent
@@ -223,13 +224,13 @@ Item {
                         icon: root.qrType === "url" ? "external-link"
                             : root.qrType === "email" ? "mail"
                             : "copy"
-                        color: qah.containsMouse ? Color.mOnPrimary : Color.mPrimary
+                        color: qah.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary
                     }
                     NText {
                         text: root.qrType === "url" ? pluginApi?.tr("panel.openUrl")
                             : root.qrType === "email" ? pluginApi?.tr("panel.composeEmail")
                             : pluginApi?.tr("panel.copy")
-                        color: qah.containsMouse ? Color.mOnPrimary : Color.mPrimary
+                        color: qah.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary
                         font.weight: Font.Bold
                         pointSize: Style.fontSizeS
                     }
@@ -253,13 +254,13 @@ Item {
                 width: 38
                 height: 38
                 radius: Style.radiusM
-                color: qch.containsMouse ? Qt.alpha(Color.mError, 0.15) : Color.mSurface
-                border.color: qch.containsMouse ? Color.mError : Style.capsuleBorderColor
+                color: qch.containsMouse ? Qt.alpha(Commons.Color.mError, 0.15) : Commons.Color.mSurface
+                border.color: qch.containsMouse ? Commons.Color.mError : Style.capsuleBorderColor
                 border.width: Style.capsuleBorderWidth
                 NIcon {
                     anchors.centerIn: parent
                     icon: "trash"
-                    color: qch.containsMouse ? (Color.mError || "#f44336") : Color.mOnSurfaceVariant
+                    color: qch.containsMouse ? (Commons.Color.mError || "#f44336") : Commons.Color.mOnSurfaceVariant
                 }
                 MouseArea {
                     id: qch

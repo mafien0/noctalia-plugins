@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Modules.DesktopWidgets
 import qs.Widgets
 
@@ -30,7 +31,7 @@ DraggableDesktopWidget {
 
     function getTempColor(tempString) {
         let val = parseFloat(tempString.replace(/[^\d.]/g, ''));
-        if (isNaN(val)) return Color.mOnSurface;
+        if (isNaN(val)) return Commons.Color.mOnSurface;
         if (val >= 80) return "#ff5555"; // Red
         if (val >= 65) return "#f1fa8c"; // Yellow
         return "#50fa7b";                // Green
@@ -142,7 +143,7 @@ DraggableDesktopWidget {
     // --- UI Layout ---
     Rectangle {
         anchors.fill: parent
-        color: Color.mSurface
+        color: Commons.Color.mSurface
         opacity: 0.85
         radius: Style.radiusM
 
@@ -159,12 +160,12 @@ DraggableDesktopWidget {
                 // System
                 NText {
                     text: pluginApi?.tr("widget.distribution")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     font.pointSize: Style.fontSizeL * widgetScale
                 }
                 NText {
                     text: root.distroVal
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     font.bold: true
                     font.pointSize: Style.fontSizeL * widgetScale
                     Layout.fillWidth: true
@@ -174,12 +175,12 @@ DraggableDesktopWidget {
                 // Kernel
                 NText {
                     text: pluginApi?.tr("widget.kernel")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     font.pointSize: Style.fontSizeL * widgetScale
                 }
                 NText {
                     text: root.kernelVal
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     font.bold: true
                     font.pointSize: Style.fontSizeL * widgetScale
                     Layout.fillWidth: true
@@ -189,12 +190,12 @@ DraggableDesktopWidget {
                 // Uptime
                 NText {
                     text: pluginApi?.tr("widget.uptime")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     font.pointSize: Style.fontSizeL * widgetScale
                 }
                 NText {
                     text: root.uptimeVal
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     font.bold: true
                     font.pointSize: Style.fontSizeL * widgetScale
                     Layout.fillWidth: true
@@ -205,7 +206,7 @@ DraggableDesktopWidget {
                 // CPU Label
                 NText {
                     text: pluginApi?.tr("widget.cpu")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     font.pointSize: Style.fontSizeL * widgetScale
                 }
 
@@ -227,14 +228,14 @@ DraggableDesktopWidget {
                     NText {
                         // Ensure "widget.separator_at" is defined in your i18n files as "@"
                         text: pluginApi?.tr("widget.separator_at")
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         font.pointSize: Style.fontSizeL * widgetScale
                     }
 
                     // Usage
                     NText {
                         text: root.cpuUsage
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         font.bold: true
                         font.pointSize: Style.fontSizeL * widgetScale
                     }
@@ -243,12 +244,12 @@ DraggableDesktopWidget {
                 // Memory
                 NText {
                     text: pluginApi?.tr("widget.memory")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     font.pointSize: Style.fontSizeL * widgetScale
                 }
                 NText {
                     text: root.memUsage
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     font.bold: true
                     font.pointSize: Style.fontSizeL * widgetScale
                     Layout.fillWidth: true
@@ -258,12 +259,12 @@ DraggableDesktopWidget {
                 // Root Disk
                 NText {
                     text: pluginApi?.tr("widget.disk_root")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     font.pointSize: Style.fontSizeL * widgetScale
                 }
                 NText {
                     text: root.rootDisk
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     font.bold: true
                     font.pointSize: Style.fontSizeL * widgetScale
                     Layout.fillWidth: true
@@ -273,12 +274,12 @@ DraggableDesktopWidget {
                 // Home Disk
                 NText {
                     text: pluginApi?.tr("widget.disk_home")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     font.pointSize: Style.fontSizeL * widgetScale
                 }
                 NText {
                     text: root.homeDisk
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     font.bold: true
                     font.pointSize: Style.fontSizeL * widgetScale
                     Layout.fillWidth: true
@@ -295,12 +296,12 @@ DraggableDesktopWidget {
                 // LAN
                 NText {
                     text: pluginApi?.tr("widget.lanaddress")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     font.pointSize: Style.fontSizeL * widgetScale
                 }
                 NText {
                     text: root.lanaddressVal
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     font.bold: true
                     font.pointSize: Style.fontSizeL * widgetScale
                     Layout.fillWidth: true
@@ -310,12 +311,12 @@ DraggableDesktopWidget {
                 // IP
                 NText {
                     text: pluginApi?.tr("widget.ipaddress")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     font.pointSize: Style.fontSizeL * widgetScale
                 }
                 NText {
                     text: root.ipaddressVal
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     font.bold: true
                     font.pointSize: Style.fontSizeL * widgetScale
                     Layout.fillWidth: true

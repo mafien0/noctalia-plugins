@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -39,7 +40,7 @@ ColumnLayout {
 		Rectangle {
 			Layout.fillWidth: true
 			Layout.preferredHeight: commandText.implicitHeight + Style.marginM * 2
-			color: Color.mSurfaceVariant
+			color: Commons.Color.mSurfaceVariant
 			radius: Style.radiusM
 
 			TextEdit {
@@ -49,12 +50,12 @@ ColumnLayout {
 				text: "qs -c noctalia-shell ipc call plugin:mimeapp-gui openPanel"
 				font.pointSize: Style.fontSizeS
 				font.family: Settings.data.ui.fontFixed
-				color: Color.mPrimary
+				color: Commons.Color.mPrimary
 				wrapMode: TextEdit.WrapAnywhere
 				readOnly: true
 				selectByMouse: true
-				selectionColor: Color.mPrimary
-				selectedTextColor: Color.mOnPrimary
+				selectionColor: Commons.Color.mPrimary
+				selectedTextColor: Commons.Color.mOnPrimary
 			}
 		}
 	}

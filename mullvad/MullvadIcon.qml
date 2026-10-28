@@ -1,5 +1,6 @@
 import QtQuick
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -7,7 +8,7 @@ Item {
 	property real pointSize: Style.fontSizeL
 	property bool applyUiScale: true
 	property bool crossed: false
-	property color color: Color.mOnSurface
+	property color color: Commons.Color.mOnSurface
 
 	implicitWidth: icon.implicitWidth
 	implicitHeight: icon.implicitHeight

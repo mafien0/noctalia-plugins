@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -72,8 +73,8 @@ ColumnLayout {
       description: pluginApi?.tr("settings.inactiveColor.desc")
       currentKey: root.inactiveColor
       onSelected: key => root.inactiveColor = key
-      noneColor: Qt.alpha(Color.mOnSurfaceVariant, 0.3)
-      noneOnColor: Qt.alpha(Color.mOnSurface, 0.7)
+      noneColor: Qt.alpha(Commons.Color.mOnSurfaceVariant, 0.3)
+      noneOnColor: Qt.alpha(Commons.Color.mOnSurface, 0.7)
     }
 
     NComboBox {

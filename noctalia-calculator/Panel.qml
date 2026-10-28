@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -74,38 +75,38 @@ FocusScope {
 
     function buttonFill(buttonData, hovered, active) {
         if (active) {
-            if (buttonData.tone === "accent") return Qt.darker(Color.mPrimary, 1.12);
-            if (buttonData.tone === "danger") return Qt.alpha(Color.mError, 0.22);
-            if (buttonData.tone === "operator") return Qt.alpha(Color.mPrimary, 0.28);
-            return Qt.alpha(Color.mOnSurface, 0.16);
+            if (buttonData.tone === "accent") return Qt.darker(Commons.Color.mPrimary, 1.12);
+            if (buttonData.tone === "danger") return Qt.alpha(Commons.Color.mError, 0.22);
+            if (buttonData.tone === "operator") return Qt.alpha(Commons.Color.mPrimary, 0.28);
+            return Qt.alpha(Commons.Color.mOnSurface, 0.16);
         }
         if (buttonData.tone === "accent") {
-            return hovered ? Qt.darker(Color.mPrimary, 1.05) : Color.mPrimary;
+            return hovered ? Qt.darker(Commons.Color.mPrimary, 1.05) : Commons.Color.mPrimary;
         }
         if (buttonData.tone === "danger") {
-            return hovered ? Qt.alpha(Color.mError, 0.18) : Qt.alpha(Color.mError, 0.12);
+            return hovered ? Qt.alpha(Commons.Color.mError, 0.18) : Qt.alpha(Commons.Color.mError, 0.12);
         }
         if (buttonData.tone === "operator") {
-            return hovered ? Qt.alpha(Color.mPrimary, 0.22) : Qt.alpha(Color.mPrimary, 0.15);
+            return hovered ? Qt.alpha(Commons.Color.mPrimary, 0.22) : Qt.alpha(Commons.Color.mPrimary, 0.15);
         }
-        return hovered ? Qt.alpha(Color.mOnSurface, 0.10) : Color.mSurfaceVariant;
+        return hovered ? Qt.alpha(Commons.Color.mOnSurface, 0.10) : Commons.Color.mSurfaceVariant;
     }
 
     function buttonBorder(buttonData, hovered, active) {
         if (active) {
-            if (buttonData.tone === "danger") return Qt.alpha(Color.mError, 0.85);
-            return Color.mPrimary;
+            if (buttonData.tone === "danger") return Qt.alpha(Commons.Color.mError, 0.85);
+            return Commons.Color.mPrimary;
         }
-        if (buttonData.tone === "accent") return Color.mPrimary;
-        if (buttonData.tone === "danger") return Qt.alpha(Color.mError, 0.65);
-        return hovered ? Color.mPrimary : Qt.alpha(Color.mOutline, 0.7);
+        if (buttonData.tone === "accent") return Commons.Color.mPrimary;
+        if (buttonData.tone === "danger") return Qt.alpha(Commons.Color.mError, 0.65);
+        return hovered ? Commons.Color.mPrimary : Qt.alpha(Commons.Color.mOutline, 0.7);
     }
 
     function buttonTextColor(buttonData) {
-        if (buttonData.tone === "accent") return Color.mOnPrimary;
-        if (buttonData.tone === "danger") return Color.mError;
-        if (buttonData.tone === "operator") return Color.mPrimary;
-        return Color.mOnSurface;
+        if (buttonData.tone === "accent") return Commons.Color.mOnPrimary;
+        if (buttonData.tone === "danger") return Commons.Color.mError;
+        if (buttonData.tone === "operator") return Commons.Color.mPrimary;
+        return Commons.Color.mOnSurface;
     }
 
     Rectangle {
@@ -136,7 +137,7 @@ FocusScope {
                         NIcon {
                             icon: "calculator"
                             pointSize: Style.fontSizeL
-                            color: Color.mPrimary
+                            color: Commons.Color.mPrimary
                             Layout.alignment: Qt.AlignVCenter
                         }
 
@@ -149,13 +150,13 @@ FocusScope {
                                 text: pluginApi?.tr("panel.title")
                                 pointSize: Style.fontSizeL
                                 font.bold: true
-                                color: Color.mOnSurface
+                                color: Commons.Color.mOnSurface
                             }
 
                             NText {
                                 Layout.fillWidth: true
                                 text: pluginApi?.tr("panel.subtitle")
-                                color: Qt.alpha(Color.mOnSurface, 0.68)
+                                color: Qt.alpha(Commons.Color.mOnSurface, 0.68)
                             }
                         }
                     }
@@ -165,8 +166,8 @@ FocusScope {
                         Layout.preferredHeight: Math.round((expressionLabel.visible ? 92 : 72) * Style.uiScaleRatio)
                         Layout.minimumHeight: Layout.preferredHeight
                         radius: Style.radiusL
-                        color: Qt.alpha(Color.mPrimary, 0.08)
-                        border.color: root.activeFocus ? Qt.alpha(Color.mPrimary, 0.8) : Qt.alpha(Color.mOutline, 0.65)
+                        color: Qt.alpha(Commons.Color.mPrimary, 0.08)
+                        border.color: root.activeFocus ? Qt.alpha(Commons.Color.mPrimary, 0.8) : Qt.alpha(Commons.Color.mOutline, 0.65)
                         border.width: Style.borderS
 
                         ColumnLayout {
@@ -180,7 +181,7 @@ FocusScope {
                                 text: mainInst?.expressionText ?? ""
                                 visible: text !== ""
                                 pointSize: Style.fontSizeS
-                                color: Qt.alpha(Color.mOnSurface, 0.68)
+                                color: Qt.alpha(Commons.Color.mOnSurface, 0.68)
                                 elide: Text.ElideLeft
                                 horizontalAlignment: Text.AlignRight
                             }
@@ -194,7 +195,7 @@ FocusScope {
                                     text: mainInst?.displayText ?? "0"
                                     pointSize: Math.round(Style.fontSizeL * 1.85)
                                     font.bold: true
-                                    color: (mainInst?.errorState ?? false) ? Color.mError : Color.mOnSurface
+                                    color: (mainInst?.errorState ?? false) ? Commons.Color.mError : Commons.Color.mOnSurface
                                     elide: Text.ElideLeft
                                     horizontalAlignment: Text.AlignRight
                                 }
@@ -210,7 +211,7 @@ FocusScope {
                                         anchors.centerIn: parent
                                         icon: "copy"
                                         pointSize: Style.fontSizeM
-                                        color: copyMouse.containsMouse ? Color.mPrimary : Qt.alpha(Color.mOnSurface, 0.55)
+                                        color: copyMouse.containsMouse ? Commons.Color.mPrimary : Qt.alpha(Commons.Color.mOnSurface, 0.55)
 
                                         Behavior on color { ColorAnimation { duration: Style.animationFast } }
                                     }

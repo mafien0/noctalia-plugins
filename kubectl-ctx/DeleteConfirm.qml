@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -28,7 +29,7 @@ Item {
     NIcon {
       icon: "alert-triangle"
       pointSize: Style.fontSizeXXL
-      color: Color.mError
+      color: Commons.Color.mError
       Layout.alignment: Qt.AlignHCenter
     }
 
@@ -36,14 +37,14 @@ Item {
       text: pluginApi?.tr("delete.title")
       pointSize: Style.fontSizeL
       font.weight: Font.DemiBold
-      color: Color.mOnSurface
+      color: Commons.Color.mOnSurface
       Layout.alignment: Qt.AlignHCenter
     }
 
     NText {
       text: pluginApi?.tr("delete.confirm", { "resource": root.resourceKind + "/" + root.resourceName })
       pointSize: Style.fontSizeM
-      color: Color.mOnSurfaceVariant
+      color: Commons.Color.mOnSurfaceVariant
       wrapMode: Text.WordWrap
       Layout.fillWidth: true
       Layout.alignment: Qt.AlignHCenter
@@ -63,8 +64,8 @@ Item {
       NButton {
         Layout.fillWidth: true
         text: pluginApi?.tr("delete.yes")
-        backgroundColor: Color.mError
-        textColor: Color.mOnError
+        backgroundColor: Commons.Color.mError
+        textColor: Commons.Color.mOnError
         onClicked: root.confirmed(root.resourceKind, root.resourceName)
       }
     }

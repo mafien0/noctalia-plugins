@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -34,13 +35,13 @@ ColumnLayout {
       NText {
         text: pluginApi?.tr("settings.dataSource")
         pointSize: Style.fontSizeM
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
       }
 
       NText {
         text: pluginApi?.tr("settings.dataSourceDesc")
         pointSize: Style.fontSizeS
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
       }
     }
 
@@ -82,13 +83,13 @@ ColumnLayout {
       NText {
         text: pluginApi?.tr("settings.aqiScale")
         pointSize: Style.fontSizeM
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
       }
 
       NText {
         text: pluginApi?.tr("settings.aqiScaleDesc")
         pointSize: Style.fontSizeS
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
       }
     }
 

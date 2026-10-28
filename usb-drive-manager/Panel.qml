@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -45,7 +46,7 @@ Item {
             Rectangle {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                color: Color.mSurfaceVariant
+                color: Commons.Color.mSurfaceVariant
                 radius: Style.radiusL
 
                 ColumnLayout {
@@ -66,7 +67,7 @@ Item {
                             text: pluginApi?.tr("panel.title")
                             font.pointSize: Style.fontSizeL
                             font.weight: Font.Medium
-                            color: Color.mOnSurface
+                            color: Commons.Color.mOnSurface
                             Layout.fillWidth: true
                         }
 
@@ -107,7 +108,7 @@ Item {
                                     Layout.alignment: Qt.AlignHCenter
                                     icon: "usb"
                                     pointSize: Style.fontSizeXXL
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                     opacity: 0.4
                                 }
 
@@ -115,14 +116,14 @@ Item {
                                     Layout.alignment: Qt.AlignHCenter
                                     text: pluginApi?.tr("panel.empty")
                                     pointSize: Style.fontSizeM
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                 }
 
                                 NText {
                                     Layout.alignment: Qt.AlignHCenter
                                     text: pluginApi?.tr("panel.empty-hint")
                                     pointSize: Style.fontSizeS
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                     opacity: 0.7
                                 }
                             }
@@ -161,7 +162,7 @@ Item {
 
                         Rectangle {
                             height: Math.max(1, Style.marginXXS)
-                            color: Color.mOutline
+                            color: Commons.Color.mOutline
                             opacity: 0.3
                             Layout.fillWidth: true
                         }

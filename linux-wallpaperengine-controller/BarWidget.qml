@@ -2,6 +2,7 @@ import QtQuick
 import Quickshell
 
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -20,7 +21,7 @@ NIconButton {
   readonly property var cfg: pluginApi?.pluginSettings || ({})
   readonly property var defaults: pluginApi?.manifest?.metadata?.defaultSettings || ({})
   readonly property string iconColorKey: cfg.iconColor ?? defaults.iconColor ?? "none"
-  readonly property color resolvedIconColor: Color.resolveColorKey(iconColorKey)
+  readonly property color resolvedIconColor: Commons.Color.resolveColorKey(iconColorKey)
   readonly property bool hasCustomIconColor: iconColorKey !== "none"
 
   icon: "wallpaper-selector"
@@ -33,7 +34,7 @@ NIconButton {
     if (root.hasCustomIconColor) {
       return root.resolvedIconColor;
     }
-    return Color.mOnSurface;
+    return Commons.Color.mOnSurface;
   }
 
   border.color: Style.capsuleBorderColor

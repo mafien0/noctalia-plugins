@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -25,12 +26,12 @@ Item {
     // Priority colors
     function priorityColor(priority) {
         switch (priority) {
-            case 1: return Color.mOnSurfaceVariant  // min
-            case 2: return Color.mOnSurfaceVariant  // low
-            case 3: return Color.mOnSurface         // default
-            case 4: return Color.mWarning ?? "#FB8C00" // high
-            case 5: return Color.mError             // urgent
-            default: return Color.mOnSurface
+            case 1: return Commons.Color.mOnSurfaceVariant  // min
+            case 2: return Commons.Color.mOnSurfaceVariant  // low
+            case 3: return Commons.Color.mOnSurface         // default
+            case 4: return Commons.Color.mWarning ?? "#FB8C00" // high
+            case 5: return Commons.Color.mError             // urgent
+            default: return Commons.Color.mOnSurface
         }
     }
 
@@ -88,14 +89,14 @@ Item {
                         icon: "bell"
                         width: Style.fontSizeXXL
                         height: width
-                        color: Color.mPrimary
+                        color: Commons.Color.mPrimary
                     }
 
                     NText {
                         text: pluginApi?.tr("panel.title")
                         pointSize: Style.fontSizeL
                         font.weight: Style.fontWeightBold
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         Layout.fillWidth: true
                     }
 
@@ -138,9 +139,9 @@ Item {
                 Rectangle {
                     anchors.fill: parent
                     radius: Style.radiusS
-                    color: Qt.alpha(Color.mError, 0.1)
+                    color: Qt.alpha(Commons.Color.mError, 0.1)
                     border.width: Style.borderS
-                    border.color: Color.mError
+                    border.color: Commons.Color.mError
                 }
 
                 RowLayout {
@@ -153,12 +154,12 @@ Item {
                         icon: "alert-triangle"
                         width: Style.fontSizeL
                         height: width
-                        color: Color.mError
+                        color: Commons.Color.mError
                     }
 
                     NText {
                         text: errorMessage
-                        color: Color.mError
+                        color: Commons.Color.mError
                         pointSize: Style.fontSizeS
                         wrapMode: Text.Wrap
                         Layout.fillWidth: true
@@ -174,7 +175,7 @@ Item {
                 horizontalPolicy: ScrollBar.AlwaysOff
                 verticalPolicy: ScrollBar.AsNeeded
                 reserveScrollbarSpace: false
-                gradientColor: Color.mSurface
+                gradientColor: Commons.Color.mSurface
 
                 ColumnLayout {
                     width: contentScroll.availableWidth
@@ -193,7 +194,7 @@ Item {
 
                             NBusyIndicator {
                                 running: true
-                                color: Color.mPrimary
+                                color: Commons.Color.mPrimary
                                 size: Style.baseWidgetSize
                                 Layout.alignment: Qt.AlignHCenter
                             }
@@ -201,7 +202,7 @@ Item {
                             NText {
                                 text: pluginApi?.tr("panel.loading")
                                 pointSize: Style.fontSizeM
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                                 Layout.alignment: Qt.AlignHCenter
                             }
                         }
@@ -223,21 +224,21 @@ Item {
                                 icon: "bell-off"
                                 width: 48
                                 height: 48
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                                 Layout.alignment: Qt.AlignHCenter
                             }
 
                             NText {
                                 text: pluginApi?.tr("panel.noTopics")
                                 pointSize: Style.fontSizeL
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                                 Layout.alignment: Qt.AlignHCenter
                             }
 
                             NText {
                                 text: pluginApi?.tr("panel.noTopicsHint")
                                 pointSize: Style.fontSizeS
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                                 wrapMode: Text.Wrap
                                 horizontalAlignment: Text.AlignHCenter
                                 Layout.fillWidth: true
@@ -261,21 +262,21 @@ Item {
                                 icon: "inbox"
                                 width: 48
                                 height: 48
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                                 Layout.alignment: Qt.AlignHCenter
                             }
 
                             NText {
                                 text: pluginApi?.tr("panel.empty")
                                 pointSize: Style.fontSizeL
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                                 Layout.alignment: Qt.AlignHCenter
                             }
 
                             NText {
                                 text: pluginApi?.tr("panel.emptyHint")
                                 pointSize: Style.fontSizeS
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                                 wrapMode: Text.Wrap
                                 horizontalAlignment: Text.AlignHCenter
                                 Layout.fillWidth: true
@@ -314,13 +315,13 @@ Item {
                                         width: 8
                                         height: 8
                                         radius: width / 2
-                                        color: Color.mPrimary
+                                        color: Commons.Color.mPrimary
                                         Layout.alignment: Qt.AlignVCenter
                                     }
 
                                     // Topic badge
                                     Rectangle {
-                                        color: Qt.alpha(Color.mPrimary, 0.15)
+                                        color: Qt.alpha(Commons.Color.mPrimary, 0.15)
                                         radius: Style.radiusS
                                         width: topicText.implicitWidth + Style.marginS * 2
                                         height: topicText.implicitHeight + Style.marginXXS * 2
@@ -331,7 +332,7 @@ Item {
                                             anchors.centerIn: parent
                                             text: modelData.topic || ""
                                             pointSize: Style.fontSizeXXS
-                                            color: Color.mPrimary
+                                            color: Commons.Color.mPrimary
                                             font.weight: Style.fontWeightMedium
                                             opacity: messageItem.itemOpacity
                                         }
@@ -362,7 +363,7 @@ Item {
                                     NText {
                                         text: formatRelativeTime(modelData.time)
                                         pointSize: Style.fontSizeXXS
-                                        color: Color.mOnSurfaceVariant
+                                        color: Commons.Color.mOnSurfaceVariant
                                         opacity: messageItem.itemOpacity
                                     }
                                 }
@@ -373,7 +374,7 @@ Item {
                                     text: modelData.title || ""
                                     pointSize: Style.fontSizeM
                                     font.weight: Style.fontWeightBold
-                                    color: Color.mOnSurface
+                                    color: Commons.Color.mOnSurface
                                     wrapMode: Text.Wrap
                                     Layout.fillWidth: true
                                     opacity: messageItem.itemOpacity
@@ -384,7 +385,7 @@ Item {
                                     visible: modelData.message && modelData.message.length > 0
                                     text: modelData.message || ""
                                     pointSize: Style.fontSizeS
-                                    color: Color.mOnSurface
+                                    color: Commons.Color.mOnSurface
                                     wrapMode: Text.Wrap
                                     Layout.fillWidth: true
                                     opacity: messageItem.itemOpacity
@@ -400,7 +401,7 @@ Item {
                                         model: modelData.tags || []
 
                                         Rectangle {
-                                            color: Qt.alpha(Color.mSecondary, 0.1)
+                                            color: Qt.alpha(Commons.Color.mSecondary, 0.1)
                                             radius: Style.radiusS
                                             width: tagLabel.implicitWidth + Style.marginXS * 2
                                             height: tagLabel.implicitHeight + 2
@@ -410,7 +411,7 @@ Item {
                                                 anchors.centerIn: parent
                                                 text: modelData
                                                 pointSize: Style.fontSizeXXS
-                                                color: Color.mSecondary
+                                                color: Commons.Color.mSecondary
                                             }
                                         }
                                     }
@@ -444,8 +445,8 @@ Item {
                                 anchors.fill: parent
                                 hoverEnabled: true
                                 propagateComposedEvents: true
-                                onEntered: parent.color = Qt.lighter(Color.mSurface, 1.05)
-                                onExited: parent.color = Color.mSurface
+                                onEntered: parent.color = Qt.lighter(Commons.Color.mSurface, 1.05)
+                                onExited: parent.color = Commons.Color.mSurface
                                 onClicked: mouse => mouse.accepted = false
                                 onPressed: mouse => mouse.accepted = false
                                 onReleased: mouse => mouse.accepted = false

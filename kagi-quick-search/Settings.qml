@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -29,7 +30,7 @@ ColumnLayout {
 
     Text {
       text: "To get your Kagi session token:\n- Open kagi.com in your browser, right click, and select \"Inspect Element\"\n- Switch to the \"Network\" tab and filter for \"Fetch/XHR\"\n- Type something in the search bar\n- Click on any entry that's labeled with \"autosuggest\"\n- Scroll down until you see an item labelled \"Set-Cookie\"\n- You'll see something like `kagi_session=Copy_this_its_long; ...`<br/>Copy the text after the `=` and before the `;` and paste it above, then hit save."
-      color: Color.mOnSurfaceVariant
+      color: Commons.Color.mOnSurfaceVariant
       font.pointSize: Style.fontSizeS
       textFormat: Text.MarkdownText
     }
@@ -52,7 +53,7 @@ ColumnLayout {
     
     Text {
         text: `${root.editDebounce}ms`
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         font.pointSize: Style.fontSizeS
     }
 

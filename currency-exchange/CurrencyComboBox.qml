@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 RowLayout {
@@ -110,9 +111,9 @@ RowLayout {
     model: root.activeModel
 
     background: Rectangle {
-      border.color: combo.activeFocus ? Color.mSecondary : Color.mOutline
+      border.color: combo.activeFocus ? Commons.Color.mSecondary : Commons.Color.mOutline
       border.width: Style.borderS
-      color: Color.mSurface
+      color: Commons.Color.mSurface
       // implicitWidth: Math.round(Style.baseWidgetSize * 3.75 * Style.uiScaleRatio)
       implicitHeight: Math.round(root.preferredHeight * Style.uiScaleRatio)
       radius: Style.iRadiusM
@@ -129,7 +130,7 @@ RowLayout {
       // Look up current selection directly in source model by key
       readonly property int sourceIndex: root.findIndexByKey(root.currentKey)
 
-      color: hasSelection ? Color.mOnSurface : Color.mOnSurfaceVariant
+      color: hasSelection ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant
       elide: Text.ElideRight
       leftPadding: Style.marginL
       pointSize: Style.fontSizeM
@@ -150,9 +151,9 @@ RowLayout {
       y: combo.height + Style.marginS
 
       background: Rectangle {
-        border.color: Color.mOutline
+        border.color: Commons.Color.mOutline
         border.width: Style.borderS
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
         radius: Style.iRadiusM
       }
       contentItem: ColumnLayout {
@@ -193,7 +194,7 @@ RowLayout {
 
             background: Rectangle {
               anchors.fill: parent
-              color: highlighted ? Color.mHover : "transparent"
+              color: highlighted ? Commons.Color.mHover : "transparent"
               radius: Style.iRadiusS
 
               Behavior on color {
@@ -203,7 +204,7 @@ RowLayout {
               }
             }
             contentItem: NText {
-              color: highlighted ? Color.mOnHover : Color.mOnSurface
+              color: highlighted ? Commons.Color.mOnHover : Commons.Color.mOnSurface
               elide: Text.ElideRight
               pointSize: Style.fontSizeM
               text: name

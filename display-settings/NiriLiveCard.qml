@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 OutputCard {
@@ -43,7 +44,7 @@ OutputCard {
 
     NText {
       text: root.pluginApi?.tr("panel.scale")
-      pointSize: Style.fontSizeS; font.weight: Font.DemiBold; color: Color.mOnSurfaceVariant
+      pointSize: Style.fontSizeS; font.weight: Font.DemiBold; color: Commons.Color.mOnSurfaceVariant
     }
 
     RowLayout {
@@ -57,7 +58,7 @@ OutputCard {
 
       NText {
         text: root.output.scale || "?"
-        pointSize: Style.fontSizeM; font.weight: Font.Bold; color: Color.mOnSurface
+        pointSize: Style.fontSizeM; font.weight: Font.Bold; color: Commons.Color.mOnSurface
         Layout.preferredWidth: 50 * Style.uiScaleRatio
         horizontalAlignment: Text.AlignHCenter
       }
@@ -83,7 +84,7 @@ OutputCard {
 
     NText {
       text: root.pluginApi?.tr("panel.transform")
-      pointSize: Style.fontSizeS; font.weight: Font.DemiBold; color: Color.mOnSurfaceVariant
+      pointSize: Style.fontSizeS; font.weight: Font.DemiBold; color: Commons.Color.mOnSurfaceVariant
     }
 
     Flow {
@@ -112,7 +113,7 @@ OutputCard {
 
       NText {
         text: root.pluginApi?.tr("panel.vrr")
-        pointSize: Style.fontSizeS; font.weight: Font.DemiBold; color: Color.mOnSurfaceVariant
+        pointSize: Style.fontSizeS; font.weight: Font.DemiBold; color: Commons.Color.mOnSurfaceVariant
       }
 
       RowLayout {
@@ -131,7 +132,7 @@ OutputCard {
         NText {
           visible: !root.output.vrrSupported
           text: root.pluginApi?.tr("panel.vrrNotSupported")
-          pointSize: Style.fontSizeXS; color: Color.mOnSurfaceVariant
+          pointSize: Style.fontSizeXS; color: Commons.Color.mOnSurfaceVariant
         }
       }
     }
@@ -143,7 +144,7 @@ OutputCard {
 
       NText {
         text: root.pluginApi?.tr("panel.power")
-        pointSize: Style.fontSizeS; font.weight: Font.DemiBold; color: Color.mOnSurfaceVariant
+        pointSize: Style.fontSizeS; font.weight: Font.DemiBold; color: Commons.Color.mOnSurfaceVariant
       }
 
       PillButton {

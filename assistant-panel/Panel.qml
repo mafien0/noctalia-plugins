@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -147,7 +148,7 @@ Item {
       Rectangle {
         Layout.fillWidth: true
         Layout.preferredHeight: (tabRow.implicitHeight * root.uiScale) + Style.marginS * 2
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
         radius: Style.radiusM
         // Scaled host for tab row so top bar scales with plugin `uiScale`.
         Item {
@@ -200,7 +201,7 @@ Item {
       Rectangle {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
         radius: Style.radiusL
         clip: true
 
@@ -264,7 +265,7 @@ Item {
     implicitWidth: tabButtonContent.implicitWidth + Style.marginM * 2
     implicitHeight: tabButtonContent.implicitHeight + Style.marginS * 2
 
-    color: isActive ? Color.mPrimary : (tabMouseArea.containsMouse ? Color.mHover : "transparent")
+    color: isActive ? Commons.Color.mPrimary : (tabMouseArea.containsMouse ? Commons.Color.mHover : "transparent")
     radius: Style.iRadiusS
 
     RowLayout {
@@ -274,13 +275,13 @@ Item {
 
       NIcon {
         icon: tabButton.icon
-        color: tabButton.isActive ? Color.mOnPrimary : Color.mOnSurfaceVariant
+        color: tabButton.isActive ? Commons.Color.mOnPrimary : Commons.Color.mOnSurfaceVariant
         pointSize: Style.fontSizeM
       }
 
       NText {
         text: tabButton.label
-        color: tabButton.isActive ? Color.mOnPrimary : Color.mOnSurfaceVariant
+        color: tabButton.isActive ? Commons.Color.mOnPrimary : Commons.Color.mOnSurfaceVariant
         pointSize: Style.fontSizeS
         font.weight: tabButton.isActive ? Font.Medium : Font.Normal
       }

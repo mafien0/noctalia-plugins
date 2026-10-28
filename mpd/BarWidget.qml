@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Modules.Bar.Extras
 import qs.Widgets
 import "state.js" as State
@@ -150,7 +151,7 @@ Item {
     y: Style.pixelAlignCenter(parent.height, height)
     width: root.contentWidth
     height: root.contentHeight
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     radius: Style.radiusL
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
@@ -162,14 +163,14 @@ Item {
 
       NIcon {
         icon: root.statusIcon
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
         applyUiScale: true
       }
 
       NText {
         visible: root.songName !== ""
         text: root.songName
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
         pointSize: barFontSize
         font.weight: Font.Medium
         elide: Text.ElideRight

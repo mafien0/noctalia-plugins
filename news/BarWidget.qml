@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -211,7 +212,7 @@ Item {
     width: root.contentWidth
     height: root.contentHeight
     radius: Style.radiusM
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
 
@@ -263,7 +264,7 @@ Item {
         text: "📰"
         font.family: "Noto Color Emoji, sans-serif"
         font.pointSize: root.barFontSize * 1.2
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         Layout.alignment: Qt.AlignVCenter
       }
 
@@ -286,8 +287,8 @@ Item {
           y: (parent.height - height) / 2
           text: parent.displayText
           color: {
-            if (main && main.errorMessage !== "") return Color.mError
-            return mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+            if (main && main.errorMessage !== "") return Commons.Color.mError
+            return mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
           }
           pointSize: root.barFontSize
           applyUiScale: false
@@ -330,13 +331,13 @@ Item {
         text: "📰"
         font.family: "Noto Color Emoji, sans-serif"
         font.pointSize: root.barFontSize * 1.2
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         Layout.alignment: Qt.AlignHCenter
       }
 
       NText {
         text: (main && main.newsData && main.newsData.length > 0) ? main.newsData.length.toString() : "?"
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         pointSize: root.barFontSize * 0.65
         applyUiScale: false
         Layout.alignment: Qt.AlignHCenter

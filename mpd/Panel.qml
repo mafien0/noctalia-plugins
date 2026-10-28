@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import "state.js" as State
 
@@ -138,7 +139,7 @@ Item {
           height: 80 * Style.uiScaleRatio
           Layout.alignment: Qt.AlignVCenter
           radius: Style.radiusL
-          color: Color.mSurfaceVariant
+          color: Commons.Color.mSurfaceVariant
           clip: true
 
           Image {
@@ -154,7 +155,7 @@ Item {
             anchors.centerIn: parent
             visible: coverImage.status !== Image.Ready
             icon: "music-note"
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
             applyUiScale: true
           }
         }
@@ -168,7 +169,7 @@ Item {
           NText {
             visible: root.songArtist !== ""
             text: root.songArtist
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
             pointSize: Style.fontSizeS
             font.weight: Font.Medium
             elide: Text.ElideRight
@@ -177,7 +178,7 @@ Item {
 
           NText {
             text: root.songTitle
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
             pointSize: Style.fontSizeM
             font.weight: Font.Bold
             wrapMode: Text.WordWrap
@@ -187,7 +188,7 @@ Item {
           NText {
             visible: root.songAlbum !== ""
             text: root.songAlbum
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
             pointSize: Style.fontSizeS
             opacity: 0.7
             elide: Text.ElideRight

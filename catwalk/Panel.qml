@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Effects
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.System
 import qs.Widgets
 
@@ -25,9 +26,9 @@ Item {
         Rectangle {
             anchors.fill: parent
             anchors.margins: Style.marginL
-            color: Color.mSurface
+            color: Commons.Color.mSurface
             radius: Style.radiusL
-            border.color: Color.mOutline
+            border.color: Commons.Color.mOutline
             border.width: Style.borderS
 
             ColumnLayout {

@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Modules.DesktopWidgets
 import qs.Widgets
 
@@ -36,7 +37,7 @@ DraggableDesktopWidget {
     NText {
       text: "Desktop Widget"
       font.pointSize: Style.fontSizeS
-      color: Color.mOnSurfaceVariant
+      color: Commons.Color.mOnSurfaceVariant
       Layout.alignment: Qt.AlignHCenter
     }
   }

@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -103,7 +104,7 @@ ColumnLayout {
                 visible: root.vpnList.length === 0
                 text: pluginApi?.tr("settings.noVpnConnections")
                 pointSize: Style.fontSizeS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 Layout.leftMargin: Style.marginXS
             }
 
@@ -119,7 +120,7 @@ ColumnLayout {
                     Layout.leftMargin: Style.marginXS
                     Layout.rightMargin: Style.marginXS
                     implicitHeight: Math.round(rowContent.implicitHeight + Style.marginL)
-                    color: vpnRow.confirmingDelete ? Qt.alpha(Color.mError, 0.12) : Color.mSurface
+                    color: vpnRow.confirmingDelete ? Qt.alpha(Commons.Color.mError, 0.12) : Commons.Color.mSurface
 
                     ColumnLayout {
                         id: rowContent
@@ -138,7 +139,7 @@ ColumnLayout {
                             NIcon {
                                 icon: "router"
                                 pointSize: Style.fontSizeXXL
-                                color: modelData.connected ? Color.mPrimary : Color.mOnSurfaceVariant
+                                color: modelData.connected ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
                             }
 
                             ColumnLayout {
@@ -149,7 +150,7 @@ ColumnLayout {
                                     text: modelData.name
                                     pointSize: Style.fontSizeM
                                     font.weight: Style.fontWeightMedium
-                                    color: Color.mOnSurface
+                                    color: Commons.Color.mOnSurface
                                     elide: Text.ElideRight
                                     Layout.fillWidth: true
                                 }
@@ -157,7 +158,7 @@ ColumnLayout {
                                 NText {
                                     text: modelData.type || "vpn"
                                     pointSize: Style.fontSizeXXS
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                 }
 
                             }
@@ -188,7 +189,7 @@ ColumnLayout {
                                 visible: vpnRow.confirmingDelete
                                 text: pluginApi?.tr("common.delete")
                                 fontSize: Style.fontSizeXS
-                                backgroundColor: Color.mError
+                                backgroundColor: Commons.Color.mError
                                 outlined: false
                                 onClicked: {
                                     main.removeConnection(root.pendingDeleteUuid);

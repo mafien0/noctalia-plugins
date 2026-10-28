@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import Quickshell.Io
 
@@ -18,7 +19,7 @@ ColumnLayout {
         visible: !service.isAvailable
         text: pluginApi?.tr("settings.no-battery-device")
         pointSize: Style.fontSizeM
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
     }
 
     NComboBox {

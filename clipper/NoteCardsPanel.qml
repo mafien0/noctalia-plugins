@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -49,7 +50,7 @@ Item {
                 Layout.alignment: Qt.AlignHCenter
                 icon: "notes"
                 pointSize: 64
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 opacity: 0.5
             }
 
@@ -58,14 +59,14 @@ Item {
                 text: pluginApi?.tr("notecards.empty-state")
                 font.pointSize: Style.fontSizeL
                 font.bold: true
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
             }
 
             NText {
                 Layout.alignment: Qt.AlignHCenter
                 text: pluginApi?.tr("notecards.empty-hint")
                 font.pointSize: Style.fontSizeM
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 opacity: 0.7
             }
 
@@ -144,8 +145,8 @@ Item {
         anchors.margins: 16
         width: contentRow.width + 16
         height: 40
-        color: Color.mSurfaceVariant
-        border.color: Color.mOnSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
+        border.color: Commons.Color.mOnSurfaceVariant
         border.width: 1
         radius: Style.radiusM
         visible: (root.pluginApi && root.pluginApi.mainInstance && root.pluginApi.mainInstance.noteCards) ? root.pluginApi.mainInstance.noteCards.length > 0 : false
@@ -162,10 +163,10 @@ Item {
                 height: 28
                 icon: "add"
                 tooltipText: pluginApi?.tr("notecards.create-note")
-                colorBg: Color.mPrimary
-                colorFg: Color.mOnPrimary
-                colorBgHover: Qt.lighter(Color.mPrimary, 1.2)
-                colorFgHover: Color.mOnPrimary
+                colorBg: Commons.Color.mPrimary
+                colorFg: Commons.Color.mOnPrimary
+                colorBgHover: Qt.lighter(Commons.Color.mPrimary, 1.2)
+                colorFgHover: Commons.Color.mOnPrimary
 
                 onClicked: {
                     if (root.pluginApi && root.pluginApi.mainInstance) {
@@ -185,7 +186,7 @@ Item {
             Rectangle {
                 width: 1
                 height: 24
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 opacity: 0.3
             }
 
@@ -193,7 +194,7 @@ Item {
             NIcon {
                 icon: "note"
                 pointSize: 16
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
             }
 
             // Count text
@@ -208,7 +209,7 @@ Item {
                 color: {
                     const count = (root.pluginApi && root.pluginApi.mainInstance && root.pluginApi.mainInstance.noteCards) ? root.pluginApi.mainInstance.noteCards.length : 0;
                     const max = (root.pluginApi && root.pluginApi.mainInstance) ? (root.pluginApi.mainInstance.maxNoteCards || 20) : 20;
-                    return count >= max ? Color.mError : Color.mOnSurfaceVariant;
+                    return count >= max ? Commons.Color.mError : Commons.Color.mOnSurfaceVariant;
                 }
             }
         }

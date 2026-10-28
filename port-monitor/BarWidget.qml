@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -56,7 +57,7 @@ Item {
     y: Style.pixelAlignCenter(parent.height, height)
     width: root.contentWidth
     height: root.contentHeight
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     radius: Style.radiusL
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
@@ -68,14 +69,14 @@ Item {
 
       NIcon {
         icon: "network"
-        color: mouseArea.containsMouse ? Color.mOnHover : (root.portCount > 0 ? Color.mPrimary : Color.mOnSurface)
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : (root.portCount > 0 ? Commons.Color.mPrimary : Commons.Color.mOnSurface)
         applyUiScale: true
       }
 
       NText {
         visible: root.portCount > 0
         text: root.portCount.toString()
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mPrimary
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mPrimary
         pointSize: root.barFontSize
         applyUiScale: false
         font.weight: Font.Normal

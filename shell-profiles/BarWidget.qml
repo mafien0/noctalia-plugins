@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -30,9 +31,9 @@ Item {
 
   readonly property string iconColorKey: pluginApi?.pluginSettings?.iconColor || pluginApi?.manifest?.metadata?.defaultSettings?.iconColor || "primary"
 
-  readonly property color resolvedIconColor: Color.resolveColorKeyOptional(iconColorKey)
+  readonly property color resolvedIconColor: Commons.Color.resolveColorKeyOptional(iconColorKey)
 
-  readonly property color iconColor: mouseArea.containsMouse ? Color.mOnHover : (resolvedIconColor.a > 0 ? resolvedIconColor : Color.mOnSurface)
+  readonly property color iconColor: mouseArea.containsMouse ? Commons.Color.mOnHover : (resolvedIconColor.a > 0 ? resolvedIconColor : Commons.Color.mOnSurface)
 
   // Content dimensions
   readonly property real contentWidth: Style.capsuleHeight
@@ -50,7 +51,7 @@ Item {
     y: Style.pixelAlignCenter(parent.height, height)
     width: root.contentWidth
     height: root.contentHeight
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     radius: Style.radiusL
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
@@ -66,7 +67,7 @@ Item {
         applyUiScale: true
 
         Behavior on color {
-          enabled: !Color.isTransitioning
+          enabled: !Commons.Color.isTransitioning
           ColorAnimation {
             duration: Style.animationFast
             easing.type: Easing.InOutQuad

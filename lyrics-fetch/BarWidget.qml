@@ -4,6 +4,7 @@ import QtQuick.Controls
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -104,7 +105,7 @@ Item {
                     Layout.preferredWidth: iconSize
                     Layout.preferredHeight: iconSize
                     icon: "music"
-                    color: root.hovered ? Color.mPrimary : Color.mOnSurfaceVariant
+                    color: root.hovered ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
                     pointSize: Style.fontSizeL * scaling
                 }
 
@@ -118,7 +119,7 @@ Item {
                         anchors.verticalCenter: parent.verticalCenter
 
                         text: root.lyricText
-                        textColor: Color.mOnSurface
+                        textColor: Commons.Color.mOnSurface
 
                         fontSize: root.customFontSize * scaling
                         fontFamily: root.customFontFamily
@@ -141,7 +142,7 @@ Item {
                     Layout.preferredWidth: iconSize
                     Layout.preferredHeight: iconSize
                     icon: "music"
-                    color: root.hovered ? Color.mPrimary : Color.mOnSurfaceVariant
+                    color: root.hovered ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
                     pointSize: Style.fontSizeL * scaling
                 }
 
@@ -162,7 +163,7 @@ Item {
                             anchors.verticalCenter: parent.verticalCenter
 
                             text: root.lyricText
-                            textColor: Color.mOnSurface
+                            textColor: Commons.Color.mOnSurface
 
                             fontSize: root.customFontSize * scaling
                             fontFamily: root.customFontFamily

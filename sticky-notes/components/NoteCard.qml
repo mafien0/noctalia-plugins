@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -79,8 +80,8 @@ Rectangle {
   color: noteCard.noteColor || "#FFF9C4"
   radius: Style.radiusM
   border.color: isEditing
-    ? (editTextArea.activeFocus ? Qt.darker(Color.mPrimary, 1.35) : Color.mPrimary)
-    : (isSelected ? Color.mPrimary : Qt.darker(noteCard.noteColor || "#FFF9C4", 1.06))
+    ? (editTextArea.activeFocus ? Qt.darker(Commons.Color.mPrimary, 1.35) : Commons.Color.mPrimary)
+    : (isSelected ? Commons.Color.mPrimary : Qt.darker(noteCard.noteColor || "#FFF9C4", 1.06))
   border.width: isEditing
     ? Style.borderM
     : (isSelected ? (Style.borderM + Style.borderS) : Style.borderS)
@@ -100,7 +101,7 @@ Rectangle {
     anchors.fill: parent
     color: Qt.rgba(0, 0, 0, 0)
     radius: noteCard.radius
-    border.color: Color.mPrimary
+    border.color: Commons.Color.mPrimary
     border.width: (!noteCard.isEditing && noteCard.isSelected) ? Style.borderS : 0
     visible: !noteCard.isEditing && noteCard.isSelected
     z: 180

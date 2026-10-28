@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -93,14 +94,14 @@ Item {
                         NIcon {
                             icon: "barrier-block"
                             pointSize: Style.fontSizeL
-                            color: Color.mPrimary
+                            color: Commons.Color.mPrimary
                         }
 
                         NText {
                             text: pluginApi?.tr("panel.title")
                             pointSize: Style.fontSizeL
                             font.bold: true
-                            color: Color.mOnSurface
+                            color: Commons.Color.mOnSurface
                             Layout.fillWidth: true
                         }
 
@@ -138,8 +139,8 @@ Item {
                                 Layout.minimumHeight: Math.round(50 * Style.uiScaleRatio)
 
                                 radius: Style.iRadiusM
-                                color: isSelected ? Qt.alpha(Color.mPrimary, 0.15) : Color.mSurfaceVariant
-                                border.color: isSelected ? Color.mPrimary : (optionMouse.containsMouse ? Color.mOutline : "transparent")
+                                color: isSelected ? Qt.alpha(Commons.Color.mPrimary, 0.15) : Commons.Color.mSurfaceVariant
+                                border.color: isSelected ? Commons.Color.mPrimary : (optionMouse.containsMouse ? Commons.Color.mOutline : "transparent")
                                 border.width: isSelected ? Style.borderM : Style.borderS
 
                                 Behavior on color { ColorAnimation { duration: Style.animationFast } }
@@ -170,8 +171,8 @@ Item {
                                                     height: layoutOption.height * 0.45
                                                     radius: Style.iRadiusXXXS
                                                     color: layoutOption.isSelected
-                                                        ? Color.mPrimary
-                                                        : (optionMouse.containsMouse ? Qt.alpha(Color.mOnSurface, 0.4) : Qt.alpha(Color.mOnSurface, 0.25))
+                                                        ? Commons.Color.mPrimary
+                                                        : (optionMouse.containsMouse ? Qt.alpha(Commons.Color.mOnSurface, 0.4) : Qt.alpha(Commons.Color.mOnSurface, 0.25))
 
                                                     Behavior on color { ColorAnimation { duration: Style.animationFast } }
                                                 }
@@ -187,7 +188,7 @@ Item {
                                             : pluginApi?.tr("panel.columns", {"count": layoutOption.columnCount})
                                         pointSize: Style.fontSizeS
                                         font.bold: layoutOption.isSelected
-                                        color: layoutOption.isSelected ? Color.mPrimary : Color.mOnSurface
+                                        color: layoutOption.isSelected ? Commons.Color.mPrimary : Commons.Color.mOnSurface
                                     }
                                 }
 
@@ -215,9 +216,9 @@ Item {
                             height: Math.round(8 * Style.uiScaleRatio)
                             radius: Math.round(4 * Style.uiScaleRatio)
                             color: {
-                                if (!root.isEnabled) return Color.mOutline;
-                                if (root.isRunning) return Color.mPrimary;
-                                return Color.mSecondary;
+                                if (!root.isEnabled) return Commons.Color.mOutline;
+                                if (root.isRunning) return Commons.Color.mPrimary;
+                                return Commons.Color.mSecondary;
                             }
                         }
 
@@ -233,7 +234,7 @@ Item {
                                 return pluginApi?.tr("panel.status-starting");
                             }
                             pointSize: Style.fontSizeS
-                            color: Qt.alpha(Color.mOnSurface, 0.6)
+                            color: Qt.alpha(Commons.Color.mOnSurface, 0.6)
                             Layout.fillWidth: true
                         }
                     }

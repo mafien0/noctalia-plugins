@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -32,12 +33,12 @@ Item {
 
   readonly property color statusColor: {
     var s = root.status.toLowerCase();
-    if (s === "running" || s === "active" || s === "bound") return Color.mTertiary;
-    if (s === "pending" || s === "containercreating") return Color.mWarning;
+    if (s === "running" || s === "active" || s === "bound") return Commons.Color.mTertiary;
+    if (s === "pending" || s === "containercreating") return Commons.Color.mWarning;
     if (s === "error" || s === "crashloopbackoff" || s === "oomkilled" ||
-        s === "failed" || s === "imagepullbackoff" || s === "errimagepull") return Color.mError;
-    if (s === "completed" || s === "succeeded") return Color.mOnSurfaceVariant;
-    return Color.mOnSurfaceVariant;
+        s === "failed" || s === "imagepullbackoff" || s === "errimagepull") return Commons.Color.mError;
+    if (s === "completed" || s === "succeeded") return Commons.Color.mOnSurfaceVariant;
+    return Commons.Color.mOnSurfaceVariant;
   }
 
   readonly property string statusIcon: {
@@ -73,7 +74,7 @@ Item {
     NText {
       text: root.resourceName
       pointSize: Style.fontSizeL
-      color: root.expanded ? Color.mPrimary : Color.mOnSurface
+      color: root.expanded ? Commons.Color.mPrimary : Commons.Color.mOnSurface
       elide: Text.ElideRight
       Layout.fillWidth: true
       Layout.alignment: Qt.AlignVCenter
@@ -83,14 +84,14 @@ Item {
       visible: root.ready !== ""
       text: root.ready
       pointSize: Style.fontSizeS
-      color: Color.mOnSurfaceVariant
+      color: Commons.Color.mOnSurfaceVariant
       Layout.alignment: Qt.AlignVCenter
     }
 
     NIcon {
       icon: root.expanded ? "chevron-up" : "chevron-down"
       pointSize: Style.fontSizeS
-      color: Color.mOnSurfaceVariant
+      color: Commons.Color.mOnSurfaceVariant
       Layout.alignment: Qt.AlignVCenter
     }
   }
@@ -165,8 +166,8 @@ Item {
       fontSize: Style.fontSizeS
       iconSize: Style.fontSizeS
       Layout.fillWidth: true
-      backgroundColor: Qt.alpha(Color.mError, 0.15)
-      textColor: Color.mError
+      backgroundColor: Qt.alpha(Commons.Color.mError, 0.15)
+      textColor: Commons.Color.mError
       onClicked: {
         root.expanded = false;
         root.deleteRequested(root.resourceKind, root.resourceName);

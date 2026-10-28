@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -171,14 +172,14 @@ Item {
                 Layout.fillWidth: true
                 spacing: Style.marginM
 
-                NIcon { icon: "sparkles"; color: Color.mPrimary; pointSize: Style.fontSizeL }
+                NIcon { icon: "sparkles"; color: Commons.Color.mPrimary; pointSize: Style.fontSizeL }
 
                 ColumnLayout {
                     Layout.fillWidth: true
                     spacing: 2
                     NText {
                         text: pluginApi?.tr("panel.title")
-                        pointSize: Style.fontSizeL; font.weight: Font.Bold; color: Color.mOnSurface
+                        pointSize: Style.fontSizeL; font.weight: Font.Bold; color: Commons.Color.mOnSurface
                         Layout.fillWidth: true
                     }
                     NText {
@@ -187,7 +188,7 @@ Item {
                             : root.kdlFiles.length > 0
                                 ? (pluginApi?.tr("panel.presetsAvailable", { count: root.kdlFiles.length }))
                                 : (pluginApi?.tr("panel.noPresetsFound"))
-                        pointSize: Style.fontSizeXS; color: Color.mOnSurfaceVariant
+                        pointSize: Style.fontSizeXS; color: Commons.Color.mOnSurfaceVariant
                     }
                 }
 
@@ -202,7 +203,7 @@ Item {
             Rectangle {
                 Layout.fillWidth: true
                 height: pathCol.implicitHeight + Style.marginM * 2
-                color: Color.mSurfaceVariant
+                color: Commons.Color.mSurfaceVariant
                 radius: Style.radiusM
 
                 ColumnLayout {
@@ -212,19 +213,19 @@ Item {
 
                     RowLayout {
                         spacing: Style.marginS
-                        NIcon { icon: "folder-open"; color: Color.mOnSurfaceVariant; pointSize: Style.fontSizeS }
+                        NIcon { icon: "folder-open"; color: Commons.Color.mOnSurfaceVariant; pointSize: Style.fontSizeS }
                         NText {
                             text: root.resolvedAnimDir || "~/.config/niri/animations"
-                            pointSize: Style.fontSizeXS; color: Color.mOnSurfaceVariant
+                            pointSize: Style.fontSizeXS; color: Commons.Color.mOnSurfaceVariant
                             elide: Text.ElideLeft; Layout.fillWidth: true
                         }
                     }
                     RowLayout {
                         spacing: Style.marginS
-                        NIcon { icon: "file-code"; color: Color.mOnSurfaceVariant; pointSize: Style.fontSizeS }
+                        NIcon { icon: "file-code"; color: Commons.Color.mOnSurfaceVariant; pointSize: Style.fontSizeS }
                         NText {
                             text: root.resolvedTargetFile || "~/.config/niri/animations.kdl"
-                            pointSize: Style.fontSizeXS; color: Color.mOnSurfaceVariant
+                            pointSize: Style.fontSizeXS; color: Commons.Color.mOnSurfaceVariant
                             elide: Text.ElideLeft; Layout.fillWidth: true
                         }
                     }
@@ -244,13 +245,13 @@ Item {
                     spacing: Style.marginS
                     NIcon {
                         icon: root.statusIsError ? "circle-x" : "circle-check"
-                        color: root.statusIsError ? Qt.rgba(1,0.3,0.3,1) : Color.mPrimary
+                        color: root.statusIsError ? Qt.rgba(1,0.3,0.3,1) : Commons.Color.mPrimary
                         pointSize: Style.fontSizeS
                     }
                     NText {
                         id: statusText
                         text: root.statusMessage; pointSize: Style.fontSizeS
-                        color: root.statusIsError ? Qt.rgba(1,0.3,0.3,1) : Color.mPrimary
+                        color: root.statusIsError ? Qt.rgba(1,0.3,0.3,1) : Commons.Color.mPrimary
                         wrapMode: Text.WordWrap; Layout.fillWidth: true
                     }
                 }
@@ -260,7 +261,7 @@ Item {
             Rectangle {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                color: Qt.rgba(Color.mSurfaceVariant.r, Color.mSurfaceVariant.g, Color.mSurfaceVariant.b, 0.5)
+                color: Qt.rgba(Commons.Color.mSurfaceVariant.r, Commons.Color.mSurfaceVariant.g, Commons.Color.mSurfaceVariant.b, 0.5)
                 radius: Style.radiusL
 
                 // Loading
@@ -268,10 +269,10 @@ Item {
                     anchors.centerIn: parent
                     visible: root.loading
                     spacing: Style.marginM
-                    NIcon { icon: "loader"; color: Color.mPrimary; pointSize: Style.fontSizeXXL; Layout.alignment: Qt.AlignHCenter }
+                    NIcon { icon: "loader"; color: Commons.Color.mPrimary; pointSize: Style.fontSizeXXL; Layout.alignment: Qt.AlignHCenter }
                     NText {
                         text: pluginApi?.tr("panel.scanningAnimations")
-                        color: Color.mOnSurfaceVariant; pointSize: Style.fontSizeM; Layout.alignment: Qt.AlignHCenter
+                        color: Commons.Color.mOnSurfaceVariant; pointSize: Style.fontSizeM; Layout.alignment: Qt.AlignHCenter
                     }
                 }
 
@@ -280,10 +281,10 @@ Item {
                     anchors.centerIn: parent
                     visible: !root.loading && root.kdlFiles.length === 0
                     spacing: Style.marginM
-                    NIcon { icon: "folder-open"; color: Color.mOnSurfaceVariant; pointSize: Style.fontSizeXXL; Layout.alignment: Qt.AlignHCenter }
+                    NIcon { icon: "folder-open"; color: Commons.Color.mOnSurfaceVariant; pointSize: Style.fontSizeXXL; Layout.alignment: Qt.AlignHCenter }
                     NText {
                         text: pluginApi?.tr("panel.noFilesFound")
-                        color: Color.mOnSurfaceVariant; pointSize: Style.fontSizeM
+                        color: Commons.Color.mOnSurfaceVariant; pointSize: Style.fontSizeM
                         horizontalAlignment: Text.AlignHCenter; Layout.alignment: Qt.AlignHCenter
                     }
                 }
@@ -293,7 +294,7 @@ Item {
                     anchors { fill: parent; margins: Style.marginS }
                     visible: !root.loading && root.kdlFiles.length > 0
                     model: root.kdlFiles
-                    gradientColor: Qt.rgba(Color.mSurfaceVariant.r, Color.mSurfaceVariant.g, Color.mSurfaceVariant.b, 0.5)
+                    gradientColor: Qt.rgba(Commons.Color.mSurfaceVariant.r, Commons.Color.mSurfaceVariant.g, Commons.Color.mSurfaceVariant.b, 0.5)
 
                     delegate: Rectangle {
                         id: fileRow
@@ -303,8 +304,8 @@ Item {
                         property bool isHovered: false
 
                         color: isActive
-                            ? Qt.rgba(Color.mPrimary.r, Color.mPrimary.g, Color.mPrimary.b, 0.18)
-                            : isHovered ? Color.mSurface : "transparent"
+                            ? Qt.rgba(Commons.Color.mPrimary.r, Commons.Color.mPrimary.g, Commons.Color.mPrimary.b, 0.18)
+                            : isHovered ? Commons.Color.mSurface : "transparent"
                         radius: Style.radiusM
                         Behavior on color { ColorAnimation { duration: 100 } }
 
@@ -314,14 +315,14 @@ Item {
 
                             Rectangle {
                                 width: 3; height: parent.height * 0.5; radius: 2
-                                color: Color.mPrimary
+                                color: Commons.Color.mPrimary
                                 opacity: fileRow.isActive ? 1 : 0
                                 Behavior on opacity { NumberAnimation { duration: 150 } }
                             }
 
                             NText {
                                 text: modelData
-                                color: fileRow.isActive ? Color.mPrimary : Color.mOnSurface
+                                color: fileRow.isActive ? Commons.Color.mPrimary : Commons.Color.mOnSurface
                                 pointSize: Style.fontSizeM
                                 font.weight: fileRow.isActive ? 600 : 400
                                 Layout.fillWidth: true
@@ -330,7 +331,7 @@ Item {
 
                             NIcon {
                                 icon: root.writing && root.pendingFile === modelData ? "loader" : "check"
-                                color: Color.mPrimary; pointSize: Style.fontSizeM
+                                color: Commons.Color.mPrimary; pointSize: Style.fontSizeM
                                 opacity: fileRow.isActive || (root.writing && root.pendingFile === modelData) ? 1 : 0
                                 Behavior on opacity { NumberAnimation { duration: 150 } }
                             }

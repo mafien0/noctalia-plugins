@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -32,13 +33,13 @@ ColumnLayout {
       text: pluginApi?.tr("settings.appearance.title")
       font.pointSize: Style.fontSizeM * Style.uiScaleRatio
       font.weight: Font.Medium
-      color: Color.mOnSurface
+      color: Commons.Color.mOnSurface
     }
 
     NComboBox {
       label: pluginApi?.tr("settings.iconColor.label")
       description: pluginApi?.tr("settings.iconColor.desc")
-      model: Color.colorKeyModel
+      model: Commons.Color.colorKeyModel
       currentKey: root.valueIconColor
       onSelected: key => root.valueIconColor = key
     }
@@ -48,7 +49,7 @@ ColumnLayout {
       text: pluginApi?.tr("settings.stateIcons.title")
       font.pointSize: Style.fontSizeM * Style.uiScaleRatio
       font.weight: Font.Medium
-      color: Color.mOnSurface
+      color: Commons.Color.mOnSurface
       Layout.topMargin: Style.marginM
     }
 
@@ -147,7 +148,7 @@ ColumnLayout {
       text: pluginApi?.tr("settings.behavior.title")
       font.pointSize: Style.fontSizeM * Style.uiScaleRatio
       font.weight: Font.Medium
-      color: Color.mOnSurface
+      color: Commons.Color.mOnSurface
       Layout.topMargin: Style.marginM
     }
 
@@ -170,14 +171,14 @@ ColumnLayout {
       text: pluginApi?.tr("settings.commands.title")
       font.pointSize: Style.fontSizeM * Style.uiScaleRatio
       font.weight: Font.Medium
-      color: Color.mOnSurface
+      color: Commons.Color.mOnSurface
       Layout.topMargin: Style.marginM
     }
 
 		Rectangle {
 			Layout.fillWidth: true
 			Layout.preferredHeight: infoCol.implicitHeight + Style.marginM * 2
-			color: Color.mSurfaceVariant
+			color: Commons.Color.mSurfaceVariant
 			radius: Style.radiusM
 
 			ColumnLayout {
@@ -194,14 +195,14 @@ ColumnLayout {
 					NIcon {
 						icon: "info-circle"
 						pointSize: Style.fontSizeS
-						color: Color.mPrimary
+						color: Commons.Color.mPrimary
 					}
 
 					NText {
 						text: pluginApi?.tr("settings.ipcCommands.title")
 						pointSize: Style.fontSizeS
 						font.weight: Font.Medium
-						color: Color.mOnSurface
+						color: Commons.Color.mOnSurface
 					}
 				}
 
@@ -210,7 +211,7 @@ ColumnLayout {
 					text: pluginApi?.tr("settings.ipcCommands.refreshIp") + ": qs -c noctalia-shell ipc call plugin:ip-monitor refreshIp"
 					pointSize: Style.fontSizeXS
 					font.family: Settings.data.ui.fontFixed
-					color: Color.mOnSurfaceVariant
+					color: Commons.Color.mOnSurfaceVariant
 					wrapMode: Text.WrapAnywhere
 				}
 
@@ -219,7 +220,7 @@ ColumnLayout {
 					text: pluginApi?.tr("settings.ipcCommands.togglePanel") + ": qs -c noctalia-shell ipc call plugin:ip-monitor toggle"
 					pointSize: Style.fontSizeXS
 					font.family: Settings.data.ui.fontFixed
-					color: Color.mOnSurfaceVariant
+					color: Commons.Color.mOnSurfaceVariant
 					wrapMode: Text.WrapAnywhere
 				}
 			}

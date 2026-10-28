@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import qs.Commons
 
+import qs.Commons as Commons
 Item {
   id: root
 
@@ -10,8 +11,8 @@ Item {
   property bool connected: false
   property bool connecting: false
   property bool hovered: false
-  property color litColor: Color.mPrimary
-  property color dimColor: Color.mOnSurface
+  property color litColor: Commons.Color.mPrimary
+  property color dimColor: Commons.Color.mOnSurface
   property real dimOpacity: hovered ? 0.78 : 0.38
 
   readonly property real iconSize: Math.max(1, applyUiScale ? root.pointSize * Style.uiScaleRatio : root.pointSize)

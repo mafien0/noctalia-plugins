@@ -3,6 +3,7 @@ import Quickshell
 import qs.Widgets
 import qs.Commons
 
+import qs.Commons as Commons
 NIconButton {
     property ShellScreen screen
     property var pluginApi: null
@@ -25,14 +26,14 @@ NIconButton {
 
     colorFg: {
         if (mainInstance && (mainInstance.cdRunning || mainInstance.swRunning || mainInstance.cdSoundPlaying)) {
-            return Color.mOnPrimary
+            return Commons.Color.mOnPrimary
         }
-        return Color.mPrimary
+        return Commons.Color.mPrimary
     }
 
     colorBg: {
         if (mainInstance && (mainInstance.cdRunning || mainInstance.swRunning || mainInstance.cdSoundPlaying)) {
-            return Color.mPrimary
+            return Commons.Color.mPrimary
         }
         return Style.capsuleColor
     }

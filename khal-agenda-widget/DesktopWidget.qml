@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Modules.DesktopWidgets
 import qs.Widgets
 
@@ -59,7 +60,7 @@ DraggableDesktopWidget {
 
     Rectangle {
         anchors.fill: parent
-        color: Color.mSurface
+        color: Commons.Color.mSurface
         opacity: 0.85
         radius: Style.radiusM
 
@@ -75,7 +76,7 @@ DraggableDesktopWidget {
 
                 NText {
                     text: root.pluginApi.tr("widget.heading")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     font.pointSize: Style.fontSizeL * widgetScale
                     Layout.fillWidth: true
                 }
@@ -107,7 +108,7 @@ DraggableDesktopWidget {
                     width: parent.width
                     text: root.calendarVal !== "" ? root.calendarVal : root.pluginApi.tr("widget.loading")
 
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     font.pointSize: Style.fontSizeL * widgetScale
                     wrapMode: Text.NoWrap
                     elide: Text.ElideRight

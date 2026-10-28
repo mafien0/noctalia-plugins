@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -107,7 +108,7 @@ ColumnLayout {
             NText {
                 text:      pluginApi?.tr("settings.filenameFormatDesc")
                 pointSize: Style.fontSizeXS
-                color:     Color.mOnSurfaceVariant
+                color:     Commons.Color.mOnSurfaceVariant
                 wrapMode:  Text.WordWrap
                 Layout.fillWidth: true
             }
@@ -130,7 +131,7 @@ ColumnLayout {
                     height: 28
                     width:  tokenRow.implicitWidth + Style.marginM * 2
                     radius: Style.radiusM
-                    color:  tokenMA.containsMouse ? Color.mPrimary : Color.mSurfaceVariant
+                    color:  tokenMA.containsMouse ? Commons.Color.mPrimary : Commons.Color.mSurfaceVariant
                     Behavior on color { ColorAnimation { duration: 120 } }
                     Row {
                         id: tokenRow
@@ -140,13 +141,13 @@ ColumnLayout {
                             text:        modelData.label
                             pointSize:   Style.fontSizeXS
                             font.weight: Font.Medium
-                            color:       tokenMA.containsMouse ? Color.mOnPrimary : Color.mOnSurface
+                            color:       tokenMA.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface
                             anchors.verticalCenter: parent.verticalCenter
                         }
                         NText {
                             text:      modelData.value
                             pointSize: Style.fontSizeXS
-                            color:     tokenMA.containsMouse ? Qt.rgba(1,1,1,0.65) : Color.mOnSurfaceVariant
+                            color:     tokenMA.containsMouse ? Qt.rgba(1,1,1,0.65) : Commons.Color.mOnSurfaceVariant
                             anchors.verticalCenter: parent.verticalCenter
                         }
                     }
@@ -179,7 +180,7 @@ ColumnLayout {
             Layout.fillWidth: true
             height:  previewRow.implicitHeight + Style.marginM * 2
             radius:  Style.radiusM
-            color:   Color.mSurfaceVariant
+            color:   Commons.Color.mSurfaceVariant
             opacity: 0.7
             Row {
                 id: previewRow
@@ -190,13 +191,13 @@ ColumnLayout {
                 }
                 spacing: Style.marginS
                 NIcon {
-                    icon:  "file"; color: Color.mOnSurfaceVariant; scale: 0.85
+                    icon:  "file"; color: Commons.Color.mOnSurfaceVariant; scale: 0.85
                     anchors.verticalCenter: parent.verticalCenter
                 }
                 NText {
                     text:        root.buildPreview(root.filenameFormat) + ".ext"
                     pointSize:   Style.fontSizeXS
-                    color:       Color.mOnSurface
+                    color:       Commons.Color.mOnSurface
                     font.family: "monospace"
                     elide:       Text.ElideRight
                     width:       parent.width - Style.marginM * 2
@@ -215,7 +216,7 @@ ColumnLayout {
 
         RowLayout {
             spacing: Style.marginS
-            NIcon  { icon: "share"; color: Color.mPrimary }
+            NIcon  { icon: "share"; color: Commons.Color.mPrimary }
             NLabel { label: pluginApi?.tr("settings.shareSection") }
         }
 
@@ -239,7 +240,7 @@ ColumnLayout {
             NText {
                 text:      pluginApi?.tr("settings.x02ExpiryDesc")
                 pointSize: Style.fontSizeXS
-                color:     Color.mOnSurfaceVariant
+                color:     Commons.Color.mOnSurfaceVariant
                 wrapMode:  Text.WordWrap
                 Layout.fillWidth: true
             }
@@ -264,8 +265,8 @@ ColumnLayout {
                         radius:  Style.radiusM
                         enabled: root.x02ApiKey.trim() !== ""
                         color:   root.x02Expiry === modelData.id
-                            ? Color.mPrimary
-                            : (_expMA.containsMouse ? Color.mHover : Color.mSurfaceVariant)
+                            ? Commons.Color.mPrimary
+                            : (_expMA.containsMouse ? Commons.Color.mHover : Commons.Color.mSurfaceVariant)
                         Behavior on color { ColorAnimation { duration: 120 } }
                         NText {
                             id: _expLabel
@@ -274,8 +275,8 @@ ColumnLayout {
                             pointSize:   Style.fontSizeXS
                             font.weight: root.x02Expiry === modelData.id ? Font.Bold : Font.Normal
                             color:       root.x02Expiry === modelData.id
-                                ? Color.mOnPrimary
-                                : (_expMA.containsMouse ? Color.mOnHover : Color.mOnSurface)
+                                ? Commons.Color.mOnPrimary
+                                : (_expMA.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface)
                         }
                         MouseArea {
                             id: _expMA
@@ -344,7 +345,7 @@ ColumnLayout {
 
         RowLayout {
             spacing: Style.marginS
-            NIcon  { icon: "scan"; color: Color.mPrimary }
+            NIcon  { icon: "scan"; color: Commons.Color.mPrimary }
             NLabel { label: pluginApi?.tr("settings.ocrSection") }
         }
 

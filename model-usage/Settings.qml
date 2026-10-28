@@ -1,13 +1,14 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
     id: root
 
     property var pluginApi: null
-    readonly property color sectionBackgroundColor: Color.mSurfaceVariant
+    readonly property color sectionBackgroundColor: Commons.Color.mSurfaceVariant
 
     property var editSettings: JSON.parse(JSON.stringify(pluginApi?.pluginSettings ?? pluginApi?.manifest?.metadata?.defaultSettings ?? {}))
 
@@ -22,7 +23,7 @@ ColumnLayout {
         text: "Model Usage Settings"
         pointSize: Style.fontSizeXL
         font.weight: Style.fontWeightBold
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
         Layout.fillWidth: true
     }
 
@@ -46,7 +47,7 @@ ColumnLayout {
                 text: "General"
                 pointSize: Style.fontSizeL
                 font.weight: Style.fontWeightSemiBold
-                color: Color.mPrimary
+                color: Commons.Color.mPrimary
             }
 
             ColumnLayout {
@@ -57,12 +58,12 @@ ColumnLayout {
                     text: "Bar display mode"
                     pointSize: Style.fontSizeM
                     font.weight: Style.fontWeightSemiBold
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                 }
                 NText {
                     text: "Show active provider or cycle between enabled providers"
                     pointSize: Style.fontSizeXS
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                 }
 
                 NComboBox {
@@ -93,7 +94,7 @@ ColumnLayout {
                     text: "Cycle interval (seconds)"
                     pointSize: Style.fontSizeM
                     font.weight: Style.fontWeightSemiBold
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                 }
 
                 NSpinBox {
@@ -115,12 +116,12 @@ ColumnLayout {
                     text: "Bar metric"
                     pointSize: Style.fontSizeM
                     font.weight: Style.fontWeightSemiBold
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                 }
                 NText {
                     text: "What number to show in the bar capsule"
                     pointSize: Style.fontSizeXS
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                 }
 
                 NComboBox {
@@ -154,12 +155,12 @@ ColumnLayout {
                     text: "Refresh interval (seconds)"
                     pointSize: Style.fontSizeM
                     font.weight: Style.fontWeightSemiBold
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                 }
                 NText {
                     text: "Fallback polling interval when file watch misses changes"
                     pointSize: Style.fontSizeXS
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                 }
 
                 NSpinBox {
@@ -195,7 +196,7 @@ ColumnLayout {
                 text: "Providers"
                 pointSize: Style.fontSizeL
                 font.weight: Style.fontWeightSemiBold
-                color: Color.mPrimary
+                color: Commons.Color.mPrimary
             }
 
             RowLayout {
@@ -215,13 +216,13 @@ ColumnLayout {
                 NText {
                     text: "Claude Code"
                     pointSize: Style.fontSizeM
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     Layout.fillWidth: true
                 }
                 NText {
                     text: "Local files"
                     pointSize: Style.fontSizeXS
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                 }
             }
 
@@ -242,13 +243,13 @@ ColumnLayout {
                 NText {
                     text: "Codex"
                     pointSize: Style.fontSizeM
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     Layout.fillWidth: true
                 }
                 NText {
                     text: "Local files"
                     pointSize: Style.fontSizeXS
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                 }
             }
 
@@ -269,13 +270,13 @@ ColumnLayout {
                 NText {
                     text: "Copilot"
                     pointSize: Style.fontSizeM
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     Layout.fillWidth: true
                 }
                 NText {
                     text: "GitHub auth"
                     pointSize: Style.fontSizeXS
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                 }
             }
 
@@ -296,13 +297,13 @@ ColumnLayout {
                 NText {
                     text: pluginApi?.tr("settings.providers.gemini.name")
                     pointSize: Style.fontSizeM
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     Layout.fillWidth: true
                 }
                 NText {
                     text: pluginApi?.tr("settings.providers.gemini.source")
                     pointSize: Style.fontSizeXS
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                 }
             }
 
@@ -327,13 +328,13 @@ ColumnLayout {
                     NText {
                         text: "OpenRouter"
                         pointSize: Style.fontSizeM
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         Layout.fillWidth: true
                     }
                     NText {
                         text: "API key"
                         pointSize: Style.fontSizeXS
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                     }
                 }
 
@@ -375,13 +376,13 @@ ColumnLayout {
                     NText {
                         text: "Zen (opencode.ai)"
                         pointSize: Style.fontSizeM
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         Layout.fillWidth: true
                     }
                     NText {
                         text: "API key"
                         pointSize: Style.fontSizeXS
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                     }
                 }
 

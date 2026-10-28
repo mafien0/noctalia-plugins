@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -15,9 +16,9 @@ ColumnLayout {
 
   // Priority color properties
   property bool valueUseCustomColors: pluginApi?.pluginSettings?.useCustomColors !== undefined ? pluginApi.pluginSettings.useCustomColors : pluginApi?.manifest?.metadata?.defaultSettings?.useCustomColors
-  property color valueHighPriorityColor: (pluginApi?.pluginSettings?.priorityColors?.high) || (pluginApi?.manifest?.metadata?.defaultSettings?.priorityColors?.high) || Color.mError.toString()
-  property color valueMediumPriorityColor: (pluginApi?.pluginSettings?.priorityColors?.medium) || (pluginApi?.manifest?.metadata?.defaultSettings?.priorityColors?.medium) || Color.mPrimary.toString()
-  property color valueLowPriorityColor: (pluginApi?.pluginSettings?.priorityColors?.low) || (pluginApi?.manifest?.metadata?.defaultSettings?.priorityColors?.low) || Color.mOnSurfaceVariant.toString()
+  property color valueHighPriorityColor: (pluginApi?.pluginSettings?.priorityColors?.high) || (pluginApi?.manifest?.metadata?.defaultSettings?.priorityColors?.high) || Commons.Color.mError.toString()
+  property color valueMediumPriorityColor: (pluginApi?.pluginSettings?.priorityColors?.medium) || (pluginApi?.manifest?.metadata?.defaultSettings?.priorityColors?.medium) || Commons.Color.mPrimary.toString()
+  property color valueLowPriorityColor: (pluginApi?.pluginSettings?.priorityColors?.low) || (pluginApi?.manifest?.metadata?.defaultSettings?.priorityColors?.low) || Commons.Color.mOnSurfaceVariant.toString()
 
   // Export path property
   property string valueExportPath: pluginApi?.pluginSettings?.exportPath !== undefined ? pluginApi?.pluginSettings?.exportPath : pluginApi?.manifest?.metadata?.defaultSettings?.exportPath
@@ -336,7 +337,7 @@ ColumnLayout {
                     NIconButton {
                       icon: "trash"
                       tooltipText: pluginApi?.tr("settings.pages.delete_button_tooltip")
-                      colorFg: Color.mError
+                      colorFg: Commons.Color.mError
                       enabled: (pluginApi?.pluginSettings?.pages?.length || 0) > 1 && modelData.id !== 0
                       onClicked: {
                         if ((pluginApi?.pluginSettings?.pages?.length || 0) <= 1) {
@@ -384,16 +385,16 @@ ColumnLayout {
                   NButton {
                     text: "✓"
                     fontSize: Style.fontSizeS
-                    backgroundColor: Color.mPrimary
-                    textColor: Color.mOnPrimary
+                    backgroundColor: Commons.Color.mPrimary
+                    textColor: Commons.Color.mOnPrimary
                     onClicked: saveRename()
                   }
 
                   NButton {
                     text: "✕"
                     fontSize: Style.fontSizeS
-                    backgroundColor: Color.mError
-                    textColor: Color.mOnError
+                    backgroundColor: Commons.Color.mError
+                    textColor: Commons.Color.mOnError
                     onClicked: cancelRename()
                   }
                 }
@@ -451,8 +452,8 @@ ColumnLayout {
     height: 150
 
     background: Rectangle {
-      color: Color.mSurface
-      border.color: Color.mOutline
+      color: Commons.Color.mSurface
+      border.color: Commons.Color.mOutline
       border.width: 1
       radius: Style.radiusL
     }
@@ -481,8 +482,8 @@ ColumnLayout {
 
         NButton {
           text: "Delete"
-          textColor: Color.mOnError
-          backgroundColor: Color.mError
+          textColor: Commons.Color.mOnError
+          backgroundColor: Commons.Color.mError
           onClicked: {
             performPageDeletion(confirmDialog.pageIndex);
             confirmDialog.close();
@@ -551,9 +552,9 @@ ColumnLayout {
     } else {
       // If custom colors are disabled, reset to defaults
       pluginApi.pluginSettings.priorityColors = {
-        "high": Color.mError.toString(),
-        "medium": Color.mPrimary.toString(),
-        "low": Color.mOnSurfaceVariant.toString()
+        "high": Commons.Color.mError.toString(),
+        "medium": Commons.Color.mPrimary.toString(),
+        "low": Commons.Color.mOnSurfaceVariant.toString()
       };
     }
 

@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -68,7 +69,7 @@ ColumnLayout {
       Layout.alignment: Qt.AlignVCenter
       icon: root.editIcon || "bookmark"
       pointSize: Style.fontSizeXXXL
-      color: Color.resolveColorKeyOptional(root.editIconColor).a > 0 ? Color.resolveColorKeyOptional(root.editIconColor) : Color.mOnSurface
+      color: Commons.Color.resolveColorKeyOptional(root.editIconColor).a > 0 ? Commons.Color.resolveColorKeyOptional(root.editIconColor) : Commons.Color.mOnSurface
     }
   }
 

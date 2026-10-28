@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import "../utils/utils.js" as U
@@ -50,19 +51,19 @@ Item {
             width: parent.width
             height: 36
             radius: Style.radiusM
-            color: pickAgainBtn.containsMouse ? Color.mPrimary : Color.mSurface
-            border.color: Color.mPrimary
+            color: pickAgainBtn.containsMouse ? Commons.Color.mPrimary : Commons.Color.mSurface
+            border.color: Commons.Color.mPrimary
             border.width: Style.capsuleBorderWidth
             Row {
                 anchors.centerIn: parent
                 spacing: Style.marginS
                 NIcon {
                     icon: "color-picker"
-                    color: pickAgainBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary
+                    color: pickAgainBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary
                 }
                 NText {
                     text: pluginApi?.tr("panel.pickAgain")
-                    color: pickAgainBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary
+                    color: pickAgainBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary
                     pointSize: Style.fontSizeS
                 }
             }
@@ -85,7 +86,7 @@ Item {
                     width: 110
                     height: 110
                     radius: Style.radiusM
-                    color: Color.mSurfaceVariant
+                    color: Commons.Color.mSurfaceVariant
                     clip: true
                     border.color: Style.capsuleBorderColor
                     border.width: Style.capsuleBorderWidth
@@ -118,7 +119,7 @@ Item {
                         anchors.centerIn: parent
                         visible: pixelImg.status !== Image.Ready
                         text: pluginApi?.tr("panel.loading")
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         pointSize: Style.fontSizeS
                     }
                 }
@@ -148,7 +149,7 @@ Item {
                     NText {
                         width: parent.width
                         text: root.pickedHex.toUpperCase()
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         font.weight: Font.Bold
                         pointSize: Style.fontSizeM
                         horizontalAlignment: Text.AlignHCenter
@@ -166,7 +167,7 @@ Item {
                     width: root.width
                     height: 36
                     radius: Style.radiusM
-                    color: rh.containsMouse ? Color.mHover : Color.mSurface
+                    color: rh.containsMouse ? Commons.Color.mHover : Commons.Color.mSurface
                     border.color: Style.capsuleBorderColor
                     border.width: Style.capsuleBorderWidth
                     Row {
@@ -176,7 +177,7 @@ Item {
                         spacing: Style.marginS
                         NText {
                             text: modelData.label
-                            color: Color.mPrimary
+                            color: Commons.Color.mPrimary
                             font.weight: Font.Bold
                             pointSize: Style.fontSizeS
                             width: 36
@@ -185,7 +186,7 @@ Item {
                         }
                         NText {
                             text: modelData.value || "—"
-                            color: Color.mOnSurface
+                            color: Commons.Color.mOnSurface
                             pointSize: Style.fontSizeS
                             width: root.width - 90
                             height: parent.height
@@ -195,7 +196,7 @@ Item {
                     }
                     NIcon {
                         icon: "copy"
-                        color: rh.containsMouse ? Color.mPrimary : Color.mOnSurfaceVariant
+                        color: rh.containsMouse ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
                         anchors.right: parent.right
                         anchors.rightMargin: Style.marginS
                         anchors.verticalCenter: parent.verticalCenter
@@ -219,7 +220,7 @@ Item {
                     width: parent.width
                     height: 36
                     radius: Style.radiusM
-                    color: cah.containsMouse ? Color.mSurfaceVariant : Color.mSurface
+                    color: cah.containsMouse ? Commons.Color.mSurfaceVariant : Commons.Color.mSurface
                     border.color: Style.capsuleBorderColor
                     border.width: Style.capsuleBorderWidth
                     Row {
@@ -227,11 +228,11 @@ Item {
                         spacing: Style.marginS
                         NIcon {
                             icon: "copy"
-                            color: cah.containsMouse ? Color.mOnSurface : Color.mOnSurfaceVariant
+                            color: cah.containsMouse ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant
                         }
                         NText {
                             text: pluginApi?.tr("panel.copyAll")
-                            color: cah.containsMouse ? Color.mOnSurface : Color.mOnSurfaceVariant
+                            color: cah.containsMouse ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant
                             pointSize: Style.fontSizeS
                         }
                     }
@@ -250,19 +251,19 @@ Item {
                     width: parent.width
                     height: 36
                     radius: Style.radiusM
-                    color: clrh.containsMouse ? Qt.alpha(Color.mError, 0.15) : Color.mSurface
-                    border.color: clrh.containsMouse ? Color.mError : Style.capsuleBorderColor
+                    color: clrh.containsMouse ? Qt.alpha(Commons.Color.mError, 0.15) : Commons.Color.mSurface
+                    border.color: clrh.containsMouse ? Commons.Color.mError : Style.capsuleBorderColor
                     border.width: Style.capsuleBorderWidth
                     Row {
                         anchors.centerIn: parent
                         spacing: Style.marginS
                         NIcon {
                             icon: "trash"
-                            color: clrh.containsMouse ? Color.mError : Color.mOnSurfaceVariant
+                            color: clrh.containsMouse ? Commons.Color.mError : Commons.Color.mOnSurfaceVariant
                         }
                         NText {
                             text: pluginApi?.tr("panel.clearResult")
-                            color: clrh.containsMouse ? Color.mError : Color.mOnSurfaceVariant
+                            color: clrh.containsMouse ? Commons.Color.mError : Commons.Color.mOnSurfaceVariant
                             pointSize: Style.fontSizeS
                         }
                     }
@@ -291,7 +292,7 @@ Item {
                     anchors.rightMargin:    Style.marginS
                     anchors.verticalCenter: parent.verticalCenter
                     height:  1
-                    color:   Color.mOnSurfaceVariant
+                    color:   Commons.Color.mOnSurfaceVariant
                     opacity: 0.3
                 }
 
@@ -299,7 +300,7 @@ Item {
                     id:              historyLabel
                     anchors.centerIn: parent
                     text:             pluginApi?.tr("panel.history")
-                    color:            Color.mOnSurfaceVariant
+                    color:            Commons.Color.mOnSurfaceVariant
                     pointSize:        Style.fontSizeXS
                 }
 
@@ -310,7 +311,7 @@ Item {
                     anchors.rightMargin:    Style.marginS
                     anchors.verticalCenter: parent.verticalCenter
                     height:  1
-                    color:   Color.mOnSurfaceVariant
+                    color:   Commons.Color.mOnSurfaceVariant
                     opacity: 0.3
                 }
 
@@ -320,12 +321,12 @@ Item {
                     anchors.verticalCenter: parent.verticalCenter
                     width:  22; height: 22
                     radius: Style.radiusS
-                    color:  hhc.containsMouse ? Color.mError : "transparent"
+                    color:  hhc.containsMouse ? Commons.Color.mError : "transparent"
                     NIcon {
                         anchors.centerIn: parent
                         icon:  "trash"
                         scale: 0.75
-                        color: hhc.containsMouse ? Color.mError : Color.mOnSurfaceVariant
+                        color: hhc.containsMouse ? Commons.Color.mError : Commons.Color.mOnSurfaceVariant
                     }
                     MouseArea {
                         id:          hhc
@@ -348,7 +349,7 @@ Item {
                         width: 28
                         height: 28
                         radius: Style.radiusS
-                        border.color: hh.containsMouse ? Color.mPrimary : Style.capsuleBorderColor
+                        border.color: hh.containsMouse ? Commons.Color.mPrimary : Style.capsuleBorderColor
                         border.width: hh.containsMouse ? 2 : Style.capsuleBorderWidth
                         Component.onCompleted: color = modelData
                         MouseArea {

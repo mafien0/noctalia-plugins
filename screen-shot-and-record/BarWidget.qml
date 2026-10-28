@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -30,10 +31,10 @@ NIconButton {
   icon: "screenshot"
   tooltipText: pluginApi?.tr("panel.title")
   tooltipDirection: BarService.getTooltipDirection(screenName)
-  colorBg: recording ? Color.mError : Style.capsuleColor
-  colorFg: recording ? Color.mOnError : Color.mOnSurface
-  colorBgHover: recording ? Color.mError : Color.mHover
-  colorFgHover: recording ? Color.mOnError : Color.mOnHover
+  colorBg: recording ? Commons.Color.mError : Style.capsuleColor
+  colorFg: recording ? Commons.Color.mOnError : Commons.Color.mOnSurface
+  colorBgHover: recording ? Commons.Color.mError : Commons.Color.mHover
+  colorFgHover: recording ? Commons.Color.mOnError : Commons.Color.mOnHover
   colorBorder: Style.capsuleBorderColor
   colorBorderHover: Style.capsuleBorderColor
 

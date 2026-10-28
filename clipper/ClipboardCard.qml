@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.Keyboard
 import qs.Services.Noctalia
 import qs.Services.UI
@@ -41,8 +42,8 @@ Rectangle {
 
     // Helper to safely access Color singleton
     function getColor(propName, fallback) {
-        if (typeof Color !== "undefined" && Color[propName])
-            return Color[propName];
+        if (typeof Commons.Color !== "undefined" && Commons.Color[propName])
+            return Commons.Color[propName];
         return fallback;
     }
 

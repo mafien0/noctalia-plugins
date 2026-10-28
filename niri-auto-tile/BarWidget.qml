@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -43,7 +44,7 @@ Item {
         y: Style.pixelAlignCenter(parent.height, height)
         width: root.contentWidth
         height: root.contentHeight
-        color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+        color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
         radius: Style.radiusL
         border.color: Style.capsuleBorderColor
         border.width: Style.capsuleBorderWidth
@@ -61,7 +62,7 @@ Item {
                     width: Math.round(4 * Style.uiScaleRatio)
                     height: root.capsuleHeight * 0.5
                     radius: Style.radiusXXXS
-                    color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+                    color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
                 }
             }
         }
@@ -76,7 +77,7 @@ Item {
         height: Math.round(4 * Style.uiScaleRatio)
         radius: Math.round(2 * Style.uiScaleRatio)
         visible: isEnabled
-        color: isRunning ? Color.mPrimary : Color.mSecondary
+        color: isRunning ? Commons.Color.mPrimary : Commons.Color.mSecondary
     }
 
     NPopupContextMenu {

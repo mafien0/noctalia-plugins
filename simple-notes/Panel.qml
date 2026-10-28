@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -136,7 +137,7 @@ Item {
       Rectangle {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
         radius: Style.radiusL
 
         // LIST VIEW
@@ -158,7 +159,7 @@ Item {
               text: pluginApi?.tr("panel.header.title") || "Notes"
               font.pointSize: Style.fontSizeL
               font.weight: Font.Medium
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
             }
             Item { Layout.fillWidth: true }
             NButton {
@@ -176,7 +177,7 @@ Item {
               
               NText {
                 text: pluginApi?.tr("panel.list.empty_message") || "No notes yet"
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 anchors.centerIn: parent
                 font.pointSize: Style.fontSizeM
               }
@@ -199,7 +200,7 @@ Item {
               delegate: Rectangle {
                 width: ListView.view.width
                 height: cardContent.implicitHeight + Style.marginM * 2
-                color: Color.mSurface
+                color: Commons.Color.mSurface
                 radius: Style.radiusS
                 
                 // Hover effect
@@ -233,7 +234,7 @@ Item {
                                 text: model.title
                                 font.weight: Font.Medium
                                 font.pointSize: Style.fontSizeM
-                                color: parent.parent.parent.hovered ? Color.mPrimary : Color.mOnSurface
+                                color: parent.parent.parent.hovered ? Commons.Color.mPrimary : Commons.Color.mOnSurface
                                 elide: Text.ElideRight
                                 Layout.fillWidth: true
                               }
@@ -241,7 +242,7 @@ Item {
                               NText {
                                 text: new Date(model.modifiedAt).toLocaleDateString()
                                 font.pointSize: Style.fontSizeS
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                               }
                         }
 
@@ -249,7 +250,7 @@ Item {
                         NText {
                             text: model.content.replace(/\n/g, " ")
                             font.pointSize: Style.fontSizeS
-                            color: Color.mOnSurfaceVariant
+                            color: Commons.Color.mOnSurfaceVariant
                             elide: Text.ElideRight
                             Layout.fillWidth: true
                             maximumLineCount: 1
@@ -261,7 +262,7 @@ Item {
                         id: deleteButton
                         icon: "circle-x"
                         tooltipText: pluginApi?.tr("panel.editor.delete_button") || "Delete"
-                        color: Color.mError
+                        color: Commons.Color.mError
                         implicitWidth: Style.baseWidgetSize * 0.8
                         implicitHeight: Style.baseWidgetSize * 0.8
                         radius: Style.radiusM
@@ -300,7 +301,7 @@ Item {
               text: root.currentNote && root.currentNote.id ? "Edit Note" : "New Note"
               font.pointSize: Style.fontSizeL
               font.weight: Font.Medium
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
             }
             
             Item { Layout.fillWidth: true }
@@ -308,7 +309,7 @@ Item {
             NButton {
               text: pluginApi?.tr("panel.editor.delete_button") || "Delete"
               visible: root.currentNote && root.currentNote.id !== null
-              backgroundColor: Color.mError
+              backgroundColor: Commons.Color.mError
               onClicked: deleteCurrentNote()
             }
             
@@ -329,7 +330,7 @@ Item {
           Rectangle {
               Layout.fillWidth: true
               Layout.fillHeight: true
-              color: Color.mSurface
+              color: Commons.Color.mSurface
               radius: Style.radiusM
               
               ScrollView {
@@ -340,10 +341,10 @@ Item {
                     id: contentInput
                     width: parent.width
                     placeholderText: pluginApi?.tr("panel.editor.content_placeholder") || "Content"
-                    placeholderTextColor: Color.mOnSurfaceVariant
+                    placeholderTextColor: Commons.Color.mOnSurfaceVariant
                     text: root.currentNote ? root.currentNote.content : ""
                     wrapMode: TextEdit.Wrap
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     font.pointSize: Style.fontSizeM
                     background: null // Remove default background
                     selectByMouse: true

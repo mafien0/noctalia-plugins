@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -26,11 +27,11 @@ NIconButtonHot {
     icon: "smart-home"
     colorFg: {
         switch (status) {
-            case "Connected": return Color.mPrimary;
-            case "Connecting": return Color.mOnError;
-            case "Disconnected": return Color.mError;
-            case "AuthFailed": return Color.mError;
-            default: return Color.mOnSurfaceVariant;
+            case "Connected": return Commons.Color.mPrimary;
+            case "Connecting": return Commons.Color.mOnError;
+            case "Disconnected": return Commons.Color.mError;
+            case "AuthFailed": return Commons.Color.mError;
+            default: return Commons.Color.mOnSurfaceVariant;
         }
     }
 

@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -182,7 +183,7 @@ Item {
     height: root.contentHeight
     radius: Style.radiusL
     color:        Style.capsuleColor
-    border.color: azanPlaying ? Color.mPrimary : Style.capsuleBorderColor
+    border.color: azanPlaying ? Commons.Color.mPrimary : Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
 
     Behavior on color        { ColorAnimation { duration: Style.animationFast } }
@@ -200,14 +201,14 @@ Item {
       NIcon {
         icon: root.displayIcon
         pointSize: root.iconSize
-        color: Color.resolveColorKey(prayerNow || isElapsed ? root.activeColor : root.iconColor)
+        color: Commons.Color.resolveColorKey(prayerNow || isElapsed ? root.activeColor : root.iconColor)
         Layout.alignment: Qt.AlignVCenter
       }
 
       NIcon {
         icon: "volume"
         pointSize: root.iconSize
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
         visible: azanPlaying
         Layout.alignment: Qt.AlignVCenter
         SequentialAnimation on opacity {
@@ -223,7 +224,7 @@ Item {
         text: root.displayText
         pointSize: root.barFontSize
         applyUiScale: false
-        color: Color.resolveColorKey(prayerNow || isElapsed ? root.activeColor : root.textColor)
+        color: Commons.Color.resolveColorKey(prayerNow || isElapsed ? root.activeColor : root.textColor)
         Layout.alignment: Qt.AlignVCenter
         Behavior on color { ColorAnimation { duration: 300 } }
       }
@@ -232,7 +233,7 @@ Item {
         id: stopIconH
         icon: "player-stop-filled"
         pointSize: root.iconSize
-        color: stopAreaH.containsMouse ? Color.mError : Color.mOnSurface
+        color: stopAreaH.containsMouse ? Commons.Color.mError : Commons.Color.mOnSurface
         visible: azanPlaying
         Layout.alignment: Qt.AlignVCenter
       }
@@ -251,13 +252,13 @@ Item {
         NIcon {
           icon: root.displayIcon
           pointSize: Style.toOdd(root.capsuleHeight * 0.45)
-          color: Color.resolveColorKey(prayerNow || isElapsed ? root.activeColor : root.iconColor)
+          color: Commons.Color.resolveColorKey(prayerNow || isElapsed ? root.activeColor : root.iconColor)
         }
 
         NIcon {
           icon: "volume"
           pointSize: Style.toOdd(root.capsuleHeight * 0.38)
-          color: Color.mPrimary
+          color: Commons.Color.mPrimary
           visible: azanPlaying
           SequentialAnimation on opacity {
             running: azanPlaying
@@ -273,7 +274,7 @@ Item {
         pointSize: root.barFontSize * 0.7
         applyUiScale: false
         font.weight: Font.Medium
-        color: Color.resolveColorKey(prayerNow || isElapsed ? root.activeColor : root.textColor)
+        color: Commons.Color.resolveColorKey(prayerNow || isElapsed ? root.activeColor : root.textColor)
         Layout.alignment: Qt.AlignHCenter
         Behavior on color { ColorAnimation { duration: 300 } }
       }
@@ -283,7 +284,7 @@ Item {
         pointSize: root.barFontSize * 0.7
         applyUiScale: false
         opacity: 0.75
-        color: Color.resolveColorKey(prayerNow || isElapsed ? root.activeColor : root.textColor)
+        color: Commons.Color.resolveColorKey(prayerNow || isElapsed ? root.activeColor : root.textColor)
         Layout.alignment: Qt.AlignHCenter
         visible: root.verticalLine2 !== ""
         Behavior on color { ColorAnimation { duration: 300 } }
@@ -293,7 +294,7 @@ Item {
         id: stopIconV
         icon: "player-stop-filled"
         pointSize: root.iconSize
-        color: stopAreaV.containsMouse ? Color.mError : Color.mOnSurface
+        color: stopAreaV.containsMouse ? Commons.Color.mError : Commons.Color.mOnSurface
         visible: azanPlaying
         Layout.alignment: Qt.AlignHCenter
       }

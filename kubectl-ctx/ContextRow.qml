@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -19,9 +20,9 @@ Item {
     anchors.fill: parent
     radius: Style.radiusM
     color: {
-      if (root.isActive) return Qt.alpha(Color.mPrimary, 0.15);
-      if (root.highlighted) return Qt.alpha(Color.mPrimary, 0.08);
-      if (hoverArea.containsMouse) return Qt.alpha(Color.mOnSurface, 0.06);
+      if (root.isActive) return Qt.alpha(Commons.Color.mPrimary, 0.15);
+      if (root.highlighted) return Qt.alpha(Commons.Color.mPrimary, 0.08);
+      if (hoverArea.containsMouse) return Qt.alpha(Commons.Color.mOnSurface, 0.06);
       return "transparent";
     }
   }
@@ -42,9 +43,9 @@ Item {
       width: Math.round(Style.fontSizeS * 0.55)
       height: width
       radius: width / 2
-      color: root.isActive ? Color.mPrimary : "transparent"
+      color: root.isActive ? Commons.Color.mPrimary : "transparent"
       border.width: root.isActive ? 0 : Style.borderS
-      border.color: Color.mOnSurfaceVariant
+      border.color: Commons.Color.mOnSurfaceVariant
       opacity: root.isActive ? 1.0 : 0.4
       Layout.alignment: Qt.AlignVCenter
     }
@@ -53,7 +54,7 @@ Item {
       text: root.contextName
       pointSize: Style.fontSizeM
       font.weight: root.isActive ? Font.DemiBold : Font.Normal
-      color: root.isActive ? Color.mPrimary : Color.mOnSurface
+      color: root.isActive ? Commons.Color.mPrimary : Commons.Color.mOnSurface
       elide: Text.ElideRight
       Layout.fillWidth: true
       Layout.alignment: Qt.AlignVCenter
@@ -63,7 +64,7 @@ Item {
       visible: root.isActive
       icon: "check"
       pointSize: Style.fontSizeM
-      color: Color.mPrimary
+      color: Commons.Color.mPrimary
       Layout.alignment: Qt.AlignVCenter
     }
   }

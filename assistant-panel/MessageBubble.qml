@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -53,7 +54,7 @@ Item {
       Layout.alignment: Qt.AlignTop
       visible: message.role === "assistant"
       icon: "sparkles"
-      color: Color.mPrimary
+      color: Commons.Color.mPrimary
       pointSize: Style.fontSizeL
       applyUiScale: false
     }
@@ -73,7 +74,7 @@ Item {
       Layout.preferredWidth: root.isEditing ? (parent.width * 0.8) : (contentCol.implicitWidth + (root.bubblePadding * 2))
       Layout.preferredHeight: contentCol.implicitHeight + (root.bubblePadding * 2)
 
-      color: message.role === "user" ? Color.mSurfaceVariant : Color.mSurface
+      color: message.role === "user" ? Commons.Color.mSurfaceVariant : Commons.Color.mSurface
       radius: Style.radiusM
 
       // Sharp Corner Hack for User (Top Right)
@@ -104,14 +105,14 @@ Item {
           width: 28
           height: 28
           radius: 4
-          color: copyBtnMouse.containsMouse ? Color.mSurfaceVariant : "transparent"
+          color: copyBtnMouse.containsMouse ? Commons.Color.mSurfaceVariant : "transparent"
 
           NIcon {
             anchors.centerIn: parent
             icon: "copy"
             pointSize: Style.fontSizeS
             applyUiScale: false
-            color: copyBtnMouse.containsMouse ? Color.mPrimary : Color.mOnSurfaceVariant
+            color: copyBtnMouse.containsMouse ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
           }
 
           MouseArea {
@@ -131,14 +132,14 @@ Item {
           width: 28
           height: 28
           radius: 4
-          color: editBtnMouse.containsMouse ? Color.mSurfaceVariant : "transparent"
+          color: editBtnMouse.containsMouse ? Commons.Color.mSurfaceVariant : "transparent"
 
           NIcon {
             anchors.centerIn: parent
             icon: "pencil"
             pointSize: Style.fontSizeS
             applyUiScale: false
-            color: editBtnMouse.containsMouse ? Color.mPrimary : Color.mOnSurfaceVariant
+            color: editBtnMouse.containsMouse ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
           }
 
           MouseArea {
@@ -182,14 +183,14 @@ Item {
           readOnly: true
           selectByMouse: true
 
-          color: Color.mOnSurface
+          color: Commons.Color.mOnSurface
           font.family: Settings.data.ui.fontDefault
           // Replicate NText font scaling logic for consistency
           font.pointSize: Math.max(1, Style.fontSizeM * Settings.data.ui.fontDefaultScale * Style.uiScaleRatio)
           font.weight: Style.fontWeightMedium
 
-          selectionColor: Color.mPrimary
-          selectedTextColor: Color.mOnPrimary
+          selectionColor: Commons.Color.mPrimary
+          selectedTextColor: Commons.Color.mOnPrimary
 
           onLinkActivated: link => Qt.openUrlExternally(link)
         }
@@ -208,12 +209,12 @@ Item {
             wrapMode: TextEdit.Wrap
             focus: root.isEditing
 
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
             background: Rectangle {
-              color: Color.mSurface
+              color: Commons.Color.mSurface
               radius: Style.radiusS
               border.width: 1
-              border.color: editArea.activeFocus ? Color.mPrimary : "transparent"
+              border.color: editArea.activeFocus ? Commons.Color.mPrimary : "transparent"
             }
           }
 
@@ -223,10 +224,10 @@ Item {
 
             NButton {
               text: pluginApi?.tr("chat.save")
-              backgroundColor: Color.mPrimary
-              textColor: Color.mOnPrimary
-              hoverColor: Qt.lighter(Color.mPrimary, 1.2)
-              textHoverColor: Color.mOnPrimary
+              backgroundColor: Commons.Color.mPrimary
+              textColor: Commons.Color.mOnPrimary
+              hoverColor: Qt.lighter(Commons.Color.mPrimary, 1.2)
+              textHoverColor: Commons.Color.mOnPrimary
               onClicked: {
                 root.isEditing = false;
                 if (editArea.text !== message.content) {
@@ -237,10 +238,10 @@ Item {
 
             NButton {
               text: pluginApi?.tr("chat.cancel")
-              backgroundColor: Color.mSurface
-              textColor: Color.mOnSurface
-              hoverColor: Qt.lighter(Color.mSurface, 1.3)
-              textHoverColor: Color.mOnSurface
+              backgroundColor: Commons.Color.mSurface
+              textColor: Commons.Color.mOnSurface
+              hoverColor: Qt.lighter(Commons.Color.mSurface, 1.3)
+              textHoverColor: Commons.Color.mOnSurface
               onClicked: root.isEditing = false
             }
           }
@@ -257,14 +258,14 @@ Item {
             width: 28
             height: 28
             radius: 4
-            color: copyMouse.containsMouse ? Color.mSurfaceVariant : "transparent"
+            color: copyMouse.containsMouse ? Commons.Color.mSurfaceVariant : "transparent"
 
             NIcon {
               anchors.centerIn: parent
               icon: "copy"
               pointSize: Style.fontSizeM
               applyUiScale: false
-              color: copyMouse.containsMouse ? Color.mPrimary : Color.mOnSurfaceVariant
+              color: copyMouse.containsMouse ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
             }
 
             MouseArea {
@@ -283,14 +284,14 @@ Item {
             width: 28
             height: 28
             radius: 4
-            color: regenMouse.containsMouse ? Color.mSurfaceVariant : "transparent"
+            color: regenMouse.containsMouse ? Commons.Color.mSurfaceVariant : "transparent"
 
             NIcon {
               anchors.centerIn: parent
               icon: "refresh"
               pointSize: Style.fontSizeM
               applyUiScale: false
-              color: regenMouse.containsMouse ? Color.mPrimary : Color.mOnSurfaceVariant
+              color: regenMouse.containsMouse ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
             }
 
             MouseArea {
@@ -320,7 +321,7 @@ Item {
       Layout.alignment: Qt.AlignTop
       visible: message.role === "user"
       icon: "user"
-      color: Color.mOnSurfaceVariant
+      color: Commons.Color.mOnSurfaceVariant
       pointSize: Style.fontSizeL
       applyUiScale: false
     }

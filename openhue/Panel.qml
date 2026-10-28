@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -60,14 +61,14 @@ Item {
         NIcon {
           icon: "lamp"
           pointSize: Style.fontSizeXXL
-          color: Color.mPrimary
+          color: Commons.Color.mPrimary
         }
 
         NText {
           text: "Hue lights"
           pointSize: Style.fontSizeL
           font.weight: Style.fontWeightBold
-          color: Color.mOnSurface
+          color: Commons.Color.mOnSurface
           Layout.fillWidth: true
         }
 
@@ -151,7 +152,7 @@ Item {
 
                   NLabel {
                     label: lightBox.name
-                    labelColor: Color.mPrimary
+                    labelColor: Commons.Color.mPrimary
                     Layout.fillWidth: true
                   }
 
@@ -220,7 +221,7 @@ Item {
 
                   NLabel {
                     label: roomBox.name
-                    labelColor: Color.mPrimary
+                    labelColor: Commons.Color.mPrimary
                     Layout.fillWidth: true
                   }
 

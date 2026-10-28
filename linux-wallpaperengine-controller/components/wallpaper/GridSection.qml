@@ -5,6 +5,7 @@ import QtMultimedia
 import "../shared"
 
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -95,9 +96,9 @@ Rectangle {
        width: GridView.view.cellWidth
        height: GridView.view.cellHeight
        radius: Style.radiusL
-       color: Qt.alpha(Color.mSurface, 0.82)
+       color: Qt.alpha(Commons.Color.mSurface, 0.82)
        border.width: isPending ? 2 : (isSelected ? 1 : 0)
-       border.color: isPending ? Color.mPrimary : Qt.alpha(Color.mOutline, 0.45)
+       border.color: isPending ? Commons.Color.mPrimary : Qt.alpha(Commons.Color.mOutline, 0.45)
        clip: true
 
       ColumnLayout {
@@ -109,7 +110,7 @@ Rectangle {
           Layout.fillWidth: true
           Layout.preferredHeight: 136 * Style.uiScaleRatio
           radius: Style.radiusM
-          color: Color.mSurfaceVariant
+          color: Commons.Color.mSurfaceVariant
           clip: true
 
           Image {
@@ -157,7 +158,7 @@ Rectangle {
             visible: (!modelData.thumb || modelData.thumb.length === 0) && (!modelData.motionPreview || modelData.motionPreview.length === 0)
             icon: "photo"
             pointSize: Style.fontSizeXL
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
           }
         }
 
@@ -168,7 +169,7 @@ Rectangle {
           NText {
             Layout.fillWidth: true
             text: modelData.name
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
             elide: Text.ElideRight
             font.weight: Font.Medium
           }
@@ -177,7 +178,7 @@ Rectangle {
             visible: root.selectedPath === modelData.path
             icon: "check"
             pointSize: Style.fontSizeL
-            color: Color.mPrimary
+            color: Commons.Color.mPrimary
           }
         }
 
@@ -220,32 +221,32 @@ Rectangle {
                 }
                 badgeColor: {
                   const key = String(modelData || "");
-                  if (key === "type") return Color.mSecondary;
-                  if (key === "dynamic") return tileCard.wallpaperData.dynamic ? Color.mTertiary : Color.mOnSurfaceVariant;
-                  if (key === "music") return Color.mPrimary;
-                  if (key === "reactive") return Color.mSecondary;
-                  if (key === "approved") return Color.mPrimary;
-                  if (key === "resolution") return Color.mOnSurfaceVariant;
+                  if (key === "type") return Commons.Color.mSecondary;
+                  if (key === "dynamic") return tileCard.wallpaperData.dynamic ? Commons.Color.mTertiary : Commons.Color.mOnSurfaceVariant;
+                  if (key === "music") return Commons.Color.mPrimary;
+                  if (key === "reactive") return Commons.Color.mSecondary;
+                  if (key === "approved") return Commons.Color.mPrimary;
+                  if (key === "resolution") return Commons.Color.mOnSurfaceVariant;
                   if (key === "compatibility") {
                     const cPath = String(tileCard.wallpaperData.path || "");
-                    return root.propertyCompatibilityBadgeColorForPath ? root.propertyCompatibilityBadgeColorForPath(cPath) : Color.mError;
+                    return root.propertyCompatibilityBadgeColorForPath ? root.propertyCompatibilityBadgeColorForPath(cPath) : Commons.Color.mError;
                   }
-                  return Color.mOnSurfaceVariant;
+                  return Commons.Color.mOnSurfaceVariant;
                 }
                 badgeBgColor: {
                   const key = String(modelData || "");
-                  if (key === "type") return Qt.alpha(Color.mSecondary, 0.18);
-                  if (key === "dynamic") return Qt.alpha(Color.mTertiary, 0.18);
-                  if (key === "music") return Qt.alpha(Color.mPrimary, 0.16);
-                  if (key === "reactive") return Qt.alpha(Color.mSecondary, 0.16);
-                  if (key === "approved") return Qt.alpha(Color.mPrimary, 0.16);
-                  if (key === "resolution") return Qt.alpha(Color.mSurfaceVariant, 0.24);
+                  if (key === "type") return Qt.alpha(Commons.Color.mSecondary, 0.18);
+                  if (key === "dynamic") return Qt.alpha(Commons.Color.mTertiary, 0.18);
+                  if (key === "music") return Qt.alpha(Commons.Color.mPrimary, 0.16);
+                  if (key === "reactive") return Qt.alpha(Commons.Color.mSecondary, 0.16);
+                  if (key === "approved") return Qt.alpha(Commons.Color.mPrimary, 0.16);
+                  if (key === "resolution") return Qt.alpha(Commons.Color.mSurfaceVariant, 0.24);
                   if (key === "compatibility") {
                     const cPath = String(tileCard.wallpaperData.path || "");
-                    const cColor = root.propertyCompatibilityBadgeColorForPath ? root.propertyCompatibilityBadgeColorForPath(cPath) : Color.mError;
+                    const cColor = root.propertyCompatibilityBadgeColorForPath ? root.propertyCompatibilityBadgeColorForPath(cPath) : Commons.Color.mError;
                     return root.propertyCompatibilityBadgeBackgroundForPath ? root.propertyCompatibilityBadgeBackgroundForPath(cPath) : Qt.alpha(cColor, 0.16);
                   }
-                  return Qt.alpha(Color.mSurfaceVariant, 0.24);
+                  return Qt.alpha(Commons.Color.mSurfaceVariant, 0.24);
                 }
               }
             }

@@ -10,6 +10,7 @@ import QtQuick
 import QtQuick.Layouts
 
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 import qs.Modules.Bar.Extras
@@ -64,29 +65,29 @@ Item {
             // retain text color if busy
             // lower opacity will signal the button is currently disabled
             if (!root.pluginCore?.available || !_supported) {
-                return Color.mOutline;
+                return Commons.Color.mOutline;
             }
 
             if (_hovered) {
-                return Color.mTertiary;
+                return Commons.Color.mTertiary;
             }
 
             if (_pending) {
-                return Color.mOnTertiary;
+                return Commons.Color.mOnTertiary;
             }
 
             if (_current) {
-                return Color.mOnPrimary;
+                return Commons.Color.mOnPrimary;
             }
 
-            return Color.mPrimary;
+            return Commons.Color.mPrimary;
         }
 
         readonly property color backgroundColor: {
             // retain background color if busy
             // opacity will signal the button is currently disabled
             if (!root.pluginCore?.available || !_supported) {
-                return Qt.lighter(Color.mSurfaceVariant, 1.2);
+                return Qt.lighter(Commons.Color.mSurfaceVariant, 1.2);
             }
 
             if (_hovered) {
@@ -94,11 +95,11 @@ Item {
             }
 
             if (_current) {
-                return Color.mPrimary;
+                return Commons.Color.mPrimary;
             }
 
             if (_pending) {
-                return Color.mTertiary;
+                return Commons.Color.mTertiary;
             }
 
             // non-current default
@@ -107,14 +108,14 @@ Item {
 
         readonly property color borderColor: {
             if (!_enabled) {
-                return Color.mOutline;
+                return Commons.Color.mOutline;
             }
 
             if (_pending || _hovered) {
-                return Color.mTertiary;
+                return Commons.Color.mTertiary;
             }
 
-            return Color.mPrimary;
+            return Commons.Color.mPrimary;
         }
 
         readonly property ColorAnimation animationBehaviour: ColorAnimation {
@@ -199,7 +200,7 @@ Item {
             NIcon {
                 icon: root.pluginCore?.getModeIcon(pluginCore?.mode) ?? ""
                 pointSize: Style.fontSizeXXL
-                color: Color.mPrimary
+                color: Commons.Color.mPrimary
             }
 
             // https://github.com/noctalia-dev/noctalia-shell/blob/main/Widgets/NText.qml
@@ -208,7 +209,7 @@ Item {
                 text: root.pluginApi?.tr("gpu") ?? ""
                 pointSize: Style.fontSizeL
                 font.weight: Style.fontWeightBold
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
             }
 
             // https://github.com/noctalia-dev/noctalia-shell/blob/main/Widgets/NIconButton.qml

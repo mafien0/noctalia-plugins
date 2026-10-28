@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -105,14 +106,14 @@ Item {
         text: pluginApi?.tr("panel.title")
         pointSize: Style.fontSizeL
         font.weight: Font.DemiBold
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
       }
 
       NText {
         Layout.fillWidth: true
         text: pluginApi?.tr("panel.subtitle")
         pointSize: Style.fontSizeS
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         wrapMode: Text.WordWrap
       }
 
@@ -142,7 +143,7 @@ Item {
         visible: root.sameSelection
         text: pluginApi?.tr("panel.validation.sameSelection")
         pointSize: Style.fontSizeS
-        color: Color.mError
+        color: Commons.Color.mError
       }
 
       NText {
@@ -150,7 +151,7 @@ Item {
         visible: !root.hasEnoughMonitors
         text: pluginApi?.tr("panel.validation.needTwoMonitors")
         pointSize: Style.fontSizeS
-        color: Color.mError
+        color: Commons.Color.mError
       }
 
       // No discoveryError needed with Quickshell.screens
@@ -160,7 +161,7 @@ Item {
         visible: (mainInstance?.lastError ?? "") !== ""
         text: mainInstance?.lastError ?? ""
         pointSize: Style.fontSizeS
-        color: Color.mError
+        color: Commons.Color.mError
         wrapMode: Text.WordWrap
       }
 
@@ -173,8 +174,8 @@ Item {
           Layout.fillWidth: true
           text: pluginApi?.tr("panel.actions.start")
           icon: "media-play"
-          backgroundColor: Color.mPrimary
-          textColor: Color.mOnPrimary
+          backgroundColor: Commons.Color.mPrimary
+          textColor: Commons.Color.mOnPrimary
           enabled: !(mainInstance?.mirroringActive ?? false)
               && !root.controlsLocked
               && root.selectedSource !== ""
@@ -189,8 +190,8 @@ Item {
         visible: mainInstance?.mirroringActive ?? false
         text: pluginApi?.tr("panel.actions.stop")
         icon: "stop"
-        backgroundColor: Color.mError
-        textColor: Color.mOnError
+        backgroundColor: Commons.Color.mError
+        textColor: Commons.Color.mOnError
         enabled: true
         onClicked: root.stopMirror()
       }

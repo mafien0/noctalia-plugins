@@ -1,4 +1,5 @@
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import QtQuick
 import QtQuick.Layouts
@@ -68,7 +69,7 @@ ColumnLayout {
     description: I18n.tr("common.select-color-description")
     label: I18n.tr("common.select-icon-color")
     minimumWidth: 200
-    model: Color.colorKeyModel
+    model: Commons.Color.colorKeyModel
 
     onSelected: key => root.editIconColor = key
   }

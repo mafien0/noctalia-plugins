@@ -1,6 +1,7 @@
 import QtQuick
 
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -41,9 +42,9 @@ Item {
     width: root.filterDropdownWidth
     height: Math.min(320 * Style.uiScaleRatio, filterList.contentHeight + 2 * Style.marginS)
     radius: Style.radiusL
-    color: Qt.alpha(Color.mSurface, 0.96)
+    color: Qt.alpha(Commons.Color.mSurface, 0.96)
     border.width: Style.borderS
-    border.color: Qt.alpha(Color.mOutline, 0.45)
+    border.color: Qt.alpha(Commons.Color.mOutline, 0.45)
     z: 901
 
     NListView {
@@ -70,9 +71,9 @@ Item {
         width: filterList.availableWidth
         height: isSeparator ? (8 * Style.uiScaleRatio) : (34 * Style.uiScaleRatio)
         radius: Style.radiusM
-        color: isSeparator ? "transparent" : (modelData.selected ? Qt.alpha(Color.mPrimary, 0.22) : "transparent")
+        color: isSeparator ? "transparent" : (modelData.selected ? Qt.alpha(Commons.Color.mPrimary, 0.22) : "transparent")
         border.width: isSeparator ? 0 : (modelData.selected ? 1 : 0)
-        border.color: Qt.alpha(Color.mPrimary, 0.45)
+        border.color: Qt.alpha(Commons.Color.mPrimary, 0.45)
 
         Rectangle {
           visible: isSeparator
@@ -89,7 +90,7 @@ Item {
           anchors.left: parent.left
           anchors.leftMargin: Style.marginS
           text: modelData.label
-          color: modelData.selected ? Color.mPrimary : Color.mOnSurface
+          color: modelData.selected ? Commons.Color.mPrimary : Commons.Color.mOnSurface
           font.weight: modelData.selected ? Font.Medium : Font.Normal
         }
 
@@ -110,9 +111,9 @@ Item {
     width: root.sortDropdownWidth
     height: Math.min(244 * Style.uiScaleRatio, sortList.contentHeight + 2 * Style.marginS)
     radius: Style.radiusL
-    color: Qt.alpha(Color.mSurface, 0.96)
+    color: Qt.alpha(Commons.Color.mSurface, 0.96)
     border.width: Style.borderS
-    border.color: Qt.alpha(Color.mOutline, 0.45)
+    border.color: Qt.alpha(Commons.Color.mOutline, 0.45)
     z: 901
 
     NListView {
@@ -140,16 +141,16 @@ Item {
         width: sortList.availableWidth
         height: 34 * Style.uiScaleRatio
         radius: Style.radiusM
-        color: modelData.selected ? Qt.alpha(Color.mPrimary, 0.22) : "transparent"
+        color: modelData.selected ? Qt.alpha(Commons.Color.mPrimary, 0.22) : "transparent"
         border.width: modelData.selected ? 1 : 0
-        border.color: Qt.alpha(Color.mPrimary, 0.45)
+        border.color: Qt.alpha(Commons.Color.mPrimary, 0.45)
 
         NText {
           anchors.verticalCenter: parent.verticalCenter
           anchors.left: parent.left
           anchors.leftMargin: Style.marginS
           text: modelData.label
-          color: modelData.selected ? Color.mPrimary : Color.mOnSurface
+          color: modelData.selected ? Commons.Color.mPrimary : Commons.Color.mOnSurface
           font.weight: modelData.selected ? Font.Medium : Font.Normal
         }
 

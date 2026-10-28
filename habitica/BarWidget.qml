@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -26,11 +27,11 @@ NIconButton {
 
   function getThemeColor(key) {
     switch (key) {
-      case "Primary": return Color.mPrimary
-      case "Secondary": return Color.mSecondary
-      case "Tertiary": return Color.mTertiary
-      case "Error": return Color.mError
-      default: return Color.mOnSurface
+      case "Primary": return Commons.Color.mPrimary
+      case "Secondary": return Commons.Color.mSecondary
+      case "Tertiary": return Commons.Color.mTertiary
+      case "Error": return Commons.Color.mError
+      default: return Commons.Color.mOnSurface
     }
   }
 
@@ -42,13 +43,13 @@ NIconButton {
   customRadius: Style.radiusL
   colorBg: Style.capsuleColor
   colorFg: {
-    if (hasError) return Color.mError
-    if (!configured) return Color.mOnSurfaceVariant
+    if (hasError) return Commons.Color.mError
+    if (!configured) return Commons.Color.mOnSurfaceVariant
     if (colorizationEnabled && colorizationIcon !== "None") return getThemeColor(colorizationIcon)
-    return Color.mOnSurface
+    return Commons.Color.mOnSurface
   }
-  colorBgHover: Color.mHover
-  colorFgHover: Color.mOnHover
+  colorBgHover: Commons.Color.mHover
+  colorFgHover: Commons.Color.mOnHover
   colorBorder: "transparent"
   colorBorderHover: "transparent"
 
@@ -115,8 +116,8 @@ NIconButton {
     height: 14 * Style.uiScaleRatio
     width: Math.max(height, badgeText.implicitWidth + 6 * Style.uiScaleRatio)
     radius: height / 2
-    color: root.colorizationEnabled && root.colorizationBadge !== "None" ? root.getThemeColor(root.colorizationBadge) : Color.mError
-    border.color: Color.mSurface
+    color: root.colorizationEnabled && root.colorizationBadge !== "None" ? root.getThemeColor(root.colorizationBadge) : Commons.Color.mError
+    border.color: Commons.Color.mSurface
     border.width: Style.uiScaleRatio
 
     NText {
@@ -128,7 +129,7 @@ NIconButton {
       }
       pointSize: Style.fontSizeXS * 0.8
       font.weight: Font.Bold
-      color: root.colorizationEnabled && root.colorizationBadgeText !== "None" ? root.getThemeColor(root.colorizationBadgeText) : Color.mOnError
+      color: root.colorizationEnabled && root.colorizationBadgeText !== "None" ? root.getThemeColor(root.colorizationBadgeText) : Commons.Color.mOnError
     }
   }
 

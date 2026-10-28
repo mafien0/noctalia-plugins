@@ -2,6 +2,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 
 Item {
@@ -69,9 +70,9 @@ Item {
       // Initialize priority colors
       if (!pluginApi.pluginSettings.priorityColors) {
         pluginApi.pluginSettings.priorityColors = {
-          "high": Color.mError,
-          "medium": Color.mPrimary,
-          "low": Color.mOnSurfaceVariant
+          "high": Commons.Color.mError,
+          "medium": Commons.Color.mPrimary,
+          "low": Commons.Color.mOnSurfaceVariant
         };
       }
 

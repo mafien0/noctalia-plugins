@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -400,7 +401,7 @@ ColumnLayout {
     Rectangle {
         Layout.fillWidth: true
         Layout.preferredHeight: infoCol.implicitHeight + Style.marginM * 2
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
         radius: Style.radiusM
 
         ColumnLayout {
@@ -417,14 +418,14 @@ ColumnLayout {
                 NIcon {
                     icon: "info-circle"
                     pointSize: Style.fontSizeS
-                    color: Color.mPrimary
+                    color: Commons.Color.mPrimary
                 }
 
                 NText {
                     text: "IPC Commands"
                     pointSize: Style.fontSizeS
                     font.weight: Font.Medium
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                 }
             }
 
@@ -433,7 +434,7 @@ ColumnLayout {
                 text: "Refresh: qs -c noctalia-shell ipc call plugin:github-feed refresh"
                 pointSize: Style.fontSizeXS
                 font.family: Settings.data.ui.fontFixed
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 wrapMode: Text.WrapAnywhere
             }
 
@@ -442,7 +443,7 @@ ColumnLayout {
                 text: "Toggle panel: qs -c noctalia-shell ipc call plugin:github-feed toggle"
                 pointSize: Style.fontSizeXS
                 font.family: Settings.data.ui.fontFixed
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 wrapMode: Text.WrapAnywhere
             }
         }

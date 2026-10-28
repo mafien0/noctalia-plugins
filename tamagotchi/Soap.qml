@@ -1,6 +1,7 @@
 import QtQuick
 import qs.Commons
 
+import qs.Commons as Commons
 Rectangle {
     id: root
 
@@ -40,7 +41,7 @@ Rectangle {
         width: parent.width + 6
         height: parent.height + 6
         radius: parent.radius + 3
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
         opacity: _dragging ? 0 : 1
         z: -1
     }

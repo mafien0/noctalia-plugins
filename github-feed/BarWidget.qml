@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import qs.Services.System
@@ -29,11 +30,11 @@ NIconButton {
 
     function getThemeColor(type) {
         switch (type) {
-            case "Primary": return Color.mPrimary
-            case "Secondary": return Color.mSecondary
-            case "Tertiary": return Color.mTertiary
-            case "Error": return Color.mError
-            default: return Color.mOnSurface
+            case "Primary": return Commons.Color.mPrimary
+            case "Secondary": return Commons.Color.mSecondary
+            case "Tertiary": return Commons.Color.mTertiary
+            case "Error": return Commons.Color.mError
+            default: return Commons.Color.mOnSurface
         }
     }
 
@@ -45,13 +46,13 @@ NIconButton {
     customRadius: Style.radiusL
     colorBg: Style.capsuleColor
     colorFg: {
-        if (hasError) return Color.mError
-        if (!hasUsername) return Color.mOnSurfaceVariant
+        if (hasError) return Commons.Color.mError
+        if (!hasUsername) return Commons.Color.mOnSurfaceVariant
         if (colorizationEnabled && colorizationIcon !== "None") return getThemeColor(colorizationIcon)
-        return Color.mOnSurface
+        return Commons.Color.mOnSurface
     }
-    colorBgHover: Color.mHover
-    colorFgHover: Color.mOnHover
+    colorBgHover: Commons.Color.mHover
+    colorFgHover: Commons.Color.mOnHover
     colorBorder: "transparent"
     colorBorderHover: "transparent"
 
@@ -69,8 +70,8 @@ NIconButton {
         height: 14 * Style.uiScaleRatio
         width: Math.max(height, badgeText.implicitWidth + 6 * Style.uiScaleRatio)
         radius: height / 2
-        color: (colorizationEnabled && colorizationBadge !== "None") ? getThemeColor(colorizationBadge) : Color.mError
-        border.color: Color.mSurface
+        color: (colorizationEnabled && colorizationBadge !== "None") ? getThemeColor(colorizationBadge) : Commons.Color.mError
+        border.color: Commons.Color.mSurface
         border.width: 1
 
         NText {
@@ -82,7 +83,7 @@ NIconButton {
             }
             pointSize: Style.fontSizeXS * 0.8
             font.weight: Font.Bold
-            color: (colorizationEnabled && colorizationBadgeText !== "None") ? getThemeColor(colorizationBadgeText) : Color.mOnError
+            color: (colorizationEnabled && colorizationBadgeText !== "None") ? getThemeColor(colorizationBadgeText) : Commons.Color.mOnError
         }
     }
 

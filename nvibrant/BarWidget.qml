@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -56,7 +57,7 @@ Item {
     width: root.contentWidth
     height: root.contentHeight
     radius: Style.radiusL
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
 
@@ -65,8 +66,8 @@ Item {
       icon: "contrast"
       applyUiScale: false
       color: root.vibrantEnabled
-        ? Color.mPrimary
-        : (mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface)
+        ? Commons.Color.mPrimary
+        : (mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface)
     }
   }
 

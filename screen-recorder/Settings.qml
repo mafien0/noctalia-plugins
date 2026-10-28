@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import qs.Services.Compositor
@@ -123,7 +124,7 @@ ColumnLayout {
     NComboBox {
         label: I18n.tr("common.select-icon-color")
         description: I18n.tr("common.select-color-description")
-        model: Color.colorKeyModel
+        model: Commons.Color.colorKeyModel
         currentKey: root.editIconColor
         onSelected: key => root.editIconColor = key
         minimumWidth: 200

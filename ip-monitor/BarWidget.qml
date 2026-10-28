@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Modules.Bar.Extras
 import qs.Modules.Panels.Settings
 import qs.Services.UI
@@ -48,8 +49,8 @@ Item {
     return successIconKey;
   }
 
-  readonly property color iconColor: isHot ? Color.resolveColorKey(iconColorKey) : Color.mOnSurfaceVariant
-  readonly property color textColor: isHot ? Color.mOnSurface : Color.mOnSurfaceVariant
+  readonly property color iconColor: isHot ? Commons.Color.resolveColorKey(iconColorKey) : Commons.Color.mOnSurfaceVariant
+  readonly property color textColor: isHot ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant
 
   implicitWidth: pill.width
   implicitHeight: pill.height

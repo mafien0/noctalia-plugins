@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.Location
 import qs.Widgets
 import qs.Services.UI
@@ -29,7 +30,7 @@ Item {
   Rectangle {
     anchors.centerIn: parent
     width: parent.implicitWidth; height: parent.implicitHeight
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     radius: Style.radiusL
     border { color: Style.capsuleBorderColor; width: Style.capsuleBorderWidth }
 
@@ -43,13 +44,13 @@ Item {
         visible: !!root.s.showConditionIcon
         Layout.alignment: Qt.AlignCenter
         icon: weatherReady ? LocationService.weatherSymbolFromCode(LocationService.data.weather.current_weather.weathercode, LocationService.data.weather.current_weather.is_day) : "weather-cloud-off"
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.resolveColorKey(root.s.customColor || "none")
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.resolveColorKey(root.s.customColor || "none")
       }
 
       NText {
         visible: !!root.s.showTempValue
         text: weatherReady ? Utils.formatTemp(LocationService.data.weather.current_weather.temperature, Settings.data.location.useFahrenheit, !root.isVertical && !!root.s.showTempUnit, LocationService) : ""
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.resolveColorKey(root.s.customColor || "none")
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.resolveColorKey(root.s.customColor || "none")
         pointSize: Style.getBarFontSizeForScreen(screenName)
         Layout.alignment: Qt.AlignCenter
         features: ({"tnum": 1})

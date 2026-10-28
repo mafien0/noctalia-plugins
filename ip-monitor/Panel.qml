@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 import "." as Local
@@ -63,7 +64,7 @@ Item {
           text: "IP Information"
           font.pointSize: Style.fontSizeL * Style.uiScaleRatio
           font.weight: Font.Bold
-          color: Color.mOnSurface
+          color: Commons.Color.mOnSurface
           Layout.fillWidth: true
         }
 
@@ -81,7 +82,7 @@ Item {
       Rectangle {
         Layout.fillWidth: true
         Layout.preferredHeight: ipDisplayLayout.implicitHeight + Style.marginL * 2
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
         radius: Style.radiusL
 
         ColumnLayout {
@@ -101,10 +102,10 @@ Item {
             pointSize: Style.fontSizeXXL * 2 * Style.uiScaleRatio
             color: {
               if (root.fetchState === "success")
-                return Color.mPrimary;
+                return Commons.Color.mPrimary;
               if (root.fetchState === "error")
-                return Color.mError;
-              return Color.mOnSurfaceVariant;
+                return Commons.Color.mError;
+              return Commons.Color.mOnSurfaceVariant;
             }
           }
 
@@ -122,7 +123,7 @@ Item {
             font.pointSize: Style.fontSizeXXL * Style.uiScaleRatio
             font.weight: Font.Bold
             font.family: Settings.data.ui.fontFixed
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
           }
 
           NText {
@@ -137,7 +138,7 @@ Item {
               return parts.join(", ");
             }
             font.pointSize: Style.fontSizeM * Style.uiScaleRatio
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
           }
         }
       }
@@ -153,13 +154,13 @@ Item {
           text: pluginApi?.tr("panel.details.title")
           font.pointSize: Style.fontSizeM * Style.uiScaleRatio
           font.weight: Font.Medium
-          color: Color.mOnSurface
+          color: Commons.Color.mOnSurface
         }
 
         Rectangle {
           Layout.fillWidth: true
           Layout.fillHeight: true
-          color: Color.mSurfaceVariant
+          color: Commons.Color.mSurfaceVariant
           radius: Style.radiusM
 
           ColumnLayout {
@@ -224,7 +225,7 @@ Item {
                 NText {
                   text: modelData.label + ":"
                   font.pointSize: Style.fontSizeS * Style.uiScaleRatio
-                  color: Color.mOnSurfaceVariant
+                  color: Commons.Color.mOnSurfaceVariant
                   Layout.preferredWidth: 100
                 }
 
@@ -232,7 +233,7 @@ Item {
                   text: modelData.value
                   font.pointSize: Style.fontSizeS * Style.uiScaleRatio
                   font.family: Settings.data.ui.fontFixed
-                  color: Color.mOnSurface
+                  color: Commons.Color.mOnSurface
                   Layout.fillWidth: index !== 0
                   elide: Text.ElideRight
                 }
@@ -242,7 +243,7 @@ Item {
                   visible: index === 0 && root.fetchState === "success"
                   icon: "copy"
                   pointSize: Style.fontSizeS * Style.uiScaleRatio
-                  color: copyHover.containsMouse ? Color.mOnSurfaceVariant : Color.mPrimary
+                  color: copyHover.containsMouse ? Commons.Color.mOnSurfaceVariant : Commons.Color.mPrimary
                   Layout.alignment: Qt.AlignVCenter
 
                   MouseArea {

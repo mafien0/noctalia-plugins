@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -105,7 +106,7 @@ ColumnLayout {
             
             ctx.closePath();
             // Noctalia primary color or gray
-            ctx.fillStyle = isActive ? Color.mPrimary : Qt.rgba(0.5, 0.5, 0.5, 0.5);
+            ctx.fillStyle = isActive ? Commons.Color.mPrimary : Qt.rgba(0.5, 0.5, 0.5, 0.5);
             ctx.fill();
             
             // Hover effect outline
@@ -181,8 +182,8 @@ ColumnLayout {
         width: 400
         height: column.height + Style.marginL * 2
         anchors.centerIn: parent
-        color: Color.mSurfaceVariant
-        border.color: Color.mOutline
+        color: Commons.Color.mSurfaceVariant
+        border.color: Commons.Color.mOutline
         border.width: Style.borderM
         radius: Style.radiusL
 
@@ -196,7 +197,7 @@ ColumnLayout {
 
           NText {
             text: "Custom Command for " + popupOverlay.targetCorner
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
           }
 
           RowLayout {

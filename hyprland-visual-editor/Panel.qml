@@ -4,6 +4,7 @@ import Quickshell.Io
 import QtQuick.Layouts
 import QtQuick.Controls
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import "./modules"
@@ -62,7 +63,7 @@ Item {
 
                 NIcon {
                     icon: "adjustments-horizontal"
-                    color: Color.mPrimary
+                    color: Commons.Color.mPrimary
                     pointSize: Style.fontSizeXXL
                 }
 
@@ -73,12 +74,12 @@ Item {
                         text: pluginApi?.tr("panel.header_title")
                         pointSize: Style.fontSizeXL
                         font.weight: Font.Bold
-                        color: Color.mPrimary
+                        color: Commons.Color.mPrimary
                     }
                     NText {
                         text: pluginApi?.tr("panel.header_subtitle")
                         pointSize: Style.fontSizeS
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                     }
                 }
 
@@ -122,7 +123,7 @@ Item {
             NBox {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                color: Color.mSurfaceVariant
+                color: Commons.Color.mSurfaceVariant
                 radius: Style.radiusM
                 clip: true
 
@@ -145,7 +146,7 @@ Item {
         id: tabRoot
         property string label
         property string iconName
-        property color accentColor: Color.mPrimary
+        property color accentColor: Commons.Color.mPrimary
         property int index
         property bool isSelected
 
@@ -153,13 +154,13 @@ Item {
         implicitHeight: tabContent.implicitHeight + (Style.marginM * 2)
         radius: Style.radiusM
 
-        readonly property color currentAccent: isSelected ? Color.mPrimary : accentColor
+        readonly property color currentAccent: isSelected ? Commons.Color.mPrimary : accentColor
 
-        color: isSelected ? Qt.alpha(Color.mPrimary, Style.stateOpacityActive) : (tabMouse.containsMouse ? Qt.alpha(accentColor, Style.stateOpacityHover) : "transparent")
+        color: isSelected ? Qt.alpha(Commons.Color.mPrimary, Style.stateOpacityActive) : (tabMouse.containsMouse ? Qt.alpha(accentColor, Style.stateOpacityHover) : "transparent")
         
         border.width: Style.borderS
         
-        border.color: isSelected ? Color.mPrimary : (tabMouse.containsMouse ? accentColor : Qt.alpha(accentColor, Style.stateOpacityHover))
+        border.color: isSelected ? Commons.Color.mPrimary : (tabMouse.containsMouse ? accentColor : Qt.alpha(accentColor, Style.stateOpacityHover))
 
         Behavior on color { ColorAnimation { duration: 150 } }
         Behavior on border.color { ColorAnimation { duration: 150 } }
@@ -179,14 +180,14 @@ Item {
 
             NIcon {
                 icon: iconName
-                color: (isSelected || tabMouse.containsMouse) ? tabRoot.currentAccent : Color.mOnSurfaceVariant
+                color: (isSelected || tabMouse.containsMouse) ? tabRoot.currentAccent : Commons.Color.mOnSurfaceVariant
                 Behavior on color { ColorAnimation { duration: 150 } }
             }
 
             NText {
                 text: label
                 font.weight: isSelected ? Font.Bold : Font.Normal
-                color: (isSelected || tabMouse.containsMouse) ? Color.mOnSurface : Color.mOnSurfaceVariant
+                color: (isSelected || tabMouse.containsMouse) ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant
                 pointSize: Style.fontSizeS
             }
         }

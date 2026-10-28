@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import qs.Services.System
@@ -67,7 +68,7 @@ Item {
     color: {
       if (mouseArea.containsMouse &&
           (!mainInstance || (!mainInstance.pomodoroRunning && !mainInstance.pomodoroSoundPlaying)))
-        return Color.mHover
+        return Commons.Color.mHover
       return Style.capsuleColor
     }
     radius: Style.radiusL
@@ -83,9 +84,9 @@ Item {
         applyUiScale: false
         color: {
           if (mainInstance && (mainInstance.pomodoroRunning || mainInstance.pomodoroSoundPlaying)) {
-            return Color.mPrimary
+            return Commons.Color.mPrimary
           }
-          return mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+          return mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         }
       }
 
@@ -99,9 +100,9 @@ Item {
         }
         color: {
           if (mainInstance && (mainInstance.pomodoroRunning || mainInstance.pomodoroSoundPlaying)) {
-            return Color.mPrimary
+            return Commons.Color.mPrimary
           }
-          return mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+          return mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         }
       }
     }

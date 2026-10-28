@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -64,7 +65,7 @@ Item {
     case "critical":
       return mainInstance?.colorCritical;
     default:
-      return Color.mOnSurface;
+      return Commons.Color.mOnSurface;
     }
   }
 

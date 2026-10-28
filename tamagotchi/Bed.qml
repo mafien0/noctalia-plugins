@@ -1,13 +1,14 @@
 import QtQuick
 import qs.Commons
 
+import qs.Commons as Commons
 Rectangle {
     id: root
 
     width: 64
     height: 64
     radius: Style.radiusM
-    color: !pressed ? Color.mPrimary : Color.mSecondary
+    color: !pressed ? Commons.Color.mPrimary : Commons.Color.mSecondary
 
     property var pluginApi: null
     property bool pressed: false

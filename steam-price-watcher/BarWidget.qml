@@ -5,6 +5,7 @@ import Quickshell
 import Quickshell.Io
 import Qt.labs.platform
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -286,7 +287,7 @@ Item {
         NIcon {
           anchors.fill: parent
           icon: loading ? "loader" : "package"
-          color: hasNotifications ? Color.mPrimary : Color.mOnSurface
+          color: hasNotifications ? Commons.Color.mPrimary : Commons.Color.mOnSurface
           pointSize: parent.iconSize
 
           RotationAnimator on rotation {
@@ -304,7 +305,7 @@ Item {
           width: 8
           height: 8
           radius: 4
-          color: Color.mError
+          color: Commons.Color.mError
           anchors.right: parent.right
           anchors.top: parent.top
           anchors.rightMargin: -2
@@ -317,7 +318,7 @@ Item {
       NText {
         id: gamesText
         text: displayText
-        color: hasNotifications ? Color.mPrimary : Color.mOnSurface
+        color: hasNotifications ? Commons.Color.mPrimary : Commons.Color.mOnSurface
         pointSize: Style.barFontSize
         applyUiScale: false
         Layout.alignment: Qt.AlignVCenter

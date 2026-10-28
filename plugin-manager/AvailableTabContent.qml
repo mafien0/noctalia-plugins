@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.Noctalia
 import qs.Services.UI
 import qs.Widgets
@@ -224,7 +225,7 @@ ColumnLayout {
         Layout.leftMargin: Style.borderS
         Layout.rightMargin: Style.borderS
         implicitHeight: Math.round(contentColumn.implicitHeight + Style.margin2L)
-        color: modelData.id === root.selectedPluginId ? Color.mHover : Color.mSurface
+        color: modelData.id === root.selectedPluginId ? Commons.Color.mHover : Commons.Color.mSurface
 
         MouseArea {
           anchors.fill: parent
@@ -250,12 +251,12 @@ ColumnLayout {
             NIcon {
               icon: "plugin"
               pointSize: Style.fontSizeL
-              color: Color.mPrimary
+              color: Commons.Color.mPrimary
             }
 
             NText {
               text: modelData.name
-              color: Color.mPrimary
+              color: Commons.Color.mPrimary
               elide: Text.ElideRight
               Layout.fillWidth: true
             }
@@ -263,7 +264,7 @@ ColumnLayout {
             // Official badge
             Rectangle {
               visible: modelData.official === true
-              color: Color.mSecondary
+              color: Commons.Color.mSecondary
               radius: Style.radiusXS
               implicitWidth: officialBadgeRow.implicitWidth + Style.margin2S
               implicitHeight: officialBadgeRow.implicitHeight + Style.margin2XS
@@ -276,14 +277,14 @@ ColumnLayout {
                 NIcon {
                   icon: "official-plugin"
                   pointSize: Style.fontSizeXXS
-                  color: Color.mOnSecondary
+                  color: Commons.Color.mOnSecondary
                 }
 
                 NText {
                   text: pluginApi?.tr("panel.official")
                   font.pointSize: Style.fontSizeXXS
                   font.weight: Style.fontWeightMedium
-                  color: Color.mOnSecondary
+                  color: Commons.Color.mOnSecondary
                 }
               }
             }
@@ -308,7 +309,7 @@ ColumnLayout {
             NIcon {
               icon: "circle-check"
               pointSize: Style.baseWidgetSize * 0.5
-              color: Color.mPrimary
+              color: Commons.Color.mPrimary
               visible: modelData.downloaded === true
             }
 
@@ -334,7 +335,7 @@ ColumnLayout {
             visible: modelData.description
             text: modelData.description || ""
             font.pointSize: Style.fontSizeXS
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
             wrapMode: Text.WordWrap
             elide: Text.ElideNone
             Layout.fillWidth: true
@@ -348,19 +349,19 @@ ColumnLayout {
             NText {
               text: pluginApi?.tr("panel.version-display", { version: modelData.version })
               font.pointSize: Style.fontSizeXS
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
             }
 
             NText {
               text: pluginApi?.tr("panel.separator")
               font.pointSize: Style.fontSizeXS
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
             }
 
             NText {
               text: stripAuthorEmail(modelData.author)
               font.pointSize: Style.fontSizeXS
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
             }
 
             Item {
@@ -373,7 +374,7 @@ ColumnLayout {
             visible: modelData.source ? true : false
             text: modelData.source ? modelData.source.name : ""
             font.pointSize: Style.fontSizeXS
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
           }
 
           // Last updated
@@ -381,7 +382,7 @@ ColumnLayout {
             visible: !!modelData.lastUpdated
             text: modelData.lastUpdated ? Time.formatRelativeTime(new Date(modelData.lastUpdated)) : ""
             font.pointSize: Style.fontSizeXS
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
           }
         }
       }

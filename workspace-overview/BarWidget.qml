@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -26,7 +27,7 @@ Item {
         icon: "layout-dashboard"
         // Default icon color: white/light gray, like the others. 
         // Add hover color if the mouse is over.
-        color: mouseArea.containsMouse ? Color.mPrimary : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mPrimary : Commons.Color.mOnSurface
     }
 
     MouseArea {

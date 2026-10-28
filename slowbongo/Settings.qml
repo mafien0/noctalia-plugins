@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -61,8 +62,8 @@ ColumnLayout {
     }
 
     // Status colors (with fallback for theme compatibility)
-    readonly property color statusSuccessColor: Color.mPrimary
-    readonly property color statusErrorColor: Color.mError ?? "#c00202"
+    readonly property color statusSuccessColor: Commons.Color.mPrimary
+    readonly property color statusErrorColor: Commons.Color.mError ?? "#c00202"
 
     property var inputDevices: []
 
@@ -210,7 +211,7 @@ ColumnLayout {
     // Requirements Section
     Text {
         text: pluginApi?.tr("settings.requirements")
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
         font.pointSize: Style.fontSizeM
         font.weight: Font.DemiBold
     }
@@ -334,7 +335,7 @@ ColumnLayout {
     // Input Devices Section
     Text {
         text: pluginApi?.tr("settings.input-devices") || "Input Devices"
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
         font.pointSize: Style.fontSizeM
         font.weight: Font.DemiBold
     }
@@ -363,7 +364,7 @@ ColumnLayout {
                     Layout.fillWidth: true
                     implicitHeight: rowContent.implicitHeight + Style.marginS * 2
                     radius: Style.iRadiusXS
-                    color: isHovered ? Color.mSurfaceVariant : "transparent"
+                    color: isHovered ? Commons.Color.mSurfaceVariant : "transparent"
 
                     Behavior on color {
                         ColorAnimation { duration: Style.animationFast }
@@ -389,8 +390,8 @@ ColumnLayout {
                             implicitWidth: Math.round(Style.baseWidgetSize * 0.7)
                             implicitHeight: Math.round(Style.baseWidgetSize * 0.7)
                             radius: Style.iRadiusXS
-                            color: parent.parent.isChecked ? Color.mPrimary : Color.mSurface
-                            border.color: parent.parent.isHovered ? Color.mPrimary : Color.mOutline
+                            color: parent.parent.isChecked ? Commons.Color.mPrimary : Commons.Color.mSurface
+                            border.color: parent.parent.isHovered ? Commons.Color.mPrimary : Commons.Color.mOutline
                             border.width: Style.borderS
 
                             Behavior on color {
@@ -405,7 +406,7 @@ ColumnLayout {
                                 anchors.centerIn: parent
                                 anchors.horizontalCenterOffset: -1
                                 icon: "check"
-                                color: Color.mOnPrimary
+                                color: Commons.Color.mOnPrimary
                                 pointSize: Math.max(Style.fontSizeXS, checkBox.implicitWidth * 0.5)
                             }
                         }
@@ -416,7 +417,7 @@ ColumnLayout {
 
                             Text {
                                 text: parent.parent.parent.modelData.name
-                                color: Color.mOnSurface
+                                color: Commons.Color.mOnSurface
                                 font.pointSize: Style.fontSizeM
                                 elide: Text.ElideRight
                                 Layout.fillWidth: true
@@ -424,7 +425,7 @@ ColumnLayout {
 
                             Text {
                                 text: parent.parent.parent.modelData.eventDev
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                                 font.pointSize: Style.fontSizeS
                                 visible: text !== ""
                                 elide: Text.ElideRight

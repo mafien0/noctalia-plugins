@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import qs.Services.System
@@ -25,7 +26,7 @@ Item {
     readonly property real contentWidth: row.implicitWidth + Style.marginM * 2
     readonly property real contentHeight: capsuleHeight
 
-    readonly property color iconColor: Color.resolveColorKey(cfg.iconColor ?? defaults.iconColor ?? "none")
+    readonly property color iconColor: Commons.Color.resolveColorKey(cfg.iconColor ?? defaults.iconColor ?? "none")
 
     implicitWidth: row.implicitWidth + Style.marginM * 2
     implicitHeight: Style.barHeight
@@ -36,7 +37,7 @@ Item {
         y: Style.pixelAlignCenter(parent.height, height)
         width: root.contentWidth
         height: root.contentHeight
-        color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+        color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
         radius: Style.radiusL
         border.color: Style.capsuleBorderColor
         border.width: Style.capsuleBorderWidth
@@ -48,7 +49,7 @@ Item {
 
             NIcon {
                 icon: "burger"
-                color: mouseArea.containsMouse ? Color.mOnHover : root.iconColor
+                color: mouseArea.containsMouse ? Commons.Color.mOnHover : root.iconColor
             }
         }
     }

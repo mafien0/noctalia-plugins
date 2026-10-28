@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -38,7 +39,7 @@ Item {
         y: Style.pixelAlignCenter(parent.height, height)
         width: root.contentWidth
         height: root.contentHeight
-        color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+        color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
         radius: Style.radiusL
 
         RowLayout {
@@ -53,8 +54,8 @@ Item {
                 crossed: !(mainInstance?.netbirdRunning ?? false)
                 color: {
                     if (mainInstance?.netbirdRunning ?? false)
-                        return Color.mPrimary;
-                    return mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface;
+                        return Commons.Color.mPrimary;
+                    return mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface;
                 }
                 opacity: (mainInstance?.isRefreshing ?? false) ? 0.5 : 1.0
             }
@@ -69,7 +70,7 @@ Item {
                     visible: (mainInstance?.showIpAddress ?? false) && (mainInstance?.netbirdIp ?? false)
                     text: mainInstance?.netbirdIp || ""
                     pointSize: Style.fontSizeXS
-                    color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+                    color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
                     font.family: Settings.data.ui.fontFixed
                 }
             }

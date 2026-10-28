@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -41,7 +42,7 @@ Item {
         y: Style.pixelAlignCenter(parent.height, height)
         width: root.contentWidth
         height: root.contentHeight
-        color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+        color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
         radius: Style.radiusL
         border.color: Style.capsuleBorderColor
         border.width: Style.capsuleBorderWidth
@@ -50,7 +51,7 @@ Item {
             id: label
             anchors.centerIn: parent
             text: root.displayText
-            color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+            color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
             font.pointSize: Style.barFontSize
         }
     }

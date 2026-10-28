@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -82,10 +83,10 @@ Item {
   // Color + label for the small status pill next to the dropdown. Reading the
   // pill color is faster than parsing the dropdown text.
   function _modeColor(m) {
-    if (cs.dangerouslySkipPermissions === true || m === "bypassPermissions") return Color.mError;
-    if (m === "acceptEdits") return Color.mSecondary;
-    if (m === "plan")        return Color.mTertiary;
-    return Color.mPrimary;
+    if (cs.dangerouslySkipPermissions === true || m === "bypassPermissions") return Commons.Color.mError;
+    if (m === "acceptEdits") return Commons.Color.mSecondary;
+    if (m === "plan")        return Commons.Color.mTertiary;
+    return Commons.Color.mPrimary;
   }
   function _modeBadge(m) {
     if (cs.dangerouslySkipPermissions === true || m === "bypassPermissions") {
@@ -114,7 +115,7 @@ Item {
   component Section: ColumnLayout {
     id: section
     property string title: ""
-    property color accent: Color.mOutline
+    property color accent: Commons.Color.mOutline
     default property alias _content: contentCol.data
 
     Layout.fillWidth: true
@@ -125,13 +126,13 @@ Item {
       text: section.title
       pointSize: Style.fontSizeXS
       font.weight: Font.DemiBold
-      color: Color.mOnSurfaceVariant
+      color: Commons.Color.mOnSurfaceVariant
       Layout.leftMargin: Style.marginXS
     }
     Rectangle {
       Layout.fillWidth: true
       radius: Style.radiusM
-      color: Qt.alpha(Color.mSurface, 0.6)
+      color: Qt.alpha(Commons.Color.mSurface, 0.6)
       border.color: section.accent
       border.width: Style.borderS
       implicitHeight: contentCol.implicitHeight + Style.marginM * 2
@@ -156,8 +157,8 @@ Item {
     Rectangle {
       Layout.fillHeight: true
       Layout.preferredWidth: Math.round(180 * Style.uiScaleRatio)
-      color: Qt.alpha(Color.mSurfaceVariant, 0.5)
-      border.color: Color.mOutline
+      color: Qt.alpha(Commons.Color.mSurfaceVariant, 0.5)
+      border.color: Commons.Color.mOutline
       border.width: 0
       radius: 0
 
@@ -175,9 +176,9 @@ Item {
             readonly property bool active: index === root.currentTab
             readonly property bool danger: modelData.key === "danger"
             color: active
-                     ? (danger ? Qt.alpha(Color.mError, 0.18) : Qt.alpha(Color.mPrimary, 0.16))
-                     : (tabHover.containsMouse ? Color.mHover : "transparent")
-            border.color: active ? (danger ? Color.mError : Color.mPrimary) : "transparent"
+                     ? (danger ? Qt.alpha(Commons.Color.mError, 0.18) : Qt.alpha(Commons.Color.mPrimary, 0.16))
+                     : (tabHover.containsMouse ? Commons.Color.mHover : "transparent")
+            border.color: active ? (danger ? Commons.Color.mError : Commons.Color.mPrimary) : "transparent"
             border.width: active ? Style.borderS : 0
             Behavior on color { ColorAnimation { duration: Style.animationFast } }
 
@@ -191,16 +192,16 @@ Item {
                 icon: modelData.icon
                 pointSize: Style.fontSizeS
                 color: parent.parent.active
-                         ? (parent.parent.danger ? Color.mError : Color.mPrimary)
-                         : Color.mOnSurfaceVariant
+                         ? (parent.parent.danger ? Commons.Color.mError : Commons.Color.mPrimary)
+                         : Commons.Color.mOnSurfaceVariant
               }
               NText {
                 text: modelData.label
                 pointSize: Style.fontSizeS
                 font.weight: parent.parent.active ? Font.DemiBold : Font.Normal
                 color: parent.parent.danger && !parent.parent.active
-                         ? Color.mError
-                         : Color.mOnSurface
+                         ? Commons.Color.mError
+                         : Commons.Color.mOnSurface
                 Layout.fillWidth: true
                 elide: Text.ElideRight
               }
@@ -223,19 +224,19 @@ Item {
           Layout.fillWidth: true
           Layout.preferredHeight: Math.round(34 * Style.uiScaleRatio)
           radius: Style.radiusM
-          color: resetHover.containsMouse ? Qt.alpha(Color.mError, 0.12) : "transparent"
-          border.color: Qt.alpha(Color.mError, 0.6)
+          color: resetHover.containsMouse ? Qt.alpha(Commons.Color.mError, 0.12) : "transparent"
+          border.color: Qt.alpha(Commons.Color.mError, 0.6)
           border.width: Style.borderS
 
           RowLayout {
             anchors.fill: parent
             anchors.leftMargin: Style.marginM
             spacing: Style.marginS
-            NIcon { icon: "rotate-ccw"; pointSize: Style.fontSizeXS; color: Color.mError }
+            NIcon { icon: "rotate-ccw"; pointSize: Style.fontSizeXS; color: Commons.Color.mError }
             NText {
               text: pluginApi?.tr("settings.resetDefaults") 
               pointSize: Style.fontSizeXS
-              color: Color.mError
+              color: Commons.Color.mError
               Layout.fillWidth: true
               elide: Text.ElideRight
             }
@@ -316,7 +317,7 @@ Item {
 
           NText {
             text: pluginApi?.tr("settings.restartHint") 
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             pointSize: Style.fontSizeXS
             wrapMode: Text.Wrap
             Layout.fillWidth: true
@@ -559,8 +560,8 @@ Item {
           Rectangle {
             Layout.fillWidth: true
             radius: Style.radiusM
-            color: Qt.alpha(Color.mError, 0.10)
-            border.color: Color.mError
+            color: Qt.alpha(Commons.Color.mError, 0.10)
+            border.color: Commons.Color.mError
             border.width: Style.borderS
             implicitHeight: dangerCol.implicitHeight + Style.marginM * 2
 
@@ -573,12 +574,12 @@ Item {
               RowLayout {
                 Layout.fillWidth: true
                 spacing: Style.marginS
-                NIcon { icon: "alert-triangle"; color: Color.mError; pointSize: Style.fontSizeM }
+                NIcon { icon: "alert-triangle"; color: Commons.Color.mError; pointSize: Style.fontSizeM }
                 NText {
                   text: pluginApi?.tr("settings.dangerHeading") 
                   font.weight: Font.Bold
                   pointSize: Style.fontSizeM
-                  color: Color.mError
+                  color: Commons.Color.mError
                 }
               }
               NText {
@@ -586,7 +587,7 @@ Item {
                 wrapMode: Text.Wrap
                 Layout.fillWidth: true
                 pointSize: Style.fontSizeXS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
               }
 
               NCheckbox {
@@ -633,8 +634,8 @@ Item {
         implicitWidth: savedRow.implicitWidth + Style.marginM * 2
         implicitHeight: savedRow.implicitHeight + Style.marginS * 2
         radius: height / 2
-        color: Color.mSecondary
-        border.color: Qt.darker(Color.mSecondary, 1.2)
+        color: Commons.Color.mSecondary
+        border.color: Qt.darker(Commons.Color.mSecondary, 1.2)
         border.width: Style.borderS
 
         RowLayout {
@@ -644,13 +645,13 @@ Item {
           NIcon {
             icon: "check"
             pointSize: Style.fontSizeXS
-            color: Color.mOnSecondary
+            color: Commons.Color.mOnSecondary
           }
           NText {
             text: pluginApi?.tr("settings.savedFlash") 
             pointSize: Style.fontSizeXS
             font.weight: Font.DemiBold
-            color: Color.mOnSecondary
+            color: Commons.Color.mOnSecondary
           }
         }
       }
@@ -676,7 +677,7 @@ Item {
               : pluginApi?.tr("dialog.bypassModeWarning")
         wrapMode: Text.Wrap
         Layout.fillWidth: true
-        color: Color.mError
+        color: Commons.Color.mError
       }
       NText {
         text: pluginApi?.tr("dialog.proceed")

@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -9,8 +10,8 @@ Item {
 
     property var pluginApi: null
     property var mainInstance: pluginApi?.mainInstance
-    readonly property color sectionBackgroundColor: Color.mSurfaceVariant
-    readonly property color usageWarnColor: Qt.alpha(Color.mError, 0.72)
+    readonly property color sectionBackgroundColor: Commons.Color.mSurfaceVariant
+    readonly property color usageWarnColor: Qt.alpha(Commons.Color.mError, 0.72)
 
     readonly property var geometryPlaceholder: panelContainer
     readonly property bool allowAttach: true
@@ -80,7 +81,7 @@ Item {
                         visible: !root.selectedProvider
                         text: "No providers enabled. Enable providers in Settings."
                         pointSize: Style.fontSizeM
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignHCenter
                         Layout.topMargin: Style.marginXL
@@ -90,7 +91,7 @@ Item {
                         visible: root.selectedProvider && !root.selectedProvider.ready
                         text: root.selectedProvider ? (root.selectedProvider.providerName + " — waiting for data...") : ""
                         pointSize: Style.fontSizeM
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignHCenter
                         Layout.topMargin: Style.marginXL
@@ -104,14 +105,14 @@ Item {
                         NIcon {
                             icon: root.selectedProvider?.providerIcon ?? "ai"
                             pointSize: Style.fontSizeXXXL
-                            color: Color.mPrimary
+                            color: Commons.Color.mPrimary
                         }
 
                         NText {
                             text: (root.selectedProvider?.providerName ?? "") + " Usage"
                             pointSize: Style.fontSizeXL
                             font.weight: Style.fontWeightBold
-                            color: Color.mOnSurface
+                            color: Commons.Color.mOnSurface
                         }
 
                         Item {
@@ -120,7 +121,7 @@ Item {
 
                         Rectangle {
                             visible: (root.selectedProvider?.tierLabel ?? "") !== ""
-                            color: Qt.alpha(Color.mPrimary, 0.15)
+                            color: Qt.alpha(Commons.Color.mPrimary, 0.15)
                             radius: Style.radiusXS
                             implicitWidth: tierText.implicitWidth + Style.marginL
                             implicitHeight: tierText.implicitHeight + Style.marginS
@@ -131,7 +132,7 @@ Item {
                                 text: root.selectedProvider?.tierLabel ?? ""
                                 pointSize: Style.fontSizeS
                                 font.weight: Style.fontWeightSemiBold
-                                color: Color.mPrimary
+                                color: Commons.Color.mPrimary
                             }
                         }
                     }
@@ -140,13 +141,13 @@ Item {
                         visible: !!root.selectedProvider
                         Layout.fillWidth: true
                         height: 1
-                        color: Color.mOutline
+                        color: Commons.Color.mOutline
                     }
 
                     Rectangle {
                         visible: !!root.selectedProvider && (root.selectedProvider?.usageStatusText ?? "") !== ""
                         Layout.fillWidth: true
-                        color: Qt.alpha(Color.mError, 0.12)
+                        color: Qt.alpha(Commons.Color.mError, 0.12)
                         radius: Style.radiusS
                         implicitHeight: authStatusColumn.implicitHeight + Style.marginXL
 
@@ -164,13 +165,13 @@ Item {
                                 text: root.selectedProvider?.usageStatusText ?? ""
                                 pointSize: Style.fontSizeM
                                 font.weight: Style.fontWeightSemiBold
-                                color: Color.mError
+                                color: Commons.Color.mError
                             }
 
                             NText {
                                 text: root.selectedProvider?.authHelpText ?? ""
                                 pointSize: Style.fontSizeXS
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                             }
                         }
                     }
@@ -196,7 +197,7 @@ Item {
                                 text: "Rate Limit Usage"
                                 pointSize: Style.fontSizeL
                                 font.weight: Style.fontWeightSemiBold
-                                color: Color.mPrimary
+                                color: Commons.Color.mPrimary
                             }
 
                             ColumnLayout {
@@ -208,7 +209,7 @@ Item {
                                     NText {
                                         text: root.selectedProvider?.rateLimitLabel ?? ""
                                         pointSize: Style.fontSizeS
-                                        color: Color.mOnSurfaceVariant
+                                        color: Commons.Color.mOnSurfaceVariant
                                     }
                                     Item {
                                         Layout.fillWidth: true
@@ -225,10 +226,10 @@ Item {
                                         color: {
                                             const u = root.selectedProvider?.rateLimitPercent ?? 0;
                                             if (u >= 0.9)
-                                                return Color.mError;
+                                                return Commons.Color.mError;
                                             if (u >= 0.7)
                                                 return root.usageWarnColor;
-                                            return Color.mOnSurface;
+                                            return Commons.Color.mOnSurface;
                                         }
                                     }
                                 }
@@ -236,7 +237,7 @@ Item {
                                 Rectangle {
                                     Layout.fillWidth: true
                                     height: 8
-                                    color: Qt.alpha(Color.mOutline, 0.2)
+                                    color: Qt.alpha(Commons.Color.mOutline, 0.2)
                                     radius: Style.radiusXXS
 
                                     Rectangle {
@@ -249,10 +250,10 @@ Item {
                                         color: {
                                             const u = root.selectedProvider?.rateLimitPercent ?? 0;
                                             if (u >= 0.9)
-                                                return Color.mError;
+                                                return Commons.Color.mError;
                                             if (u >= 0.7)
                                                 return root.usageWarnColor;
-                                            return Color.mPrimary;
+                                            return Commons.Color.mPrimary;
                                         }
                                         width: parent.width * Math.min(1.0, Math.max(0, root.selectedProvider?.rateLimitPercent ?? 0))
 
@@ -269,7 +270,7 @@ Item {
                                     visible: (root.selectedProvider?.rateLimitResetAt ?? "") !== ""
                                     text: "Resets in " + (root.selectedProvider?.formatResetTime(root.selectedProvider?.rateLimitResetAt ?? "") ?? "")
                                     pointSize: Style.fontSizeXS
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                 }
                             }
 
@@ -283,7 +284,7 @@ Item {
                                     NText {
                                         text: root.selectedProvider?.secondaryRateLimitLabel ?? ""
                                         pointSize: Style.fontSizeS
-                                        color: Color.mOnSurfaceVariant
+                                        color: Commons.Color.mOnSurfaceVariant
                                     }
                                     Item {
                                         Layout.fillWidth: true
@@ -300,10 +301,10 @@ Item {
                                         color: {
                                             const u = root.selectedProvider?.secondaryRateLimitPercent ?? 0;
                                             if (u >= 0.9)
-                                                return Color.mError;
+                                                return Commons.Color.mError;
                                             if (u >= 0.7)
                                                 return root.usageWarnColor;
-                                            return Color.mOnSurface;
+                                            return Commons.Color.mOnSurface;
                                         }
                                     }
                                 }
@@ -311,7 +312,7 @@ Item {
                                 Rectangle {
                                     Layout.fillWidth: true
                                     height: 8
-                                    color: Qt.alpha(Color.mOutline, 0.2)
+                                    color: Qt.alpha(Commons.Color.mOutline, 0.2)
                                     radius: Style.radiusXXS
 
                                     Rectangle {
@@ -324,10 +325,10 @@ Item {
                                         color: {
                                             const u = root.selectedProvider?.secondaryRateLimitPercent ?? 0;
                                             if (u >= 0.9)
-                                                return Color.mError;
+                                                return Commons.Color.mError;
                                             if (u >= 0.7)
                                                 return root.usageWarnColor;
-                                            return Color.mPrimary;
+                                            return Commons.Color.mPrimary;
                                         }
                                         width: parent.width * Math.min(1.0, Math.max(0, root.selectedProvider?.secondaryRateLimitPercent ?? 0))
 
@@ -344,7 +345,7 @@ Item {
                                     visible: (root.selectedProvider?.secondaryRateLimitResetAt ?? "") !== ""
                                     text: "Resets in " + (root.selectedProvider?.formatResetTime(root.selectedProvider?.secondaryRateLimitResetAt ?? "") ?? "")
                                     pointSize: Style.fontSizeXS
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                 }
                             }
                         }
@@ -371,7 +372,7 @@ Item {
                                 text: "Today"
                                 pointSize: Style.fontSizeL
                                 font.weight: Style.fontWeightSemiBold
-                                color: Color.mPrimary
+                                color: Commons.Color.mPrimary
                             }
 
                             RowLayout {
@@ -384,12 +385,12 @@ Item {
                                         text: String(root.selectedProvider?.todayPrompts ?? 0)
                                         pointSize: Style.fontSizeXXL
                                         font.weight: Style.fontWeightBold
-                                        color: Color.mOnSurface
+                                        color: Commons.Color.mOnSurface
                                     }
                                     NText {
                                         text: "prompts"
                                         pointSize: Style.fontSizeXS
-                                        color: Color.mOnSurfaceVariant
+                                        color: Commons.Color.mOnSurfaceVariant
                                     }
                                 }
 
@@ -399,12 +400,12 @@ Item {
                                         text: String(root.selectedProvider?.todaySessions ?? 0)
                                         pointSize: Style.fontSizeXXL
                                         font.weight: Style.fontWeightBold
-                                        color: Color.mOnSurface
+                                        color: Commons.Color.mOnSurface
                                     }
                                     NText {
                                         text: "sessions"
                                         pointSize: Style.fontSizeXS
-                                        color: Color.mOnSurfaceVariant
+                                        color: Commons.Color.mOnSurfaceVariant
                                     }
                                 }
                             }
@@ -429,7 +430,7 @@ Item {
                                     NText {
                                         text: mainInstance?.friendlyModelName(modelData.modelId) ?? modelData.modelId
                                         pointSize: Style.fontSizeS
-                                        color: Color.mOnSurfaceVariant
+                                        color: Commons.Color.mOnSurfaceVariant
                                     }
                                     Item {
                                         Layout.fillWidth: true
@@ -438,7 +439,7 @@ Item {
                                         text: (mainInstance?.formatTokenCount(modelData.count) ?? "0") + " tokens"
                                         pointSize: Style.fontSizeS
                                         font.weight: Style.fontWeightSemiBold
-                                        color: Color.mOnSurface
+                                        color: Commons.Color.mOnSurface
                                     }
                                 }
                             }
@@ -466,7 +467,7 @@ Item {
                                 text: "Last 7 Days"
                                 pointSize: Style.fontSizeL
                                 font.weight: Style.fontWeightSemiBold
-                                color: Color.mPrimary
+                                color: Commons.Color.mPrimary
                             }
 
                             Repeater {
@@ -488,14 +489,14 @@ Item {
                                             return days[dt.getDay()] + " " + String(dt.getMonth() + 1).padStart(2, "0") + "/" + String(dt.getDate()).padStart(2, "0");
                                         }
                                         pointSize: Style.fontSizeXS
-                                        color: Color.mOnSurfaceVariant
+                                        color: Commons.Color.mOnSurfaceVariant
                                         Layout.preferredWidth: 55
                                     }
 
                                     Rectangle {
                                         Layout.fillWidth: true
                                         height: 12
-                                        color: Qt.alpha(Color.mOutline, 0.2)
+                                        color: Qt.alpha(Commons.Color.mOutline, 0.2)
                                         radius: Style.radiusXXS
 
                                         Rectangle {
@@ -505,7 +506,7 @@ Item {
                                                 bottom: parent.bottom
                                             }
                                             radius: Style.radiusXXS
-                                            color: Color.mPrimary
+                                            color: Commons.Color.mPrimary
                                             width: {
                                                 const days = root.selectedProvider?.recentDays ?? [];
                                                 let maxCount = 1;
@@ -530,7 +531,7 @@ Item {
                                         text: mainInstance?.formatTokenCount(modelData?.messageCount ?? 0) ?? "0"
                                         pointSize: Style.fontSizeXS
                                         font.weight: Style.fontWeightSemiBold
-                                        color: Color.mOnSurface
+                                        color: Commons.Color.mOnSurface
                                         Layout.preferredWidth: 30
                                         horizontalAlignment: Text.AlignRight
                                     }
@@ -563,7 +564,7 @@ Item {
                                 text: "All-Time"
                                 pointSize: Style.fontSizeL
                                 font.weight: Style.fontWeightSemiBold
-                                color: Color.mPrimary
+                                color: Commons.Color.mPrimary
                             }
 
                             RowLayout {
@@ -576,12 +577,12 @@ Item {
                                         text: mainInstance?.formatTokenCount(root.selectedProvider?.totalPrompts ?? 0) ?? "0"
                                         pointSize: Style.fontSizeXL
                                         font.weight: Style.fontWeightBold
-                                        color: Color.mOnSurface
+                                        color: Commons.Color.mOnSurface
                                     }
                                     NText {
                                         text: "messages"
                                         pointSize: Style.fontSizeXS
-                                        color: Color.mOnSurfaceVariant
+                                        color: Commons.Color.mOnSurfaceVariant
                                     }
                                 }
 
@@ -591,12 +592,12 @@ Item {
                                         text: String(root.selectedProvider?.totalSessions ?? 0)
                                         pointSize: Style.fontSizeXL
                                         font.weight: Style.fontWeightBold
-                                        color: Color.mOnSurface
+                                        color: Commons.Color.mOnSurface
                                     }
                                     NText {
                                         text: "sessions"
                                         pointSize: Style.fontSizeXS
-                                        color: Color.mOnSurfaceVariant
+                                        color: Commons.Color.mOnSurfaceVariant
                                     }
                                 }
                             }
@@ -604,7 +605,7 @@ Item {
                             Rectangle {
                                 Layout.fillWidth: true
                                 height: 1
-                                color: Color.mOutline
+                                color: Commons.Color.mOutline
                             }
 
                             Repeater {
@@ -628,7 +629,7 @@ Item {
                                         text: mainInstance?.friendlyModelName(modelData.modelId) ?? modelData.modelId
                                         pointSize: Style.fontSizeM
                                         font.weight: Style.fontWeightSemiBold
-                                        color: Color.mOnSurface
+                                        color: Commons.Color.mOnSurface
                                     }
 
                                     GridLayout {
@@ -641,49 +642,49 @@ Item {
                                         NText {
                                             text: "Input"
                                             pointSize: Style.fontSizeXS
-                                            color: Color.mOnSurfaceVariant
+                                            color: Commons.Color.mOnSurfaceVariant
                                         }
                                         NText {
                                             text: mainInstance?.formatTokenCount(modelData.data?.inputTokens ?? 0) ?? "0"
                                             pointSize: Style.fontSizeXS
                                             font.weight: Style.fontWeightSemiBold
-                                            color: Color.mOnSurface
+                                            color: Commons.Color.mOnSurface
                                         }
 
                                         NText {
                                             text: "Output"
                                             pointSize: Style.fontSizeXS
-                                            color: Color.mOnSurfaceVariant
+                                            color: Commons.Color.mOnSurfaceVariant
                                         }
                                         NText {
                                             text: mainInstance?.formatTokenCount(modelData.data?.outputTokens ?? 0) ?? "0"
                                             pointSize: Style.fontSizeXS
                                             font.weight: Style.fontWeightSemiBold
-                                            color: Color.mOnSurface
+                                            color: Commons.Color.mOnSurface
                                         }
 
                                         NText {
                                             text: "Cache Read"
                                             pointSize: Style.fontSizeXS
-                                            color: Color.mOnSurfaceVariant
+                                            color: Commons.Color.mOnSurfaceVariant
                                         }
                                         NText {
                                             text: mainInstance?.formatTokenCount(modelData.data?.cacheReadInputTokens ?? 0) ?? "0"
                                             pointSize: Style.fontSizeXS
                                             font.weight: Style.fontWeightSemiBold
-                                            color: Color.mOnSurface
+                                            color: Commons.Color.mOnSurface
                                         }
 
                                         NText {
                                             text: "Cache Write"
                                             pointSize: Style.fontSizeXS
-                                            color: Color.mOnSurfaceVariant
+                                            color: Commons.Color.mOnSurfaceVariant
                                         }
                                         NText {
                                             text: mainInstance?.formatTokenCount(modelData.data?.cacheCreationInputTokens ?? 0) ?? "0"
                                             pointSize: Style.fontSizeXS
                                             font.weight: Style.fontWeightSemiBold
-                                            color: Color.mOnSurface
+                                            color: Commons.Color.mOnSurface
                                         }
                                     }
 

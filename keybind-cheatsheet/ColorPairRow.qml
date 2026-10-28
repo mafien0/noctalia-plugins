@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import "." as Local
 
@@ -40,7 +41,7 @@ RowLayout {
 
   NText {
     text: row.labelText
-    color: Color.mOnSurface
+    color: Commons.Color.mOnSurface
     pointSize: Style.fontSizeM
     Layout.preferredWidth: 180 * Style.uiScaleRatio
     elide: Text.ElideRight

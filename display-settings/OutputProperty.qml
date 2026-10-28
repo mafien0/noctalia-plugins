@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 RowLayout {
@@ -12,12 +13,12 @@ RowLayout {
 
   NText {
     text: root.label
-    pointSize: Style.fontSizeS; color: Color.mOnSurfaceVariant
+    pointSize: Style.fontSizeS; color: Commons.Color.mOnSurfaceVariant
     Layout.preferredWidth: 120 * Style.uiScaleRatio
   }
   NText {
     text: root.value
-    pointSize: Style.fontSizeS; color: Color.mOnSurface
+    pointSize: Style.fontSizeS; color: Commons.Color.mOnSurface
     Layout.fillWidth: true
   }
 }

@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -127,14 +128,14 @@ Item {
 
       NIcon {
         icon: "language"
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
         pointSize: Style.fontSizeM
         applyUiScale: false
       }
 
       NText {
         text: pluginApi?.tr("translator.title")
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
         pointSize: Style.fontSizeM
         applyUiScale: false
         font.weight: Font.Medium
@@ -144,7 +145,7 @@ Item {
       NIcon {
         icon: "loader-2"
         visible: isTranslating
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
         pointSize: Style.fontSizeS
         applyUiScale: false
 
@@ -159,7 +160,7 @@ Item {
 
       NText {
         text: backend === "google" ? "Google" : "DeepL"
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         pointSize: Style.fontSizeXS
         applyUiScale: false
       }
@@ -192,7 +193,7 @@ Item {
       // Swap button
       NIconButton {
         icon: "arrows-exchange"
-        colorFg: Color.mOnSurfaceVariant
+        colorFg: Commons.Color.mOnSurfaceVariant
         tooltipText: pluginApi?.tr("translator.swap")
         enabled: sourceLanguage !== "auto"
         opacity: enabled ? 1.0 : 0.5
@@ -238,7 +239,7 @@ Item {
       Layout.fillWidth: true
       Layout.fillHeight: true
       Layout.preferredHeight: parent.height * 0.35
-      color: Color.mSurface
+      color: Commons.Color.mSurface
       radius: Style.radiusM
 
       ColumnLayout {
@@ -253,8 +254,8 @@ Item {
           TextArea {
             id: inputField
             placeholderText: pluginApi?.tr("translator.inputPlaceholder")
-            placeholderTextColor: Color.mOnSurfaceVariant
-            color: Color.mOnSurface
+            placeholderTextColor: Commons.Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurface
             font.pointSize: Style.fontSizeM
             wrapMode: TextArea.Wrap
             background: null
@@ -293,7 +294,7 @@ Item {
 
           NIconButton {
             icon: "clipboard"
-            colorFg: Color.mOnSurfaceVariant
+            colorFg: Commons.Color.mOnSurfaceVariant
             tooltipText: pluginApi?.tr("translator.paste")
             onClicked: {
               inputField.text = Quickshell.clipboardText;
@@ -302,7 +303,7 @@ Item {
 
           NIconButton {
             icon: "x"
-            colorFg: Color.mOnSurfaceVariant
+            colorFg: Commons.Color.mOnSurfaceVariant
             tooltipText: pluginApi?.tr("translator.clear")
             enabled: inputField.text.length > 0
             opacity: enabled ? 1.0 : 0.5
@@ -334,13 +335,13 @@ Item {
       Rectangle {
         Layout.fillWidth: true
         height: 1
-        color: Color.mOutline
+        color: Commons.Color.mOutline
       }
 
       NIcon {
         id: dividerIcon
         icon: "chevron-down"
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         pointSize: Style.fontSizeM
         applyUiScale: false
       }
@@ -348,7 +349,7 @@ Item {
       Rectangle {
         Layout.fillWidth: true
         height: 1
-        color: Color.mOutline
+        color: Commons.Color.mOutline
       }
     }
 
@@ -357,7 +358,7 @@ Item {
       Layout.fillWidth: true
       Layout.fillHeight: true
       Layout.preferredHeight: parent.height * 0.35
-      color: Color.mSurface
+      color: Commons.Color.mSurface
       radius: Style.radiusM
 
       ColumnLayout {
@@ -373,8 +374,8 @@ Item {
             id: outputField
             text: translatedText
             placeholderText: pluginApi?.tr("translator.outputPlaceholder")
-            placeholderTextColor: Color.mOnSurfaceVariant
-            color: Color.mOnSurface
+            placeholderTextColor: Commons.Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurface
             font.pointSize: Style.fontSizeM
             wrapMode: TextArea.Wrap
             background: null
@@ -395,13 +396,13 @@ Item {
 
             NIcon {
               icon: "alert-triangle"
-              color: Color.mError
+              color: Commons.Color.mError
               pointSize: Style.fontSizeS
             }
 
             NText {
               text: translationError
-              color: Color.mError
+              color: Commons.Color.mError
               pointSize: Style.fontSizeXS
               Layout.fillWidth: true
               elide: Text.ElideRight
@@ -415,7 +416,7 @@ Item {
 
           NIconButton {
             icon: "copy"
-            colorFg: Color.mOnSurfaceVariant
+            colorFg: Commons.Color.mOnSurfaceVariant
             tooltipText: pluginApi?.tr("translator.copy")
             enabled: translatedText.trim() !== ""
             opacity: enabled ? 1.0 : 0.5
@@ -427,7 +428,7 @@ Item {
 
           NIconButton {
             icon: "external-link"
-            colorFg: Color.mOnSurfaceVariant
+            colorFg: Commons.Color.mOnSurfaceVariant
             tooltipText: pluginApi?.tr("translator.search")
             enabled: translatedText.trim() !== ""
             opacity: enabled ? 1.0 : 0.5
@@ -452,7 +453,7 @@ Item {
 
     signal languageSelected(string code)
 
-    color: selectorMouse.containsMouse ? Color.mHover : Color.mSurface
+    color: selectorMouse.containsMouse ? Commons.Color.mHover : Commons.Color.mSurface
     radius: Style.iRadiusS
     implicitHeight: selectorContent.implicitHeight + Style.marginS * 2
 
@@ -468,7 +469,7 @@ Item {
 
         NText {
           text: selector.label
-          color: Color.mOnSurfaceVariant
+          color: Commons.Color.mOnSurfaceVariant
           pointSize: Style.fontSizeXS
         }
 
@@ -481,7 +482,7 @@ Item {
             }
             return currentCode;
           }
-          color: Color.mOnSurface
+          color: Commons.Color.mOnSurface
           pointSize: Style.fontSizeS
           font.weight: Font.Medium
         }
@@ -489,7 +490,7 @@ Item {
 
       NIcon {
         icon: "chevron-down"
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         pointSize: Style.fontSizeS
         Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
       }
@@ -511,9 +512,9 @@ Item {
       height: Math.min(300 * selector.uiScale, langList.contentHeight + Style.marginS * 2)
 
       background: Rectangle {
-        color: Color.mSurface
+        color: Commons.Color.mSurface
         radius: Style.radiusM
-        border.color: Color.mOutline
+        border.color: Commons.Color.mOutline
         border.width: 1
       }
 
@@ -525,7 +526,7 @@ Item {
         delegate: Rectangle {
           width: langList.width
           height: (langItemContent.implicitHeight * selector.uiScale) + (Style.marginS * 2)
-          color: langItemMouse.containsMouse ? Color.mHover : "transparent"
+          color: langItemMouse.containsMouse ? Commons.Color.mHover : "transparent"
           radius: Style.iRadiusXS
 
           RowLayout {
@@ -536,7 +537,7 @@ Item {
 
             NText {
               text: modelData.name
-              color: modelData.code === selector.currentCode ? Color.mPrimary : Color.mOnSurface
+              color: modelData.code === selector.currentCode ? Commons.Color.mPrimary : Commons.Color.mOnSurface
               pointSize: Style.fontSizeS * selector.uiScale
               font.weight: modelData.code === selector.currentCode ? Font.Medium : Font.Normal
               Layout.fillWidth: true
@@ -544,7 +545,7 @@ Item {
 
             NIcon {
               icon: "check"
-              color: Color.mPrimary
+              color: Commons.Color.mPrimary
               pointSize: Style.fontSizeS * selector.uiScale
               visible: modelData.code === selector.currentCode
             }

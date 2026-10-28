@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.UPower
 import qs.Commons
+import qs.Commons as Commons
 import qs.Modules.Bar.Extras
 import qs.Services.Hardware
 import qs.Services.Networking
@@ -171,8 +172,8 @@ Item {
         pluggedIn: root.isPluggedIn
         low: root.isLowBattery
         critical: root.isCriticalBattery
-        baseColor: graphicMouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
-        textColor: graphicMouseArea.containsMouse ? Color.mHover : Color.mSurface
+        baseColor: graphicMouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
+        textColor: graphicMouseArea.containsMouse ? Commons.Color.mHover : Commons.Color.mSurface
       }
 
       NText {
@@ -180,7 +181,7 @@ Item {
         text: `· ${root.barExtraText}`
         pointSize: Style.getBarFontSizeForScreen(root.screenName)
         font.weight: Style.fontWeightMedium
-        color: graphicMouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: graphicMouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
       }
     }
 
@@ -201,8 +202,8 @@ Item {
         pluggedIn: root.isPluggedIn
         low: root.isLowBattery
         critical: root.isCriticalBattery
-        baseColor: graphicMouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
-        textColor: graphicMouseArea.containsMouse ? Color.mHover : Color.mSurface
+        baseColor: graphicMouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
+        textColor: graphicMouseArea.containsMouse ? Commons.Color.mHover : Commons.Color.mSurface
       }
 
       NText {
@@ -212,7 +213,7 @@ Item {
         text: root.verticalBarExtraText
         pointSize: Math.max(Style.fontSizeXXS, Style.getBarFontSizeForScreen(root.screenName) * 0.75)
         font.weight: Style.fontWeightMedium
-        color: graphicMouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: graphicMouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         horizontalAlignment: Text.AlignHCenter
         lineHeight: 0.85
         lineHeightMode: Text.ProportionalHeight
@@ -228,12 +229,12 @@ Item {
     width: root.isBarVertical ? root.capsuleHeight : graphicContent.implicitWidth + Style.margin2S
     height: root.isBarVertical ? graphicContent.implicitHeight + Style.margin2S : root.capsuleHeight
     radius: Math.min(Style.radiusL, width / 2)
-    color: graphicMouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: graphicMouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
 
     Behavior on color {
-      enabled: !Color.isTransitioning
+      enabled: !Commons.Color.isTransitioning
       ColorAnimation {
         duration: Style.animationFast
         easing.type: Easing.InOutQuad
@@ -292,8 +293,8 @@ Item {
     autoHide: false
     forceOpen: root.isReady && root.displayMode === "icon-always"
     forceClose: root.displayMode === "icon-only" || !root.isReady
-    customBackgroundColor: root.isCharging ? Color.mPrimary : ((root.isLowBattery || root.isCriticalBattery) ? Color.mError : "transparent")
-    customTextIconColor: root.isCharging ? Color.mOnPrimary : ((root.isLowBattery || root.isCriticalBattery) ? Color.mOnError : "transparent")
+    customBackgroundColor: root.isCharging ? Commons.Color.mPrimary : ((root.isLowBattery || root.isCriticalBattery) ? Commons.Color.mError : "transparent")
+    customTextIconColor: root.isCharging ? Commons.Color.mOnPrimary : ((root.isLowBattery || root.isCriticalBattery) ? Commons.Color.mOnError : "transparent")
     tooltipText: root.tooltipContent
     onClicked: toggleBatteryPanel()
     onRightClicked: PanelService.showContextMenu(contextMenu, pill, screen)

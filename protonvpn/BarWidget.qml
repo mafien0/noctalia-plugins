@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Modules.Bar.Extras
 import qs.Services.UI
 import qs.Widgets
@@ -82,8 +83,8 @@ Item {
             return pluginApi?.tr("bar.disconnected-state");
         }
 
-        customIconColor: Color.resolveColorKeyOptional(root.activeColor)
-        customTextColor: Color.resolveColorKeyOptional(root.activeColor)
+        customIconColor: Commons.Color.resolveColorKeyOptional(root.activeColor)
+        customTextColor: Commons.Color.resolveColorKeyOptional(root.activeColor)
 
         forceOpen: !root.isBarVertical && root.displayMode === "alwaysShow"
         forceClose: root.isBarVertical || root.displayMode === "alwaysHide"

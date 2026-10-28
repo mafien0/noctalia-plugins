@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -37,7 +38,7 @@ Item {
         y: Style.pixelAlignCenter(parent.height, height)
         width: root.contentWidth
         height: root.contentHeight
-        color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+        color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
         radius: height / 2
         border.color: Style.capsuleBorderColor
         border.width: Style.capsuleBorderWidth
@@ -52,12 +53,12 @@ Item {
             NIcon {
                 icon: root.providerIcons[mainInstance?.activeProviderId || ""] || "globe"
                 pointSize: Style.fontSizeS
-                color: Color.mPrimary
+                color: Commons.Color.mPrimary
             }
 
             NText {
                 text: mainInstance?.currentDnsName || pluginApi?.tr("plugin.short_title") || "DNS"
-                color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+                color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
                 pointSize: Style.barFontSize
                 font.weight: Font.Medium
             }

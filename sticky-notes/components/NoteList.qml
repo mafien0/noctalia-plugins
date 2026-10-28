@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 import "../utils/storage.js" as Storage
@@ -261,8 +262,8 @@ Item {
       NIconButton {
         icon: "add"
         baseSize: 28 * Style.uiScaleRatio
-        colorBg: Color.mPrimary
-        colorFg: Color.mOnPrimary
+        colorBg: Commons.Color.mPrimary
+        colorFg: Commons.Color.mOnPrimary
         customRadius: 14 * Style.uiScaleRatio
         tooltipText: root.pluginApi?.tr("notes.new")
 

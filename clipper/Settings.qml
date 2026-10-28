@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -326,8 +327,8 @@ ColumnLayout {
     if (colorKey === "custom") {
       return customColors[cardType]?.[colorType] || "#888888";
     }
-    if (typeof Color !== "undefined" && Color[colorKey]) {
-      return Color[colorKey];
+    if (typeof Commons.Color !== "undefined" && Commons.Color[colorKey]) {
+      return Commons.Color[colorKey];
     }
     return "#888888";
   }
@@ -492,7 +493,7 @@ ColumnLayout {
           color: {
             const count = pluginApi?.mainInstance?.pinnedItems?.length || 0;
             const max = pluginApi?.mainInstance?.maxPinnedItems || 20;
-            return count >= max ? Color.mError : Color.mOnSurface;
+            return count >= max ? Commons.Color.mError : Commons.Color.mOnSurface;
           }
         }
       }
@@ -551,7 +552,7 @@ ColumnLayout {
           color: {
             const count = pluginApi?.mainInstance?.noteCards?.length || 0;
             const max = pluginApi?.mainInstance?.maxNoteCards || 20;
-            return count >= max ? Color.mError : Color.mOnSurface;
+            return count >= max ? Commons.Color.mError : Commons.Color.mOnSurface;
           }
         }
       }
@@ -616,10 +617,10 @@ ColumnLayout {
         visible: root.valueAutoPaste && !(pluginApi?.mainInstance?.wtypeAvailable ?? false)
         Layout.fillWidth: true
         Layout.preferredHeight: warningText.implicitHeight + Style.marginM * 2
-        color: (typeof Color !== "undefined") ? Qt.rgba(Color.mError.r, Color.mError.g, Color.mError.b, 0.15) : "#33CC0000"
+        color: (typeof Commons.Color !== "undefined") ? Qt.rgba(Commons.Color.mError.r, Commons.Color.mError.g, Commons.Color.mError.b, 0.15) : "#33CC0000"
         radius: Style.radiusS
         border.width: 1
-        border.color: (typeof Color !== "undefined") ? Color.mError : "#CC0000"
+        border.color: (typeof Commons.Color !== "undefined") ? Commons.Color.mError : "#CC0000"
 
         NText {
           id: warningText
@@ -627,7 +628,7 @@ ColumnLayout {
           anchors.margins: Style.marginM
           text: pluginApi?.tr("settings.auto-paste-warning")
           wrapMode: Text.Wrap
-          color: (typeof Color !== "undefined") ? Color.mError : "#CC0000"
+          color: (typeof Commons.Color !== "undefined") ? Commons.Color.mError : "#CC0000"
           font.pointSize: Style.fontSizeS
         }
       }
@@ -709,7 +710,7 @@ ColumnLayout {
       Rectangle {
         Layout.fillWidth: true
         Layout.preferredHeight: 280
-        color: (typeof Color !== "undefined") ? Color.mSurfaceVariant : "#333333"
+        color: (typeof Commons.Color !== "undefined") ? Commons.Color.mSurfaceVariant : "#333333"
         radius: Style.radiusM
 
         ColumnLayout {
@@ -720,7 +721,7 @@ ColumnLayout {
           NText {
             text: pluginApi?.tr("settings.preview")
             font.bold: true
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
           }
 
           // Preview card

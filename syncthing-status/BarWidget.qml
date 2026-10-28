@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import QtQuick.Effects
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -30,19 +31,19 @@ Item {
     readonly property string currentState: mainInst?.enabled ? (mainInst?.state ?? "unconfigured") : "disabled"
     readonly property color capsuleBgColor: {
         if (isSelected) {
-            return mouseArea.containsMouse ? Qt.darker(Color.mPrimary, 1.08) : Color.mPrimary;
+            return mouseArea.containsMouse ? Qt.darker(Commons.Color.mPrimary, 1.08) : Commons.Color.mPrimary;
         }
-        return mouseArea.containsMouse ? Color.mHover : Style.capsuleColor;
+        return mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor;
     }
     readonly property color iconColor: {
-        if (isSelected) return Color.mOnPrimary;
-        return mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface;
+        if (isSelected) return Commons.Color.mOnPrimary;
+        return mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface;
     }
     readonly property color badgeColor: isSelected
-        ? Color.mOnPrimary
-        : (mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface)
-    readonly property color statusBadgeBg: mainInst ? mainInst.statusBadgeBackground(root.currentState) : Color.mOutline
-    readonly property color statusBadgeFg: mainInst ? mainInst.statusBadgeForeground(root.currentState) : Color.mOnSurface
+        ? Commons.Color.mOnPrimary
+        : (mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface)
+    readonly property color statusBadgeBg: mainInst ? mainInst.statusBadgeBackground(root.currentState) : Commons.Color.mOutline
+    readonly property color statusBadgeFg: mainInst ? mainInst.statusBadgeForeground(root.currentState) : Commons.Color.mOnSurface
     readonly property string statusBadgeIcon: mainInst ? mainInst.statusBadgeIcon(root.currentState) : ""
 
     implicitWidth: visualCapsule.width
@@ -100,7 +101,7 @@ Item {
         height: root.capsuleHeight
         color: root.capsuleBgColor
         radius: Style.radiusL
-        border.color: isSelected ? Color.mPrimary : Style.capsuleBorderColor
+        border.color: isSelected ? Commons.Color.mPrimary : Style.capsuleBorderColor
         border.width: Style.capsuleBorderWidth
 
         Row {

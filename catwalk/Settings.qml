@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import qs.Widgets
 import qs.Commons
 
+import qs.Commons as Commons
 ColumnLayout {
     id: root
 
@@ -41,7 +42,7 @@ ColumnLayout {
 
         Text {
             text: (pluginApi?.tr("settings.currentThreshold") || "Current threshold: {value}%").replace("{value}", thresholdSlider.value)
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             font.pointSize: Style.fontSizeS
         }
     }

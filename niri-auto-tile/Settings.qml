@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -153,9 +154,9 @@ ColumnLayout {
             radius: Math.round(4 * Style.uiScaleRatio)
             color: {
                 const status = pluginApi?.mainInstance?.status ?? "stopped";
-                if (status === "running") return Color.mPrimary;
-                if (status === "error") return Color.mError;
-                return Color.mOutline;
+                if (status === "running") return Commons.Color.mPrimary;
+                if (status === "error") return Commons.Color.mError;
+                return Commons.Color.mOutline;
             }
         }
 

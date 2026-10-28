@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -29,7 +30,7 @@ Item {
       anchors.left: parent.left
       anchors.right: parent.right
       height: 40
-      color: Color.mSurfaceVariant
+      color: Commons.Color.mSurfaceVariant
       opacity: 0.95
 
       RowLayout {
@@ -41,14 +42,14 @@ Item {
         NIcon {
           icon: "steam"
           pointSize: Style.fontSizeL
-          color: Color.mPrimary
+          color: Commons.Color.mPrimary
         }
 
         NText {
           text: "Steam Overlay"
           font.pointSize: Style.fontSizeM
           font.weight: Font.Bold
-          color: Color.mOnSurface
+          color: Commons.Color.mOnSurface
         }
 
         Item {
@@ -69,7 +70,7 @@ Item {
           NText {
             text: steamRunning ? "Steam Running" : "Steam Stopped"
             font.pointSize: Style.fontSizeS
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
           }
         }
 
@@ -99,14 +100,14 @@ Item {
         height: parent.height
         color: "#1976D2"
         opacity: 0.1
-        border.color: Color.mPrimary
+        border.color: Commons.Color.mPrimary
         border.width: 2
 
         NText {
           anchors.centerIn: parent
           text: "Friends List\n" + friendsWidth + "px"
           font.pointSize: Style.fontSizeL
-          color: Color.mPrimary
+          color: Commons.Color.mPrimary
           horizontalAlignment: Text.AlignHCenter
           opacity: 0.5
         }
@@ -118,14 +119,14 @@ Item {
         height: parent.height
         color: "#388E3C"
         opacity: 0.1
-        border.color: Color.mSecondary
+        border.color: Commons.Color.mSecondary
         border.width: 2
 
         NText {
           anchors.centerIn: parent
           text: "Main Steam\n" + mainWidth + "px"
           font.pointSize: Style.fontSizeL
-          color: Color.mSecondary
+          color: Commons.Color.mSecondary
           horizontalAlignment: Text.AlignHCenter
           opacity: 0.5
         }
@@ -137,14 +138,14 @@ Item {
         height: parent.height
         color: "#D32F2F"
         opacity: 0.1
-        border.color: Color.mTertiary
+        border.color: Commons.Color.mTertiary
         border.width: 2
 
         NText {
           anchors.centerIn: parent
           text: "Steam Chat\n" + chatWidth + "px"
           font.pointSize: Style.fontSizeL
-          color: Color.mTertiary
+          color: Commons.Color.mTertiary
           horizontalAlignment: Text.AlignHCenter
           opacity: 0.5
         }

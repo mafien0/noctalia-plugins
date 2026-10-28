@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -36,9 +37,9 @@ NIconButton {
   
   // Color resolution with transparency protection (Alpha check)
   colorFg: {
-    let resolved = Color.resolveColorKeyOptional(iconColorKey);
-    if (root.containsMouse) return Color.mOnHover;
-    return resolved.a > 0 ? resolved : Color.mOnSurface;
+    let resolved = Commons.Color.resolveColorKeyOptional(iconColorKey);
+    if (root.containsMouse) return Commons.Color.mOnHover;
+    return resolved.a > 0 ? resolved : Commons.Color.mOnSurface;
   }
 
   border.color: Style.capsuleBorderColor

@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -44,7 +45,7 @@ Item {
         text: root.portCount === 0 ? pluginApi?.tr("panel.noPorts") : pluginApi?.trp("bar.ports", root.portCount)
         pointSize: Style.fontSizeL
         font.weight: Font.DemiBold
-        color: root.portCount > 0 ? Color.mPrimary : Color.mOnSurfaceVariant
+        color: root.portCount > 0 ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
       }
 
       // Confirmation bar
@@ -66,7 +67,7 @@ Item {
               ? pluginApi?.tr("panel.confirmKillSystem", { port: root.pendingKillPort })
               : pluginApi?.tr("panel.confirmKill", { port: root.pendingKillPort })
             pointSize: Style.fontSizeS
-            color: Color.mError
+            color: Commons.Color.mError
             wrapMode: Text.WordWrap
           }
 
@@ -131,7 +132,7 @@ Item {
                   pointSize: Style.fontSizeM
                   font.weight: Font.Bold
                   font.family: Settings.data.ui.fontFixed
-                  color: modelData.proto === "TCP" ? Color.mPrimary : Color.mTertiary
+                  color: modelData.proto === "TCP" ? Commons.Color.mPrimary : Commons.Color.mTertiary
                   Layout.preferredWidth: 60 * Style.uiScaleRatio
                 }
 
@@ -139,7 +140,7 @@ Item {
                 NText {
                   text: modelData.proto
                   pointSize: Style.fontSizeXS
-                  color: Color.mOnSurfaceVariant
+                  color: Commons.Color.mOnSurfaceVariant
                   Layout.preferredWidth: 30 * Style.uiScaleRatio
                 }
 
@@ -152,7 +153,7 @@ Item {
                     text: modelData.address
                     pointSize: Style.fontSizeS
                     font.family: Settings.data.ui.fontFixed
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                   }
@@ -160,7 +161,7 @@ Item {
                   NText {
                     text: modelData.processName ? pluginApi?.tr("panel.processInfo", { name: modelData.processName, pid: modelData.pid }) : pluginApi?.tr("panel.unknownProcess")
                     pointSize: Style.fontSizeS
-                    color: modelData.processName ? Color.mOnSurface : Color.mOnSurfaceVariant
+                    color: modelData.processName ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                   }
@@ -170,7 +171,7 @@ Item {
                 NIcon {
                   icon: hasProcess ? "x" : "shield-x"
                   pointSize: Style.fontSizeM
-                  color: killArea.containsMouse ? Color.mError : Color.mOnSurfaceVariant
+                  color: killArea.containsMouse ? Commons.Color.mError : Commons.Color.mOnSurfaceVariant
                   Layout.alignment: Qt.AlignVCenter
 
                   MouseArea {

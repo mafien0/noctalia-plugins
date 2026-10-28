@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -25,9 +26,9 @@ Item {
   }
 
   function statusColor(status) {
-    if (status === "running") return Color.mPrimary
-    if (status === "blocked") return Color.mError
-    return Color.mSecondary
+    if (status === "running") return Commons.Color.mPrimary
+    if (status === "blocked") return Commons.Color.mError
+    return Commons.Color.mSecondary
   }
 
   Rectangle {
@@ -54,7 +55,7 @@ Item {
 
           NIcon {
             icon: "bot"
-            color: Color.mPrimary
+            color: Commons.Color.mPrimary
           }
 
           ColumnLayout {
@@ -65,7 +66,7 @@ Item {
               text: pluginApi?.tr("panel.title")
               pointSize: Style.fontSizeM
               font.weight: Font.DemiBold
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
             }
 
             NText {
@@ -75,7 +76,7 @@ Item {
                 url: root.mainInstance?.serverUrl ?? ""
               })
               pointSize: Style.fontSizeXS
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               elide: Text.ElideRight
             }
           }
@@ -99,7 +100,7 @@ Item {
           anchors.margins: Style.marginM
           text: root.mainInstance?.serviceError ?? ""
           pointSize: Style.fontSizeS
-          color: Color.mError
+          color: Commons.Color.mError
           wrapMode: Text.WordWrap
         }
       }
@@ -134,7 +135,7 @@ Item {
 
                   NIcon {
                     icon: "terminal"
-                    color: Color.mPrimary
+                    color: Commons.Color.mPrimary
                   }
 
                   NText {
@@ -142,14 +143,14 @@ Item {
                     text: modelData.agent
                     pointSize: Style.fontSizeM
                     font.weight: Font.DemiBold
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     elide: Text.ElideRight
                   }
 
                   NText {
                     text: pluginApi?.tr("panel.agentRunning", { count: modelData.runningCount ?? 0 })
                     pointSize: Style.fontSizeXS
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                   }
                 }
 
@@ -174,7 +175,7 @@ Item {
                         Layout.fillWidth: true
                         text: modelData.title
                         pointSize: Style.fontSizeS
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         elide: Text.ElideRight
                       }
 
@@ -185,7 +186,7 @@ Item {
                           status: pluginApi?.tr("status." + modelData.status)
                         })
                         pointSize: Style.fontSizeXS
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         elide: Text.ElideMiddle
                       }
                     }
@@ -210,7 +211,7 @@ Item {
               NIcon {
                 Layout.alignment: Qt.AlignHCenter
                 icon: "bot-off"
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 pointSize: Style.fontSizeXXL
               }
 
@@ -219,7 +220,7 @@ Item {
                 Layout.fillWidth: true
                 text: pluginApi?.tr("panel.empty")
                 pointSize: Style.fontSizeM
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
               }

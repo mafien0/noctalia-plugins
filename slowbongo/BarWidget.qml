@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -48,11 +49,11 @@ Item {
 
     function resolveColor(key) {
         switch (key) {
-            case "primary":   return Color.mPrimary
-            case "secondary": return Color.mSecondary
-            case "tertiary":  return Color.mTertiary
-            case "error":     return Color.mError
-            default:          return Color.mOnSurface
+            case "primary":   return Commons.Color.mPrimary
+            case "secondary": return Commons.Color.mSecondary
+            case "tertiary":  return Commons.Color.mTertiary
+            case "error":     return Commons.Color.mError
+            default:          return Commons.Color.mOnSurface
         }
     }
 
@@ -94,7 +95,7 @@ Item {
         Behavior on height {
             NumberAnimation { duration: Style.animationNormal; easing.type: Easing.OutCubic }
         }
-        color: mouseArea.containsMouse ? Color.mHover : (root.paused ? root.resolvedCatColor : Style.capsuleColor)
+        color: mouseArea.containsMouse ? Commons.Color.mHover : (root.paused ? root.resolvedCatColor : Style.capsuleColor)
         border.color: Style.capsuleBorderColor
         border.width: Style.capsuleBorderWidth
 
@@ -110,7 +111,7 @@ Item {
             font.family: bongoFont.name
             font.pixelSize: root.capsuleHeight * root.activeCatSize
             font.weight: Font.Thin
-            color: mouseArea.containsMouse ? Color.mOnHover : (root.paused ? Color.mSurface : root.resolvedCatColor)
+            color: mouseArea.containsMouse ? Commons.Color.mOnHover : (root.paused ? Commons.Color.mSurface : root.resolvedCatColor)
             text: (root.paused || root.waiting) ? root.sleepGlyph : (root.blinking ? root.blinkGlyph : (root.glyphMap[root.catState] ?? "bc"))
 
             Behavior on anchors.horizontalCenterOffset {

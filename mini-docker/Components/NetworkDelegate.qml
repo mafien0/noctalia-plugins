@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Rectangle {
@@ -9,7 +10,7 @@ Rectangle {
 
     width: ListView.view.width - (ListView.view.ScrollBar.vertical ? 10 : 0)
     height: contentLayout.implicitHeight + (2 * Style.marginM)
-    color: Color.mSurfaceVariant
+    color: Commons.Color.mSurfaceVariant
     radius: Style.radiusM
 
     signal requestRemove(string id)
@@ -52,14 +53,14 @@ Rectangle {
                     Text {
                         text: "" + model.name
                         font.bold: true
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         elide: Text.ElideRight
                         Layout.fillWidth: true
                     }
 
                     Text {
                         text: "" + model.driver + " (" + model.scope + ")"
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         font.pixelSize: 11
                         Layout.fillWidth: true
                     }
@@ -103,7 +104,7 @@ Rectangle {
                 Rectangle {
                     Layout.fillWidth: true
                     height: 1
-                    color: Color.mOutline
+                    color: Commons.Color.mOutline
                     opacity: 0.2
                 }
 
@@ -115,12 +116,12 @@ Rectangle {
 
                     Text {
                         text: "Network ID:"
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         font.bold: true
                     }
                     Text {
                         text: model.id
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font.family: "Monospace"
@@ -128,23 +129,23 @@ Rectangle {
 
                     Text {
                         text: "Driver:"
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         font.bold: true
                     }
                     Text {
                         text: model.driver
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         Layout.fillWidth: true
                     }
 
                     Text {
                         text: "Scope:"
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         font.bold: true
                     }
                     Text {
                         text: model.scope
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         Layout.fillWidth: true
                     }
                 }

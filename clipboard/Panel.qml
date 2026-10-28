@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -87,7 +88,7 @@ Item {
 
     // Panel background. Solid surface color — list item cards use
     // mSurfaceVariant so they stand out against this base.
-    property color panelBackgroundColor: Color.mSurface
+    property color panelBackgroundColor: Commons.Color.mSurface
 
     // Cached settings for reactive use inside bindings.
     readonly property bool showImagePreviews: pluginApi?.pluginSettings?.showImagePreviews ?? true
@@ -814,7 +815,7 @@ Item {
                         NIcon {
                             icon: "clipboard"
                             pointSize: Style.fontSizeXXL
-                            color: Color.mPrimary
+                            color: Commons.Color.mPrimary
                         }
 
                         NText {
@@ -822,7 +823,7 @@ Item {
                             text: root.pluginApi?.tr("panel.title")
                             pointSize: Style.fontSizeL
                             font.weight: Style.fontWeightBold
-                            color: Color.mOnSurface
+                            color: Commons.Color.mOnSurface
                         }
 
                         // Wipe-all: mirrors the notification panel's "clear
@@ -1079,7 +1080,7 @@ Item {
                     NIcon {
                         icon: root.searchQuery.length > 0 ? "search-off" : "clipboard-off"
                         pointSize: Style.baseWidgetSize
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         Layout.alignment: Qt.AlignHCenter
                     }
 
@@ -1088,7 +1089,7 @@ Item {
                             ? root.pluginApi?.tr("panel.no-matches")
                             : root.pluginApi?.tr("panel.empty")
                         pointSize: Style.fontSizeL
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         Layout.alignment: Qt.AlignHCenter
                     }
 

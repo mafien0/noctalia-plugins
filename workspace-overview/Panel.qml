@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import Quickshell.Hyprland
@@ -39,7 +40,7 @@ Item {
                     text: "Workspace Overview"
                     pointSize: Style.fontSizeXL
                     font.weight: Font.Bold
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     Layout.fillWidth: true
                 }
                 NIconButton {
@@ -119,8 +120,8 @@ Item {
                             readonly property bool isActiveWorkspace: Hyprland.focusedWorkspace && Hyprland.focusedWorkspace.id === modelData.id
                             
                             // Using conditional color while still being an NBox for theme consistency
-                            color: isActiveWorkspace ? Color.mPrimary : (parent.containsDrag ? Color.mSurfaceVariant : Color.mSurface)
-                            border.color: isActiveWorkspace ? Color.mOnPrimary : Color.mOutline
+                            color: isActiveWorkspace ? Commons.Color.mPrimary : (parent.containsDrag ? Commons.Color.mSurfaceVariant : Commons.Color.mSurface)
+                            border.color: isActiveWorkspace ? Commons.Color.mOnPrimary : Commons.Color.mOutline
                             border.width: parent.containsDrag ? 4 : 0
                             opacity: parent.containsDrag ? 0.8 : 1.0
 
@@ -146,7 +147,7 @@ Item {
                                 NText {
                                     text: modelData.name !== "" ? modelData.name : "Workspace " + modelData.id
                                     font.weight: Font.Bold
-                                    color: workspaceBg.isActiveWorkspace ? Color.mOnPrimary : Color.mOnSurface
+                                    color: workspaceBg.isActiveWorkspace ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface
                                     Layout.alignment: Qt.AlignHCenter
                                 }
 
@@ -165,7 +166,7 @@ Item {
                                             text: "• " + (modelData.title || "App")
                                             pointSize: 8 * Style.uiScaleRatio
                                             elide: Text.ElideRight
-                                            color: workspaceBg.isActiveWorkspace ? Color.mOnPrimary : Color.mOnSurfaceVariant
+                                            color: workspaceBg.isActiveWorkspace ? Commons.Color.mOnPrimary : Commons.Color.mOnSurfaceVariant
                                             horizontalAlignment: Text.AlignHCenter
                                         }
                                     }
@@ -177,7 +178,7 @@ Item {
                                     Layout.preferredWidth: 199.663 * Style.uiScaleRatio
                                     Layout.preferredHeight: 112.256 * Style.uiScaleRatio
                                     color: Qt.rgba(0, 0, 0, 0.4)
-                                    border.color: parent.parent.isActiveWorkspace ? Color.mOnPrimary : Color.mOutline
+                                    border.color: parent.parent.isActiveWorkspace ? Commons.Color.mOnPrimary : Commons.Color.mOutline
                                     border.width: 2 * Style.uiScaleRatio
                                     radius: Style.radiusS
                                     clip: true
@@ -225,8 +226,8 @@ Item {
                                             // Ignore unmapped (hidden) windows
                                             visible: modelData.mapped !== undefined ? modelData.mapped : (ipcObj !== null && ipcObj.mapped !== undefined ? ipcObj.mapped : true)
                                             
-                                            color: Color.mPrimary
-                                            border.color: Color.mBackground
+                                            color: Commons.Color.mPrimary
+                                            border.color: Commons.Color.mBackground
                                             border.width: Math.max(1, 1 * Style.uiScaleRatio)
                                             radius: 2 * Style.uiScaleRatio
                                             clip: true

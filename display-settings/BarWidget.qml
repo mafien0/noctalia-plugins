@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -18,7 +19,7 @@ NIconButton {
   property var defaults: pluginApi?.manifest?.metadata?.defaultSettings || ({})
 
   property string iconColorKey: cfg.iconColor ?? defaults.iconColor ?? "none"
-  readonly property color iconColor: Color.resolveColorKey(iconColorKey)
+  readonly property color iconColor: Commons.Color.resolveColorKey(iconColorKey)
   readonly property bool hasCustomColor: iconColorKey !== "none"
 
   icon: "device-desktop"
@@ -27,7 +28,7 @@ NIconButton {
   baseSize: Style.getCapsuleHeightForScreen(screen?.name)
   customRadius: Style.radiusL
   colorBg: Style.capsuleColor
-  colorFg: hasCustomColor ? iconColor : Color.mOnSurface
+  colorFg: hasCustomColor ? iconColor : Commons.Color.mOnSurface
   border.color: Style.capsuleBorderColor
   border.width: Style.capsuleBorderWidth
 

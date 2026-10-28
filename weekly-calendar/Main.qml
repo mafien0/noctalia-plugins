@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.Location
 import qs.Services.UI
 import Quickshell.Io
@@ -45,7 +46,7 @@ Item {
                                            timeFormatSetting === "24h" ? false : 
                                            Settings.data.location.use12hourFormat
 
-    readonly property color lineColor: lineColorTypeSetting === "mOnSurfaceVariant" ? Color.mOnSurfaceVariant : Color.mOutline
+    readonly property color lineColor: lineColorTypeSetting === "mOnSurfaceVariant" ? Commons.Color.mOnSurfaceVariant : Commons.Color.mOutline
 
     onWeekStartSettingChanged: if (hasLoadedOnce) Qt.callLater(loadEvents)
     onCurrentDateChanged: Qt.callLater(loadEvents)

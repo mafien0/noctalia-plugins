@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -30,7 +31,7 @@ Item {
   readonly property int todoCount: getIntValue(pluginApi?.pluginSettings?.count, getIntValue(pluginApi?.manifest?.metadata?.defaultSettings?.count, 0))
   readonly property int completedCount: getIntValue(pluginApi?.pluginSettings?.completedCount, getIntValue(pluginApi?.manifest?.metadata?.defaultSettings?.completedCount, 0))
   readonly property int activeCount: todoCount - completedCount
-  readonly property color contentColor: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+  readonly property color contentColor: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
 
   // Tooltip text for vertical mode
   readonly property string tooltipText: {
@@ -54,7 +55,7 @@ Item {
     width: root.contentWidth
     height: root.contentHeight
     radius: Style.radiusL
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
 

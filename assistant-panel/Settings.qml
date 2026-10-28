@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import "Constants.js" as Constants
@@ -63,7 +64,7 @@ ColumnLayout {
     text: pluginApi?.tr("settings.panelSection")
     pointSize: Style.fontSizeM
     font.weight: Font.Bold
-    color: Color.mOnSurface
+    color: Commons.Color.mOnSurface
   }
 
   NToggle {
@@ -231,7 +232,7 @@ ColumnLayout {
     text: pluginApi?.tr("settings.aiSection")
     pointSize: Style.fontSizeM
     font.weight: Font.Bold
-    color: Color.mOnSurface
+    color: Commons.Color.mOnSurface
   }
 
   // Provider selection
@@ -288,7 +289,7 @@ ColumnLayout {
       Layout.fillWidth: true
       visible: true
       text: pluginApi?.tr("settings.baseUrlNote") + "https://platform.openai.com/docs/api-reference/chat/create" + pluginApi?.tr("settings.moreInfo")
-      color: Color.mOnSurfaceVariant
+      color: Commons.Color.mOnSurfaceVariant
       pointSize: Style.fontSizeXS
       wrapMode: Text.Wrap
       onLinkActivated: link => Qt.openUrlExternally(link)
@@ -384,9 +385,9 @@ ColumnLayout {
     Rectangle {
       Layout.fillWidth: true
       Layout.preferredHeight: 80
-      color: Color.mSurface
+      color: Commons.Color.mSurface
       radius: Style.radiusS
-      border.color: Color.mOutline
+      border.color: Commons.Color.mOutline
       border.width: 1
 
       TextArea {
@@ -394,8 +395,8 @@ ColumnLayout {
         anchors.margins: Style.marginS
         text: root.editSystemPrompt
         placeholderText: pluginApi?.tr("settings.systemPromptPlaceholder")
-        placeholderTextColor: Color.mOnSurfaceVariant
-        color: Color.mOnSurface
+        placeholderTextColor: Commons.Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurface
         font.pointSize: Style.fontSizeS
         wrapMode: TextArea.Wrap
         background: null
@@ -437,7 +438,7 @@ ColumnLayout {
     text: pluginApi?.tr("settings.translatorSection")
     pointSize: Style.fontSizeM
     font.weight: Font.Bold
-    color: Color.mOnSurface
+    color: Commons.Color.mOnSurface
   }
 
   // Translator backend

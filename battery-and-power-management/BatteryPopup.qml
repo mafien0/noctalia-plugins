@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -36,7 +37,7 @@ Item {
             Layout.preferredWidth: root.contentPreferredWidth - (Style.marginM * 2)
             Layout.preferredHeight: 64 * Style.uiScaleRatio
             
-            color: Color.mSurfaceVariant
+            color: Commons.Color.mSurfaceVariant
             radius: Style.capsuleRadius ?? Style.radiusM
             border.color: Style.capsuleBorderColor
             border.width: Style.capsuleBorderWidth
@@ -57,7 +58,7 @@ Item {
                     NIcon {
                         icon: root.mainWidget?.getBatteryIcon()
                         pointSize: Style.fontSizeXL
-                        color: Color.mPrimary
+                        color: Commons.Color.mPrimary
                         Layout.alignment: Qt.AlignHCenter
                     }
 
@@ -73,7 +74,7 @@ Item {
                 Rectangle {
                     Layout.fillHeight: true
                     width: 1
-                    color: Color.mOutline
+                    color: Commons.Color.mOutline
                     opacity: 0.15
                 }
 
@@ -86,7 +87,7 @@ Item {
                         text: root.mainWidget ? root.mainWidget.batStatus : pluginApi?.tr("battery.status_unknown")
                         font.weight: Font.Bold
                         pointSize: Style.fontSizeS
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         Layout.fillWidth: true
                     }
 
@@ -104,7 +105,7 @@ Item {
                             }
                         }
                         pointSize: Style.fontSizeXS
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         Layout.fillWidth: true
                         elide: Text.ElideNone
                     }
@@ -118,7 +119,7 @@ Item {
             Layout.preferredWidth: batteryCapsule.Layout.preferredWidth
             Layout.preferredHeight: 52 * Style.uiScaleRatio
             
-            color: Color.mSurfaceVariant
+            color: Commons.Color.mSurfaceVariant
             radius: Style.capsuleRadius ?? Style.radiusM
             border.color: Style.capsuleBorderColor
             border.width: Style.capsuleBorderWidth
@@ -156,7 +157,7 @@ Item {
             Layout.preferredWidth: batteryCapsule.Layout.preferredWidth
             Layout.preferredHeight: 52 * Style.uiScaleRatio
             
-            color: Color.mSurfaceVariant
+            color: Commons.Color.mSurfaceVariant
             radius: Style.capsuleRadius ?? Style.radiusM
             border.color: Style.capsuleBorderColor
             border.width: Style.capsuleBorderWidth
@@ -170,7 +171,7 @@ Item {
                 NIcon {
                     icon: "shield-heart"
                     pointSize: Style.fontSizeM
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     Layout.alignment: Qt.AlignVCenter
                 }
 
@@ -191,7 +192,7 @@ Item {
                     text: thresholdSlider.value + "%"
                     font.weight: Font.Bold
                     pointSize: Style.fontSizeS
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     Layout.preferredWidth: 40 * Style.uiScaleRatio
                     horizontalAlignment: Text.AlignRight
                     Layout.alignment: Qt.AlignVCenter
@@ -214,7 +215,7 @@ Item {
             anchors.fill: parent
             radius: Style.radiusS ?? 4
             
-            color: parent.active ? Color.mPrimary : Color.mSurface
+            color: parent.active ? Commons.Color.mPrimary : Commons.Color.mSurface
             opacity: parent.active ? 1.0 : (parent.containsMouse ? 0.8 : 0.0)
         }
 
@@ -223,8 +224,8 @@ Item {
             icon: parent.icon
             pointSize: Style.fontSizeS
             color: parent.active 
-                ? Color.mOnPrimary 
-                : (parent.containsMouse ? Color.mPrimary : Color.mOnSurfaceVariant)
+                ? Commons.Color.mOnPrimary 
+                : (parent.containsMouse ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant)
         }
     }
 }

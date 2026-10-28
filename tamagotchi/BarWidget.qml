@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import QtQuick.Layouts
 
@@ -47,7 +48,7 @@ Item {
             return "#E24B4A";
         if (_minStat < 40)
             return "#EF9F27";
-        return Color.mOnSurface;
+        return Commons.Color.mOnSurface;
     }
 
     Rectangle {
@@ -55,7 +56,7 @@ Item {
         height: capsuleHeight
         width: root.implicitWidth
         radius: Style.radiusL
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
 
         border.color: root._minStat < 20 ? "#E24B4A" : "transparent"
         border.width: root._minStat < 20 ? 1 : 0
@@ -82,7 +83,7 @@ Item {
             Text {
                 text: root._petEmoji
                 font.pixelSize: Style.fontSizeM
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 Layout.alignment: Qt.AlignVCenter
             }
 

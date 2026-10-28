@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import "overlays"
@@ -185,14 +186,14 @@ Item {
             spacing: Style.marginM
             Row {
                 width: parent.width; spacing: Style.marginS
-                NIcon { icon: "crosshair"; color: Color.mPrimary; anchors.verticalCenter: parent.verticalCenter }
-                NText { text: pluginApi?.tr("panel.title"); pointSize: Style.fontSizeL; font.weight: Font.Bold; color: Color.mOnSurface; anchors.verticalCenter: parent.verticalCenter }
+                NIcon { icon: "crosshair"; color: Commons.Color.mPrimary; anchors.verticalCenter: parent.verticalCenter }
+                NText { text: pluginApi?.tr("panel.title"); pointSize: Style.fontSizeL; font.weight: Font.Bold; color: Commons.Color.mOnSurface; anchors.verticalCenter: parent.verticalCenter }
             }
             Rectangle {
                 id: toolBar
                 width: parent.width
                 height: toolsCol.implicitHeight + Style.marginM * 2
-                color: Color.mSurfaceVariant; radius: Style.radiusL; focus: true
+                color: Commons.Color.mSurfaceVariant; radius: Style.radiusL; focus: true
                 Component.onCompleted: forceActiveFocus()
                 Keys.onPressed: function(event) {
                     if (event.key === Qt.Key_Left)       { root.focusedTool = root.focusedTool < 0 ? 0 : (root.focusedTool + 9) % 10; event.accepted = true }
@@ -253,18 +254,18 @@ Item {
             }
             Rectangle {
                 width: parent.width; height: 56
-                color: Color.mSurfaceVariant; radius: Style.radiusL
+                color: Commons.Color.mSurfaceVariant; radius: Style.radiusL
                 visible: root.isRunning
                 Row {
                     anchors.centerIn: parent; spacing: Style.marginM
                     NIcon {
-                        icon: "loader"; color: Color.mPrimary
+                        icon: "loader"; color: Commons.Color.mPrimary
                         RotationAnimation on rotation {
                             running: root.isRunning
                             from: 0; to: 360; duration: 1000; loops: Animation.Infinite
                         }
                     }
-                    NText { text: pluginApi?.tr("panel.running"); color: Color.mOnSurfaceVariant }
+                    NText { text: pluginApi?.tr("panel.running"); color: Commons.Color.mOnSurfaceVariant }
                 }
             }
             Rectangle {
@@ -273,15 +274,15 @@ Item {
                 opacity: _shown ? 1.0 : 0.0
                 Behavior on opacity { NumberAnimation { duration: 150; easing.type: Easing.OutCubic } }
                 width: parent.width; height: 38; radius: Style.radiusM
-                color: recPanelStopBtn.containsMouse ? Color.mError : Color.mSurfaceVariant
+                color: recPanelStopBtn.containsMouse ? Commons.Color.mError : Commons.Color.mSurfaceVariant
                 Row {
                     anchors.centerIn: parent; spacing: Style.marginS
                     Rectangle {
                         width: Style.marginM; height: Style.marginM; radius: Style.radiusXXXS
-                        color: recPanelStopBtn.containsMouse ? "white" : Color.mError
+                        color: recPanelStopBtn.containsMouse ? "white" : Commons.Color.mError
                         anchors.verticalCenter: parent.verticalCenter
                     }
-                    NText { text: pluginApi?.tr("record.stop"); color: recPanelStopBtn.containsMouse ? "white" : Color.mOnSurface; font.weight: Font.Bold; pointSize: Style.fontSizeS }
+                    NText { text: pluginApi?.tr("record.stop"); color: recPanelStopBtn.containsMouse ? "white" : Commons.Color.mOnSurface; font.weight: Font.Bold; pointSize: Style.fontSizeS }
                 }
                 MouseArea { id: recPanelStopBtn; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: root.mainInstance?.runRecordStop() }
             }
@@ -291,15 +292,15 @@ Item {
                 opacity: _shown ? 1.0 : 0.0
                 Behavior on opacity { NumberAnimation { duration: 150; easing.type: Easing.OutCubic } }
                 width: parent.width; height: 38; radius: Style.radiusM
-                color: Color.mSurfaceVariant
+                color: Commons.Color.mSurfaceVariant
                 Row {
                     anchors.centerIn: parent; spacing: Style.marginS
-                    NIcon { icon: "loader"; color: Color.mOnSurface; anchors.verticalCenter: parent.verticalCenter
+                    NIcon { icon: "loader"; color: Commons.Color.mOnSurface; anchors.verticalCenter: parent.verticalCenter
                         RotationAnimation on rotation { running: root.isConverting; from: 0; to: 360; duration: 1000; loops: Animation.Infinite }
                     }
                     NText {
                         text: root.recordFormat === "mp4" ? pluginApi?.tr("record.savingMp4") : pluginApi?.tr("record.convertingGif")
-                        color: Color.mOnSurface; pointSize: Style.fontSizeS; anchors.verticalCenter: parent.verticalCenter
+                        color: Commons.Color.mOnSurface; pointSize: Style.fontSizeS; anchors.verticalCenter: parent.verticalCenter
                     }
                 }
             }
@@ -311,7 +312,7 @@ Item {
                 width: parent.width; spacing: Style.marginS
                 Rectangle {
                     width: parent.width; height: Math.round(parent.width * 9 / 16)
-                    radius: Style.radiusM; color: Color.mSurfaceVariant; clip: true
+                    radius: Style.radiusM; color: Commons.Color.mSurfaceVariant; clip: true
                     AnimatedImage {
                         anchors.fill: parent
                         visible: root.recordFormat === "gif" && root.recordPath !== ""
@@ -329,13 +330,13 @@ Item {
                     width: parent.width; spacing: Style.marginS
                     Rectangle {
                         height: 38; radius: Style.radiusM; width: parent.width - 44 - Style.marginS
-                        color: recSaveBtn.containsMouse ? Color.mPrimary : Color.mSurfaceVariant
+                        color: recSaveBtn.containsMouse ? Commons.Color.mPrimary : Commons.Color.mSurfaceVariant
                         Row {
                             anchors.centerIn: parent; spacing: Style.marginS
-                            NIcon { icon: "device-floppy"; color: recSaveBtn.containsMouse ? Color.mOnPrimary : Color.mOnSurface; anchors.verticalCenter: parent.verticalCenter }
+                            NIcon { icon: "device-floppy"; color: recSaveBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface; anchors.verticalCenter: parent.verticalCenter }
                             NText {
                                 text: root.recordFormat === "mp4" ? pluginApi?.tr("record.saveMp4") : pluginApi?.tr("record.saveGif")
-                                color: recSaveBtn.containsMouse ? Color.mOnPrimary : Color.mOnSurface
+                                color: recSaveBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface
                                 font.weight: Font.Bold; pointSize: Style.fontSizeS; anchors.verticalCenter: parent.verticalCenter
                             }
                         }
@@ -343,10 +344,10 @@ Item {
                     }
                     Rectangle {
                         width: 38; height: 38; radius: Style.radiusM
-                        color: recDiscardBtn.containsMouse ? Color.mError : Color.mSurface
-                        border.color: recDiscardBtn.containsMouse ? Color.mError : Style.capsuleBorderColor
+                        color: recDiscardBtn.containsMouse ? Commons.Color.mError : Commons.Color.mSurface
+                        border.color: recDiscardBtn.containsMouse ? Commons.Color.mError : Style.capsuleBorderColor
                         border.width: Style.capsuleBorderWidth
-                        NIcon { anchors.centerIn: parent; icon: "trash"; color: recDiscardBtn.containsMouse ? Color.mError : Color.mOnSurfaceVariant }
+                        NIcon { anchors.centerIn: parent; icon: "trash"; color: recDiscardBtn.containsMouse ? Commons.Color.mError : Commons.Color.mOnSurfaceVariant }
                         MouseArea {
                             id: recDiscardBtn
                             anchors.fill: parent
@@ -367,11 +368,11 @@ Item {
                 width: parent.width; spacing: Style.marginS
                 Rectangle {
                     width: (parent.width - Style.marginS * 2) / 3; height: 38; radius: Style.radiusM
-                    color: annotRegionBtn.containsMouse ? Color.mPrimary : Color.mSurface
-                    border.color: Color.mPrimary; border.width: Style.capsuleBorderWidth
+                    color: annotRegionBtn.containsMouse ? Commons.Color.mPrimary : Commons.Color.mSurface
+                    border.color: Commons.Color.mPrimary; border.width: Style.capsuleBorderWidth
                     Row { anchors.centerIn: parent; spacing: Style.marginXS
-                        NIcon { icon: "crop"; color: annotRegionBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary; scale: 0.85 }
-                        NText { text: pluginApi?.tr("annotate.region"); color: annotRegionBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary; font.weight: Font.Bold; pointSize: Style.fontSizeXS }
+                        NIcon { icon: "crop"; color: annotRegionBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary; scale: 0.85 }
+                        NText { text: pluginApi?.tr("annotate.region"); color: annotRegionBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary; font.weight: Font.Bold; pointSize: Style.fontSizeXS }
                     }
                     MouseArea {
                         id: annotRegionBtn
@@ -386,17 +387,17 @@ Item {
                 Rectangle {
                     width: (parent.width - Style.marginS * 2) / 3; height: 38; radius: Style.radiusM
                     enabled: root._isHyprland
-                    color: !enabled ? Color.mSurfaceVariant : (annotWinBtn.containsMouse ? Color.mSurfaceVariant : Color.mSurface)
+                    color: !enabled ? Commons.Color.mSurfaceVariant : (annotWinBtn.containsMouse ? Commons.Color.mSurfaceVariant : Commons.Color.mSurface)
                     border.color: Style.capsuleBorderColor; border.width: Style.capsuleBorderWidth; opacity: enabled ? 1.0 : 0.5
                     Row { anchors.centerIn: parent; spacing: Style.marginXS
                         NIcon {
                             icon: "app-window"
-                            color: !parent.parent.enabled ? Color.mOnSurfaceVariant : (annotWinBtn.containsMouse ? Color.mOnSurface : Color.mOnSurfaceVariant)
+                            color: !parent.parent.enabled ? Commons.Color.mOnSurfaceVariant : (annotWinBtn.containsMouse ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant)
                             scale: 0.85
                         }
                         NText {
                             text: pluginApi?.tr("annotate.window")
-                            color: !parent.parent.enabled ? Color.mOnSurfaceVariant : (annotWinBtn.containsMouse ? Color.mOnSurface : Color.mOnSurfaceVariant)
+                            color: !parent.parent.enabled ? Commons.Color.mOnSurfaceVariant : (annotWinBtn.containsMouse ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant)
                             font.weight: Font.Bold; pointSize: Style.fontSizeXS
                         }
                     }
@@ -412,11 +413,11 @@ Item {
                 }
                 Rectangle {
                     width: (parent.width - Style.marginS * 2) / 3; height: 38; radius: Style.radiusM
-                    color: annotFsBtn.containsMouse ? Color.mSurfaceVariant : Color.mSurface
+                    color: annotFsBtn.containsMouse ? Commons.Color.mSurfaceVariant : Commons.Color.mSurface
                     border.color: Style.capsuleBorderColor; border.width: Style.capsuleBorderWidth
                     Row { anchors.centerIn: parent; spacing: Style.marginXS
-                        NIcon { icon: "maximize"; color: annotFsBtn.containsMouse ? Color.mOnSurface : Color.mOnSurfaceVariant; scale: 0.85 }
-                        NText { text: pluginApi?.tr("annotate.fullscreen"); color: annotFsBtn.containsMouse ? Color.mOnSurface : Color.mOnSurfaceVariant; font.weight: Font.Bold; pointSize: Style.fontSizeXS }
+                        NIcon { icon: "maximize"; color: annotFsBtn.containsMouse ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant; scale: 0.85 }
+                        NText { text: pluginApi?.tr("annotate.fullscreen"); color: annotFsBtn.containsMouse ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant; font.weight: Font.Bold; pointSize: Style.fontSizeXS }
                     }
                     MouseArea {
                         id: annotFsBtn
@@ -438,7 +439,7 @@ Item {
                 Row {
                     width: parent.width; spacing: Style.marginS
                     visible: root.installedLangs.length > 0
-                    NText { id: langLabel; text: pluginApi?.tr("panel.lang"); color: Color.mOnSurface; pointSize: Style.fontSizeS; anchors.verticalCenter: parent.verticalCenter }
+                    NText { id: langLabel; text: pluginApi?.tr("panel.lang"); color: Commons.Color.mOnSurface; pointSize: Style.fontSizeS; anchors.verticalCenter: parent.verticalCenter }
                     Flow {
                         visible: root.installedLangs.length <= 4
                         width: parent.width - langLabel.implicitWidth - scanBtnInline.width - Style.marginS * 2
@@ -447,8 +448,8 @@ Item {
                             model: root.installedLangs
                             delegate: Rectangle {
                                 height: 24; width: chipLangText.implicitWidth + Style.marginM * 2; radius: Style.radiusS
-                                color: root.selectedOcrLang === modelData ? Color.mPrimary : (chipMA.containsMouse ? Color.mHover : Color.mSurfaceVariant)
-                                NText { id: chipLangText; anchors.centerIn: parent; text: modelData.toUpperCase(); color: root.selectedOcrLang === modelData ? Color.mOnPrimary : Color.mOnSurface; pointSize: Style.fontSizeXS; font.weight: root.selectedOcrLang === modelData ? Font.Bold : Font.Normal }
+                                color: root.selectedOcrLang === modelData ? Commons.Color.mPrimary : (chipMA.containsMouse ? Commons.Color.mHover : Commons.Color.mSurfaceVariant)
+                                NText { id: chipLangText; anchors.centerIn: parent; text: modelData.toUpperCase(); color: root.selectedOcrLang === modelData ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface; pointSize: Style.fontSizeXS; font.weight: root.selectedOcrLang === modelData ? Font.Bold : Font.Normal }
                                 MouseArea { id: chipMA; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: root.selectedOcrLang = modelData }
                             }
                         }
@@ -461,12 +462,12 @@ Item {
                     }
                     Rectangle {
                         id: scanBtnInline; height: 26; width: _scanRow.implicitWidth + Style.marginM * 2; radius: Style.radiusS
-                        color: scanBtn.containsMouse ? Color.mPrimary : Color.mSurface
-                        border.color: Color.mPrimary; border.width: Style.capsuleBorderWidth
+                        color: scanBtn.containsMouse ? Commons.Color.mPrimary : Commons.Color.mSurface
+                        border.color: Commons.Color.mPrimary; border.width: Style.capsuleBorderWidth
                         anchors.verticalCenter: parent.verticalCenter
                         Row { id: _scanRow; anchors.centerIn: parent; spacing: Style.marginXS
-                            NIcon { icon: "scan"; color: scanBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary; scale: 0.8 }
-                            NText { text: pluginApi?.tr("panel.scan"); color: scanBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary; font.weight: Font.Bold; pointSize: Style.fontSizeXS }
+                            NIcon { icon: "scan"; color: scanBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary; scale: 0.8 }
+                            NText { text: pluginApi?.tr("panel.scan"); color: scanBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary; font.weight: Font.Bold; pointSize: Style.fontSizeXS }
                         }
                         MouseArea { id: scanBtn; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: root.mainInstance?.runOcr(root.selectedOcrLang) }
                     }
@@ -480,11 +481,11 @@ Item {
                 width: parent.width; spacing: Style.marginS
                 Rectangle {
                     width: (parent.width - Style.marginS) / 2; height: 38; radius: Style.radiusM
-                    color: pinScreenBtn.containsMouse ? Color.mPrimary : Color.mSurface
-                    border.color: Color.mPrimary; border.width: Style.capsuleBorderWidth
+                    color: pinScreenBtn.containsMouse ? Commons.Color.mPrimary : Commons.Color.mSurface
+                    border.color: Commons.Color.mPrimary; border.width: Style.capsuleBorderWidth
                     Row { anchors.centerIn: parent; spacing: Style.marginS
-                        NIcon { icon: "crosshair"; color: pinScreenBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary }
-                        NText { text: pluginApi?.tr("panel.pinCapture"); color: pinScreenBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary; font.weight: Font.Bold; pointSize: Style.fontSizeS }
+                        NIcon { icon: "crosshair"; color: pinScreenBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary }
+                        NText { text: pluginApi?.tr("panel.pinCapture"); color: pinScreenBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary; font.weight: Font.Bold; pointSize: Style.fontSizeS }
                     }
                     MouseArea {
                         id: pinScreenBtn
@@ -498,11 +499,11 @@ Item {
                 }
                 Rectangle {
                     width: (parent.width - Style.marginS) / 2; height: 38; radius: Style.radiusM
-                    color: pinFileBtn.containsMouse ? Color.mSurfaceVariant : Color.mSurface
+                    color: pinFileBtn.containsMouse ? Commons.Color.mSurfaceVariant : Commons.Color.mSurface
                     border.color: Style.capsuleBorderColor; border.width: Style.capsuleBorderWidth
                     Row { anchors.centerIn: parent; spacing: Style.marginS
-                        NIcon { icon: "folder-open"; color: pinFileBtn.containsMouse ? Color.mOnSurface : Color.mOnSurfaceVariant }
-                        NText { text: pluginApi?.tr("panel.pinFile"); color: pinFileBtn.containsMouse ? Color.mOnSurface : Color.mOnSurfaceVariant; font.weight: Font.Bold; pointSize: Style.fontSizeS }
+                        NIcon { icon: "folder-open"; color: pinFileBtn.containsMouse ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant }
+                        NText { text: pluginApi?.tr("panel.pinFile"); color: pinFileBtn.containsMouse ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant; font.weight: Font.Bold; pointSize: Style.fontSizeS }
                     }
                     MouseArea {
                         id: pinFileBtn
@@ -523,7 +524,7 @@ Item {
                 width: parent.width; spacing: Style.marginS
                 Flow {
                     width: parent.width; spacing: Style.marginS
-                    NText { text: pluginApi?.tr("panel.format"); color: Color.mOnSurfaceVariant; pointSize: Style.fontSizeXS; height: 26; verticalAlignment: Text.AlignVCenter }
+                    NText { text: pluginApi?.tr("panel.format"); color: Commons.Color.mOnSurfaceVariant; pointSize: Style.fontSizeXS; height: 26; verticalAlignment: Text.AlignVCenter }
                     Repeater {
                         model: [
                             { id: "gif", label: "GIF", hint: "· " + (pluginApi?.pluginSettings?.gifMaxSeconds ?? 30) + "s" },
@@ -531,10 +532,10 @@ Item {
                         ]
                         delegate: Rectangle {
                             height: 26; width: fmtLabel.implicitWidth + (modelData.hint !== "" ? fmtHint.implicitWidth + Style.marginXS : 0) + Style.marginM * 2 + Style.marginS; radius: Style.radiusS
-                            color: root.selectedRecordFormat === modelData.id ? Color.mPrimary : (fmtArea.containsMouse ? Color.mHover : Color.mSurfaceVariant)
+                            color: root.selectedRecordFormat === modelData.id ? Commons.Color.mPrimary : (fmtArea.containsMouse ? Commons.Color.mHover : Commons.Color.mSurfaceVariant)
                             Row { anchors.centerIn: parent; spacing: Style.marginXS
-                                NText { id: fmtLabel; text: modelData.label; color: root.selectedRecordFormat === modelData.id ? Color.mOnPrimary : Color.mOnSurface; pointSize: Style.fontSizeXS; font.weight: root.selectedRecordFormat === modelData.id ? Font.Bold : Font.Normal }
-                                NText { id: fmtHint; visible: modelData.hint !== ""; text: modelData.hint; color: root.selectedRecordFormat === modelData.id ? Qt.rgba(1,1,1,0.65) : Color.mOnSurfaceVariant; pointSize: Style.fontSizeXS }
+                                NText { id: fmtLabel; text: modelData.label; color: root.selectedRecordFormat === modelData.id ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface; pointSize: Style.fontSizeXS; font.weight: root.selectedRecordFormat === modelData.id ? Font.Bold : Font.Normal }
+                                NText { id: fmtHint; visible: modelData.hint !== ""; text: modelData.hint; color: root.selectedRecordFormat === modelData.id ? Qt.rgba(1,1,1,0.65) : Commons.Color.mOnSurfaceVariant; pointSize: Style.fontSizeXS }
                             }
                             MouseArea { id: fmtArea; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: root.selectedRecordFormat = modelData.id }
                         }
@@ -542,13 +543,13 @@ Item {
                 }
                 Flow {
                     width: parent.width; spacing: Style.marginS
-                    NText { text: pluginApi?.tr("panel.audio"); color: Color.mOnSurfaceVariant; pointSize: Style.fontSizeXS; height: 26; verticalAlignment: Text.AlignVCenter }
+                    NText { text: pluginApi?.tr("panel.audio"); color: Commons.Color.mOnSurfaceVariant; pointSize: Style.fontSizeXS; height: 26; verticalAlignment: Text.AlignVCenter }
                     Rectangle {
                         height: 26; width: audioOutIcon.implicitWidth + audioOutLabel.implicitWidth + Style.marginM * 2 + Style.marginS + Style.marginXS; radius: Style.radiusS
-                        color: root.recordAudioOutput ? Color.mPrimary : (audioOutArea.containsMouse ? Color.mHover : Color.mSurfaceVariant)
+                        color: root.recordAudioOutput ? Commons.Color.mPrimary : (audioOutArea.containsMouse ? Commons.Color.mHover : Commons.Color.mSurfaceVariant)
                         Row { anchors.centerIn: parent; spacing: Style.marginXS
-                            NIcon { id: audioOutIcon; icon: root.recordAudioOutput ? "volume" : "volume-off"; color: root.recordAudioOutput ? Color.mOnPrimary : Color.mOnSurface; scale: 0.8 }
-                            NText { id: audioOutLabel; text: pluginApi?.tr("panel.system"); color: root.recordAudioOutput ? Color.mOnPrimary : Color.mOnSurface; pointSize: Style.fontSizeXS; font.weight: root.recordAudioOutput ? Font.Bold : Font.Normal }
+                            NIcon { id: audioOutIcon; icon: root.recordAudioOutput ? "volume" : "volume-off"; color: root.recordAudioOutput ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface; scale: 0.8 }
+                            NText { id: audioOutLabel; text: pluginApi?.tr("panel.system"); color: root.recordAudioOutput ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface; pointSize: Style.fontSizeXS; font.weight: root.recordAudioOutput ? Font.Bold : Font.Normal }
                         }
                         MouseArea {
                             id: audioOutArea
@@ -562,10 +563,10 @@ Item {
                     }
                     Rectangle {
                         height: 26; width: micIcon.implicitWidth + micLabel.implicitWidth + Style.marginM * 2 + Style.marginS + Style.marginXS; radius: Style.radiusS
-                        color: root.recordAudioInput ? Color.mPrimary : (micArea.containsMouse ? Color.mHover : Color.mSurfaceVariant)
+                        color: root.recordAudioInput ? Commons.Color.mPrimary : (micArea.containsMouse ? Commons.Color.mHover : Commons.Color.mSurfaceVariant)
                         Row { anchors.centerIn: parent; spacing: Style.marginXS
-                            NIcon { id: micIcon; icon: root.recordAudioInput ? "microphone" : "microphone-off"; color: root.recordAudioInput ? Color.mOnPrimary : Color.mOnSurface; scale: 0.8 }
-                            NText { id: micLabel; text: pluginApi?.tr("panel.mic"); color: root.recordAudioInput ? Color.mOnPrimary : Color.mOnSurface; pointSize: Style.fontSizeXS; font.weight: root.recordAudioInput ? Font.Bold : Font.Normal }
+                            NIcon { id: micIcon; icon: root.recordAudioInput ? "microphone" : "microphone-off"; color: root.recordAudioInput ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface; scale: 0.8 }
+                            NText { id: micLabel; text: pluginApi?.tr("panel.mic"); color: root.recordAudioInput ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface; pointSize: Style.fontSizeXS; font.weight: root.recordAudioInput ? Font.Bold : Font.Normal }
                         }
                         MouseArea {
                             id: micArea
@@ -579,10 +580,10 @@ Item {
                     }
                     Rectangle {
                         height: 26; width: cursorIcon.implicitWidth + cursorLabel.implicitWidth + Style.marginM * 2 + Style.marginS + Style.marginXS; radius: Style.radiusS
-                        color: root.recordCursor ? Color.mPrimary : (cursorArea.containsMouse ? Color.mHover : Color.mSurfaceVariant)
+                        color: root.recordCursor ? Commons.Color.mPrimary : (cursorArea.containsMouse ? Commons.Color.mHover : Commons.Color.mSurfaceVariant)
                         Row { anchors.centerIn: parent; spacing: Style.marginXS
-                            NIcon { id: cursorIcon; icon: "pointer"; color: root.recordCursor ? Color.mOnPrimary : Color.mOnSurface; scale: 0.8 }
-                            NText { id: cursorLabel; text: pluginApi?.tr("panel.cursor"); color: root.recordCursor ? Color.mOnPrimary : Color.mOnSurface; pointSize: Style.fontSizeXS; font.weight: root.recordCursor ? Font.Bold : Font.Normal }
+                            NIcon { id: cursorIcon; icon: "pointer"; color: root.recordCursor ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface; scale: 0.8 }
+                            NText { id: cursorLabel; text: pluginApi?.tr("panel.cursor"); color: root.recordCursor ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface; pointSize: Style.fontSizeXS; font.weight: root.recordCursor ? Font.Bold : Font.Normal }
                         }
                         MouseArea {
                             id: cursorArea
@@ -599,11 +600,11 @@ Item {
                     width: parent.width; spacing: Style.marginS
                     Rectangle {
                         width: (parent.width - Style.marginS) / 2; height: 38; radius: Style.radiusM
-                        color: recRegionBtn.containsMouse ? Color.mPrimary : Color.mSurface
-                        border.color: Color.mPrimary; border.width: Style.capsuleBorderWidth
+                        color: recRegionBtn.containsMouse ? Commons.Color.mPrimary : Commons.Color.mSurface
+                        border.color: Commons.Color.mPrimary; border.width: Style.capsuleBorderWidth
                         Row { anchors.centerIn: parent; spacing: Style.marginXS
-                            NIcon { icon: "crop"; color: recRegionBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary; scale: 0.85 }
-                            NText { text: pluginApi?.tr("record.region"); color: recRegionBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary; font.weight: Font.Bold; pointSize: Style.fontSizeS }
+                            NIcon { icon: "crop"; color: recRegionBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary; scale: 0.85 }
+                            NText { text: pluginApi?.tr("record.region"); color: recRegionBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary; font.weight: Font.Bold; pointSize: Style.fontSizeS }
                         }
                         MouseArea {
                             id: recRegionBtn
@@ -617,11 +618,11 @@ Item {
                     }
                     Rectangle {
                         width: (parent.width - Style.marginS) / 2; height: 38; radius: Style.radiusM
-                        color: recFsBtn.containsMouse ? Color.mSurfaceVariant : Color.mSurface
+                        color: recFsBtn.containsMouse ? Commons.Color.mSurfaceVariant : Commons.Color.mSurface
                         border.color: Style.capsuleBorderColor; border.width: Style.capsuleBorderWidth
                         Row { anchors.centerIn: parent; spacing: Style.marginXS
-                            NIcon { icon: "maximize"; color: recFsBtn.containsMouse ? Color.mOnSurface : Color.mOnSurfaceVariant; scale: 0.85 }
-                            NText { text: pluginApi?.tr("annotate.fullscreen"); color: recFsBtn.containsMouse ? Color.mOnSurface : Color.mOnSurfaceVariant; font.weight: Font.Bold; pointSize: Style.fontSizeS }
+                            NIcon { icon: "maximize"; color: recFsBtn.containsMouse ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant; scale: 0.85 }
+                            NText { text: pluginApi?.tr("annotate.fullscreen"); color: recFsBtn.containsMouse ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant; font.weight: Font.Bold; pointSize: Style.fontSizeS }
                         }
                         MouseArea {
                             id: recFsBtn
@@ -643,17 +644,17 @@ Item {
                 width: parent.width; spacing: Style.marginM
                 Row {
                     width: parent.width; spacing: Style.marginS
-                    NIcon { icon: "camera"; color: Color.mPrimary; anchors.verticalCenter: parent.verticalCenter }
-                    NText { text: pluginApi?.tr("mirror.title"); color: Color.mOnSurface; font.weight: Font.Bold; pointSize: Style.fontSizeS; anchors.verticalCenter: parent.verticalCenter }
+                    NIcon { icon: "camera"; color: Commons.Color.mPrimary; anchors.verticalCenter: parent.verticalCenter }
+                    NText { text: pluginApi?.tr("mirror.title"); color: Commons.Color.mOnSurface; font.weight: Font.Bold; pointSize: Style.fontSizeS; anchors.verticalCenter: parent.verticalCenter }
                 }
-                NText { width: parent.width; wrapMode: Text.WordWrap; text: pluginApi?.tr("mirror.hint"); color: Color.mOnSurfaceVariant; pointSize: Style.fontSizeXS }
+                NText { width: parent.width; wrapMode: Text.WordWrap; text: pluginApi?.tr("mirror.hint"); color: Commons.Color.mOnSurfaceVariant; pointSize: Style.fontSizeXS }
                 Rectangle {
                     width: parent.width; height: 38; radius: Style.radiusM
-                    color: root.mirrorActive ? Color.mError : (mirrorToggleBtn.containsMouse ? Color.mPrimary : Color.mSurface)
-                    border.color: root.mirrorActive ? Color.mError : Color.mPrimary; border.width: Style.capsuleBorderWidth
+                    color: root.mirrorActive ? Commons.Color.mError : (mirrorToggleBtn.containsMouse ? Commons.Color.mPrimary : Commons.Color.mSurface)
+                    border.color: root.mirrorActive ? Commons.Color.mError : Commons.Color.mPrimary; border.width: Style.capsuleBorderWidth
                     Row { anchors.centerIn: parent; spacing: Style.marginS
-                        NIcon { icon: root.mirrorActive ? "camera-off" : "camera"; color: root.mirrorActive ? Color.mOnError : (mirrorToggleBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary) }
-                        NText { text: root.mirrorActive ? pluginApi?.tr("mirror.close") : pluginApi?.tr("mirror.open"); color: root.mirrorActive ? Color.mOnError : (mirrorToggleBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary); font.weight: Font.Bold; pointSize: Style.fontSizeS }
+                        NIcon { icon: root.mirrorActive ? "camera-off" : "camera"; color: root.mirrorActive ? Commons.Color.mOnError : (mirrorToggleBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary) }
+                        NText { text: root.mirrorActive ? pluginApi?.tr("mirror.close") : pluginApi?.tr("mirror.open"); color: root.mirrorActive ? Commons.Color.mOnError : (mirrorToggleBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary); font.weight: Font.Bold; pointSize: Style.fontSizeS }
                     }
                     MouseArea { id: mirrorToggleBtn; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: root.mainInstance?.runMirrorClose() }
                 }
@@ -707,9 +708,9 @@ Item {
         property bool   recording: false
         property bool   hasResult: false
         readonly property bool  _accented:    recording || active || focused
-        readonly property color _accentColor: recording ? Color.mError
-                                            : active    ? Color.mPrimary
-                                            :             Color.mSecondary
+        readonly property color _accentColor: recording ? Commons.Color.mError
+                                            : active    ? Commons.Color.mPrimary
+                                            :             Commons.Color.mSecondary
         signal triggered()
         Column {
             anchors.centerIn: parent; spacing: Style.marginXS
@@ -718,9 +719,9 @@ Item {
                 height: Math.min(btn.width - 8, 42)
                 radius: Style.radiusM
                 anchors.horizontalCenter: parent.horizontalCenter
-                color:        ba.containsMouse ? Color.mHover : Color.mSurface
+                color:        ba.containsMouse ? Commons.Color.mHover : Commons.Color.mSurface
                 border.color: btn._accented ? btn._accentColor
-                            : ba.containsMouse ? Color.mOnSurfaceVariant
+                            : ba.containsMouse ? Commons.Color.mOnSurfaceVariant
                             : "transparent"
                 border.width: btn._accented ? 2 : ba.containsMouse ? 1 : 0
                 clip: true
@@ -732,7 +733,7 @@ Item {
                 }
                 Rectangle {
                     anchors.fill: parent; radius: parent.radius
-                    color: Color.mError; visible: btn.recording; opacity: 0
+                    color: Commons.Color.mError; visible: btn.recording; opacity: 0
                     SequentialAnimation on opacity {
                         running: btn.recording; loops: Animation.Infinite
                         NumberAnimation { to: 0.05; duration: 600 }
@@ -758,14 +759,14 @@ Item {
                 NIcon {
                     anchors.centerIn: parent; icon: btn.icon
                     color: btn._accented ? btn._accentColor
-                         : ba.containsMouse ? Color.mOnHover
-                         : Color.mOnSurface
+                         : ba.containsMouse ? Commons.Color.mOnHover
+                         : Commons.Color.mOnSurface
                     Behavior on color { ColorAnimation { duration: 120 } }
                 }
                 Rectangle {
                     width: 8; height: 8; radius: 4
                     color: btn._accentColor
-                    border.color: Color.mSurface
+                    border.color: Commons.Color.mSurface
                     border.width: Style.borderM
                     anchors.top:         parent.top
                     anchors.right:       parent.right
@@ -791,7 +792,7 @@ Item {
             }
             NText {
                 text: btn.label; pointSize: Style.fontSizeXS
-                color:   (ba.containsMouse || btn._accented) ? Color.mOnSurface : Color.mOnSurfaceVariant
+                color:   (ba.containsMouse || btn._accented) ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant
                 font.weight: btn.active ? Font.Bold : Font.Normal
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: btn.width; horizontalAlignment: Text.AlignHCenter; elide: Text.ElideRight

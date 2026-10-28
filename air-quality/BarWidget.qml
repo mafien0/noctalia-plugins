@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -64,7 +65,7 @@ Item {
     y: Style.pixelAlignCenter(parent.height, height)
     width: root.contentWidth
     height: root.contentHeight
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     radius: Style.radiusL
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
@@ -78,7 +79,7 @@ Item {
       NIcon {
         visible: root.mainInstance?.loading ?? false
         icon: "loader"
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
         applyUiScale: true
 
         RotationAnimator on rotation {
@@ -95,9 +96,9 @@ Item {
         visible: !(root.mainInstance?.loading ?? false)
         text: root.mainInstance?.hasData ? root.mainInstance.getAqi().toString() : "--"
         color: {
-          if (mouseArea.containsMouse) return Color.mOnHover
+          if (mouseArea.containsMouse) return Commons.Color.mOnHover
           if (root.mainInstance?.hasData) return root.mainInstance.getAqiColor(root.mainInstance.getAqi())
-          return Color.mOnSurface
+          return Commons.Color.mOnSurface
         }
         pointSize: root.barFontSize
         applyUiScale: false

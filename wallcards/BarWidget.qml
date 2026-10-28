@@ -1,5 +1,6 @@
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -20,7 +21,7 @@ NIconButton {
   border.color: Style.capsuleBorderColor
   border.width: Style.capsuleBorderWidth
   colorBg: Style.capsuleColor
-  colorFg: Color.resolveColorKey(iconColorKey)
+  colorFg: Commons.Color.resolveColorKey(iconColorKey)
   customRadius: Style.radiusL
   icon: "cards"
   tooltipDirection: BarService.getTooltipDirection(screen?.name)

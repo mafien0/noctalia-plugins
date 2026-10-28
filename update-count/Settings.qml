@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -46,12 +47,12 @@ ColumnLayout {
 
     NText {
       text: root.currentIconName
-      color: Settings.data.colorSchemes.darkMode ? Color.mPrimary : Color.mOnPrimary
+      color: Settings.data.colorSchemes.darkMode ? Commons.Color.mPrimary : Commons.Color.mOnPrimary
     }
 
     NIcon {
       icon: root.currentIconName
-      color: Settings.data.colorSchemes.darkMode ? Color.mPrimary : Color.mOnPrimary
+      color: Settings.data.colorSchemes.darkMode ? Commons.Color.mPrimary : Commons.Color.mOnPrimary
     }
 
     NButton {
@@ -84,7 +85,7 @@ ColumnLayout {
 
       NText {
         text: root.updateIntervalMinutes.toString().padStart(3, " ") + " minutes"
-        color: Settings.data.colorSchemes.darkMode ? Color.mOnSurface : Color.mOnPrimary
+        color: Settings.data.colorSchemes.darkMode ? Commons.Color.mOnSurface : Commons.Color.mOnPrimary
       }
     }
 
@@ -152,7 +153,7 @@ ColumnLayout {
   ColumnLayout {
     NText {
       text: pluginApi?.tr("settings.currentNumUpdatesCmd.label")
-      color: Settings.data.colorSchemes.darkMode ? Color.mSecondary : Color.mOnSecondary
+      color: Settings.data.colorSchemes.darkMode ? Commons.Color.mSecondary : Commons.Color.mOnSecondary
     }
     NLabel {
       description: `> ${root.customCmdGetNumUpdates || pluginApi?.mainInstance?.updater.cmdGetNumUpdates || "NA"}`
@@ -162,7 +163,7 @@ ColumnLayout {
   ColumnLayout {
     NText {
       text: pluginApi?.tr("settings.currentUpdateCmd.label")
-      color: Settings.data.colorSchemes.darkMode ? Color.mSecondary : Color.mOnSecondary
+      color: Settings.data.colorSchemes.darkMode ? Commons.Color.mSecondary : Commons.Color.mOnSecondary
     }
 
     NLabel {

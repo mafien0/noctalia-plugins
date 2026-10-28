@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -25,8 +26,8 @@ NIconButton {
 
   colorBg: Style.capsuleColor
   colorFg: getColor()
-  colorBgHover: Color.mHover
-  colorFgHover: Color.mOnHover
+  colorBgHover: Commons.Color.mHover
+  colorFgHover: Commons.Color.mOnHover
   colorBorder: "transparent"
   colorBorderHover: "transparent"
 
@@ -97,15 +98,15 @@ NIconButton {
   function getColor() {
     switch (fanState) {
     case 3:
-      return Color.mPrimary;
+      return Commons.Color.mPrimary;
     case 2:
-      return Color.mTertiary;
+      return Commons.Color.mTertiary;
     case 1:
-      return Color.mSecondary;
+      return Commons.Color.mSecondary;
     case 0:
-      return Color.mOnSurface;
+      return Commons.Color.mOnSurface;
     default:
-      return Color.mOnSurface;
+      return Commons.Color.mOnSurface;
     }
   }
 

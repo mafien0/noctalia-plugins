@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -390,7 +391,7 @@ Item {
             NIcon {
                 icon: "rss"
                 pointSize: Style.barFontSize
-                color: error ? Color.mOnError : loading ? Color.mPrimary : Color.mOnSurface
+                color: error ? Commons.Color.mOnError : loading ? Commons.Color.mPrimary : Commons.Color.mOnSurface
 
                 NumberAnimation on opacity {
                     running: loading
@@ -408,7 +409,7 @@ Item {
                 width: unreadCount > 0 ? (badgeText.implicitWidth + 8) : 0
                 height: unreadCount > 0 ? (badgeText.implicitHeight + 6) : 0
                 radius: height * 0.5
-                color: error ? Color.mError : Color.mPrimary
+                color: error ? Commons.Color.mError : Commons.Color.mPrimary
                 Layout.preferredWidth: width
                 Layout.preferredHeight: height
 
@@ -419,7 +420,7 @@ Item {
                     anchors.centerIn: parent
                     text: unreadCount > 99 ? "99+" : unreadCount.toString()
                     pointSize: Style.barFontSize
-                    color: error ? Color.mOnError : Color.mOnPrimary
+                    color: error ? Commons.Color.mOnError : Commons.Color.mOnPrimary
                 }
 
                 SequentialAnimation {

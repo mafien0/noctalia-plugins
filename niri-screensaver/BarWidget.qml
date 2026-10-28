@@ -17,6 +17,7 @@ import QtQuick.Effects
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -42,12 +43,12 @@ Item {
     id: capsule
     anchors.fill: parent
     radius: Math.min(Style.radiusL, width / 2)
-    color: root.hovering ? Color.mHover : Style.capsuleColor
+    color: root.hovering ? Commons.Color.mHover : Style.capsuleColor
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
 
     Behavior on color {
-      enabled: !Color.isTransitioning
+      enabled: !Commons.Color.isTransitioning
       ColorAnimation { duration: Style.animationFast; easing.type: Easing.InOutQuad }
     }
   }
@@ -64,7 +65,7 @@ Item {
     layer.enabled: true
     layer.effect: MultiEffect {
       colorization: 1.0
-      colorizationColor: root.hovering ? Color.mOnHover : Color.mOnSurface
+      colorizationColor: root.hovering ? Commons.Color.mOnHover : Commons.Color.mOnSurface
     }
   }
 

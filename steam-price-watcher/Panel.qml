@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -224,7 +225,7 @@ Item {
       NBox {
         Layout.fillWidth: true
         Layout.preferredHeight: headerContent.implicitHeight + Style.marginM * 2
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
 
         ColumnLayout {
           id: headerContent
@@ -239,14 +240,14 @@ Item {
             NIcon {
               icon: "package"
               pointSize: Style.fontSizeXXL
-              color: Color.mPrimary
+              color: Commons.Color.mPrimary
             }
 
             NText {
               text: "Steam Price Watcher"
               pointSize: Style.fontSizeL
               font.weight: Style.fontWeightBold
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
               Layout.fillWidth: true
             }
 
@@ -308,7 +309,7 @@ Item {
                 root.watchlist.length === 0 ?
                   (pluginApi?.tr("steam-price-watcher.no-games-message") || "Nenhum jogo na watchlist.\nAdicione jogos nas configurações.") :
                   `${root.gamesWithPrices.length} ${root.gamesWithPrices.length === 1 ? (pluginApi?.tr("steam-price-watcher.game") || "jogo") : (pluginApi?.tr("steam-price-watcher.games") || "jogos")}`
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
               pointSize: Style.fontSizeL
               font.weight: Style.fontWeightBold
               horizontalAlignment: Text.AlignHCenter
@@ -320,7 +321,7 @@ Item {
               Layout.leftMargin: Style.marginM
               Layout.rightMargin: Style.marginM
               text: pluginApi?.tr("steam-price-watcher.on-target-section") || "🎯 Jogos no preço-alvo"
-              color: Color.mPrimary
+              color: Commons.Color.mPrimary
               pointSize: Style.fontSizeM
               font.weight: Style.fontWeightBold
               visible: root.gamesWithPrices.some(g => g.currentPrice && g.currentPrice <= g.targetPrice)
@@ -360,7 +361,7 @@ Item {
                   Layout.preferredHeight: 1
                   Layout.leftMargin: Style.marginM
                   Layout.rightMargin: Style.marginM
-                  color: Color.mOutline
+                  color: Commons.Color.mOutline
                 }
 
                 NText {
@@ -368,7 +369,7 @@ Item {
                   Layout.leftMargin: Style.marginM
                   Layout.rightMargin: Style.marginM
                   text: pluginApi?.tr("steam-price-watcher.monitoring-section") || "👀 Monitorando"
-                  color: Color.mOnSurfaceVariant
+                  color: Commons.Color.mOnSurfaceVariant
                   pointSize: Style.fontSizeM
                   font.weight: Style.fontWeightBold
                 }
@@ -379,9 +380,9 @@ Item {
             NBox {
               Layout.fillWidth: true
               implicitHeight: gameContent.implicitHeight + Style.marginM * 2
-              color: Color.mSurfaceVariant
+              color: Commons.Color.mSurfaceVariant
               border.color: modelData.currentPrice && modelData.currentPrice <= modelData.targetPrice ? 
-                Color.mPrimary : "transparent"
+                Commons.Color.mPrimary : "transparent"
               border.width: modelData.currentPrice && modelData.currentPrice <= modelData.targetPrice ? 2 : 0
 
               RowLayout {
@@ -395,9 +396,9 @@ Item {
                 Layout.preferredWidth: 184 * Style.uiScaleRatio * 0.8
                 Layout.preferredHeight: 69 * Style.uiScaleRatio * 0.8
                 Layout.alignment: Qt.AlignTop
-                color: Color.mSurface
+                color: Commons.Color.mSurface
                 radius: Style.iRadiusS
-                border.color: Color.mOutline
+                border.color: Commons.Color.mOutline
                 border.width: 1
                 
                 Image {
@@ -409,14 +410,14 @@ Item {
                   
                   Rectangle {
                     anchors.fill: parent
-                    color: Color.mSurface
+                    color: Commons.Color.mSurface
                     visible: parent.status === Image.Loading || parent.status === Image.Error
                     radius: Style.iRadiusS
                     
                     NIcon {
                       anchors.centerIn: parent
                       icon: "package"
-                      color: Color.mOnSurfaceVariant
+                      color: Commons.Color.mOnSurfaceVariant
                       pointSize: 24
                     }
                   }
@@ -436,7 +437,7 @@ Item {
 
                   NText {
                     text: modelData.name
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     pointSize: Style.fontSizeL
                     font.weight: Style.fontWeightBold
                     Layout.fillWidth: true
@@ -450,8 +451,8 @@ Item {
                       icon: "pencil"
                       tooltipText: pluginApi?.tr("steam-price-watcher.edit-price") || "Edit"
                       baseSize: Style.baseWidgetSize * 0.7
-                      colorBg: Color.mSurface
-                      colorFg: Color.mOnSurface
+                      colorBg: Commons.Color.mSurface
+                      colorFg: Commons.Color.mOnSurface
                       onClicked: editPriceDialog.open(modelData)
                     }
 
@@ -459,8 +460,8 @@ Item {
                       icon: "trash"
                       tooltipText: pluginApi?.tr("steam-price-watcher.remove") || "Remover"
                       baseSize: Style.baseWidgetSize * 0.7
-                      colorBg: Color.mError
-                      colorFg: Color.mOnError
+                      colorBg: Commons.Color.mError
+                      colorFg: Commons.Color.mOnError
                       onClicked: removeGame(modelData.appId)
                     }
                   }
@@ -470,7 +471,7 @@ Item {
                   text: modelData.addedDate ? 
                     `📅 ${new Date(modelData.addedDate).toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' })}` :
                     `🔢 App ID: ${modelData.appId}`
-                  color: Color.mOnSurfaceVariant
+                  color: Commons.Color.mOnSurfaceVariant
                   pointSize: Style.fontSizeXS
                   opacity: 0.8
                 }
@@ -478,7 +479,7 @@ Item {
                 Rectangle {
                   Layout.fillWidth: true
                   Layout.preferredHeight: 1
-                  color: Color.mOutline
+                  color: Commons.Color.mOutline
                   opacity: 0.3
                 }
 
@@ -492,14 +493,14 @@ Item {
                   // Preço alvo
                   NText {
                     text: pluginApi?.tr("steam-price-watcher.target-price") || "🎯 Target:"
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     pointSize: Style.fontSizeS
                     font.weight: Style.fontWeightMedium
                   }
 
                   NText {
                     text: `${root.currencySymbol} ${modelData.targetPrice.toFixed(2)}`
-                    color: Color.mPrimary
+                    color: Commons.Color.mPrimary
                     pointSize: Style.fontSizeXL
                     font.weight: Style.fontWeightBold
                   }
@@ -509,7 +510,7 @@ Item {
                   // Preço atual
                   NText {
                     text: pluginApi?.tr("steam-price-watcher.current-price") || "💰 Current:"
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     pointSize: Style.fontSizeS
                     font.weight: Style.fontWeightMedium
                   }
@@ -522,7 +523,7 @@ Item {
                         modelData.currentPrice !== undefined ? 
                           `${root.currencySymbol} ${modelData.currentPrice.toFixed(2)}` :
                           "..."
-                      color: modelData.error ? Color.mError : Color.mOnSurface
+                      color: modelData.error ? Commons.Color.mError : Commons.Color.mOnSurface
                       pointSize: Style.fontSizeXL
                       font.weight: Style.fontWeightBold
                     }
@@ -545,7 +546,7 @@ Item {
                             return `↑ ${above}% ${aboveText}`
                           }
                         }
-                        color: modelData.currentPrice <= modelData.targetPrice ? Color.mPrimary : Color.mError
+                        color: modelData.currentPrice <= modelData.targetPrice ? Commons.Color.mPrimary : Commons.Color.mError
                         pointSize: Style.fontSizeXS
                         font.weight: Style.fontWeightMedium
                       }
@@ -556,13 +557,13 @@ Item {
                         Layout.preferredWidth: steamDiscountText.implicitWidth + Style.marginS
                         Layout.preferredHeight: steamDiscountText.implicitHeight + 2
                         radius: Style.iRadiusS
-                        color: Color.mError
+                        color: Commons.Color.mError
 
                         NText {
                           id: steamDiscountText
                           anchors.centerIn: parent
                           text: `-${modelData.discountPercent}%`
-                          color: Color.mOnError
+                          color: Commons.Color.mOnError
                           pointSize: Style.fontSizeXS
                           font.weight: Style.fontWeightBold
                         }
@@ -608,9 +609,9 @@ Item {
     }
 
     background: Rectangle {
-      color: Color.mSurface
+      color: Commons.Color.mSurface
       radius: Style.iRadiusL
-      border.color: Color.mOutline
+      border.color: Commons.Color.mOutline
       border.width: Style.borderM
     }
 
@@ -619,14 +620,14 @@ Item {
 
       NText {
         text: pluginApi?.tr("steam-price-watcher.edit-target-price") || "Editar Preço-Alvo"
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
         pointSize: Style.fontSizeL
         font.weight: Style.fontWeightBold
       }
 
       NText {
         text: editPriceDialog.gameData ? editPriceDialog.gameData.name : ""
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         pointSize: Style.fontSizeM
         Layout.fillWidth: true
         wrapMode: Text.WordWrap
@@ -638,7 +639,7 @@ Item {
 
         NText {
           text: root.currencySymbol
-          color: Color.mOnSurface
+          color: Commons.Color.mOnSurface
           pointSize: Style.fontSizeM
         }
 

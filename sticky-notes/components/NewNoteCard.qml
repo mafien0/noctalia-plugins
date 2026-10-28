@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Rectangle {
@@ -17,7 +18,7 @@ Rectangle {
   height: 200 * Style.uiScaleRatio
   color: noteColor
   radius: Style.radiusM
-  border.color: textArea.activeFocus ? Qt.darker(Color.mPrimary, 1.35) : Color.mPrimary
+  border.color: textArea.activeFocus ? Qt.darker(Commons.Color.mPrimary, 1.35) : Commons.Color.mPrimary
   border.width: Style.borderM
 
   Behavior on border.color { ColorAnimation { duration: 150 } }

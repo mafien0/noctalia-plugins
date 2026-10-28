@@ -4,6 +4,7 @@ import QtQuick.Controls
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -53,11 +54,11 @@ Item {
     readonly property var rawColorLevel0:
         pluginApi?.pluginSettings?.colorLevel0 ??
         pluginApi?.manifest?.metadata?.defaultSettings?.colorLevel0 ??
-        Color.mError
+        Commons.Color.mError
     readonly property var rawColorActive:
         pluginApi?.pluginSettings?.colorActive ??
         pluginApi?.manifest?.metadata?.defaultSettings?.colorActive ??
-        Color.mPrimary
+        Commons.Color.mPrimary
     readonly property var rawColorAuto:
         pluginApi?.pluginSettings?.colorAuto ??
         pluginApi?.manifest?.metadata?.defaultSettings?.colorAuto ??
@@ -213,7 +214,7 @@ Item {
             NIcon {
                 id: fanIcon
                 icon: "car-fan"
-                color: root.currentIsNeutral ? Color.mOnSurface : Color.mOnPrimary
+                color: root.currentIsNeutral ? Commons.Color.mOnSurface : Commons.Color.mOnPrimary
             }
 
             NText {
@@ -222,7 +223,7 @@ Item {
                 pointSize: barFontSize
                 font.family: root.fixedFont
                 font.weight: Font.Bold
-                color: root.currentIsNeutral ? Color.mOnSurface : Color.mOnPrimary
+                color: root.currentIsNeutral ? Commons.Color.mOnSurface : Commons.Color.mOnPrimary
             }
         }
     }

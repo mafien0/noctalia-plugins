@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -26,12 +27,12 @@ Item {
 	readonly property bool installed: main?.installed ?? false
 
 	readonly property color stateColor: {
-		if (!installed) return Color.mError
-		if (vpnState === "connected") return Color.mPrimary
-		if (vpnState === "connecting" || vpnState === "disconnecting") return Color.mTertiary
-		if (locked) return Color.mError
-		if (vpnState === "error") return Color.mError
-		return Color.mOnSurface
+		if (!installed) return Commons.Color.mError
+		if (vpnState === "connected") return Commons.Color.mPrimary
+		if (vpnState === "connecting" || vpnState === "disconnecting") return Commons.Color.mTertiary
+		if (locked) return Commons.Color.mError
+		if (vpnState === "error") return Commons.Color.mError
+		return Commons.Color.mOnSurface
 	}
 
 	property real margins: Style.marginM * 2
@@ -75,7 +76,7 @@ Item {
 					visible: !root.isVertical && (root.main?.showCityName ?? false) && root.vpnState === "connected"
 					text: root.main?.currentLocation?.city || ""
 					pointSize: Style.fontSizeXS
-					color: Color.mOnSurface
+					color: Commons.Color.mOnSurface
 				}
 
 				NText {
@@ -83,7 +84,7 @@ Item {
 					text: root.main?.currentLocation?.ipv4 || ""
 					pointSize: Style.fontSizeXS
 					font.family: Settings.data.ui.fontFixed
-					color: Color.mOnSurface
+					color: Commons.Color.mOnSurface
 				}
 			}
 		}

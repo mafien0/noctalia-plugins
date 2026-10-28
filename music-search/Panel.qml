@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 import "MusicUtils.js" as MusicUtils
@@ -1088,9 +1089,9 @@ Item {
     readonly property bool active: (root.mainInstance?.currentProvider || "youtube") === providerKey
 
     radius: Style.radiusM
-    color: active ? (Color.mPrimaryContainer || Qt.alpha(Color.mPrimary, 0.14) || Color.mSurfaceVariant) : Color.mSurfaceVariant
+    color: active ? (Commons.Color.mPrimaryContainer || Qt.alpha(Commons.Color.mPrimary, 0.14) || Commons.Color.mSurfaceVariant) : Commons.Color.mSurfaceVariant
     border.width: 1
-    border.color: active ? Color.mPrimary : Qt.alpha((Color.mOutline || Color.mOnSurfaceVariant || "#888888"), 0.35)
+    border.color: active ? Commons.Color.mPrimary : Qt.alpha((Commons.Color.mOutline || Commons.Color.mOnSurfaceVariant || "#888888"), 0.35)
     implicitWidth: providerLabelText.implicitWidth + (Style.marginL * 2)
     implicitHeight: providerLabelText.implicitHeight + (Style.marginS * 2)
 
@@ -1098,7 +1099,7 @@ Item {
       id: providerLabelText
       anchors.centerIn: parent
       text: root.providerLabel(chip.providerKey)
-      color: chip.active ? (Color.mOnPrimaryContainer || Color.mOnSurface) : Color.mOnSurface
+      color: chip.active ? (Commons.Color.mOnPrimaryContainer || Commons.Color.mOnSurface) : Commons.Color.mOnSurface
       pointSize: Style.fontSizeS
       font.weight: chip.active ? Font.DemiBold : Font.Normal
     }
@@ -1125,11 +1126,11 @@ Item {
 
     Layout.fillWidth: true
     radius: root.panelCardRadius
-    color: current ? (Color.mSurface || Color.mSurfaceVariant) : Color.mSurfaceVariant
+    color: current ? (Commons.Color.mSurface || Commons.Color.mSurfaceVariant) : Commons.Color.mSurfaceVariant
     border.width: (current || previewSelected) ? Style.borderS : 0
     border.color: current
-        ? (Color.mPrimary || Color.mOnSurface)
-        : (previewSelected ? Qt.alpha((Color.mPrimary || Color.mOnSurface), 0.5) : "transparent")
+        ? (Commons.Color.mPrimary || Commons.Color.mOnSurface)
+        : (previewSelected ? Qt.alpha((Commons.Color.mPrimary || Commons.Color.mOnSurface), 0.5) : "transparent")
     implicitHeight: content.implicitHeight + (root.panelCardPadding * 2)
 
     ColumnLayout {
@@ -1154,7 +1155,7 @@ Item {
             NText {
               Layout.fillWidth: true
               text: normalized.title
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
               pointSize: root.panelTitleSize
               font.weight: Font.DemiBold
               elide: Text.ElideRight
@@ -1164,7 +1165,7 @@ Item {
               Layout.fillWidth: true
               text: root.entrySummary(normalized, section)
               visible: text.length > 0
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               pointSize: root.panelBodySize
               wrapMode: Text.Wrap
             }
@@ -1173,7 +1174,7 @@ Item {
           Rectangle {
             visible: saved
             radius: Style.radiusM
-            color: current ? Qt.alpha(Color.mPrimary, 0.16) : Qt.alpha(Color.mPrimary, 0.12)
+            color: current ? Qt.alpha(Commons.Color.mPrimary, 0.16) : Qt.alpha(Commons.Color.mPrimary, 0.12)
             implicitWidth: savedLabel.implicitWidth + (Style.marginM * 2)
             implicitHeight: savedLabel.implicitHeight + (Style.marginXS * 2)
 
@@ -1181,7 +1182,7 @@ Item {
               id: savedLabel
               anchors.centerIn: parent
               text: root.pluginApi?.tr("panel.savedLabel")
-              color: Color.mPrimary
+              color: Commons.Color.mPrimary
               pointSize: root.panelBadgeSize
               font.weight: Font.DemiBold
             }
@@ -1277,7 +1278,7 @@ Item {
 
     Layout.fillWidth: true
     radius: root.panelCardRadius
-    color: Color.mSurfaceVariant
+    color: Commons.Color.mSurfaceVariant
     implicitHeight: browseContent.implicitHeight + (root.panelCardPadding * 2)
 
     ColumnLayout {
@@ -1293,7 +1294,7 @@ Item {
         Rectangle {
           visible: browseCard.iconText.length > 0
           radius: Style.radiusM
-          color: Qt.alpha(Color.mPrimary, 0.14)
+          color: Qt.alpha(Commons.Color.mPrimary, 0.14)
           implicitWidth: Math.max(iconLabel.implicitWidth, Math.round(24 * Style.uiScaleRatio)) + Style.marginS
           implicitHeight: Math.max(iconLabel.implicitHeight, Math.round(24 * Style.uiScaleRatio)) + Style.marginXS
 
@@ -1301,7 +1302,7 @@ Item {
             id: iconLabel
             anchors.centerIn: parent
             text: browseCard.iconText
-            color: Color.mPrimary
+            color: Commons.Color.mPrimary
             pointSize: Style.fontSizeS
             font.weight: Font.DemiBold
           }
@@ -1314,7 +1315,7 @@ Item {
           NText {
             Layout.fillWidth: true
             text: browseCard.title
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
             pointSize: root.panelTitleSize
             font.weight: Font.DemiBold
             wrapMode: Text.Wrap
@@ -1324,7 +1325,7 @@ Item {
             Layout.fillWidth: true
             visible: browseCard.description.length > 0
             text: browseCard.description
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             pointSize: root.panelBodySize
             wrapMode: Text.Wrap
           }
@@ -1333,7 +1334,7 @@ Item {
         Rectangle {
           visible: browseCard.accentText.length > 0
           radius: Style.radiusM
-          color: Qt.alpha(Color.mPrimary, 0.18)
+          color: Qt.alpha(Commons.Color.mPrimary, 0.18)
           implicitWidth: accentLabel.implicitWidth + (Style.marginM * 2)
           implicitHeight: accentLabel.implicitHeight + (Style.marginXS * 2)
 
@@ -1341,7 +1342,7 @@ Item {
             id: accentLabel
             anchors.centerIn: parent
             text: browseCard.accentText
-            color: Color.mPrimary
+            color: Commons.Color.mPrimary
             pointSize: root.panelBodySize
             font.weight: Font.DemiBold
           }
@@ -1387,7 +1388,7 @@ Item {
         visible: root.showPanelHeader
         Layout.fillWidth: true
         radius: Style.radiusL
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
         implicitHeight: headerContent.implicitHeight + (Style.marginL * 2)
 
         RowLayout {
@@ -1399,7 +1400,7 @@ Item {
           NIcon {
             icon: "music"
             pointSize: Style.fontSizeXXL
-            color: Color.mPrimary
+            color: Commons.Color.mPrimary
           }
 
           ColumnLayout {
@@ -1408,7 +1409,7 @@ Item {
 
             NText {
               text: pluginApi?.tr("panel.title")
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
               pointSize: Style.fontSizeL
               font.weight: Font.Bold
             }
@@ -1416,7 +1417,7 @@ Item {
             NText {
               Layout.fillWidth: true
               text: pluginApi?.tr("panel.subtitle")
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               pointSize: Style.fontSizeS
               wrapMode: Text.Wrap
             }
@@ -1450,7 +1451,7 @@ Item {
         visible: root.showPanelNowPlaying
         Layout.fillWidth: true
         radius: Style.radiusL
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
         implicitHeight: playbackColumn.implicitHeight + (Style.marginL * 2)
 
         ColumnLayout {
@@ -1469,7 +1470,7 @@ Item {
 
               NText {
                 text: pluginApi?.tr("panel.nowPlaying")
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 pointSize: Style.fontSizeS
                 font.weight: Font.DemiBold
               }
@@ -1482,7 +1483,7 @@ Item {
                   }
                   return (mainInstance?.currentTitle || "").trim() || pluginApi?.tr("panel.nothingPlaying");
                 }
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 pointSize: Style.fontSizeM
                 font.weight: Font.DemiBold
                 wrapMode: Text.Wrap
@@ -1507,7 +1508,7 @@ Item {
                   }
                   return parts.join(" • ");
                 }
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 pointSize: Style.fontSizeS
                 wrapMode: Text.Wrap
               }
@@ -1576,7 +1577,7 @@ Item {
 
             NText {
               text: MusicUtils.formatDuration(root.effectiveSeekPosition())
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               pointSize: Style.fontSizeXS
             }
 
@@ -1586,7 +1587,7 @@ Item {
 
             NText {
               text: MusicUtils.formatDuration(mainInstance?.currentDuration || 0)
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               pointSize: Style.fontSizeXS
             }
           }
@@ -1642,7 +1643,7 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 text: (mainInstance?.playbackStartingMessage || "").trim()
                 visible: mainInstance?.playbackStarting === true && text.length > 0
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 pointSize: Style.fontSizeS
                 wrapMode: Text.NoWrap
                 elide: Text.ElideRight
@@ -1656,7 +1657,7 @@ Item {
               NButton {
                 text: "-"
                 backgroundColor: "transparent"
-                textColor: Color.mOnSurfaceVariant
+                textColor: Commons.Color.mOnSurfaceVariant
                 outlined: false
                 enabled: mainInstance?.isPlaying === true && mainInstance?.speedBusy !== true
                 implicitWidth: Math.round(24 * Style.uiScaleRatio)
@@ -1666,7 +1667,7 @@ Item {
 
               Rectangle {
                 radius: Style.radiusM
-                color: Color.mPrimary
+                color: Commons.Color.mPrimary
                 implicitHeight: Math.round(24 * Style.uiScaleRatio)
                 implicitWidth: Math.max(speedChipLabel.implicitWidth, speedChipWidthReference.implicitWidth) + Math.round(18 * Style.uiScaleRatio)
                 opacity: mainInstance?.speedBusy === true ? 0.75 : 1
@@ -1676,7 +1677,7 @@ Item {
                   anchors.centerIn: parent
                   text: root.formatSpeed(mainInstance?.currentSpeed || 1)
                   pointSize: Style.fontSizeS
-                  color: Color.mOnPrimary
+                  color: Commons.Color.mOnPrimary
                 }
 
                 NText {
@@ -1706,7 +1707,7 @@ Item {
               NButton {
                 text: "+"
                 backgroundColor: "transparent"
-                textColor: Color.mOnSurfaceVariant
+                textColor: Commons.Color.mOnSurfaceVariant
                 outlined: false
                 enabled: mainInstance?.isPlaying === true && mainInstance?.speedBusy !== true
                 implicitWidth: Math.round(24 * Style.uiScaleRatio)
@@ -1723,7 +1724,7 @@ Item {
             && ((mainInstance?.lastError || "").trim().length > 0 || (mainInstance?.lastNotice || "").trim().length > 0)
         Layout.fillWidth: true
         radius: Style.radiusM
-        color: (mainInstance?.lastError || "").trim().length > 0 ? Qt.alpha(Color.mError, 0.14) : Qt.alpha(Color.mPrimary, 0.12)
+        color: (mainInstance?.lastError || "").trim().length > 0 ? Qt.alpha(Commons.Color.mError, 0.14) : Qt.alpha(Commons.Color.mPrimary, 0.12)
         implicitHeight: statusText.implicitHeight + (Style.marginM * 2)
 
         NText {
@@ -1731,7 +1732,7 @@ Item {
           anchors.fill: parent
           anchors.margins: Style.marginM
           text: (mainInstance?.lastError || "").trim().length > 0 ? (mainInstance?.lastError || "").trim() : (mainInstance?.lastNotice || "").trim()
-          color: (mainInstance?.lastError || "").trim().length > 0 ? Color.mError : Color.mOnSurface
+          color: (mainInstance?.lastError || "").trim().length > 0 ? Commons.Color.mError : Commons.Color.mOnSurface
           pointSize: Style.fontSizeS
           wrapMode: Text.Wrap
         }
@@ -1741,7 +1742,7 @@ Item {
         Layout.fillWidth: true
         Layout.fillHeight: true
         radius: Style.radiusL
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
         clip: true
 
         ColumnLayout {
@@ -1877,7 +1878,7 @@ Item {
                   horizontalPolicy: ScrollBar.AlwaysOff
                   verticalPolicy: ScrollBar.AsNeeded
                   reserveScrollbarSpace: false
-                  gradientColor: Color.mSurfaceVariant
+                  gradientColor: Commons.Color.mSurfaceVariant
                   bottomPadding: Style.marginS
 
                   ColumnLayout {
@@ -1888,7 +1889,7 @@ Item {
                       visible: root.searchBusy
                       Layout.fillWidth: true
                       radius: Style.radiusL
-                      color: Qt.alpha(Color.mPrimary, 0.08)
+                      color: Qt.alpha(Commons.Color.mPrimary, 0.08)
                       implicitHeight: loadingRow.implicitHeight + (Style.marginL * 2)
 
                       RowLayout {
@@ -1898,13 +1899,13 @@ Item {
 
                         NBusyIndicator {
                           running: root.searchBusy
-                          color: Color.mPrimary
+                          color: Commons.Color.mPrimary
                           size: Style.baseWidgetSize * 0.75
                         }
 
                         NText {
                           text: pluginApi?.tr("panel.searching", {"provider": root.providerLabel(root.runningSearchProvider || root.parseSearchProviderQuery(root.trimmedSearchText()).provider)})
-                          color: Color.mOnSurface
+                          color: Commons.Color.mOnSurface
                           pointSize: Style.fontSizeS
                         }
                       }
@@ -1914,7 +1915,7 @@ Item {
                       visible: !root.searchBusy && (root.searchError || "").trim().length > 0
                       Layout.fillWidth: true
                       radius: Style.radiusL
-                      color: Qt.alpha(Color.mError, 0.12)
+                      color: Qt.alpha(Commons.Color.mError, 0.12)
                       implicitHeight: searchErrorText.implicitHeight + (Style.marginL * 2)
 
                       NText {
@@ -1922,7 +1923,7 @@ Item {
                         anchors.fill: parent
                         anchors.margins: Style.marginL
                         text: root.searchError
-                        color: Color.mError
+                        color: Commons.Color.mError
                         pointSize: Style.fontSizeS
                         wrapMode: Text.Wrap
                       }
@@ -1932,7 +1933,7 @@ Item {
                       visible: !root.searchBusy && !root.looksLikeUrl(root.trimmedSearchText()) && root.trimmedSearchText().length > 0 && root.parseSearchProviderQuery(root.trimmedSearchText()).query.length > 0 && root.parseSearchProviderQuery(root.trimmedSearchText()).query.length < 2
                       Layout.fillWidth: true
                       radius: Style.radiusL
-                      color: Qt.alpha(Color.mSurface, 0.6)
+                      color: Qt.alpha(Commons.Color.mSurface, 0.6)
                       implicitHeight: shortSearchText.implicitHeight + (Style.marginL * 2)
 
                       NText {
@@ -1940,7 +1941,7 @@ Item {
                         anchors.fill: parent
                         anchors.margins: Style.marginL
                         text: pluginApi?.tr("panel.typeMore", {"provider": root.providerLabel(root.parseSearchProviderQuery(root.trimmedSearchText()).provider)})
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         pointSize: Style.fontSizeS
                         wrapMode: Text.Wrap
                       }
@@ -1952,7 +1953,7 @@ Item {
                           && root.trimmedSearchText().length === 0
                       Layout.fillWidth: true
                       radius: Style.radiusL
-                      color: Qt.alpha(Color.mSurface, 0.6)
+                      color: Qt.alpha(Commons.Color.mSurface, 0.6)
                       implicitHeight: helperColumn.implicitHeight + (Style.marginL * 2)
 
                       ColumnLayout {
@@ -1964,7 +1965,7 @@ Item {
                         NText {
                           Layout.fillWidth: true
                           text: pluginApi?.tr("panel.searchHint", {"provider": root.providerLabel(mainInstance?.currentProvider || "youtube")})
-                          color: Color.mOnSurface
+                          color: Commons.Color.mOnSurface
                           pointSize: Style.fontSizeS
                           wrapMode: Text.Wrap
                         }
@@ -1972,7 +1973,7 @@ Item {
                         NText {
                           Layout.fillWidth: true
                           text: pluginApi?.tr("panel.helperHint")
-                          color: Color.mOnSurfaceVariant
+                          color: Commons.Color.mOnSurfaceVariant
                           pointSize: Style.fontSizeXS
                           wrapMode: Text.Wrap
                         }
@@ -1986,7 +1987,7 @@ Item {
                           && root.trimmedSearchText().length === 0
                           && root.recentLibraryEntries.length > 0
                       text: pluginApi?.tr("panel.recentTracks")
-                      color: Color.mOnSurface
+                      color: Commons.Color.mOnSurface
                       pointSize: Style.fontSizeM
                       font.weight: Font.DemiBold
                     }
@@ -2008,7 +2009,7 @@ Item {
                       Layout.fillWidth: true
                       visible: !root.searchBusy && root.trimmedSearchText().length > 0 && !root.looksLikeUrl(root.trimmedSearchText()) && root.parseSearchProviderQuery(root.trimmedSearchText()).query.length >= 2 && root.searchResults.length === 0 && (root.searchError || "").trim().length === 0
                       text: pluginApi?.tr("panel.noSearchResults", {"query": root.parseSearchProviderQuery(root.trimmedSearchText()).query})
-                      color: Color.mOnSurfaceVariant
+                      color: Commons.Color.mOnSurfaceVariant
                       pointSize: Style.fontSizeS
                       wrapMode: Text.Wrap
                     }
@@ -2157,7 +2158,7 @@ Item {
                     }
                     return pluginApi?.tr("panel.savedCount", {"count": root.filteredLibraryEntries.length});
                   }
-                  color: Color.mOnSurfaceVariant
+                  color: Commons.Color.mOnSurfaceVariant
                   pointSize: Style.fontSizeS
                 }
 
@@ -2175,7 +2176,7 @@ Item {
                     text: root.hasLibrarySelection()
                         ? pluginApi?.tr("panel.emptyScopedLibrary")
                         : pluginApi?.tr("panel.emptyLibrary")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     pointSize: Style.fontSizeS
                     wrapMode: Text.Wrap
                   }
@@ -2192,7 +2193,7 @@ Item {
                     verticalPolicy: ScrollBar.AsNeeded
                     horizontalPolicy: ScrollBar.AlwaysOff
                     reserveScrollbarSpace: false
-                    gradientColor: Color.mSurfaceVariant
+                    gradientColor: Commons.Color.mSurfaceVariant
 
                     delegate: Item {
                       width: libraryTrackList.availableWidth
@@ -2214,7 +2215,7 @@ Item {
                     anchors.top: parent.top
                     visible: !root.hasLibrarySelection() && root.librarySection === "playlists" && root.filteredPlaylistEntries.length === 0
                     text: pluginApi?.tr("panel.emptyPlaylists")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     pointSize: Style.fontSizeS
                     wrapMode: Text.Wrap
                   }
@@ -2225,7 +2226,7 @@ Item {
                     anchors.top: parent.top
                     visible: !root.hasLibrarySelection() && root.librarySection === "artists" && root.filteredArtistStats.length === 0
                     text: pluginApi?.tr("panel.emptyArtists")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     pointSize: Style.fontSizeS
                     wrapMode: Text.Wrap
                   }
@@ -2236,7 +2237,7 @@ Item {
                     anchors.top: parent.top
                     visible: !root.hasLibrarySelection() && root.librarySection === "tags" && root.filteredTagStats.length === 0
                     text: pluginApi?.tr("panel.emptyTags")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     pointSize: Style.fontSizeS
                     wrapMode: Text.Wrap
                   }
@@ -2252,7 +2253,7 @@ Item {
                     horizontalPolicy: ScrollBar.AlwaysOff
                     verticalPolicy: ScrollBar.AsNeeded
                     reserveScrollbarSpace: false
-                    gradientColor: Color.mSurfaceVariant
+                    gradientColor: Commons.Color.mSurfaceVariant
                     bottomPadding: Style.marginS
 
                     ColumnLayout {
@@ -2397,7 +2398,7 @@ Item {
                 NText {
                   Layout.fillWidth: true
                   text: pluginApi?.tr("panel.queueCount", {"count": (mainInstance?.queueEntries || []).length})
-                  color: Color.mOnSurfaceVariant
+                  color: Commons.Color.mOnSurfaceVariant
                   pointSize: Style.fontSizeS
                 }
 
@@ -2412,7 +2413,7 @@ Item {
                     anchors.top: parent.top
                     visible: (mainInstance?.queueEntries || []).length === 0
                     text: pluginApi?.tr("panel.emptyQueue")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     pointSize: Style.fontSizeS
                     wrapMode: Text.Wrap
                   }
@@ -2428,7 +2429,7 @@ Item {
                     verticalPolicy: ScrollBar.AsNeeded
                     horizontalPolicy: ScrollBar.AlwaysOff
                     reserveScrollbarSpace: false
-                    gradientColor: Color.mSurfaceVariant
+                    gradientColor: Commons.Color.mSurfaceVariant
 
                     delegate: Item {
                       width: queueList.availableWidth
@@ -2475,10 +2476,10 @@ Item {
                 anchors.topMargin: Style.marginM
                 anchors.bottomMargin: Style.marginM
                 color: splitterMouseArea.pressed
-                    ? Qt.alpha(Color.mPrimary, 0.65)
+                    ? Qt.alpha(Commons.Color.mPrimary, 0.65)
                     : (splitterMouseArea.containsMouse
-                        ? Qt.alpha(Color.mPrimary, 0.38)
-                        : Qt.alpha((Color.mOutline || Color.mOnSurfaceVariant || "#888888"), 0.28))
+                        ? Qt.alpha(Commons.Color.mPrimary, 0.38)
+                        : Qt.alpha((Commons.Color.mOutline || Commons.Color.mOnSurfaceVariant || "#888888"), 0.28))
               }
 
               MouseArea {
@@ -2516,9 +2517,9 @@ Item {
               Layout.maximumWidth: root.previewPaneMaxWidthCap
               Layout.fillHeight: true
               radius: root.panelCardRadius
-              color: Qt.alpha(Color.mSurface, 0.55)
+              color: Qt.alpha(Commons.Color.mSurface, 0.55)
               border.width: Style.borderS
-              border.color: Qt.alpha((Color.mOutline || Color.mOnSurfaceVariant || "#888888"), 0.24)
+              border.color: Qt.alpha((Commons.Color.mOutline || Commons.Color.mOnSurfaceVariant || "#888888"), 0.24)
               clip: true
               readonly property bool showPreviewPlaybackActions: !root.showPanelNowPlaying
                   && root.hasPlayback
@@ -2587,7 +2588,7 @@ Item {
                       && mainInstance?.playbackStarting === true
                       && text.length > 0
                   text: (mainInstance?.playbackStartingMessage || "").trim()
-                  color: Color.mOnSurfaceVariant
+                  color: Commons.Color.mOnSurfaceVariant
                   pointSize: Style.fontSizeS
                   wrapMode: Text.NoWrap
                   elide: Text.ElideRight

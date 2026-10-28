@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -50,7 +51,7 @@ Item {
                     NIcon {
                         icon: root.connected ? "shield-lock" : "shield"
                         pointSize: Style.fontSizeXL
-                        color: root.connected ? Color.mPrimary : Color.mOnSurfaceVariant
+                        color: root.connected ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
                     }
 
                     NLabel {
@@ -94,10 +95,10 @@ Item {
                             height: width
                             radius: width / 2
                             color: {
-                                if (root.acting)    return Color.mTertiary;
-                                if (root.connected) return Color.mPrimary;
-                                if (root.vpnStatus === "disconnected") return Color.mError;
-                                return Color.mOnSurfaceVariant;
+                                if (root.acting)    return Commons.Color.mTertiary;
+                                if (root.connected) return Commons.Color.mPrimary;
+                                if (root.vpnStatus === "disconnected") return Commons.Color.mError;
+                                return Commons.Color.mOnSurfaceVariant;
                             }
                         }
 
@@ -109,17 +110,17 @@ Item {
                                 return pluginApi?.tr("panel.status-unknown");
                             }
                             labelColor: {
-                                if (root.acting)    return Color.mTertiary;
-                                if (root.connected) return Color.mPrimary;
-                                if (root.vpnStatus === "disconnected") return Color.mError;
-                                return Color.mOnSurfaceVariant;
+                                if (root.acting)    return Commons.Color.mTertiary;
+                                if (root.connected) return Commons.Color.mPrimary;
+                                if (root.vpnStatus === "disconnected") return Commons.Color.mError;
+                                return Commons.Color.mOnSurfaceVariant;
                             }
                         }
 
                         NLabel {
                             visible: root.connected && (main?.protocol ?? "") !== ""
                             label: (main?.protocol ?? "").toUpperCase()
-                            labelColor: Color.mOnSurfaceVariant
+                            labelColor: Commons.Color.mOnSurfaceVariant
                             Layout.fillWidth: true
                         }
                     }
@@ -129,7 +130,7 @@ Item {
                         visible: root.connected && (main?.serverName ?? "") !== ""
                         label: (main?.serverName ?? "") +
                                ((main?.serverLocation ?? "") !== "" ? "  ·  " + main.serverLocation : "")
-                        labelColor: Color.mOnSurface
+                        labelColor: Commons.Color.mOnSurface
                         Layout.fillWidth: true
                     }
 
@@ -140,29 +141,29 @@ Item {
 
                         NLabel {
                             label: pluginApi?.tr("panel.load")
-                            labelColor: Color.mOnSurfaceVariant
+                            labelColor: Commons.Color.mOnSurfaceVariant
                         }
 
                         Rectangle {
                             Layout.fillWidth: true
                             height: Math.round(4 * Style.uiScaleRatio)
                             radius: height / 2
-                            color: Color.mSurfaceVariant
+                            color: Commons.Color.mSurfaceVariant
 
                             Rectangle {
                                 width: parent.width * Math.min(1, Math.max(0, (main?.serverLoad ?? 0) / 100))
                                 height: parent.height
                                 radius: parent.radius
-                                color: (main?.serverLoad ?? 0) > 80 ? Color.mError
-                                     : (main?.serverLoad ?? 0) > 50 ? Color.mTertiary
-                                     : Color.mPrimary
+                                color: (main?.serverLoad ?? 0) > 80 ? Commons.Color.mError
+                                     : (main?.serverLoad ?? 0) > 50 ? Commons.Color.mTertiary
+                                     : Commons.Color.mPrimary
                                 Behavior on width { NumberAnimation { duration: 300 } }
                             }
                         }
 
                         NLabel {
                             label: (main?.serverLoad ?? 0) + "%"
-                            labelColor: Color.mOnSurfaceVariant
+                            labelColor: Commons.Color.mOnSurfaceVariant
                         }
                     }
 
@@ -170,7 +171,7 @@ Item {
                     NLabel {
                         visible: (main?.lastError ?? "") !== ""
                         label: main?.lastError ?? ""
-                        labelColor: Color.mError
+                        labelColor: Commons.Color.mError
                         Layout.fillWidth: true
                     }
                 }
@@ -199,7 +200,7 @@ Item {
                         icon: "shield-bolt"
                         pointSize: Style.fontSizeL
                         color: (main?.killSwitch ?? "off") === "standard"
-                               ? Color.mPrimary : Color.mOnSurfaceVariant
+                               ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
                     }
 
                     NLabel {
@@ -235,7 +236,7 @@ Item {
 
                     NLabel {
                         label: pluginApi?.tr("panel.quick-connect")
-                        labelColor: Color.mOnSurfaceVariant
+                        labelColor: Commons.Color.mOnSurfaceVariant
                     }
 
                     GridLayout {

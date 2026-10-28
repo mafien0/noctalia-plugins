@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Modules.Bar.Extras
 import qs.Services.UI
 
@@ -47,8 +48,8 @@ Item {
     text: (root.active && root.showText) ? root.remainingText : ""
     tooltipText: root.buildTooltip()
     customIconColor: root.active
-      ? (root.scope === "full" ? Color.mSecondary : Color.mPrimary)
-      : Color.mOnSurface
+      ? (root.scope === "full" ? Commons.Color.mSecondary : Commons.Color.mPrimary)
+      : Commons.Color.mOnSurface
     oppositeDirection: BarService.getPillDirection(root)
     onEntered: { if (mainInstance) mainInstance.pollGuard(); }
     onClicked: {

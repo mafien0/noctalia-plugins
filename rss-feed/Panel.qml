@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -386,7 +387,7 @@ Item {
                     text: pluginApi?.tr("widget.title", "RSS Feeds") || "RSS Feeds"
                     pointSize: Style.fontSizeL
                     font.bold: true
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     Layout.fillWidth: true
                 }
 
@@ -397,7 +398,7 @@ Item {
                     width: unreadCount > 0 ? (badgeText.implicitWidth + 12) : 0
                     height: unreadCount > 0 ? (badgeText.implicitHeight + 8) : 0
                     radius: height * 0.5
-                    color: Color.mPrimary
+                    color: Commons.Color.mPrimary
                     Layout.alignment: Qt.AlignVCenter
                     Layout.preferredWidth: width
                     Layout.preferredHeight: height
@@ -410,7 +411,7 @@ Item {
                         anchors.centerIn: parent
                         text: unreadCount > 99 ? "99+" : unreadCount.toString()
                         pointSize: Style.fontSizeS
-                        color: Color.mOnPrimary
+                        color: Commons.Color.mOnPrimary
                     }
 
                     SequentialAnimation {
@@ -453,7 +454,7 @@ Item {
                         anchors.centerIn: parent
                         icon: "settings"
                         pointSize: 14
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                     }
 
                     MouseArea {
@@ -512,7 +513,7 @@ Item {
 
                         width: ListView.view.width
                         height: itemLayout.implicitHeight + 16
-                        color: Color.mSurfaceVariant
+                        color: Commons.Color.mSurfaceVariant
                         radius: Style.radiusM
 
                         readonly property bool isUnread: !readItems.includes(modelData.guid || modelData.link)
@@ -521,7 +522,7 @@ Item {
                             visible: isUnread
                             width: 3
                             height: parent.height
-                            color: isUnread ? Color.mPrimary : "transparent"
+                            color: isUnread ? Commons.Color.mPrimary : "transparent"
                         }
 
                         ColumnLayout {
@@ -536,7 +537,7 @@ Item {
                                 text: modelData.feedName || "Unknown Feed"
                                 pointSize: Style.fontSizeS
                                 font.bold: true
-                                color: Color.mPrimary
+                                color: Commons.Color.mPrimary
                                 elide: Text.ElideRight
                                 Layout.fillWidth: true
                             }
@@ -546,7 +547,7 @@ Item {
                                 text: modelData.title || "Untitled"
                                 pointSize: Style.fontSizeM 
                                 font.bold: isUnread
-                                color: Color.mOnSurface
+                                color: Commons.Color.mOnSurface
                                 wrapMode: Text.Wrap
                                 maximumLineCount: 2
                                 elide: Text.ElideRight
@@ -558,7 +559,7 @@ Item {
                                 visible: modelData.description && modelData.description.length > 0
                                 text: modelData.description || ""
                                 pointSize: Style.fontSizeS
-                                color: Color.mSecondary
+                                color: Commons.Color.mSecondary
                                 wrapMode: Text.Wrap
                                 maximumLineCount: 2
                                 elide: Text.ElideRight
@@ -569,7 +570,7 @@ Item {
                             NText {
                                 text: formatDate(modelData.pubDate)
                                 pointSize: Style.fontSizeS 
-                                color: Color.mSecondary
+                                color: Commons.Color.mSecondary
                             }
                         }
 
@@ -592,7 +593,7 @@ Item {
                         anchors.centerIn: parent
                         text: pluginApi?.tr("widget.noItems", "No items to display") || "No items to display"
                         pointSize: Style.fontSizeM
-                        color: Color.mSecondary
+                        color: Commons.Color.mSecondary
                     }
                 }
             }
@@ -608,7 +609,7 @@ Item {
                 NText {
                     text: allItems.length + " total items"
                     pointSize: Style.fontSizeS
-                    color: Color.mSecondary
+                    color: Commons.Color.mSecondary
                     Layout.fillWidth: true
                 }
             }

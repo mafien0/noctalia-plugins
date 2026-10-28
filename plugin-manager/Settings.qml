@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -18,7 +19,7 @@ ColumnLayout {
   NComboBox {
     label: pluginApi?.tr("settings.iconColor.label")
     description: pluginApi?.tr("settings.iconColor.desc")
-    model: Color.colorKeyModel
+    model: Commons.Color.colorKeyModel
     currentKey: root.valueIconColor
     onSelected: key => root.valueIconColor = key
   }

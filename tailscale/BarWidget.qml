@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -40,7 +41,7 @@ Item {
     y: Style.pixelAlignCenter(parent.height, height)
     width: root.contentWidth
     height: root.contentHeight
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     radius: Style.radiusL
 
     RowLayout {
@@ -55,7 +56,7 @@ Item {
         connected: root.tailscaleConnected
         connecting: root.tailscaleConnecting
         hovered: mouseArea.containsMouse
-        litColor: Color.mPrimary
+        litColor: Commons.Color.mPrimary
       }
 
       // Show details when not in compact mode and there's something to show
@@ -70,7 +71,7 @@ Item {
           visible: (mainInstance?.showIpAddress ?? false) && (mainInstance?.tailscaleIp ?? false)
           text: mainInstance?.tailscaleIp || ""
           pointSize: Style.fontSizeXS
-          color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+          color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
           font.family: Settings.data.ui.fontFixed
         }
 
@@ -79,7 +80,7 @@ Item {
           visible: mainInstance?.showPeerCount ?? false
           text: (mainInstance?.peerCount || 0) + " " + pluginApi?.tr("panel.peers")
           pointSize: Style.fontSizeXS
-          color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+          color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         }
       }
     }

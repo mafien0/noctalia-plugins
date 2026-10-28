@@ -6,6 +6,7 @@ import Quickshell.Io
 import "dockerUtils.js" as DockerUtils
 import "Components"
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.System
 import qs.Widgets
 
@@ -115,9 +116,9 @@ Item {
         Rectangle {
             anchors.fill: parent
             anchors.margins: Style.marginL
-            color: Color.mSurface
+            color: Commons.Color.mSurface
             radius: Style.radiusL
-            border.color: Color.mOutline
+            border.color: Commons.Color.mOutline
             border.width: Style.borderS
             clip: true
 
@@ -129,7 +130,7 @@ Item {
                 Rectangle {
                     Layout.fillHeight: true
                     Layout.preferredWidth: root.sidebarExpanded ? 200 * Style.uiScaleRatio : 56 * Style.uiScaleRatio
-                    color: Color.mSurfaceVariant
+                    color: Commons.Color.mSurfaceVariant
                     clip: true
 
                     ColumnLayout {
@@ -159,7 +160,7 @@ Item {
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
                         width: 1
-                        color: Color.mOutline
+                        color: Commons.Color.mOutline
                         opacity: 0.5
                     }
 
@@ -194,7 +195,7 @@ Item {
                                 }
                                 font.bold: true
                                 font.pixelSize: 20
-                                color: Color.mOnSurface
+                                color: Commons.Color.mOnSurface
                             }
 
                             Item { Layout.fillWidth: true }
@@ -234,7 +235,7 @@ Item {
                                 anchors.centerIn: parent
                                 visible: containersModel.count === 0
                                 text: "No containers found"
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                             }
                         }
 
@@ -258,7 +259,7 @@ Item {
                                 anchors.centerIn: parent
                                 visible: imagesModel.count === 0
                                 text: "No images found"
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                             }
                         }
 
@@ -281,7 +282,7 @@ Item {
                                 anchors.centerIn: parent
                                 visible: volumesModel.count === 0
                                 text: "No volumes found"
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                             }
                         }
 
@@ -304,7 +305,7 @@ Item {
                                 anchors.centerIn: parent
                                 visible: networksModel.count === 0
                                 text: "No networks found"
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                             }
                         }
                     }
@@ -429,7 +430,7 @@ Item {
         property int idx
         Layout.fillWidth: true
         Layout.preferredHeight: 40 * Style.uiScaleRatio
-        color: root.currentTabIndex === idx ? Color.mSurface : "transparent"
+        color: root.currentTabIndex === idx ? Commons.Color.mSurface : "transparent"
         radius: Style.radiusS
 
         Rectangle {
@@ -437,7 +438,7 @@ Item {
             width: 3
             height: 16
             radius: 2
-            color: Color.mPrimary
+            color: Commons.Color.mPrimary
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
             anchors.leftMargin: 4
@@ -450,14 +451,14 @@ Item {
 
             NIcon {
                 icon: iconName
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 Layout.preferredWidth: 24
                 Layout.preferredHeight: 24
             }
 
             Text {
                 text: sideItem.itemText
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 font.weight: root.currentTabIndex === idx ? Font.DemiBold : Font.Normal
                 opacity: root.sidebarExpanded ? 1 : 0
                 Layout.fillWidth: true

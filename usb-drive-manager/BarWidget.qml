@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -38,7 +39,7 @@ NIconButton {
     property var cfg: pluginApi?.pluginSettings || ({})
     property var defaults: pluginApi?.manifest?.metadata?.defaultSettings || ({})
     readonly property string iconColorKey: cfg.iconColor ?? defaults.iconColor ?? "none"
-    readonly property color iconColor: Color.resolveColorKey(iconColorKey)
+    readonly property color iconColor: Commons.Color.resolveColorKey(iconColorKey)
 
     // ===== VISIBILITY =====
     visible: shouldShow
@@ -51,10 +52,10 @@ NIconButton {
     applyUiScale: false
     customRadius: Style.radiusL
 
-    colorBg: hasMountedDevices ? Color.mPrimary : Style.capsuleColor
-    colorFg: hasMountedDevices ? Color.mOnPrimary : root.iconColor !== "transparent" ? root.iconColor : Color.mOnSurface
-    colorBgHover: Color.mHover
-    colorFgHover: Color.mOnHover
+    colorBg: hasMountedDevices ? Commons.Color.mPrimary : Style.capsuleColor
+    colorFg: hasMountedDevices ? Commons.Color.mOnPrimary : root.iconColor !== "transparent" ? root.iconColor : Commons.Color.mOnSurface
+    colorBgHover: Commons.Color.mHover
+    colorFgHover: Commons.Color.mOnHover
     colorBorder: "transparent"
     colorBorderHover: "transparent"
 
@@ -70,7 +71,7 @@ NIconButton {
         width: badgeText.implicitWidth + Style.marginS
         height: badgeText.implicitHeight + Style.marginXS
         radius: height / 2
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
         z: 1
 
         NText {
@@ -78,7 +79,7 @@ NIconButton {
             anchors.centerIn: parent
             text: mountedCount
             pointSize: Style.fontSizeXXS
-            color: Color.mOnPrimary
+            color: Commons.Color.mOnPrimary
             font.weight: Font.Bold
         }
     }

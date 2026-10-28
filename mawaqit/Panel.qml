@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -63,9 +64,9 @@ Item {
   readonly property int  weekStartDay: parseInt(cfg.weekStartDay ?? defaults.weekStartDay ?? 1)
 
   readonly property color countdownColor: {
-    if (nextPrayerName === "Imsak"   && isRamadan) return Color.mSecondary
-    if (nextPrayerName === "Maghrib" && isRamadan) return Color.mTertiary
-    return Color.mPrimary
+    if (nextPrayerName === "Imsak"   && isRamadan) return Commons.Color.mSecondary
+    if (nextPrayerName === "Maghrib" && isRamadan) return Commons.Color.mTertiary
+    return Commons.Color.mPrimary
   }
 
   // ── Daily Hadith ──────────────────────────────────────────────────────
@@ -346,8 +347,8 @@ Item {
       // ── Header ─────────────────────────────────────────────────────────
       RowLayout {
         Layout.fillWidth: true; spacing: Style.marginM
-        NIcon { icon: widgetIcon; pointSize: Style.fontSizeXL; color: Color.mPrimary; Layout.alignment: Qt.AlignVCenter }
-        NText { text: pluginApi?.tr("panel.title"); pointSize: Style.fontSizeL; font.weight: Font.Bold; color: Color.mOnSurface; Layout.alignment: Qt.AlignVCenter }
+        NIcon { icon: widgetIcon; pointSize: Style.fontSizeXL; color: Commons.Color.mPrimary; Layout.alignment: Qt.AlignVCenter }
+        NText { text: pluginApi?.tr("panel.title"); pointSize: Style.fontSizeL; font.weight: Font.Bold; color: Commons.Color.mOnSurface; Layout.alignment: Qt.AlignVCenter }
         Item { Layout.fillWidth: true }
         NIconButton {
           icon: "refresh"
@@ -377,15 +378,15 @@ Item {
       RowLayout {
         Layout.fillWidth: true; spacing: Style.marginS
         visible: gregorianDateStr !== ""
-        NText { text: gregorianDateStr; pointSize: Style.fontSizeS; color: Color.mSecondary; Layout.alignment: Qt.AlignVCenter }
+        NText { text: gregorianDateStr; pointSize: Style.fontSizeS; color: Commons.Color.mSecondary; Layout.alignment: Qt.AlignVCenter }
         Item { Layout.fillWidth: true }
         Text {
           visible: decoFontReady && hijriDateAr !== ""
           text: hijriDateAr; font.family: decoFont.name; font.pointSize: Style.fontSizeXL
-          color: isRamadan ? Color.mPrimary : Color.mSecondary
+          color: isRamadan ? Commons.Color.mPrimary : Commons.Color.mSecondary
           verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignRight
         }
-        NText { visible: !decoFontReady && hijriDateEn !== ""; text: hijriDateEn; pointSize: Style.fontSizeS; color: isRamadan ? Color.mPrimary : Color.mSecondary; Layout.alignment: Qt.AlignVCenter }
+        NText { visible: !decoFontReady && hijriDateEn !== ""; text: hijriDateEn; pointSize: Style.fontSizeS; color: isRamadan ? Commons.Color.mPrimary : Commons.Color.mSecondary; Layout.alignment: Qt.AlignVCenter }
       }
 
       // ── Tab bar ────────────────────────────────────────────────────────
@@ -402,7 +403,7 @@ Item {
       Rectangle {
         Layout.fillWidth: true
         implicitHeight: eventHintRow.implicitHeight + Style.marginS * 2
-        color: Qt.alpha(Color.mTertiary, 0.10); radius: Style.radiusM
+        color: Qt.alpha(Commons.Color.mTertiary, 0.10); radius: Style.radiusM
         visible: upcomingEvent !== null
         RowLayout {
           id: eventHintRow
@@ -416,14 +417,14 @@ Item {
               if (d === 1) return pluginApi?.tr("panel.tomorrow")
               return "in " + d + " days"
             }
-            pointSize: Style.fontSizeXS; color: Color.mTertiary; opacity: 0.6
+            pointSize: Style.fontSizeXS; color: Commons.Color.mTertiary; opacity: 0.6
           }
           Item { Layout.fillWidth: true }
           Text {
             text: upcomingEvent?.name ?? ""
             font.family: decoFontReady ? decoFont.name : ""
             font.pointSize: Style.fontSizeM
-            color: Color.mTertiary
+            color: Commons.Color.mTertiary
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignRight
           }
@@ -489,7 +490,7 @@ Item {
           Item {
             Layout.fillWidth: true; implicitHeight: Style.baseWidgetSize; visible: isLoading || hasError
             NBusyIndicator { anchors.centerIn: parent; visible: isLoading; running: isLoading }
-            NText { anchors.centerIn: parent; visible: hasError && !isLoading; text: errorMessage || pluginApi?.tr("error.generic"); color: Color.mError; pointSize: Style.fontSizeS; wrapMode: Text.Wrap; horizontalAlignment: Text.AlignHCenter; width: parent.width }
+            NText { anchors.centerIn: parent; visible: hasError && !isLoading; text: errorMessage || pluginApi?.tr("error.generic"); color: Commons.Color.mError; pointSize: Style.fontSizeS; wrapMode: Text.Wrap; horizontalAlignment: Text.AlignHCenter; width: parent.width }
           }
 
           NScrollView {
@@ -508,8 +509,8 @@ Item {
                   readonly property bool   isNext:           modelData.key === nextPrayerName
                   readonly property bool   isImsak:          isRamadan && modelData.key === "Imsak"
                   readonly property bool   isMaghribRamadan: isRamadan && modelData.key === "Maghrib"
-                  readonly property color  rowColor:  { if (isNext) return Qt.alpha(countdownColor, 0.15); if (isImsak) return Qt.alpha(Color.mSecondary, 0.08); if (isMaghribRamadan) return Qt.alpha(Color.mTertiary, 0.08); return Color.mSurfaceVariant }
-                  readonly property color  itemColor: { if (isNext) return countdownColor; if (isImsak) return Color.mSecondary; if (isMaghribRamadan) return Color.mTertiary; return Color.mOnSurface }
+                  readonly property color  rowColor:  { if (isNext) return Qt.alpha(countdownColor, 0.15); if (isImsak) return Qt.alpha(Commons.Color.mSecondary, 0.08); if (isMaghribRamadan) return Qt.alpha(Commons.Color.mTertiary, 0.08); return Commons.Color.mSurfaceVariant }
+                  readonly property color  itemColor: { if (isNext) return countdownColor; if (isImsak) return Commons.Color.mSecondary; if (isMaghribRamadan) return Commons.Color.mTertiary; return Commons.Color.mOnSurface }
                   readonly property bool   isBold: isNext || isImsak || isMaghribRamadan
                   Layout.fillWidth: true; implicitWidth: parent.width
                   implicitHeight: rowLayout.implicitHeight + Style.marginS * 2
@@ -533,8 +534,8 @@ Item {
             visible: prayerTimings === null && !isLoading && !hasError
             ColumnLayout {
               anchors.centerIn: parent; spacing: Style.marginM
-              NIcon { icon: widgetIcon; pointSize: Style.fontSizeXXXL; color: Color.mSecondary; Layout.alignment: Qt.AlignHCenter }
-              NText { text: pluginApi?.tr("panel.configure"); color: Color.mSecondary; pointSize: Style.fontSizeM; wrapMode: Text.Wrap; horizontalAlignment: Text.AlignHCenter; Layout.alignment: Qt.AlignHCenter }
+              NIcon { icon: widgetIcon; pointSize: Style.fontSizeXXXL; color: Commons.Color.mSecondary; Layout.alignment: Qt.AlignHCenter }
+              NText { text: pluginApi?.tr("panel.configure"); color: Commons.Color.mSecondary; pointSize: Style.fontSizeM; wrapMode: Text.Wrap; horizontalAlignment: Text.AlignHCenter; Layout.alignment: Qt.AlignHCenter }
             }
           }
         }
@@ -706,7 +707,7 @@ Item {
                   Layout.alignment: Qt.AlignHCenter
                   text: calItem.monthNamesEn[calItem.viewMonth - 1] + "  " + calItem.viewYear
                   pointSize: Style.fontSizeM; font.weight: Font.Bold
-                  color: calItem.viewMonth === 9 ? Color.mPrimary : Color.mOnSurface
+                  color: calItem.viewMonth === 9 ? Commons.Color.mPrimary : Commons.Color.mOnSurface
                 }
                 RowLayout {
                   Layout.alignment: Qt.AlignHCenter; spacing: 4; opacity: 0.6
@@ -718,7 +719,7 @@ Item {
                     visible: !calItem.calLoading
                     icon: calItem.calData ? "shield-check" : "calculator"
                     pointSize: Style.fontSizeXS * 0.85
-                    color: calItem.calData ? Color.mPrimary : Color.mSecondary
+                    color: calItem.calData ? Commons.Color.mPrimary : Commons.Color.mSecondary
                   }
                   NText {
                     text: {
@@ -731,7 +732,7 @@ Item {
                         ? f.month.en + " " + f.year
                         : f.month.en + " – " + l.month.en + " " + l.year
                     }
-                    pointSize: Style.fontSizeXS; color: Color.mSecondary
+                    pointSize: Style.fontSizeXS; color: Commons.Color.mSecondary
                   }
                 }
               }
@@ -743,7 +744,7 @@ Item {
             NText {
               visible: !calItem.isCurrentMonth
               text: "↩ " + pluginApi?.tr("calendar.today")
-              pointSize: Style.fontSizeXS; color: Color.mPrimary; Layout.alignment: Qt.AlignHCenter
+              pointSize: Style.fontSizeXS; color: Commons.Color.mPrimary; Layout.alignment: Qt.AlignHCenter
               MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: calItem.navigate("reset") }
             }
 
@@ -762,7 +763,7 @@ Item {
                   width: calColumn.width / 7; height: 20 * Style.uiScaleRatio
                   NText {
                     anchors.centerIn: parent; text: modelData; pointSize: Style.fontSizeXS
-                    color: index === calItem.jumuahColumn() ? Color.mPrimary : Color.mSecondary
+                    color: index === calItem.jumuahColumn() ? Commons.Color.mPrimary : Commons.Color.mSecondary
                     font.weight: Font.Medium
                   }
                 }
@@ -787,23 +788,23 @@ Item {
                   Rectangle {
                     anchors.centerIn: parent
                     width: Math.min(parent.width, parent.height) - 6; height: width; radius: width / 2
-                    color: model.isToday ? Color.mPrimary : "transparent"
+                    color: model.isToday ? Commons.Color.mPrimary : "transparent"
 
                     NText {
                       anchors.centerIn: parent
                       text: model.day > 0 ? String(model.day) : ""
                       pointSize: Style.fontSizeS; font.weight: model.isToday ? Font.Bold : Font.Normal
-                      color: model.isToday    ? Color.mOnPrimary
-                           : model.isPast     ? Qt.alpha(Color.mOnSurface, 0.3)
-                           : model.isFriday   ? Color.mPrimary
-                           : model.event !== "" ? Color.mTertiary
-                           : Color.mOnSurface
+                      color: model.isToday    ? Commons.Color.mOnPrimary
+                           : model.isPast     ? Qt.alpha(Commons.Color.mOnSurface, 0.3)
+                           : model.isFriday   ? Commons.Color.mPrimary
+                           : model.event !== "" ? Commons.Color.mTertiary
+                           : Commons.Color.mOnSurface
                     }
 
                     Rectangle {
                       visible: model.event !== "" && !model.isToday && model.day > 0
                       width: 4; height: 4; radius: 2
-                      color: model.isPast ? Qt.alpha(Color.mTertiary, 0.3) : Color.mTertiary
+                      color: model.isPast ? Qt.alpha(Commons.Color.mTertiary, 0.3) : Commons.Color.mTertiary
                       anchors.bottom: parent.bottom; anchors.bottomMargin: 2
                       anchors.horizontalCenter: parent.horizontalCenter
                     }
@@ -814,7 +815,7 @@ Item {
                     anchors.top: parent.top; anchors.right: parent.right
                     anchors.topMargin: 1; anchors.rightMargin: 2
                     text: model.greg; pointSize: Style.fontSizeXS * 0.75
-                    color: model.isToday ? Qt.alpha(Color.mOnPrimary, 0.6) : Qt.alpha(Color.mSecondary, 0.6)
+                    color: model.isToday ? Qt.alpha(Commons.Color.mOnPrimary, 0.6) : Qt.alpha(Commons.Color.mSecondary, 0.6)
                   }
 
                   MouseArea {
@@ -833,7 +834,7 @@ Item {
               text: "🌙 " + todayEvAr
               font.family: decoFontReady ? decoFont.name : ""
               font.pointSize: Style.fontSizeM
-              color: Color.mTertiary
+              color: Commons.Color.mTertiary
               horizontalAlignment: Text.AlignHCenter
               Layout.alignment: Qt.AlignHCenter
             }
@@ -843,7 +844,7 @@ Item {
               visible: calItem.isCurrentMonth && root.showLast10Nights
               Layout.fillWidth: true
               implicitHeight: last10Text.implicitHeight + Style.marginM * 2
-              color: Qt.alpha(Color.mPrimary, 0.08); radius: Style.radiusM
+              color: Qt.alpha(Commons.Color.mPrimary, 0.08); radius: Style.radiusM
 
               Text {
                 id: last10Text
@@ -854,7 +855,7 @@ Item {
                 text: "العشر الأواخر\nأفضل ليالي رمضان، فيها ليلة القدر خير من ألف شهر"
                 font.family: decoFontReady ? decoFont.name : ""
                 font.pointSize: Style.fontSizeM
-                color: Color.mPrimary
+                color: Commons.Color.mPrimary
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
               }
@@ -873,7 +874,7 @@ Item {
                 text: root.dailyHadith?.text ?? ""
                 font.family: decoFontReady ? decoFont.name : ""
                 font.pointSize: Style.fontSizeS
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
                 opacity: 0.85
@@ -882,7 +883,7 @@ Item {
                 Layout.alignment: Qt.AlignHCenter
                 text: root.dailyHadith?.src ? ("― " + root.dailyHadith.src) : ""
                 pointSize: Style.fontSizeXS
-                color: Color.mSecondary
+                color: Commons.Color.mSecondary
                 opacity: 0.6
               }
             }
@@ -900,7 +901,7 @@ Item {
                 try { return formatLastSynced(JSON.parse(raw).timestamp) } catch(e) { return "" }
               }
               pointSize: Style.fontSizeXS * 0.85
-              color: Color.mSecondary
+              color: Commons.Color.mSecondary
               opacity: 0.5
             }
           }

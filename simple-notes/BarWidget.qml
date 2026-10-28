@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -38,7 +39,7 @@ Item {
     y: Style.pixelAlignCenter(parent.height, height)
     width: root.contentWidth
     height: root.contentHeight
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     radius: Style.radiusL
 
     RowLayout {
@@ -49,13 +50,13 @@ Item {
       NIcon {
         icon: "paperclip"
         applyUiScale: false
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
       }
 
       NText {
         visible: !barIsVertical && root.showCount
         text: root.noteCount.toString()
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         font.pointSize: Style.barFontSize
         font.weight: Font.Medium
       }

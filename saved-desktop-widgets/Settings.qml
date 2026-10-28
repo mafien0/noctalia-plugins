@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -87,7 +88,7 @@ ColumnLayout {
     text: pluginApi?.tr("settings.tool_row.nuke.text")
     icon: "x"
     tooltipText: pluginApi?.tr("settings.tool_row.nuke.tooltip")
-    backgroundColor: Color.mError
+    backgroundColor: Commons.Color.mError
 
     onClicked: {
       if (!root.pluginApi) {

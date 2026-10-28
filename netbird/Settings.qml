@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -38,7 +39,7 @@ ColumnLayout {
 
     NText {
         text: pluginApi?.tr("settings.description") || "Configure NetBird VPN status display and behavior"
-        color: Color.mSecondary
+        color: Commons.Color.mSecondary
         Layout.fillWidth: true
         wrapMode: Text.Wrap
     }
@@ -123,7 +124,7 @@ ColumnLayout {
         Layout.fillWidth: true
         text: "⚠ " + (pluginApi?.tr("settings.show-ping-warning") || "This feature sends ICMP packets to each connected peer at every refresh interval. It may increase network usage and CPU load.")
         pointSize: Style.fontSizeXS
-        color: Color.mError
+        color: Commons.Color.mError
         wrapMode: Text.Wrap
     }
 

@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 FocusScope {
@@ -264,7 +265,7 @@ FocusScope {
                 Layout.rightMargin: Style.marginL
                 text: root.pluginApi?.tr("provider.customInputHint")
                 pointSize: Style.fontSizeXS
-                color: Color.mPrimary
+                color: Commons.Color.mPrimary
             }
 
             // ── Results area ──
@@ -275,7 +276,7 @@ FocusScope {
                 Layout.leftMargin: Style.marginL
                 Layout.rightMargin: Style.marginL
                 radius: Style.radiusL
-                color: Color.mSurfaceVariant
+                color: Commons.Color.mSurfaceVariant
                 clip: true
 
                 Flickable {
@@ -302,9 +303,9 @@ FocusScope {
                                 property var itemData: root.filteredItems[index] || {}
                                 property bool isSelected: index === root.selectedIndex
 
-                                color: isSelected ? Color.mPrimary
-                                    : itemMouse.containsMouse ? Qt.lighter(Color.mSurfaceVariant, 1.15)
-                                    : Color.mSurface
+                                color: isSelected ? Commons.Color.mPrimary
+                                    : itemMouse.containsMouse ? Qt.lighter(Commons.Color.mSurfaceVariant, 1.15)
+                                    : Commons.Color.mSurface
 
                                 Row {
                                     anchors.fill: parent
@@ -323,7 +324,7 @@ FocusScope {
                                             anchors.centerIn: parent
                                             visible: (itemRect.itemData.image || "") === "" && (itemRect.itemData.icon || "") !== ""
                                             icon: itemRect.itemData.icon || ""
-                                            color: itemRect.isSelected ? Color.mOnPrimary : Color.mOnSurface
+                                            color: itemRect.isSelected ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface
                                         }
 
                                         // File image (when image path is set)
@@ -351,7 +352,7 @@ FocusScope {
                                             text: itemRect.itemData.name || ""
                                             font.pointSize: Style.fontSizeM
                                             font.weight: Font.Medium
-                                            color: itemRect.isSelected ? Color.mOnPrimary : Color.mOnSurface
+                                            color: itemRect.isSelected ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface
                                             elide: Text.ElideRight
                                         }
 
@@ -360,7 +361,7 @@ FocusScope {
                                             visible: (itemRect.itemData.description || "") !== ""
                                             text: itemRect.itemData.description || ""
                                             font.pointSize: Style.fontSizeS
-                                            color: itemRect.isSelected ? Color.mOnPrimary : Color.mOnSurfaceVariant
+                                            color: itemRect.isSelected ? Commons.Color.mOnPrimary : Commons.Color.mOnSurfaceVariant
                                             elide: Text.ElideRight
                                         }
                                     }
@@ -393,7 +394,7 @@ FocusScope {
                         return root.pluginApi?.tr("provider.noItems");
                     }
                     pointSize: Style.fontSizeM
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                 }
             }
 
@@ -426,7 +427,7 @@ FocusScope {
                         );
                     }
                     pointSize: Style.fontSizeXS
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     horizontalAlignment: Text.AlignCenter
                 }
             }

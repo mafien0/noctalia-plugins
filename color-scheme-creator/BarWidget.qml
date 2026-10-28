@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -20,7 +21,7 @@ NIconButton {
 
   property string iconColorKey: cfg.iconColor ?? defaults.iconColor ?? "none"
 
-  readonly property color iconColor: Color.resolveColorKey(iconColorKey)  
+  readonly property color iconColor: Commons.Color.resolveColorKey(iconColorKey)  
 
   icon: "palette"
   tooltipText: pluginApi?.tr("widget.tooltip")

@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -62,7 +63,7 @@ Item {
                 Layout.preferredWidth: parent.width
                 Layout.preferredHeight: 40 * Style.uiScaleRatio
                 color: "transparent"
-                border.color: Color.mPrimary
+                border.color: Commons.Color.mPrimary
 
                 NButton {
                     anchors.left: parent.left

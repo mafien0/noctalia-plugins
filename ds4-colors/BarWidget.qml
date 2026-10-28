@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -67,7 +68,7 @@ Item {
             anchors.centerIn: parent
             icon: controllerCount === 0 ? "bluetooth-off" : "device-gamepad"
             pointSize: root.iconSize
-            color: controllerCount === 0 ? Color.mOnSurfaceVariant : (colorIcon ? Qt.color(currentColor) : Color.mPrimary)
+            color: controllerCount === 0 ? Commons.Color.mOnSurfaceVariant : (colorIcon ? Qt.color(currentColor) : Commons.Color.mPrimary)
         }
 
         NBattery {
@@ -83,10 +84,10 @@ Item {
             critical: batteryLevel <= 10
             baseSize: Style.fontSizeM
             
-            baseColor: colorIcon ? Qt.color(currentColor) : Color.mPrimary
+            baseColor: colorIcon ? Qt.color(currentColor) : Commons.Color.mPrimary
             chargingColor: baseColor
-            lowColor: Color.mError
-            textColor: Color.mSurface
+            lowColor: Commons.Color.mError
+            textColor: Commons.Color.mSurface
         }
 
         NBusyIndicator {

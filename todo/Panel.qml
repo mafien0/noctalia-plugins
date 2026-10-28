@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -81,7 +82,7 @@ Item {
       Rectangle {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
         radius: Style.radiusL
 
         ColumnLayout {
@@ -101,7 +102,7 @@ Item {
               text: pluginApi?.tr("panel.header.title")
               font.pointSize: Style.fontSizeL
               font.weight: Font.Medium
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
             }
 
             Item {
@@ -198,7 +199,7 @@ Item {
                 Rectangle {
                   anchors.fill: parent
                   color: "transparent"
-                  border.color: Color.mOutline
+                  border.color: Commons.Color.mOutline
                   border.width: Style.borderS
                   radius: Style.iRadiusS
 
@@ -216,7 +217,7 @@ Item {
                       NText {
                         anchors.centerIn: parent
                         text: "H"
-                        color: priorityGroup.currentPriority === "high" ? Color.mOnPrimary : getPriorityColor("high")
+                        color: priorityGroup.currentPriority === "high" ? Commons.Color.mOnPrimary : getPriorityColor("high")
                         font.pointSize: Style.fontSizeS
                       }
 
@@ -236,7 +237,7 @@ Item {
                       NText {
                         anchors.centerIn: parent
                         text: "M"
-                        color: priorityGroup.currentPriority === "medium" ? Color.mOnPrimary : getPriorityColor("medium")
+                        color: priorityGroup.currentPriority === "medium" ? Commons.Color.mOnPrimary : getPriorityColor("medium")
                         font.pointSize: Style.fontSizeS
                       }
 
@@ -256,7 +257,7 @@ Item {
                       NText {
                         anchors.centerIn: parent
                         text: "L"
-                        color: priorityGroup.currentPriority === "low" ? Color.mOnPrimary : getPriorityColor("low")
+                        color: priorityGroup.currentPriority === "low" ? Commons.Color.mOnPrimary : getPriorityColor("low")
                         font.pointSize: Style.fontSizeS
                       }
 
@@ -403,7 +404,7 @@ Item {
                 // The actual todo item rectangle
                 Rectangle {
                   anchors.fill: parent
-                  color: Color.mSurface
+                  color: Commons.Color.mSurface
                   radius: Style.radiusS
 
                   // Mouse area for clicking the entire item to view details
@@ -436,7 +437,7 @@ Item {
                         anchors.centerIn: parent
                         icon: "grip-vertical"
                         pointSize: Style.fontSizeM
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         opacity: 0.5
 
                         states: [
@@ -446,7 +447,7 @@ Item {
                             PropertyChanges {
                               target: dragHandleIcon
                               opacity: 1.0
-                              color: Color.mOnSurface
+                              color: Commons.Color.mOnSurface
                             }
                           }
                         ]
@@ -552,11 +553,11 @@ Item {
                           // Fallback to default colors if pluginApi is not ready
                           var priority = modelData.priority || "medium";
                           if (priority === "high") {
-                            return Color.mError;
+                            return Commons.Color.mError;
                           } else if (priority === "low") {
-                            return Color.mOnSurfaceVariant;
+                            return Commons.Color.mOnSurfaceVariant;
                           } else {
-                            return Color.mPrimary;
+                            return Commons.Color.mPrimary;
                           }
                         }
                       }
@@ -572,8 +573,8 @@ Item {
 
                         anchors.fill: parent
                         radius: Style.iRadiusXS
-                        color: modelData.completed ? Color.mPrimary : Color.mSurface
-                        border.color: Color.mOutline
+                        color: modelData.completed ? Commons.Color.mPrimary : Commons.Color.mSurface
+                        border.color: Commons.Color.mOutline
                         border.width: Style.borderS
 
                         Behavior on color {
@@ -587,7 +588,7 @@ Item {
                           anchors.centerIn: parent
                           anchors.horizontalCenterOffset: -1
                           icon: "check"
-                          color: Color.mOnPrimary
+                          color: Commons.Color.mOnPrimary
                           pointSize: Math.max(Style.fontSizeXS, Style.baseWidgetSize * 0.7 * 0.5)
                         }
 
@@ -611,7 +612,7 @@ Item {
                         id: todoTextDisplay
                         visible: !delegateItem.editing
                         text: modelData.text
-                        color: modelData.completed ? Color.mOnSurfaceVariant : Color.mOnSurface
+                        color: modelData.completed ? Commons.Color.mOnSurfaceVariant : Commons.Color.mOnSurface
                         font.strikeout: modelData.completed
                         verticalAlignment: Text.AlignVCenter
                         elide: Text.ElideRight
@@ -639,8 +640,8 @@ Item {
                           verticalAlignment: TextInput.AlignVCenter
 
                           echoMode: TextInput.Normal
-                          color: Color.mOnSurface
-                          placeholderTextColor: Qt.alpha(Color.mOnSurfaceVariant, 0.6)
+                          color: Commons.Color.mOnSurface
+                          placeholderTextColor: Qt.alpha(Commons.Color.mOnSurfaceVariant, 0.6)
 
                           selectByMouse: true
 
@@ -690,7 +691,7 @@ Item {
                             anchors.centerIn: parent
                             icon: "backspace"
                             pointSize: Style.fontSizeL
-                            color: Color.mOnSurfaceVariant
+                            color: Commons.Color.mOnSurfaceVariant
                             opacity: 0.5
 
                             MouseArea {
@@ -710,7 +711,7 @@ Item {
                                   PropertyChanges {
                                     target: clearButtonIcon
                                     opacity: 1.0
-                                    color: Color.mError
+                                    color: Commons.Color.mError
                                   }
                                 }
                               ]
@@ -757,7 +758,7 @@ Item {
                           anchors.centerIn: parent
                           icon: "pencil"
                           pointSize: Style.fontSizeM
-                          color: Color.mOnSurfaceVariant
+                          color: Commons.Color.mOnSurfaceVariant
                           opacity: 0.5
 
                           MouseArea {
@@ -779,12 +780,12 @@ Item {
 
                             contentItem: NText {
                               text: editToolTip.text
-                              color: Color.mOnPrimary
+                              color: Commons.Color.mOnPrimary
                               font.pointSize: Style.fontSizeXS
                             }
 
                             background: Rectangle {
-                              color: Color.mPrimary
+                              color: Commons.Color.mPrimary
                               radius: Style.iRadiusS
                               border.color: Qt.rgba(0, 0, 0, 0.2)
                               border.width: Style.borderS
@@ -798,7 +799,7 @@ Item {
                               PropertyChanges {
                                 target: editButtonIcon
                                 opacity: 1.0
-                                color: Color.mPrimary
+                                color: Commons.Color.mPrimary
                               }
                             }
                           ]
@@ -843,7 +844,7 @@ Item {
                           anchors.centerIn: parent
                           icon: "copy"
                           pointSize: Style.fontSizeM
-                          color: Color.mOnSurfaceVariant
+                          color: Commons.Color.mOnSurfaceVariant
                           opacity: 0.5
 
                           MouseArea {
@@ -866,12 +867,12 @@ Item {
 
                             contentItem: NText {
                               text: copyToolTip.text
-                              color: Color.mOnPrimary
+                              color: Commons.Color.mOnPrimary
                               font.pointSize: Style.fontSizeXS
                             }
 
                             background: Rectangle {
-                              color: Color.mPrimary
+                              color: Commons.Color.mPrimary
                               radius: Style.iRadiusS
                               border.color: Qt.rgba(0, 0, 0, 0.2)
                               border.width: Style.borderS
@@ -885,7 +886,7 @@ Item {
                               PropertyChanges {
                                 target: copyButtonIcon
                                 opacity: 1.0
-                                color: Color.mPrimary
+                                color: Commons.Color.mPrimary
                               }
                             }
                           ]
@@ -933,7 +934,7 @@ Item {
                             anchors.centerIn: parent
                             icon: "check"
                             pointSize: Style.fontSizeM
-                            color: Color.mOnSurfaceVariant
+                            color: Commons.Color.mOnSurfaceVariant
                             opacity: 0.5
 
                             MouseArea {
@@ -952,7 +953,7 @@ Item {
                                   PropertyChanges {
                                     target: saveButtonIcon
                                     opacity: 1.0
-                                    color: Color.mPrimary
+                                    color: Commons.Color.mPrimary
                                   }
                                 }
                               ]
@@ -989,7 +990,7 @@ Item {
                             anchors.centerIn: parent
                             icon: "x"
                             pointSize: Style.fontSizeM
-                            color: Color.mOnSurfaceVariant
+                            color: Commons.Color.mOnSurfaceVariant
                             opacity: 0.5
 
                             MouseArea {
@@ -1008,7 +1009,7 @@ Item {
                                   PropertyChanges {
                                     target: cancelButtonIcon
                                     opacity: 1.0
-                                    color: Color.mOnSurface
+                                    color: Commons.Color.mOnSurface
                                   }
                                 }
                               ]
@@ -1048,7 +1049,7 @@ Item {
                         anchors.centerIn: parent
                         icon: "x"
                         pointSize: Style.fontSizeM
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         opacity: 0.5
                         visible: !delegateItem.editing
 
@@ -1071,12 +1072,12 @@ Item {
 
                           contentItem: NText {
                             text: deleteToolTip.text
-                            color: Color.mOnError
+                            color: Commons.Color.mOnError
                             font.pointSize: Style.fontSizeXS
                           }
 
                           background: Rectangle {
-                            color: Color.mError
+                            color: Commons.Color.mError
                             radius: Style.iRadiusS
                             border.color: Qt.rgba(0, 0, 0, 0.2)
                             border.width: Style.borderS
@@ -1090,7 +1091,7 @@ Item {
                             PropertyChanges {
                               target: deleteButtonIcon
                               opacity: 1.0
-                              color: Color.mError
+                              color: Commons.Color.mError
                             }
                           }
                         ]
@@ -1137,7 +1138,7 @@ Item {
                 anchors.centerIn: parent
                 anchors.verticalCenterOffset: -100
                 text: pluginApi?.tr("panel.empty_state.message")
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 font.pointSize: Style.fontSizeM
                 font.weight: Font.Normal
               }
@@ -1170,9 +1171,9 @@ Item {
 
     // Background
     background: Rectangle {
-      color: Color.mSurface
+      color: Commons.Color.mSurface
       radius: Style.radiusL
-      border.color: Color.mOutline
+      border.color: Commons.Color.mOutline
       border.width: Style.borderS
     }
 
@@ -1187,7 +1188,7 @@ Item {
         anchors.right: parent.right
         anchors.top: parent.top
         height: 48 * Style.uiScaleRatio
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
         radius: Style.radiusL
         topLeftRadius: Style.radiusL
         topRightRadius: Style.radiusL
@@ -1202,14 +1203,14 @@ Item {
           NIcon {
             icon: "clipboard-check"
             pointSize: Style.fontSizeL
-            color: Color.mOnPrimary
+            color: Commons.Color.mOnPrimary
           }
 
           NText {
             text: pluginApi?.tr("panel.todo_details.title")
             font.pointSize: Style.fontSizeL
             font.weight: Font.Bold
-            color: Color.mOnPrimary
+            color: Commons.Color.mOnPrimary
             Layout.fillWidth: true
           }
 
@@ -1217,7 +1218,7 @@ Item {
             icon: "x"
             colorBg: Qt.rgba(1, 1, 1, 0.15)
             colorBgHover: Qt.rgba(1, 1, 1, 0.3)
-            colorFg: Color.mOnPrimary
+            colorFg: Commons.Color.mOnPrimary
             baseSize: Style.baseWidgetSize
             onClicked: detailDialog.close()
           }
@@ -1263,7 +1264,7 @@ Item {
               text: detailDialog.todoText
               font.pointSize: Style.fontSizeL
               font.weight: Font.Bold
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
               wrapMode: Text.Wrap
               Layout.fillWidth: true
             }
@@ -1277,7 +1278,7 @@ Item {
             // Divider before details
             Rectangle {
               height: 1
-              color: Color.mOutline
+              color: Commons.Color.mOutline
               opacity: 0.3
               Layout.fillWidth: true
             }
@@ -1290,7 +1291,7 @@ Item {
               NText {
                 text: pluginApi?.tr("panel.todo_details.label_details")
                 font.pointSize: Style.fontSizeS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 Layout.preferredWidth: 78 * Style.uiScaleRatio
                 Layout.alignment: Qt.AlignVCenter
               }
@@ -1305,8 +1306,8 @@ Item {
                 visible: !detailsEditMode && detailDialog.todoDetails.length > 0
                 icon: "copy"
                 text: pluginApi?.tr("panel.todo_details.copy_details_button_tooltip")
-                backgroundColor: Color.mPrimary
-                textColor: Color.mOnPrimary
+                backgroundColor: Commons.Color.mPrimary
+                textColor: Commons.Color.mOnPrimary
                 fontSize: Style.fontSizeS
                 onClicked: {
                   Quickshell.clipboardText = detailDialog.todoDetails;
@@ -1320,11 +1321,11 @@ Item {
                   visible: parent.hovered
                   contentItem: NText {
                     text: copyDetailsToolTip.text
-                    color: Color.mOnPrimary
+                    color: Commons.Color.mOnPrimary
                     font.pointSize: Style.fontSizeXS
                   }
                   background: Rectangle {
-                    color: Color.mPrimary
+                    color: Commons.Color.mPrimary
                     radius: Style.iRadiusS
                     border.color: Qt.rgba(0, 0, 0, 0.2)
                     border.width: Style.borderS
@@ -1335,8 +1336,8 @@ Item {
               NButton {
                 text: detailDialog.todoDetails.length > 0 ? pluginApi?.tr("panel.todo_details.button_edit_details") : pluginApi?.tr("panel.todo_details.button_add_details")
                 icon: "pencil"
-                backgroundColor: Color.mPrimary
-                textColor: Color.mOnPrimary
+                backgroundColor: Commons.Color.mPrimary
+                textColor: Commons.Color.mOnPrimary
                 fontSize: Style.fontSizeS
                 visible: !detailsEditMode
                 onClicked: {
@@ -1355,7 +1356,7 @@ Item {
               Layout.preferredHeight: detailText.implicitHeight + Style.marginM * 2
               visible: detailDialog.todoDetails.length > 0 && !detailsEditMode
 
-              color: Color.mSurfaceVariant
+              color: Commons.Color.mSurfaceVariant
               radius: Style.iRadiusM
               opacity: 0.8
 
@@ -1366,7 +1367,7 @@ Item {
                 anchors.margins: Style.marginM
 
                 font.pointSize: Style.fontSizeS
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 wrapMode: Text.Wrap
                 verticalAlignment: Text.AlignVCenter
               }
@@ -1385,9 +1386,9 @@ Item {
                 text: detailDialog.todoDetails
                 width: parent.width
                 wrapMode: TextArea.Wrap
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 background: Rectangle {
-                  color: Color.mSurfaceVariant
+                  color: Commons.Color.mSurfaceVariant
                   radius: Style.iRadiusS
                 }
                 Keys.onEscapePressed: {
@@ -1404,8 +1405,8 @@ Item {
 
               NButton {
                 text: pluginApi?.tr("panel.todo_details.button_save")
-                backgroundColor: Color.mPrimary
-                textColor: Color.mOnPrimary
+                backgroundColor: Commons.Color.mPrimary
+                textColor: Commons.Color.mOnPrimary
                 onClicked: {
                   updateTodo(detailDialog.todoId, {
                                details: detailsTextArea.text
@@ -1417,8 +1418,8 @@ Item {
 
               NButton {
                 text: pluginApi?.tr("panel.todo_details.button_cancel")
-                backgroundColor: Color.mPrimary
-                textColor: Color.mOnPrimary
+                backgroundColor: Commons.Color.mPrimary
+                textColor: Commons.Color.mOnPrimary
                 onClicked: {
                   detailsEditMode = false;
                 }
@@ -1429,7 +1430,7 @@ Item {
           // Divider
           Rectangle {
             height: 1
-            color: Color.mOutline
+            color: Commons.Color.mOutline
             opacity: 0.3
             Layout.fillWidth: true
           }
@@ -1447,13 +1448,13 @@ Item {
               NIcon {
                 icon: "folder"
                 pointSize: Style.fontSizeS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
               }
 
               NText {
                 text: pluginApi?.tr("panel.todo_details.label_page")
                 font.pointSize: Style.fontSizeS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 Layout.preferredWidth: 78 * Style.uiScaleRatio
                 Layout.alignment: Qt.AlignVCenter
               }
@@ -1462,7 +1463,7 @@ Item {
                 text: getPageName(detailDialog.todoPageId)
                 font.pointSize: Style.fontSizeS
                 font.weight: Font.Medium
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 Layout.alignment: Qt.AlignVCenter
               }
             }
@@ -1475,13 +1476,13 @@ Item {
               NIcon {
                 icon: detailDialog.todoCompleted ? "circle-check" : "clock"
                 pointSize: Style.fontSizeS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
               }
 
               NText {
                 text: pluginApi?.tr("panel.todo_details.label_status")
                 font.pointSize: Style.fontSizeS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 Layout.preferredWidth: 78 * Style.uiScaleRatio
                 Layout.alignment: Qt.AlignVCenter
               }
@@ -1490,7 +1491,7 @@ Item {
                 text: detailDialog.todoCompleted ? pluginApi?.tr("panel.todo_details.status_completed") : pluginApi?.tr("panel.todo_details.status_pending")
                 font.pointSize: Style.fontSizeS
                 font.weight: Font.Medium
-                color: detailDialog.todoCompleted ? Color.mPrimary : Color.mError
+                color: detailDialog.todoCompleted ? Commons.Color.mPrimary : Commons.Color.mError
                 Layout.alignment: Qt.AlignVCenter
               }
             }
@@ -1503,13 +1504,13 @@ Item {
               NIcon {
                 icon: "flag"
                 pointSize: Style.fontSizeS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
               }
 
               NText {
                 text: pluginApi?.tr("panel.todo_details.label_priority")
                 font.pointSize: Style.fontSizeS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 Layout.preferredWidth: 78 * Style.uiScaleRatio
                 Layout.alignment: Qt.AlignVCenter
               }
@@ -1530,7 +1531,7 @@ Item {
                   NText {
                     anchors.centerIn: parent
                     text: "H"
-                    color: detailDialog.todoPriority === "high" ? Color.mOnPrimary : getPriorityColor("high")
+                    color: detailDialog.todoPriority === "high" ? Commons.Color.mOnPrimary : getPriorityColor("high")
                     font.pointSize: Style.fontSizeS
                     font.weight: Font.Bold
                   }
@@ -1559,7 +1560,7 @@ Item {
                   NText {
                     anchors.centerIn: parent
                     text: "M"
-                    color: detailDialog.todoPriority === "medium" ? Color.mOnPrimary : getPriorityColor("medium")
+                    color: detailDialog.todoPriority === "medium" ? Commons.Color.mOnPrimary : getPriorityColor("medium")
                     font.pointSize: Style.fontSizeS
                     font.weight: Font.Bold
                   }
@@ -1588,7 +1589,7 @@ Item {
                   NText {
                     anchors.centerIn: parent
                     text: "L"
-                    color: detailDialog.todoPriority === "low" ? Color.mOnPrimary : getPriorityColor("low")
+                    color: detailDialog.todoPriority === "low" ? Commons.Color.mOnPrimary : getPriorityColor("low")
                     font.pointSize: Style.fontSizeS
                     font.weight: Font.Bold
                   }
@@ -1615,13 +1616,13 @@ Item {
               NIcon {
                 icon: "calendar"
                 pointSize: Style.fontSizeS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
               }
 
               NText {
                 text: pluginApi?.tr("panel.todo_details.label_created")
                 font.pointSize: Style.fontSizeS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 Layout.preferredWidth: 78 * Style.uiScaleRatio
                 Layout.alignment: Qt.AlignVCenter
               }
@@ -1629,7 +1630,7 @@ Item {
               NText {
                 text: new Date(detailDialog.todoCreatedAt).toLocaleString()
                 font.pointSize: Style.fontSizeS
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 wrapMode: Text.Wrap
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignVCenter
@@ -1740,10 +1741,10 @@ Item {
   // Helper function to get theme color
   function getThemeColor(priority) {
     if (priority === "high")
-      return Color.mError;
+      return Commons.Color.mError;
     if (priority === "low")
-      return Color.mOnSurfaceVariant;
-    return Color.mPrimary;
+      return Commons.Color.mOnSurfaceVariant;
+    return Commons.Color.mPrimary;
   }
 
   // Helper function to get page name by ID

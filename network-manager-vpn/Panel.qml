@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -50,7 +51,7 @@ Item {
                         NIcon {
                             icon: "shield"
                             pointSize: Style.fontSizeXXL
-                            color: Color.mPrimary
+                            color: Commons.Color.mPrimary
                         }
 
                         NLabel {
@@ -195,21 +196,21 @@ Item {
                             NIcon {
                                 icon: "search"
                                 pointSize: 48
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                                 Layout.alignment: Qt.AlignHCenter
                             }
 
                             NText {
                                 text: pluginApi?.tr("panel.emptyTitle")
                                 pointSize: Style.fontSizeL
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                                 Layout.alignment: Qt.AlignHCenter
                             }
 
                             NText {
                                 text: pluginApi?.tr("panel.emptyDescription")
                                 pointSize: Style.fontSizeS
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                                 Layout.alignment: Qt.AlignHCenter
                             }
 

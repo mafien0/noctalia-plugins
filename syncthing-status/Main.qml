@@ -3,6 +3,7 @@ import Quickshell
 import Quickshell.Io
 import qs.Commons
 
+import qs.Commons as Commons
 Item {
     id: root
 
@@ -118,33 +119,33 @@ Item {
     }
 
     function statusColor(code) {
-        if (!enabled) return Color.mOutline;
-        if (code === "idle") return Color.mPrimary;
-        if (code === "syncing") return Color.mSecondary;
-        if (code === "paused") return Color.mOutline;
-        if (code === "disconnected") return Color.mSecondary;
-        if (code === "offline" || code === "unauthorized" || code === "error") return Color.mError;
-        return Color.mOutline;
+        if (!enabled) return Commons.Color.mOutline;
+        if (code === "idle") return Commons.Color.mPrimary;
+        if (code === "syncing") return Commons.Color.mSecondary;
+        if (code === "paused") return Commons.Color.mOutline;
+        if (code === "disconnected") return Commons.Color.mSecondary;
+        if (code === "offline" || code === "unauthorized" || code === "error") return Commons.Color.mError;
+        return Commons.Color.mOutline;
     }
 
     function statusBadgeBackground(code) {
-        if (!enabled || code === "disabled") return Color.mOutline;
-        if (code === "idle") return Color.mPrimary;
-        if (code === "syncing") return Color.mSecondary;
-        if (code === "paused") return Color.mSurfaceVariant;
-        if (code === "disconnected") return Color.mSecondary;
-        if (code === "offline" || code === "unauthorized" || code === "error") return Color.mError;
-        return Color.mOutline;
+        if (!enabled || code === "disabled") return Commons.Color.mOutline;
+        if (code === "idle") return Commons.Color.mPrimary;
+        if (code === "syncing") return Commons.Color.mSecondary;
+        if (code === "paused") return Commons.Color.mSurfaceVariant;
+        if (code === "disconnected") return Commons.Color.mSecondary;
+        if (code === "offline" || code === "unauthorized" || code === "error") return Commons.Color.mError;
+        return Commons.Color.mOutline;
     }
 
     function statusBadgeForeground(code) {
-        if (!enabled || code === "disabled") return Color.mOnSurface;
-        if (code === "idle") return Color.mOnPrimary;
-        if (code === "syncing") return Color.mOnSecondary;
-        if (code === "paused") return Color.mOnSurfaceVariant;
-        if (code === "disconnected") return Color.mOnSecondary;
-        if (code === "offline" || code === "unauthorized" || code === "error") return Color.mOnError;
-        return Color.mOnSurface;
+        if (!enabled || code === "disabled") return Commons.Color.mOnSurface;
+        if (code === "idle") return Commons.Color.mOnPrimary;
+        if (code === "syncing") return Commons.Color.mOnSecondary;
+        if (code === "paused") return Commons.Color.mOnSurfaceVariant;
+        if (code === "disconnected") return Commons.Color.mOnSecondary;
+        if (code === "offline" || code === "unauthorized" || code === "error") return Commons.Color.mOnError;
+        return Commons.Color.mOnSurface;
     }
 
     function statusBadgeIcon(code) {

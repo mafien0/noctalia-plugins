@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Rectangle {
@@ -37,7 +38,7 @@ Rectangle {
     }
 
     // ===== APPEARANCE =====
-    color: Color.mSurface
+    color: Commons.Color.mSurface
     radius: Style.radiusM
     implicitHeight: cardLayout.implicitHeight + Style.marginM * 2
 
@@ -60,7 +61,7 @@ Rectangle {
             NIcon {
                 icon: "usb"
                 pointSize: Style.fontSizeL
-                color: device?.isMounted ? Color.mPrimary : Color.mOnSurfaceVariant
+                color: device?.isMounted ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
             }
 
             // Label + subtitle
@@ -73,7 +74,7 @@ Rectangle {
                     text: root.displayLabel
                     pointSize: Style.fontSizeM
                     font.weight: Font.Medium
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     elide: Text.ElideRight
                 }
 
@@ -81,7 +82,7 @@ Rectangle {
                     Layout.fillWidth: true
                     text: root.displaySubtitle
                     pointSize: Style.fontSizeXS
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     elide: Text.ElideRight
                 }
             }
@@ -92,14 +93,14 @@ Rectangle {
                 width: statusLabel.implicitWidth + Style.marginS * 2
                 height: statusLabel.implicitHeight + 4
                 radius: height / 2
-                color: Color.mPrimaryContainer
+                color: Commons.Color.mPrimaryContainer
 
                 NText {
                     id: statusLabel
                     anchors.centerIn: parent
                     text: pluginApi?.tr("device.mounted")
                     pointSize: Style.fontSizeXXS
-                    color: Color.mOnPrimaryContainer
+                    color: Commons.Color.mOnPrimaryContainer
                     font.weight: Font.Medium
                 }
             }
@@ -111,7 +112,7 @@ Rectangle {
             Layout.fillWidth: true
             text: device?.mountpoint || ""
             pointSize: Style.fontSizeXS
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             elide: Text.ElideMiddle
             font.family: "monospace"
         }
@@ -127,15 +128,15 @@ Rectangle {
                 Layout.fillWidth: true
                 height: Style.marginXS
                 radius: height / 2
-                color: Color.mOutlineVariant
+                color: Commons.Color.mOutlineVariant
 
                 Rectangle {
                     width: parent.width * Math.min((device?.usedPercent ?? 0) / 100, 1)
                     height: parent.height
                     radius: parent.radius
-                    color: (device?.usedPercent ?? 0) > 90 ? Color.mError
-                         : (device?.usedPercent ?? 0) > 75 ? Color.mWarning
-                         : Color.mPrimary
+                    color: (device?.usedPercent ?? 0) > 90 ? Commons.Color.mError
+                         : (device?.usedPercent ?? 0) > 75 ? Commons.Color.mWarning
+                         : Commons.Color.mPrimary
 
                     Behavior on width {
                         NumberAnimation { duration: Style.animationNormal }
@@ -152,7 +153,7 @@ Rectangle {
                         ? pluginApi?.tr("device.used", { size: device?.usedSize ?? "" })
                         : pluginApi?.tr("device.loading")
                     pointSize: Style.fontSizeXXS
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                 }
 
                 Item { Layout.fillWidth: true }
@@ -162,7 +163,7 @@ Rectangle {
                         ? pluginApi?.tr("device.free", { size: device?.freeSize ?? "" })
                         : ""
                     pointSize: Style.fontSizeXXS
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                 }
             }
         }
@@ -187,10 +188,10 @@ Rectangle {
                 icon: "copy"
                 tooltipText: pluginApi?.tr("device.action-copy-path")
                 baseSize: Style.baseWidgetSize * 0.8
-                colorBg: Color.mSurfaceVariant
-                colorFg: Color.mOnSurfaceVariant
-                colorBgHover: Color.mHover
-                colorFgHover: Color.mOnHover
+                colorBg: Commons.Color.mSurfaceVariant
+                colorFg: Commons.Color.mOnSurfaceVariant
+                colorBgHover: Commons.Color.mHover
+                colorFgHover: Commons.Color.mOnHover
                 colorBorder: "transparent"
                 colorBorderHover: "transparent"
                 onClicked: root.copyPathRequested(device.mountpoint)
@@ -211,10 +212,10 @@ Rectangle {
                 icon: "plug-connected-x"
                 tooltipText: pluginApi?.tr("device.action-unmount")
                 baseSize: Style.baseWidgetSize * 0.8
-                colorBg: Color.mSurfaceVariant
-                colorFg: Color.mOnSurfaceVariant
-                colorBgHover: Color.mHover
-                colorFgHover: Color.mOnHover
+                colorBg: Commons.Color.mSurfaceVariant
+                colorFg: Commons.Color.mOnSurfaceVariant
+                colorBgHover: Commons.Color.mHover
+                colorFgHover: Commons.Color.mOnHover
                 colorBorder: "transparent"
                 colorBorderHover: "transparent"
                 onClicked: root.unmountRequested(device.path, root.displayLabel)
@@ -225,10 +226,10 @@ Rectangle {
                 icon: "player-eject"
                 tooltipText: pluginApi?.tr("device.action-eject")
                 baseSize: Style.baseWidgetSize * 0.8
-                colorBg: Color.mSurfaceVariant
-                colorFg: Color.mOnSurfaceVariant
-                colorBgHover: Color.mError
-                colorFgHover: Color.mOnError
+                colorBg: Commons.Color.mSurfaceVariant
+                colorFg: Commons.Color.mOnSurfaceVariant
+                colorBgHover: Commons.Color.mError
+                colorFgHover: Commons.Color.mOnError
                 colorBorder: "transparent"
                 colorBorderHover: "transparent"
                 onClicked: root.ejectRequested(device.path, device.parentPath, root.displayLabel)

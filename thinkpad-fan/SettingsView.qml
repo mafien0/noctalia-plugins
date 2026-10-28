@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -23,12 +24,12 @@ ColumnLayout {
     property string editColorLevel0:
         pluginApi?.pluginSettings?.colorLevel0 ??
         pluginApi?.manifest?.metadata?.defaultSettings?.colorLevel0 ??
-        Color.mError
+        Commons.Color.mError
 
     property string editColorActive:
         pluginApi?.pluginSettings?.colorActive ??
         pluginApi?.manifest?.metadata?.defaultSettings?.colorActive ??
-        Color.mPrimary
+        Commons.Color.mPrimary
 
     // Empty = unset → automatic mode stays neutral
     property string editColorAuto:
@@ -56,8 +57,8 @@ ColumnLayout {
 
     // All palette colors
     readonly property var noctaliaPalette: [
-        Color.mPrimary, Color.mSecondary, Color.mTertiary, Color.mError,
-        Color.mSurface, Color.mSurfaceVariant, Color.mOutline
+        Commons.Color.mPrimary, Commons.Color.mSecondary, Commons.Color.mTertiary, Commons.Color.mError,
+        Commons.Color.mSurface, Commons.Color.mSurfaceVariant, Commons.Color.mOutline
     ]
 
     // Reusable palette picker: a "neutral" (no-color) swatch followed by the theme palette.
@@ -74,13 +75,13 @@ ColumnLayout {
             height: root.swatchSize
             radius: root.swatchSize / 2
             color: Style.capsuleColor
-            border.color: !swatchRow.selected ? Color.mOnSurface : Color.mOutline
+            border.color: !swatchRow.selected ? Commons.Color.mOnSurface : Commons.Color.mOutline
             border.width: !swatchRow.selected ? root.swatchBorderSelected : root.swatchBorderDefault
 
             NIcon {
                 anchors.centerIn: parent
                 icon: "close"
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
             }
 
             MouseArea {
@@ -98,7 +99,7 @@ ColumnLayout {
                 height: root.swatchSize
                 radius: root.swatchSize / 2
                 color: modelData
-                border.color: (swatchRow.selected && Qt.colorEqual(swatchRow.selected, modelData)) ? Color.mOnSurface : Color.mOutline
+                border.color: (swatchRow.selected && Qt.colorEqual(swatchRow.selected, modelData)) ? Commons.Color.mOnSurface : Commons.Color.mOutline
                 border.width: (swatchRow.selected && Qt.colorEqual(swatchRow.selected, modelData)) ? root.swatchBorderSelected : root.swatchBorderDefault
 
                 MouseArea {
@@ -140,7 +141,7 @@ ColumnLayout {
             NText {
                 text: pluginApi?.tr("settings.color-level0-desc")
                 font.pointSize: Style.fontSizeS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
             }
 
             ColorSwatchRow {
@@ -167,7 +168,7 @@ ColumnLayout {
             NText {
                 text: pluginApi?.tr("settings.color-active-desc")
                 font.pointSize: Style.fontSizeS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
             }
 
             ColorSwatchRow {
@@ -194,7 +195,7 @@ ColumnLayout {
             NText {
                 text: pluginApi?.tr("settings.color-auto-desc")
                 font.pointSize: Style.fontSizeS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
             }
 
             ColorSwatchRow {

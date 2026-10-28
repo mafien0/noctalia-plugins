@@ -5,6 +5,7 @@ import Quickshell
 import Quickshell.Io
 import Quickshell.Widgets
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import qs.Services.System
@@ -39,7 +40,7 @@ Item {
     readonly property string customIconPath: pluginApi?.pluginSettings?.customIconPath ?? pluginApi?.manifest?.metadata?.defaultSettings?.customIconPath ?? ""
     readonly property bool enableColorization: pluginApi?.pluginSettings?.enableColorization ?? pluginApi?.manifest?.metadata?.defaultSettings?.enableColorization ?? false
     readonly property string iconColorKey: pluginApi?.pluginSettings?.iconColor ?? pluginApi?.manifest?.metadata?.defaultSettings?.iconColor ?? "none"
-    readonly property color iconColor: enableColorization ? Color.resolveColorKey(iconColorKey) : Color.mPrimary
+    readonly property color iconColor: enableColorization ? Commons.Color.resolveColorKey(iconColorKey) : Commons.Color.mPrimary
 
     // Content dimensions (visual capsule size)
     readonly property real contentWidth: isBarVertical ? capsuleHeight : layout.implicitWidth + Style.marginM * 2
@@ -63,7 +64,7 @@ Item {
         y: Style.pixelAlignCenter(parent.height, height)
         width: root.contentWidth
         height: root.contentHeight
-        color: mouseArea.containsMouse ? Color.mHover : (root.pluginApi.mainInstance.noctaliaUpdate ? "#40" + Color.mTertiary.toString().slice(1) : Style.capsuleColor)
+        color: mouseArea.containsMouse ? Commons.Color.mHover : (root.pluginApi.mainInstance.noctaliaUpdate ? "#40" + Commons.Color.mTertiary.toString().slice(1) : Style.capsuleColor)
         radius: Style.radiusL
         border.color: Style.capsuleBorderColor
         border.width: Style.capsuleBorderWidth
@@ -80,7 +81,7 @@ Item {
                 spacing: Style.marginS
                 NIcon { // Theme icon
                     visible: !root.pluginApi.mainInstance.refreshing && root.customIconPath === "" && !root.useDistroLogo
-                    color: mouseArea.containsMouse ? Color.mOnHover : (root.pluginApi.mainInstance.noctaliaUpdate ? Color.mHover : root.iconColor)
+                    color: mouseArea.containsMouse ? Commons.Color.mOnHover : (root.pluginApi.mainInstance.noctaliaUpdate ? Commons.Color.mHover : root.iconColor)
                     icon: (root.pluginApi.mainInstance.noctaliaUpdate | mouseArea.containsMouse) ? root.iconName + "-filled" : root.iconName
                 }
                 IconImage { // Custom file or distro logo
@@ -96,14 +97,14 @@ Item {
                     asynchronous: true
                     layer.enabled: root.enableColorization && (root.useDistroLogo || root.customIconPath !== "")
                     layer.effect: ShaderEffect {
-                        property color targetColor: mouseArea.containsMouse ? Color.mOnHover : root.iconColor
+                        property color targetColor: mouseArea.containsMouse ? Commons.Color.mOnHover : root.iconColor
                         property real colorizeMode: 2.0
                         fragmentShader: Qt.resolvedUrl(Quickshell.shellDir + "/Shaders/qsb/appicon_colorize.frag.qsb")
                     }
                 }
                 NIcon { // Loading spinner
                     icon: "loader"
-                    color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurfaceVariant
+                    color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurfaceVariant
                     visible: root.pluginApi.mainInstance.refreshing
 
                     RotationAnimator on rotation {
@@ -117,7 +118,7 @@ Item {
                 NText { // Count
                     visible: !root.pluginApi.mainInstance.refreshing
                     text: (root.pluginApi.mainInstance.updates.length).toString()
-                    color: mouseArea.containsMouse ? Color.mOnHover : (root.pluginApi.mainInstance.noctaliaUpdate ? Color.mSecondary : Color.mOnSurface)
+                    color: mouseArea.containsMouse ? Commons.Color.mOnHover : (root.pluginApi.mainInstance.noctaliaUpdate ? Commons.Color.mSecondary : Commons.Color.mOnSurface)
                     pointSize: root.barFontSize
                     applyUiScale: false
                     font.weight: root.boldText ? Font.Bold : Font.Normal
@@ -133,14 +134,14 @@ Item {
                 NText { // Count
                     visible: !root.pluginApi.mainInstance.refreshing
                     text: root.pluginApi.mainInstance.updates.length.toString()
-                    color: mouseArea.containsMouse ? Color.mOnHover : (root.pluginApi.mainInstance.noctaliaUpdate ? Color.mSecondary : Color.mOnSurface)
+                    color: mouseArea.containsMouse ? Commons.Color.mOnHover : (root.pluginApi.mainInstance.noctaliaUpdate ? Commons.Color.mSecondary : Commons.Color.mOnSurface)
                     pointSize: root.barFontSize
                     applyUiScale: false
                     font.weight: root.boldText ? Font.Bold : Font.Normal
                 }
                 NIcon { // Theme icon
                     visible: !root.pluginApi.mainInstance.refreshing && root.customIconPath === "" && !root.useDistroLogo
-                    color: mouseArea.containsMouse ? Color.mOnHover : (root.pluginApi.mainInstance.noctaliaUpdate ? Color.mHover : root.iconColor)
+                    color: mouseArea.containsMouse ? Commons.Color.mOnHover : (root.pluginApi.mainInstance.noctaliaUpdate ? Commons.Color.mHover : root.iconColor)
                     icon: (root.pluginApi.mainInstance.noctaliaUpdate | mouseArea.containsMouse) ? root.iconName + "-filled" : root.iconName
                 }
                 IconImage { // Custom file or distro logo
@@ -156,14 +157,14 @@ Item {
                     asynchronous: true
                     layer.enabled: root.enableColorization && (root.useDistroLogo || root.customIconPath !== "")
                     layer.effect: ShaderEffect {
-                        property color targetColor: mouseArea.containsMouse ? Color.mOnHover : root.iconColor
+                        property color targetColor: mouseArea.containsMouse ? Commons.Color.mOnHover : root.iconColor
                         property real colorizeMode: 2.0
                         fragmentShader: Qt.resolvedUrl(Quickshell.shellDir + "/Shaders/qsb/appicon_colorize.frag.qsb")
                     }
                 }
                 NIcon { // Loading spinner
                     icon: "loader"
-                    color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurfaceVariant
+                    color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurfaceVariant
                     visible: root.pluginApi.mainInstance.refreshing
 
                     RotationAnimator on rotation {

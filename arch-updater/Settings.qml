@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -101,7 +102,7 @@ ColumnLayout {
                 text: pluginApi.tr("settings.general.title")
                 pointSize: Style.fontSizeXL
                 font.weight: Font.Bold
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
             }
             
             NLabel { // General Description
@@ -240,7 +241,7 @@ ColumnLayout {
                 text: pluginApi.tr("settings.bar.title")
                 pointSize: Style.fontSizeXL
                 font.weight: Font.Bold
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
             }
             
             NLabel { // Bar Description
@@ -416,7 +417,7 @@ ColumnLayout {
                 text: pluginApi.tr("settings.panel.title")
                 pointSize: Style.fontSizeXL
                 font.weight: Font.Bold
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
             }
             
             NLabel { // Panel Description
@@ -507,7 +508,7 @@ ColumnLayout {
                 text: pluginApi.tr("settings.desktop.title")
                 pointSize: Style.fontSizeXL
                 font.weight: Font.Bold
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
             }
 
             NLabel { // Desktop Widget Description

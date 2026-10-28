@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Rectangle {
@@ -9,8 +10,8 @@ Rectangle {
 
   property string badgeIcon: ""
   property string badgeText: ""
-  property color badgeColor: Color.mOnSurfaceVariant
-  property color badgeBgColor: Qt.alpha(Color.mSurfaceVariant, 0.24)
+  property color badgeColor: Commons.Color.mOnSurfaceVariant
+  property color badgeBgColor: Qt.alpha(Commons.Color.mSurfaceVariant, 0.24)
   property bool compact: false
 
   color: badgeBgColor

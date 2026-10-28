@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -147,7 +148,7 @@ Item {
           NIcon {
             icon: "topology-star-3"
             pointSize: Style.fontSizeXXL
-            color: Color.mPrimary
+            color: Commons.Color.mPrimary
           }
 
           NLabel {
@@ -160,7 +161,7 @@ Item {
             visible: root.showCopiedToast
             text: pluginApi?.tr("actions.copied")
             pointSize: Style.fontSizeS
-            color: Color.mTertiary
+            color: Commons.Color.mTertiary
           }
 
           NIconButton {
@@ -219,7 +220,7 @@ Item {
             NText {
               text: pluginApi?.tr("panel.context")
               pointSize: Style.fontSizeS
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               Layout.minimumWidth: Math.round(70 * Style.uiScaleRatio)
             }
 
@@ -260,7 +261,7 @@ Item {
                   visible: (main?.contexts ?? []).length === 0
                   text: pluginApi?.tr("panel.noContexts")
                   pointSize: Style.fontSizeS
-                  color: Color.mOnSurfaceVariant
+                  color: Commons.Color.mOnSurfaceVariant
                   Layout.alignment: Qt.AlignHCenter
                   Layout.topMargin: Style.marginS
                   Layout.bottomMargin: Style.marginS
@@ -279,7 +280,7 @@ Item {
             NText {
               text: pluginApi?.tr("panel.namespace")
               pointSize: Style.fontSizeS
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               Layout.minimumWidth: Math.round(70 * Style.uiScaleRatio)
               Layout.alignment: Qt.AlignTop | Qt.AlignLeft
             }
@@ -295,8 +296,8 @@ Item {
                 text: (main?.activeNamespace ?? "") !== ""
                   ? main.activeNamespace
                   : pluginApi?.tr("panel.noNamespaces")
-                backgroundColor: Color.mSurfaceVariant
-                textColor: Color.mOnSurface
+                backgroundColor: Commons.Color.mSurfaceVariant
+                textColor: Commons.Color.mOnSurface
                 onClicked: {
                   nsDropdown.visible = !nsDropdown.visible;
                   if (nsDropdown.visible) {
@@ -391,7 +392,7 @@ Item {
                       visible: root.nsFilteredListCache.length === 0
                       text: pluginApi?.tr("panel.noNamespaces")
                       pointSize: Style.fontSizeS
-                      color: Color.mOnSurfaceVariant
+                      color: Commons.Color.mOnSurfaceVariant
                       Layout.alignment: Qt.AlignHCenter
                       Layout.topMargin: Style.marginS
                       Layout.bottomMargin: Style.marginS
@@ -480,7 +481,7 @@ Item {
             visible: (main?.hasError ?? false) && !(main?.loading ?? false)
             text: pluginApi?.tr("panel.error")
             pointSize: Style.fontSizeM
-            color: Color.mError
+            color: Commons.Color.mError
             Layout.alignment: Qt.AlignHCenter
             Layout.topMargin: Style.marginL
           }
@@ -512,7 +513,7 @@ Item {
                   resourceKind: root.tabs[root.activeTab]?.kind ?? ""
                   canLogs: root.activeTab === 0
                   canRestart: root.activeTab === 1 || root.activeTab === 2
-                  rowColor: index % 2 === 1 ? Qt.alpha(Color.mOnSurface, 0.03) : "transparent"
+                  rowColor: index % 2 === 1 ? Qt.alpha(Commons.Color.mOnSurface, 0.03) : "transparent"
                   onCopyRequested: name => root.handleCopy(name)
                   onDescribeRequested: (kind, name) => root.handleDescribe(kind, name)
                   onLogsRequested: name => root.handleLogs(name)
@@ -531,7 +532,7 @@ Item {
                   anchors.centerIn: parent
                   text: pluginApi?.tr("panel.noResources")
                   pointSize: Style.fontSizeM
-                  color: Color.mOnSurfaceVariant
+                  color: Commons.Color.mOnSurfaceVariant
                 }
               }
             }

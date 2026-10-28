@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import "../dockerUtils.js" as DockerUtils
 
@@ -14,7 +15,7 @@ Rectangle {
     // Implicit height of layout + margins
     height: contentLayout.implicitHeight + (2 * Style.marginM)
     
-    color: Color.mSurfaceVariant
+    color: Commons.Color.mSurfaceVariant
     radius: Style.radiusM
 
     signal requestStart(string id)
@@ -59,14 +60,14 @@ Rectangle {
                     Text {
                         text: "" + model.name
                         font.bold: true
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         elide: Text.ElideRight
                         Layout.fillWidth: true
                     }
 
                     Text {
                         text: "" + model.image + " (" + model.status + ")"
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         font.pixelSize: 11
                         elide: Text.ElideRight
                         Layout.fillWidth: true
@@ -127,7 +128,7 @@ Rectangle {
                 Rectangle {
                     Layout.fillWidth: true
                     height: 1
-                    color: Color.mOutline
+                    color: Commons.Color.mOutline
                     opacity: 0.2
                 }
 
@@ -139,12 +140,12 @@ Rectangle {
 
                     Text {
                         text: "Container ID:"
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         font.bold: true
                     }
                     Text {
                         text: model.id
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font.family: "Monospace"
@@ -152,24 +153,24 @@ Rectangle {
 
                     Text {
                         text: "Image:"
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         font.bold: true
                     }
                     Text {
                         text: model.image
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                     }
 
                     Text {
                         text: "Command:"
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         font.bold: true
                     }
                     Text {
                         text: model.command || "N/A"
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font.family: "Monospace"
@@ -177,12 +178,12 @@ Rectangle {
 
                     Text {
                         text: "State:"
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         font.bold: true
                     }
                     Text {
                         text: model.state
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                     }

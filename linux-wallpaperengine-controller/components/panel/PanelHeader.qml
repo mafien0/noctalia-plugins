@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Rectangle {
@@ -48,9 +49,9 @@ Rectangle {
   Layout.preferredHeight: headerColumn.implicitHeight + Style.marginS * 2
   Layout.minimumHeight: Layout.preferredHeight
   radius: Style.radiusL
-  color: Qt.alpha(Color.mSurfaceVariant, 0.35)
+  color: Qt.alpha(Commons.Color.mSurfaceVariant, 0.35)
   border.width: Style.borderS
-  border.color: Qt.alpha(Color.mOutline, 0.35)
+  border.color: Qt.alpha(Commons.Color.mOutline, 0.35)
 
   ColumnLayout {
     id: headerColumn
@@ -85,9 +86,9 @@ Rectangle {
         Layout.maximumWidth: root.filterButtonWidth
         Layout.preferredHeight: 42 * Style.uiScaleRatio
         radius: Style.radiusL
-        color: Qt.alpha(Color.mSurfaceVariant, 0.42)
+        color: Qt.alpha(Commons.Color.mSurfaceVariant, 0.42)
         border.width: Style.borderS
-        border.color: Qt.alpha(Color.mOutline, 0.45)
+        border.color: Qt.alpha(Commons.Color.mOutline, 0.45)
 
         RowLayout {
           anchors.fill: parent
@@ -98,7 +99,7 @@ Rectangle {
           NIcon {
             icon: "adjustments-horizontal"
             pointSize: Style.fontSizeM
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
           }
 
           NText {
@@ -106,14 +107,14 @@ Rectangle {
             text: pluginApi?.tr("panel.filterButtonSummary", {
               type: root.typeLabel ? root.typeLabel(root.selectedType) : ""
             })
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
             elide: Text.ElideRight
           }
 
           NIcon {
             icon: "chevron-down"
             pointSize: Style.fontSizeM
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
           }
         }
 
@@ -132,9 +133,9 @@ Rectangle {
         Layout.maximumWidth: root.sortButtonWidth
         Layout.preferredHeight: 42 * Style.uiScaleRatio
         radius: Style.radiusL
-        color: Qt.alpha(Color.mSurfaceVariant, 0.42)
+        color: Qt.alpha(Commons.Color.mSurfaceVariant, 0.42)
         border.width: Style.borderS
-        border.color: Qt.alpha(Color.mOutline, 0.45)
+        border.color: Qt.alpha(Commons.Color.mOutline, 0.45)
 
         RowLayout {
           anchors.fill: parent
@@ -145,7 +146,7 @@ Rectangle {
           NIcon {
             icon: "arrows-sort"
             pointSize: Style.fontSizeM
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
           }
 
           NText {
@@ -154,14 +155,14 @@ Rectangle {
               direction: root.sortAscending ? "↑" : "↓",
               sort: root.sortLabel ? root.sortLabel(root.sortMode) : ""
             })
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
             elide: Text.ElideRight
           }
 
           NIcon {
             icon: "chevron-down"
             pointSize: Style.fontSizeM
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
           }
         }
 
@@ -181,9 +182,9 @@ Rectangle {
 
       Rectangle {
         radius: Style.radiusL
-        color: Qt.alpha(Color.mSurfaceVariant, 0.34)
+        color: Qt.alpha(Commons.Color.mSurfaceVariant, 0.34)
         border.width: Style.borderS
-        border.color: Qt.alpha(Color.mOutline, 0.35)
+        border.color: Qt.alpha(Commons.Color.mOutline, 0.35)
         implicitWidth: actionButtons.implicitWidth + Style.marginS * 2
         implicitHeight: actionButtons.implicitHeight + Style.marginXS * 2
 
@@ -196,7 +197,7 @@ Rectangle {
           NIconButton {
             enabled: !(mainInstance?.scanningWallpapers ?? false)
             icon: "refresh"
-            colorFg: Color.mOnSurface
+            colorFg: Commons.Color.mOnSurface
             tooltipText: pluginApi?.tr("panel.refreshWallpapers")
             onClicked: root.reloadRequested()
           }
@@ -205,7 +206,7 @@ Rectangle {
             visible: (mainInstance?.engineAvailable ?? false)
             enabled: !root.scanningCompatibility
             icon: "shield-search"
-            colorFg: Color.mOnSurface
+            colorFg: Commons.Color.mOnSurface
             tooltipText: pluginApi?.tr("panel.compatibilityQuickCheck")
             onClicked: root.compatibilityQuickCheckRequested()
           }
@@ -213,14 +214,14 @@ Rectangle {
           NIconButton {
             enabled: mainInstance?.engineAvailable ?? false
             icon: mainInstance?.engineRunning ? "player-stop" : "player-play"
-            colorFg: Color.mOnSurface
+            colorFg: Commons.Color.mOnSurface
             tooltipText: mainInstance?.engineRunning ? pluginApi?.tr("panel.stop") : pluginApi?.tr("panel.start")
             onClicked: root.toggleRunRequested()
           }
 
           NIconButton {
             icon: "settings"
-            colorFg: Color.mOnSurface
+            colorFg: Commons.Color.mOnSurface
             tooltipText: pluginApi?.tr("menu.settings")
             onClicked: root.settingsRequested()
           }

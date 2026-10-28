@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -66,8 +67,8 @@ Item {
       icon: "topology-star-3"
       pointSize: Style.fontSizeL
       color: {
-        if (root.showErrorBadge && root.main?.hasCriticalPod) return Color.mError;
-        return Color.resolveColorKey(root.iconColorKey);
+        if (root.showErrorBadge && root.main?.hasCriticalPod) return Commons.Color.mError;
+        return Commons.Color.resolveColorKey(root.iconColorKey);
       }
     }
 
@@ -81,7 +82,7 @@ Item {
         return ctx + " / " + ns;
       }
       pointSize: Style.fontSizeS
-      color: Color.mOnSurface
+      color: Commons.Color.mOnSurface
       elide: Text.ElideRight
       Layout.maximumWidth: capsuleHeight * 3
     }
@@ -92,7 +93,7 @@ Item {
       width: Math.round(Style.fontSizeS * 0.6)
       height: width
       radius: width / 2
-      color: Color.mError
+      color: Commons.Color.mError
       Layout.alignment: Qt.AlignVCenter
     }
   }

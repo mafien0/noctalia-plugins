@@ -4,6 +4,7 @@ import Quickshell.Io
 import Quickshell.Wayland
 import qs.Commons
 
+import qs.Commons as Commons
 Item {
     id: root
     property var pluginApi: null
@@ -17,8 +18,8 @@ Item {
     
     // Dynamic theme colors fallback if user does not supply custom
     property bool useCustomColors: cfg.useCustomColors ?? def.useCustomColors ?? false
-    readonly property color  pillColor:    useCustomColors ? (cfg.pillColor || def.pillColor || Color.mPrimary) : Color.mPrimary
-    readonly property color  pillBg:       useCustomColors ? (cfg.pillBg    || def.pillBg    || Color.mSurface) : Color.mSurface
+    readonly property color  pillColor:    useCustomColors ? (cfg.pillColor || def.pillColor || Commons.Color.mPrimary) : Commons.Color.mPrimary
+    readonly property color  pillBg:       useCustomColors ? (cfg.pillBg    || def.pillBg    || Commons.Color.mSurface) : Commons.Color.mSurface
     
     readonly property string position:     cfg.position    || def.position    || "bottom"
     readonly property int    marginPx:     cfg.marginPx    ?? def.marginPx    ?? 60

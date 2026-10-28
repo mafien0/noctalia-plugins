@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.UPower
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.Hardware
 import qs.Services.Networking
 import qs.Services.Power
@@ -75,7 +76,7 @@ Item {
 
           NIcon {
             pointSize: Style.fontSizeXXL
-            color: (BatteryService.isCharging(root.primaryDevice) || BatteryService.isPluggedIn(root.primaryDevice)) ? Color.mPrimary : (BatteryService.isCriticalBattery(root.primaryDevice) || BatteryService.isLowBattery(root.primaryDevice)) ? Color.mError : Color.mOnSurface
+            color: (BatteryService.isCharging(root.primaryDevice) || BatteryService.isPluggedIn(root.primaryDevice)) ? Commons.Color.mPrimary : (BatteryService.isCriticalBattery(root.primaryDevice) || BatteryService.isLowBattery(root.primaryDevice)) ? Commons.Color.mError : Commons.Color.mOnSurface
             icon: BatteryService.getIcon(BatteryService.getPercentage(root.primaryDevice), BatteryService.isCharging(root.primaryDevice), BatteryService.isPluggedIn(root.primaryDevice), BatteryService.isDeviceReady(root.primaryDevice))
           }
 
@@ -87,7 +88,7 @@ Item {
               text: I18n.tr("common.battery")
               pointSize: Style.fontSizeL
               font.weight: Style.fontWeightBold
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
               Layout.fillWidth: true
               elide: Text.ElideRight
             }
@@ -95,7 +96,7 @@ Item {
             NText {
               text: statusText(root.primaryDevice)
               pointSize: Style.fontSizeS
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               Layout.fillWidth: true
               elide: Text.ElideRight
             }
@@ -146,7 +147,7 @@ Item {
                 Layout.preferredWidth: 150 * Style.uiScaleRatio
                 text: modelData.label
                 pointSize: Style.fontSizeS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 elide: Text.ElideRight
               }
 
@@ -155,7 +156,7 @@ Item {
                 text: modelData.value
                 pointSize: Style.fontSizeS
                 font.weight: Style.fontWeightBold
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 horizontalAlignment: Text.AlignRight
                 elide: Text.ElideRight
               }
@@ -187,13 +188,13 @@ Item {
 
                 NIcon {
                   icon: BatteryService.getIcon(BatteryService.getPercentage(modelData), BatteryService.isCharging(modelData), BatteryService.isPluggedIn(modelData), BatteryService.isDeviceReady(modelData))
-                  color: (BatteryService.isCharging(modelData) || BatteryService.isPluggedIn(modelData)) ? Color.mPrimary : (BatteryService.isCriticalBattery(modelData) || BatteryService.isLowBattery(modelData)) ? Color.mError : Color.mOnSurface
+                  color: (BatteryService.isCharging(modelData) || BatteryService.isPluggedIn(modelData)) ? Commons.Color.mPrimary : (BatteryService.isCriticalBattery(modelData) || BatteryService.isLowBattery(modelData)) ? Commons.Color.mError : Commons.Color.mOnSurface
                 }
 
                 NText {
                   readonly property string dName: BatteryService.getDeviceName(modelData)
                   text: dName ? dName : I18n.tr("common.battery")
-                  color: (BatteryService.isCharging(modelData) || BatteryService.isPluggedIn(modelData)) ? Color.mPrimary : (BatteryService.isCriticalBattery(modelData) || BatteryService.isLowBattery(modelData)) ? Color.mError : Color.mOnSurface
+                  color: (BatteryService.isCharging(modelData) || BatteryService.isPluggedIn(modelData)) ? Commons.Color.mPrimary : (BatteryService.isCriticalBattery(modelData) || BatteryService.isLowBattery(modelData)) ? Commons.Color.mError : Commons.Color.mOnSurface
                   pointSize: Style.fontSizeS
                   Layout.fillWidth: true
                   elide: Text.ElideRight
@@ -202,7 +203,7 @@ Item {
                 NText {
                   text: BatteryService.getTimeRemainingText(modelData)
                   pointSize: Style.fontSizeS
-                  color: Color.mOnSurfaceVariant
+                  color: Commons.Color.mOnSurfaceVariant
                 }
               }
 
@@ -214,14 +215,14 @@ Item {
                   Layout.fillWidth: true
                   height: Math.round(8 * Style.uiScaleRatio)
                   radius: Math.min(Style.radiusL, height / 2)
-                  color: Color.mSurface
+                  color: Commons.Color.mSurface
 
                   Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     height: parent.height
                     radius: parent.radius
                     width: parent.width * Math.max(0, Math.min(1, BatteryService.getPercentage(modelData) / 100))
-                    color: Color.mPrimary
+                    color: Commons.Color.mPrimary
                   }
                 }
 
@@ -229,7 +230,7 @@ Item {
                   Layout.preferredWidth: 40 * Style.uiScaleRatio
                   horizontalAlignment: Text.AlignRight
                   text: `${BatteryService.getPercentage(modelData)}%`
-                  color: (BatteryService.isCharging(modelData) || BatteryService.isPluggedIn(modelData)) ? Color.mPrimary : (BatteryService.isCriticalBattery(modelData) || BatteryService.isLowBattery(modelData)) ? Color.mError : Color.mOnSurface
+                  color: (BatteryService.isCharging(modelData) || BatteryService.isPluggedIn(modelData)) ? Commons.Color.mPrimary : (BatteryService.isCriticalBattery(modelData) || BatteryService.isLowBattery(modelData)) ? Commons.Color.mError : Commons.Color.mOnSurface
                   pointSize: Style.fontSizeS
                   font.weight: Style.fontWeightBold
                 }
@@ -254,14 +255,14 @@ Item {
 
                 NIcon {
                   icon: BluetoothService.getDeviceIcon(modelData)
-                  color: Color.mOnSurface
+                  color: Commons.Color.mOnSurface
                 }
 
                 NText {
                   readonly property string dName: BatteryService.getDeviceName(modelData)
                   text: dName ? dName : I18n.tr("common.bluetooth")
                   pointSize: Style.fontSizeS
-                  color: Color.mOnSurface
+                  color: Commons.Color.mOnSurface
                   Layout.fillWidth: true
                   elide: Text.ElideRight
                 }
@@ -275,14 +276,14 @@ Item {
                   Layout.fillWidth: true
                   height: Math.round(8 * Style.uiScaleRatio)
                   radius: Math.min(Style.radiusL, height / 2)
-                  color: Color.mSurface
+                  color: Commons.Color.mSurface
 
                   Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     height: parent.height
                     radius: parent.radius
                     width: parent.width * Math.max(0, Math.min(1, BatteryService.getPercentage(modelData) / 100))
-                    color: Color.mPrimary
+                    color: Commons.Color.mPrimary
                   }
                 }
 
@@ -290,7 +291,7 @@ Item {
                   Layout.preferredWidth: 40 * Style.uiScaleRatio
                   horizontalAlignment: Text.AlignRight
                   text: `${BatteryService.getPercentage(modelData)}%`
-                  color: Color.mPrimary
+                  color: Commons.Color.mPrimary
                   pointSize: Style.fontSizeS
                   font.weight: Style.fontWeightBold
                 }
@@ -321,13 +322,13 @@ Item {
               NText {
                 text: I18n.tr("battery.power-profile")
                 font.weight: Style.fontWeightBold
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 Layout.fillWidth: true
               }
 
               NText {
                 text: PowerProfileService.getName(root.profileIndex)
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
               }
             }
 
@@ -357,20 +358,20 @@ Item {
               NIcon {
                 icon: "powersaver"
                 pointSize: Style.fontSizeS
-                color: PowerProfileService.getIcon() === "powersaver" ? Color.mPrimary : Color.mOnSurfaceVariant
+                color: PowerProfileService.getIcon() === "powersaver" ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
               }
 
               NIcon {
                 icon: "balanced"
                 pointSize: Style.fontSizeS
-                color: PowerProfileService.getIcon() === "balanced" ? Color.mPrimary : Color.mOnSurfaceVariant
+                color: PowerProfileService.getIcon() === "balanced" ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
                 Layout.fillWidth: true
               }
 
               NIcon {
                 icon: "performance"
                 pointSize: Style.fontSizeS
-                color: PowerProfileService.getIcon() === "performance" ? Color.mPrimary : Color.mOnSurfaceVariant
+                color: PowerProfileService.getIcon() === "performance" ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
               }
             }
           }
@@ -389,14 +390,14 @@ Item {
               text: I18n.tr("toast.noctalia-performance.label")
               pointSize: Style.fontSizeM
               font.weight: Style.fontWeightBold
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
               Layout.fillWidth: true
             }
 
             NIcon {
               icon: PowerProfileService.noctaliaPerformanceMode ? "rocket" : "rocket-off"
               pointSize: Style.fontSizeL
-              color: PowerProfileService.noctaliaPerformanceMode ? Color.mPrimary : Color.mOnSurfaceVariant
+              color: PowerProfileService.noctaliaPerformanceMode ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
             }
 
             NToggle {

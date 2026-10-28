@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 NIconButton {
@@ -57,23 +58,23 @@ NIconButton {
     colorFg: {
         switch (root._status) {
         case "Connected":
-            return Color.mPrimary;
+            return Commons.Color.mPrimary;
         case "Connecting":
-            return Color.mOnError;
+            return Commons.Color.mOnError;
         case "Disconnected":
-            return Color.mError;
+            return Commons.Color.mError;
         case "AuthFailed":
-            return Color.mError;
+            return Commons.Color.mError;
         case "Unconfigured":
-            return Color.mOnSurfaceVariant;
+            return Commons.Color.mOnSurfaceVariant;
         default:
-            return Color.mOnSurfaceVariant;
+            return Commons.Color.mOnSurfaceVariant;
         }
     }
 
-    colorBg: Color.mSurfaceVariant
-    colorBgHover: Color.mHover
-    colorFgHover: Color.mOnHover
+    colorBg: Commons.Color.mSurfaceVariant
+    colorBgHover: Commons.Color.mHover
+    colorFgHover: Commons.Color.mOnHover
     colorBorder: "transparent"
     colorBorderHover: "transparent"
 

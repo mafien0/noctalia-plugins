@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -42,7 +43,7 @@ Item {
             width: ListView.view.width
             height: itemContent.implicitHeight + Style.margin2M
             radius: Style.radiusM
-            color: itemMouseArea.containsMouse ? Color.mHover : Color.mSurface
+            color: itemMouseArea.containsMouse ? Commons.Color.mHover : Commons.Color.mSurface
 
             Behavior on color {
                 ColorAnimation {
@@ -71,14 +72,14 @@ Item {
                     elide: Text.ElideRight
                     pointSize: Style.fontSizeM
                     font.weight: Font.Bold
-                    color: itemMouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+                    color: itemMouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
                 }
                 NText {
                     Layout.fillWidth: true
                     text: modelData.ref ?? ""
                     elide: Text.ElideRight
                     pointSize: Style.fontSizeXXS
-                    color: itemMouseArea.containsMouse ? Color.mOnHover : Color.mOnSurfaceVariant
+                    color: itemMouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurfaceVariant
                 }
             }
         }
@@ -116,7 +117,7 @@ Item {
                         spacing: Style.marginM
 
                         NIcon {
-                            color: Color.mPrimary
+                            color: Commons.Color.mPrimary
                             icon: root.platformIcon
                             pointSize: Style.fontSizeXXL
                         }
@@ -126,7 +127,7 @@ Item {
 
                             NText {
                                 Layout.fillWidth: true
-                                color: Color.mOnSurface
+                                color: Commons.Color.mOnSurface
                                 elide: Text.ElideRight
                                 font.weight: Style.fontWeightBold
                                 pointSize: Style.fontSizeL
@@ -180,7 +181,7 @@ Item {
 
                         NImageRounded {
                             Layout.alignment: Qt.AlignVCenter
-                            borderColor: Color.mPrimary
+                            borderColor: Commons.Color.mPrimary
                             borderWidth: 2
                             fallbackIcon: "user"
                             fallbackIconSize: 24
@@ -195,7 +196,7 @@ Item {
 
                             NText {
                                 Layout.fillWidth: true
-                                color: Color.mOnSurface
+                                color: Commons.Color.mOnSurface
                                 elide: Text.ElideRight
                                 font.weight: Font.Bold
                                 pointSize: Style.fontSizeM
@@ -203,7 +204,7 @@ Item {
                             }
                             NText {
                                 Layout.fillWidth: true
-                                color: Color.mOnSurface
+                                color: Commons.Color.mOnSurface
                                 elide: Text.ElideRight
                                 font.weight: Font.Thin
                                 pointSize: Style.fontSizeXS
@@ -277,13 +278,13 @@ Item {
 
                     NIcon {
                         Layout.alignment: Qt.AlignHCenter
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         icon: statusBox.statusIcon
                         pointSize: Style.fontSizeXXL
                     }
                     NText {
                         Layout.fillWidth: true
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         horizontalAlignment: Text.AlignHLeft
                         pointSize: Style.fontSizeL
                         text: statusBox.statusText
@@ -333,7 +334,7 @@ Item {
 
                                 NText {
                                     anchors.centerIn: parent
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                     pointSize: Style.fontSizeS
                                     text: pluginApi?.tr("panel.loading")
                                     visible: (root.main?.loading ?? false) && (root.main?.prsList?.length ?? 0) === 0
@@ -341,7 +342,7 @@ Item {
 
                                 NText {
                                     anchors.centerIn: parent
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                     pointSize: Style.fontSizeS
                                     text: pluginApi?.tr(root.platform === 'gitlab' ? "panel.no-mrs" : "panel.no-prs")
                                     visible: !root.main?.loading && (root.main?.prsList?.length ?? 0) === 0
@@ -379,7 +380,7 @@ Item {
 
                                 NText {
                                     anchors.centerIn: parent
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                     pointSize: Style.fontSizeS
                                     text: pluginApi?.tr("panel.loading")
                                     visible: (root.main?.loading ?? false) && (root.main?.issuesList?.length ?? 0) === 0
@@ -387,7 +388,7 @@ Item {
 
                                 NText {
                                     anchors.centerIn: parent
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                     pointSize: Style.fontSizeS
                                     text: pluginApi?.tr("panel.no-issues")
                                     visible: !root.main?.loading && (root.main?.issuesList?.length ?? 0) === 0

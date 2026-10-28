@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Rectangle {
@@ -8,7 +9,7 @@ Rectangle {
 
   default property alias content: contentArea.children
   property string headerIcon: "device-desktop"
-  property color headerIconColor: Color.mPrimary
+  property color headerIconColor: Commons.Color.mPrimary
   property string outputName: ""
   property string disabledText: ""
   property bool isDisabled: false
@@ -16,7 +17,7 @@ Rectangle {
 
   Layout.fillWidth: true
   implicitHeight: outerCol.implicitHeight + Style.marginM * 2
-  color: Color.mSurfaceVariant
+  color: Commons.Color.mSurfaceVariant
   radius: Style.radiusM
 
   data: [
@@ -34,12 +35,12 @@ Rectangle {
         NIcon { icon: root.headerIcon; color: root.headerIconColor; pointSize: Style.fontSizeS }
         NText {
           text: root.outputName
-          pointSize: Style.fontSizeM; font.weight: Font.Bold; color: Color.mOnSurface
+          pointSize: Style.fontSizeM; font.weight: Font.Bold; color: Commons.Color.mOnSurface
         }
         NText {
           visible: root.isDisabled
           text: root.disabledText
-          pointSize: Style.fontSizeXS; color: Color.mError
+          pointSize: Style.fontSizeXS; color: Commons.Color.mError
         }
       }
 

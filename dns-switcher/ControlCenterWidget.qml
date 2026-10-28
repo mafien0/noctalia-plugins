@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 NIconButton {
@@ -22,8 +23,8 @@ NIconButton {
 
     property bool isActive: mainInstance?.isCustomDns || false
 
-    colorBg: isActive ? Color.mPrimary : Color.mSurfaceVariant
-    colorFg: isActive ? Color.mOnPrimary : Color.mOnSurface
+    colorBg: isActive ? Commons.Color.mPrimary : Commons.Color.mSurfaceVariant
+    colorFg: isActive ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface
 
     tooltipText: mainInstance?.currentDnsName || pluginApi?.tr("plugin.title") || "DNS Switcher"
 

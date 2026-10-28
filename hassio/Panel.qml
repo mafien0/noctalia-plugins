@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -46,14 +47,14 @@ Item {
 
                 NIcon {
                     icon: "smart-home"
-                    color: root.main?.authenticated ? Color.mPrimary : Color.mOnSurfaceVariant
+                    color: root.main?.authenticated ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
                 }
 
                 NText {
                     text: root.view === "list" ? pluginApi?.tr("panel.title") : pluginApi?.tr("panel.title_add")
                     pointSize: Style.fontSizeL
                     font.weight: Font.Bold
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     Layout.fillWidth: true
                 }
 
@@ -64,10 +65,10 @@ Item {
                     radius: width / 2
                     color: {
                         if (!root.main?.connected)
-                            return Color.mError;
+                            return Commons.Color.mError;
                         if (!root.main?.authenticated)
-                            return Color.mOnError;
-                        return Color.mPrimary;
+                            return Commons.Color.mOnError;
+                        return Commons.Color.mPrimary;
                     }
                 }
 
@@ -106,7 +107,7 @@ Item {
                         NText {
                             Layout.alignment: Qt.AlignHCenter
                             text: pluginApi?.tr("panel.error_connection_failed")
-                            color: Color.mOnSurfaceVariant
+                            color: Commons.Color.mOnSurfaceVariant
                             pointSize: Style.fontSizeM
                         }
 
@@ -125,7 +126,7 @@ Item {
                         NText {
                             Layout.alignment: Qt.AlignHCenter
                             text: root.main?.haToken === "" ? pluginApi?.tr("panel.error_token_missing") : pluginApi?.tr("panel.error_auth_failed")
-                            color: Color.mSecondary
+                            color: Commons.Color.mSecondary
                             pointSize: Style.fontSizeM
                         }
 
@@ -144,7 +145,7 @@ Item {
                         NText {
                             Layout.alignment: Qt.AlignHCenter
                             text: pluginApi?.tr("panel.empty_no_entities")
-                            color: Color.mOnSurfaceVariant
+                            color: Commons.Color.mOnSurfaceVariant
                             pointSize: Style.fontSizeM
                         }
 
@@ -171,7 +172,7 @@ Item {
                         id: entityDelegate
                         width: ListView.view.width
                         height: Math.round(64 * Style.uiScaleRatio) + (showBrightness ? Math.round(56 * Style.uiScaleRatio) : 0) + (showColorTemp ? Math.round(56 * Style.uiScaleRatio) : 0) + (showRgb ? Math.round(56 * Style.uiScaleRatio) : 0)
-                        color: Color.mSurfaceVariant
+                        color: Commons.Color.mSurfaceVariant
                         radius: Style.radiusM
                         clip: true
 
@@ -248,7 +249,7 @@ Item {
 
                                     NText {
                                         text: model.friendly_name
-                                        color: Color.mOnSurface
+                                        color: Commons.Color.mOnSurface
                                         pointSize: Style.fontSizeM
                                         elide: Text.ElideRight
                                         Layout.fillWidth: true
@@ -266,7 +267,7 @@ Item {
                                                 });
                                             return model.state;
                                         }
-                                        color: Color.mOnSurfaceVariant
+                                        color: Commons.Color.mOnSurfaceVariant
                                         pointSize: Style.fontSizeS
                                     }
                                 }
@@ -275,7 +276,7 @@ Item {
                                 NIconButton {
                                     visible: entityDelegate.canExpand
                                     icon: entityDelegate.isExpanded ? "chevron-up" : "chevron-down"
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                     onClicked: entityDelegate.isExpanded = !entityDelegate.isExpanded
                                 }
 
@@ -284,7 +285,7 @@ Item {
                                     id: automationBtn
                                     visible: isAutomation(model.domain)
                                     icon: entityDelegate.isWaiting ? "refresh" : "player-play"
-                                    color: entityDelegate.isWaiting ? Color.mOnSurfaceVariant : Color.mTertiary
+                                    color: entityDelegate.isWaiting ? Commons.Color.mOnSurfaceVariant : Commons.Color.mTertiary
 
                                     rotation: entityDelegate.isWaiting ? rotation : 0
 
@@ -309,7 +310,7 @@ Item {
                                     id: switchToggleBtn
                                     visible: isControllable(model.domain) && !isLight(model.domain)
                                     icon: entityDelegate.isWaiting ? "refresh" : (model.state === "on" ? "toggle-right" : "toggle-left")
-                                    color: model.state === "on" ? Color.mTertiary : Color.mOutline
+                                    color: model.state === "on" ? Commons.Color.mTertiary : Commons.Color.mOutline
 
                                     rotation: entityDelegate.isWaiting ? rotation : 0
 
@@ -333,7 +334,7 @@ Item {
                                     id: lightToggleBtn
                                     visible: isLight(model.domain)
                                     icon: entityDelegate.isWaiting ? "refresh" : (model.state === "on" ? "toggle-right" : "toggle-left")
-                                    color: model.state === "on" ? Color.mTertiary : Color.mOutline
+                                    color: model.state === "on" ? Commons.Color.mTertiary : Commons.Color.mOutline
 
                                     rotation: entityDelegate.isWaiting ? rotation : 0
 
@@ -361,7 +362,7 @@ Item {
 
                                 NIcon {
                                     icon: "sun"
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                 }
 
                                 NSlider {
@@ -382,8 +383,8 @@ Item {
                                         width: ttBrightness.implicitWidth + Style.marginM * 2
                                         height: ttBrightness.implicitHeight + Style.marginS * 2
                                         radius: Style.radiusS
-                                        color: Color.mSurface
-                                        border.color: Color.mOutline
+                                        color: Commons.Color.mSurface
+                                        border.color: Commons.Color.mOutline
                                         border.width: Style.borderS
                                         z: 10
 
@@ -394,7 +395,7 @@ Item {
                                             id: ttBrightness
                                             anchors.centerIn: parent
                                             text: Math.round(brightnessSlider.value / 255 * 100) + "%"
-                                            color: Color.mOnSurface
+                                            color: Commons.Color.mOnSurface
                                             pointSize: Style.fontSizeS
                                             font.weight: Font.Bold
                                         }
@@ -403,7 +404,7 @@ Item {
 
                                 NText {
                                     text: Math.round((model.brightness > 0 ? model.brightness : 255) / 255 * 100) + "%"
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                     pointSize: Style.fontSizeS
                                     Layout.preferredWidth: Math.round(44 * Style.uiScaleRatio)
                                 }
@@ -417,7 +418,7 @@ Item {
 
                                 NIcon {
                                     icon: "flame"
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                 }
 
                                 NSlider {
@@ -438,8 +439,8 @@ Item {
                                         width: ttColorTemp.implicitWidth + Style.marginM * 2
                                         height: ttColorTemp.implicitHeight + Style.marginS * 2
                                         radius: Style.radiusS
-                                        color: Color.mSurface
-                                        border.color: Color.mOutline
+                                        color: Commons.Color.mSurface
+                                        border.color: Commons.Color.mOutline
                                         border.width: Style.borderS
                                         z: 10
 
@@ -450,7 +451,7 @@ Item {
                                             id: ttColorTemp
                                             anchors.centerIn: parent
                                             text: Math.round(1000000 / colorTempSlider.value) + "K"
-                                            color: Color.mOnSurface
+                                            color: Commons.Color.mOnSurface
                                             pointSize: Style.fontSizeS
                                             font.weight: Font.Bold
                                         }
@@ -459,7 +460,7 @@ Item {
 
                                 NText {
                                     text: Math.round(1000000 / colorTempSlider.value) + "K"
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                     pointSize: Style.fontSizeS
                                     Layout.preferredWidth: Math.round(44 * Style.uiScaleRatio)
                                 }
@@ -478,7 +479,7 @@ Item {
 
                                     NIcon {
                                         icon: "palette"
-                                        color: Color.mOnSurfaceVariant
+                                        color: Commons.Color.mOnSurfaceVariant
                                     }
 
                                     NSlider {
@@ -499,7 +500,7 @@ Item {
                                             width: Math.round(32 * Style.uiScaleRatio)
                                             height: width
                                             radius: width / 2
-                                            border.color: Color.mOutline
+                                            border.color: Commons.Color.mOutline
                                             border.width: Style.borderS
                                             z: 10
 
@@ -534,7 +535,7 @@ Item {
                                         height: width
                                         radius: width / 2
                                         color: model.current_color
-                                        border.color: Color.mOutline
+                                        border.color: Commons.Color.mOutline
                                         border.width: Style.borderS
                                     }
                                 }
@@ -563,7 +564,7 @@ Item {
                                             height: width
                                             radius: width / 2
                                             color: Qt.rgba(modelData.r / 255, modelData.g / 255, modelData.b / 255, 1)
-                                            border.color: Color.mOutline
+                                            border.color: Commons.Color.mOutline
                                             border.width: Style.borderS
 
                                             MouseArea {
@@ -637,7 +638,7 @@ Item {
 
     function stateColor(domain, state) {
         if (isControllable(domain))
-            return state === "on" ? Color.mTertiary : Color.mOnSurfaceVariant;
-        return Color.mTertiary;
+            return state === "on" ? Commons.Color.mTertiary : Commons.Color.mOnSurfaceVariant;
+        return Commons.Color.mTertiary;
     }
 }

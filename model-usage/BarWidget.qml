@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -107,7 +108,7 @@ Item {
         width: root.contentWidth
         height: root.contentHeight
         radius: Style.radiusL
-        color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+        color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
         border.color: Style.capsuleBorderColor
         border.width: Style.capsuleBorderWidth
 
@@ -126,7 +127,7 @@ Item {
                     icon: root.activeProvider?.providerIcon ?? "ai"
                     pointSize: root.barFontSize
                     applyUiScale: false
-                    color: Color.mPrimary
+                    color: Commons.Color.mPrimary
                     Layout.alignment: Qt.AlignVCenter
                 }
 
@@ -135,7 +136,7 @@ Item {
                     pointSize: root.barFontSize
                     applyUiScale: false
                     font.weight: Style.fontWeightSemiBold
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     Layout.alignment: Qt.AlignVCenter
                 }
             }
@@ -149,7 +150,7 @@ Item {
                     icon: root.activeProvider?.providerIcon ?? "ai"
                     pointSize: root.barFontSize
                     applyUiScale: false
-                    color: Color.mPrimary
+                    color: Commons.Color.mPrimary
                     Layout.alignment: Qt.AlignHCenter
                 }
 
@@ -158,7 +159,7 @@ Item {
                     pointSize: root.barFontSize
                     applyUiScale: false
                     font.weight: Style.fontWeightSemiBold
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     Layout.alignment: Qt.AlignHCenter
                 }
             }

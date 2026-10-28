@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.System
 import qs.Widgets
 
@@ -114,14 +115,14 @@ Item {
             NIcon {
               icon: getModeIcon()
               pointSize: Style.fontSizeL
-              color: Color.mPrimary
+              color: Commons.Color.mPrimary
             }
 
             NText {
               text: pluginApi?.tr("panel.title") || "Pomodoro"
               pointSize: Style.fontSizeL
               font.weight: Style.fontWeightBold
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
               Layout.fillWidth: true
             }
 
@@ -141,7 +142,7 @@ Item {
                 anchors.centerIn: parent
                 icon: "bell-ringing"
                 pointSize: Style.fontSizeXL
-                color: bellMouseArea.containsMouse ? Qt.lighter(Color.mError, 1.2) : Color.mError
+                color: bellMouseArea.containsMouse ? Qt.lighter(Commons.Color.mError, 1.2) : Commons.Color.mError
                 opacity: soundPlaying ? 1 : 0
 
                 Behavior on opacity {
@@ -162,7 +163,7 @@ Item {
             NText {
               text: (pluginApi?.tr("panel.session") || "Session") + " " + (completedSessions + 1) + "/" + sessionsBeforeLongBreak
               pointSize: Style.fontSizeS
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
             }
           }
 
@@ -209,14 +210,14 @@ Item {
             ctx.beginPath();
             ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
             ctx.lineWidth = 6;
-            ctx.strokeStyle = Qt.alpha(Color.mOnSurface, 0.1);
+            ctx.strokeStyle = Qt.alpha(Commons.Color.mOnSurface, 0.1);
             ctx.stroke();
 
             if (progressRatio > 0) {
               ctx.beginPath();
               ctx.arc(centerX, centerY, radius, -Math.PI / 2, -Math.PI / 2 + progressRatio * 2 * Math.PI);
               ctx.lineWidth = 6;
-              ctx.strokeStyle = Color.mPrimary;
+              ctx.strokeStyle = Commons.Color.mPrimary;
               ctx.lineCap = "round";
               ctx.stroke();
             }
@@ -232,7 +233,7 @@ Item {
             Layout.alignment: Qt.AlignHCenter
             text: getModeName()
             pointSize: Style.fontSizeM
-            color: Color.mPrimary
+            color: Commons.Color.mPrimary
             font.weight: Style.fontWeightMedium
           }
 
@@ -249,7 +250,7 @@ Item {
             }
 
             font.weight: Style.fontWeightBold
-            color: Color.mPrimary
+            color: Commons.Color.mPrimary
 
             text: formatTime(remainingSeconds, totalSeconds)
           }

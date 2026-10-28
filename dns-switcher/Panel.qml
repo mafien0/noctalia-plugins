@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -25,9 +26,9 @@ Item {
     Rectangle {
         id: bg
         anchors.fill: parent
-        color: Color.mSurface
+        color: Commons.Color.mSurface
         radius: Style.radiusL
-        border.color: Qt.alpha(Color.mOutline, 0.2)
+        border.color: Qt.alpha(Commons.Color.mOutline, 0.2)
         border.width: 1
 
         ColumnLayout {
@@ -49,21 +50,21 @@ Item {
                     NIcon {
                         icon: "globe"
                         pointSize: Style.fontSizeL
-                        color: Color.mPrimary
+                        color: Commons.Color.mPrimary
                     }
 
                     NText {
                         text: pluginApi?.tr("plugin.title") || "DNS Switcher"
                         pointSize: Style.fontSizeL
                         font.weight: Style.fontWeightBold
-                        color: Color.mOnSurface
+                        color: Commons.Color.mOnSurface
                         Layout.fillWidth: true
                     }
 
                     NText {
                         text: mainInstance?.currentDnsName || "..."
                         pointSize: Style.fontSizeS
-                        color: (mainInstance?.isChanging) ? Color.mPrimary : Color.mSecondary
+                        color: (mainInstance?.isChanging) ? Commons.Color.mPrimary : Commons.Color.mSecondary
                         font.weight: Font.Medium
                     }
                 }
@@ -73,9 +74,9 @@ Item {
                 Layout.fillWidth: true
                 Layout.preferredHeight: errorText.implicitHeight + Style.marginM
                 visible: (mainInstance?.lastError || "") !== ""
-                color: Qt.alpha(Color.mError, 0.1)
+                color: Qt.alpha(Commons.Color.mError, 0.1)
                 radius: Style.radiusS
-                border.color: Qt.alpha(Color.mError, 0.3)
+                border.color: Qt.alpha(Commons.Color.mError, 0.3)
                 border.width: 1
 
                 NText {
@@ -83,7 +84,7 @@ Item {
                     anchors.fill: parent
                     anchors.margins: Style.marginS
                     text: mainInstance?.lastError || ""
-                    color: Color.mError
+                    color: Commons.Color.mError
                     pointSize: Style.fontSizeS
                     wrapMode: Text.WordWrap
                 }
@@ -112,7 +113,7 @@ Item {
                         property bool isActive: (mainInstance?.activeProviderId || "") === providerId
                         property bool isDisabled: mainInstance?.isChanging || false
 
-                        color: isActive ? Color.mPrimary : Color.mSurfaceVariant
+                        color: isActive ? Commons.Color.mPrimary : Commons.Color.mSurfaceVariant
                         opacity: isDisabled ? 0.6 : 1.0
                         Behavior on color { ColorAnimation { duration: Style.animationFast } }
                         Behavior on opacity { NumberAnimation { duration: 150 } }
@@ -121,7 +122,7 @@ Item {
                             anchors.fill: parent
                             radius: opt.radius
                             color: (hoverArea.containsMouse && !opt.isActive && !opt.isDisabled)
-                                   ? Color.mHover : "transparent"
+                                   ? Commons.Color.mHover : "transparent"
                             opacity: (hoverArea.containsMouse && !opt.isActive && !opt.isDisabled)
                                      ? 0.2 : 0
                             Behavior on opacity { NumberAnimation { duration: 150 } }
@@ -136,14 +137,14 @@ Item {
                             NIcon {
                                 icon: opt.isActive ? "check" : "circle"
                                 pointSize: Style.fontSizeM
-                                color: opt.isActive ? Color.mOnPrimary : Color.mOnSurfaceVariant
+                                color: opt.isActive ? Commons.Color.mOnPrimary : Commons.Color.mOnSurfaceVariant
                             }
 
                             NText {
                                 text: opt.label
                                 pointSize: Style.fontSizeM
                                 font.weight: Font.Medium
-                                color: opt.isActive ? Color.mOnPrimary : Color.mOnSurface
+                                color: opt.isActive ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface
                                 Layout.fillWidth: true
                             }
 
@@ -151,15 +152,15 @@ Item {
                                 text: opt.providerIp
                                 pointSize: Style.fontSizeXS
                                 color: opt.isActive
-                                       ? Qt.alpha(Color.mOnPrimary, 0.7)
-                                       : Color.mOnSurfaceVariant
+                                       ? Qt.alpha(Commons.Color.mOnPrimary, 0.7)
+                                       : Commons.Color.mOnSurfaceVariant
                                 visible: opt.providerIp !== ""
                             }
 
                             NIconButton {
                                 visible: opt.isCustom
                                 icon: "trash"
-                                colorFg: opt.isActive ? Color.mOnPrimary : Color.mError
+                                colorFg: opt.isActive ? Commons.Color.mOnPrimary : Commons.Color.mError
                                 enabled: !opt.isDisabled
                                 onClicked: {
                                     if (mainInstance && opt.customIndex >= 0) {
@@ -233,8 +234,8 @@ Item {
                       ? (pluginApi?.tr("panel.cancel") || "Cancel")
                       : (pluginApi?.tr("panel.add_server") || "Add Custom Server")
                 icon: root.isAdding ? "x" : "plus"
-                backgroundColor: root.isAdding ? Color.mSurfaceVariant : Qt.alpha(Color.mPrimary, 0.15)
-                textColor: root.isAdding ? Color.mOnSurface : Color.mPrimary
+                backgroundColor: root.isAdding ? Commons.Color.mSurfaceVariant : Qt.alpha(Commons.Color.mPrimary, 0.15)
+                textColor: root.isAdding ? Commons.Color.mOnSurface : Commons.Color.mPrimary
                 enabled: !(mainInstance?.isChanging || false)
                 onClicked: {
                     root.isAdding = !root.isAdding;
@@ -283,7 +284,7 @@ Item {
                     Layout.fillWidth: true
                     visible: root.validationError !== ""
                     text: root.validationError
-                    color: Color.mError
+                    color: Commons.Color.mError
                     pointSize: Style.fontSizeXS
                     wrapMode: Text.WordWrap
                 }
@@ -315,8 +316,8 @@ Item {
                 Layout.topMargin: Style.marginS
                 text: pluginApi?.tr("panel.reset") || "Reset to Default (ISP)"
                 icon: "refresh"
-                backgroundColor: Qt.alpha(Color.mError, 0.15)
-                textColor: Color.mError
+                backgroundColor: Qt.alpha(Commons.Color.mError, 0.15)
+                textColor: Commons.Color.mError
                 enabled: !(mainInstance?.isChanging || false)
                          && (mainInstance?.isCustomDns || false)
                 onClicked: {

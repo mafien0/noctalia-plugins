@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.Noctalia
 import qs.Services.UI
 import qs.Widgets
@@ -153,7 +154,7 @@ Item {
             NScrollView {
               id: installedScrollView
               horizontalPolicy: ScrollBar.AlwaysOff
-              gradientColor: Color.mSurface
+              gradientColor: Commons.Color.mSurface
 
               Item {
                 width: installedScrollView.availableWidth
@@ -177,7 +178,7 @@ Item {
             NScrollView {
               id: availableScrollView
               horizontalPolicy: ScrollBar.AlwaysOff
-              gradientColor: Color.mSurface
+              gradientColor: Commons.Color.mSurface
 
               Item {
                 width: availableScrollView.availableWidth
@@ -201,7 +202,7 @@ Item {
             NScrollView {
               id: sourcesScrollView
               horizontalPolicy: ScrollBar.AlwaysOff
-              gradientColor: Color.mSurface
+              gradientColor: Commons.Color.mSurface
 
               Item {
                 width: sourcesScrollView.availableWidth

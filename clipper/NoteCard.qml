@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -61,7 +62,7 @@ Rectangle {
         const scheme = colorSchemes[noteColor];
         return scheme ? scheme.bg : "#FFF9C4";
     }
-    border.color: Color.mOnSurfaceVariant
+    border.color: Commons.Color.mOnSurfaceVariant
     border.width: 1
     radius: Style.radiusM
 

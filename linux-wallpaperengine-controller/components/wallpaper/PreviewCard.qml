@@ -5,6 +5,7 @@ import QtMultimedia
 import "../../helpers/panel/DescriptionHelpers.js" as DescriptionHelpers
 
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -112,7 +113,7 @@ ColumnLayout {
     Layout.fillWidth: true
     Layout.preferredHeight: 180 * Style.uiScaleRatio
     radius: Style.radiusM
-    color: Color.mSurfaceVariant
+    color: Commons.Color.mSurfaceVariant
     clip: true
 
     Image {
@@ -146,7 +147,7 @@ ColumnLayout {
   NText {
     Layout.fillWidth: true
     text: root.selectedWallpaperData ? root.selectedWallpaperData.name : ""
-    color: Color.mOnSurface
+    color: Commons.Color.mOnSurface
     font.weight: Font.Bold
     elide: Text.ElideRight
   }
@@ -193,32 +194,32 @@ ColumnLayout {
           }
           badgeColor: {
             const key = String(modelData || "");
-            if (key === "type") return Color.mSecondary;
-            if (key === "dynamic") return root.selectedWallpaperData.dynamic ? Color.mTertiary : Color.mOnSurfaceVariant;
-            if (key === "music") return Color.mPrimary;
-            if (key === "reactive") return Color.mSecondary;
-            if (key === "approved") return Color.mPrimary;
-            if (key === "resolution") return Color.mOnSurfaceVariant;
+            if (key === "type") return Commons.Color.mSecondary;
+            if (key === "dynamic") return root.selectedWallpaperData.dynamic ? Commons.Color.mTertiary : Commons.Color.mOnSurfaceVariant;
+            if (key === "music") return Commons.Color.mPrimary;
+            if (key === "reactive") return Commons.Color.mSecondary;
+            if (key === "approved") return Commons.Color.mPrimary;
+            if (key === "resolution") return Commons.Color.mOnSurfaceVariant;
             if (key === "compatibility") {
               const cPath = String(root.selectedWallpaperData?.path || "");
-              return root.propertyCompatibilityBadgeColorForPath ? root.propertyCompatibilityBadgeColorForPath(cPath) : Color.mError;
+              return root.propertyCompatibilityBadgeColorForPath ? root.propertyCompatibilityBadgeColorForPath(cPath) : Commons.Color.mError;
             }
-            return Color.mOnSurfaceVariant;
+            return Commons.Color.mOnSurfaceVariant;
           }
           badgeBgColor: {
             const key = String(modelData || "");
-            if (key === "type") return Qt.alpha(Color.mSecondary, 0.1);
-            if (key === "dynamic") return root.selectedWallpaperData.dynamic ? Qt.alpha(Color.mTertiary, 0.1) : Qt.alpha(Color.mOutline, 0.1);
-            if (key === "music") return Qt.alpha(Color.mPrimary, 0.1);
-            if (key === "reactive") return Qt.alpha(Color.mSecondary, 0.1);
-            if (key === "approved") return Qt.alpha(Color.mPrimary, 0.1);
-            if (key === "resolution") return Qt.alpha(Color.mSurfaceVariant, 0.24);
+            if (key === "type") return Qt.alpha(Commons.Color.mSecondary, 0.1);
+            if (key === "dynamic") return root.selectedWallpaperData.dynamic ? Qt.alpha(Commons.Color.mTertiary, 0.1) : Qt.alpha(Commons.Color.mOutline, 0.1);
+            if (key === "music") return Qt.alpha(Commons.Color.mPrimary, 0.1);
+            if (key === "reactive") return Qt.alpha(Commons.Color.mSecondary, 0.1);
+            if (key === "approved") return Qt.alpha(Commons.Color.mPrimary, 0.1);
+            if (key === "resolution") return Qt.alpha(Commons.Color.mSurfaceVariant, 0.24);
             if (key === "compatibility") {
               const cPath = String(root.selectedWallpaperData?.path || "");
-              const cColor = root.propertyCompatibilityBadgeColorForPath ? root.propertyCompatibilityBadgeColorForPath(cPath) : Color.mError;
+              const cColor = root.propertyCompatibilityBadgeColorForPath ? root.propertyCompatibilityBadgeColorForPath(cPath) : Commons.Color.mError;
               return root.propertyCompatibilityBadgeBackgroundForPath ? root.propertyCompatibilityBadgeBackgroundForPath(cPath) : Qt.alpha(cColor, 0.1);
             }
-            return Qt.alpha(Color.mSurfaceVariant, 0.24);
+            return Qt.alpha(Commons.Color.mSurfaceVariant, 0.24);
           }
         }
       }
@@ -231,14 +232,14 @@ ColumnLayout {
 
     NText {
       text: pluginApi?.tr("panel.infoType")
-      color: Color.mOnSurfaceVariant
+      color: Commons.Color.mOnSurfaceVariant
     }
 
     Item { Layout.fillWidth: true }
 
     NText {
       text: root.selectedWallpaperData && root.typeLabel ? root.typeLabel(root.selectedWallpaperData.type) : ""
-      color: Color.mOnSurface
+      color: Commons.Color.mOnSurface
     }
   }
 
@@ -247,14 +248,14 @@ ColumnLayout {
 
     NText {
       text: pluginApi?.tr("panel.infoId")
-      color: Color.mOnSurfaceVariant
+      color: Commons.Color.mOnSurfaceVariant
     }
 
     Item { Layout.fillWidth: true }
 
     NText {
       text: root.selectedWallpaperData ? root.selectedWallpaperData.id : ""
-      color: Color.mOnSurface
+      color: Commons.Color.mOnSurface
       elide: Text.ElideMiddle
     }
   }
@@ -264,7 +265,7 @@ ColumnLayout {
 
     NText {
       text: pluginApi?.tr("panel.infoResolution")
-      color: Color.mOnSurfaceVariant
+      color: Commons.Color.mOnSurfaceVariant
     }
 
     Item { Layout.fillWidth: true }
@@ -275,7 +276,7 @@ ColumnLayout {
           ? pluginApi?.tr("panel.resolutionUnknown")
           : root.selectedWallpaperData.resolution)
         : ""
-      color: Color.mOnSurface
+      color: Commons.Color.mOnSurface
     }
   }
 
@@ -284,14 +285,14 @@ ColumnLayout {
 
     NText {
       text: pluginApi?.tr("panel.infoSize")
-      color: Color.mOnSurfaceVariant
+      color: Commons.Color.mOnSurfaceVariant
     }
 
     Item { Layout.fillWidth: true }
 
     NText {
       text: root.selectedWallpaperData && root.formatBytes ? root.formatBytes(root.selectedWallpaperData.bytes) : ""
-      color: Color.mOnSurface
+      color: Commons.Color.mOnSurface
     }
   }
 
@@ -308,7 +309,7 @@ ColumnLayout {
     NText {
       Layout.fillWidth: true
       text: pluginApi?.tr("panel.infoDescription")
-      color: Color.mOnSurfaceVariant
+      color: Commons.Color.mOnSurfaceVariant
     }
 
     Rectangle {
@@ -320,9 +321,9 @@ ColumnLayout {
         return root.collapsedDescriptionHeight + Style.marginS * 2;
       }
       radius: Style.radiusM
-      color: Qt.alpha(Color.mSurfaceVariant, 0.2)
+      color: Qt.alpha(Commons.Color.mSurfaceVariant, 0.2)
       border.width: Style.borderS
-      border.color: Qt.alpha(Color.mOutline, 0.22)
+      border.color: Qt.alpha(Commons.Color.mOutline, 0.22)
       clip: true
 
       NText {
@@ -342,9 +343,9 @@ ColumnLayout {
         anchors.margins: Style.marginS
         text: root.selectedDescriptionMarkup
         textFormat: Text.RichText
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         wrapMode: Text.Wrap
-        linkColor: Color.mPrimary
+        linkColor: Commons.Color.mPrimary
         onLinkActivated: url => Qt.openUrlExternally(url)
       }
 
@@ -355,9 +356,9 @@ ColumnLayout {
         height: 36 * Style.uiScaleRatio
         visible: root.descriptionShouldCollapse && !root.descriptionExpanded
         color: Qt.rgba(
-          Color.mSurfaceVariant.r,
-          Color.mSurfaceVariant.g,
-          Color.mSurfaceVariant.b,
+          Commons.Color.mSurfaceVariant.r,
+          Commons.Color.mSurfaceVariant.g,
+          Commons.Color.mSurfaceVariant.b,
           0.28
         )
       }

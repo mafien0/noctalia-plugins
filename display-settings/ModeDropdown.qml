@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -30,8 +31,8 @@ ColumnLayout {
     Layout.fillWidth: true
     height: 34 * Style.uiScaleRatio
     radius: Style.radiusS
-    color: hovered ? Color.mSurface : "transparent"
-    border.color: Color.mOutline
+    color: hovered ? Commons.Color.mSurface : "transparent"
+    border.color: Commons.Color.mOutline
     border.width: Style.borderS
 
     RowLayout {
@@ -40,17 +41,17 @@ ColumnLayout {
 
       NText {
         text: root.pluginApi?.tr("panel.mode")
-        pointSize: Style.fontSizeS; font.weight: Font.DemiBold; color: Color.mOnSurfaceVariant
+        pointSize: Style.fontSizeS; font.weight: Font.DemiBold; color: Commons.Color.mOnSurfaceVariant
       }
       NText {
         text: root.currentModeText
-        pointSize: Style.fontSizeS; color: Color.mOnSurface
+        pointSize: Style.fontSizeS; color: Commons.Color.mOnSurface
         Layout.fillWidth: true
         elide: Text.ElideRight
       }
       NIcon {
         icon: root.expanded ? "chevron-up" : "chevron-down"
-        pointSize: Style.fontSizeXS; color: Color.mOnSurfaceVariant
+        pointSize: Style.fontSizeXS; color: Commons.Color.mOnSurfaceVariant
       }
     }
 
@@ -82,8 +83,8 @@ ColumnLayout {
         height: 34 * Style.uiScaleRatio
         radius: Style.radiusS
         color: isCurrent
-          ? Qt.rgba(Color.mPrimary.r, Color.mPrimary.g, Color.mPrimary.b, 0.18)
-          : hovered ? Color.mSurface : "transparent"
+          ? Qt.rgba(Commons.Color.mPrimary.r, Commons.Color.mPrimary.g, Commons.Color.mPrimary.b, 0.18)
+          : hovered ? Commons.Color.mSurface : "transparent"
         Behavior on color { ColorAnimation { duration: 100 } }
 
         RowLayout {
@@ -93,24 +94,24 @@ ColumnLayout {
           NText {
             text: row.mode.width + "x" + row.mode.height
             pointSize: Style.fontSizeS
-            color: row.isCurrent ? Color.mPrimary : Color.mOnSurface
+            color: row.isCurrent ? Commons.Color.mPrimary : Commons.Color.mOnSurface
             font.weight: row.isCurrent ? 600 : 400
           }
           NText {
             text: root.pluginApi?.tr("panel.refreshRateSuffix").arg(parseFloat(row.mode.refreshRate).toFixed(1))
             pointSize: Style.fontSizeXS
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
           }
           NText {
             visible: row.mode.isPreferred
             text: root.pluginApi?.tr("panel.preferred")
             pointSize: Style.fontSizeXS
-            color: Color.mPrimary
+            color: Commons.Color.mPrimary
           }
           Item { Layout.fillWidth: true }
           NIcon {
             icon: "check"
-            color: Color.mPrimary
+            color: Commons.Color.mPrimary
             pointSize: Style.fontSizeS
             visible: row.isCurrent
           }

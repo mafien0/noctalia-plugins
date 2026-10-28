@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -71,11 +72,11 @@ Item {
 
   function taskToneColor(task) {
     var value = Number(task?.value || 0)
-    if (task?.type === "todo") return Color.mTertiary
-    if (value < -10) return Color.mError
-    if (value < -1) return Color.mTertiary
-    if (value < 1) return Color.mSecondary
-    return Color.mPrimary
+    if (task?.type === "todo") return Commons.Color.mTertiary
+    if (value < -10) return Commons.Color.mError
+    if (value < -1) return Commons.Color.mTertiary
+    if (value < 1) return Commons.Color.mSecondary
+    return Commons.Color.mPrimary
   }
 
   function taskToneLabel(task) {
@@ -90,7 +91,7 @@ Item {
   Rectangle {
     id: panelContainer
     anchors.fill: parent
-    color: Color.mSurface
+    color: Commons.Color.mSurface
 
     ColumnLayout {
       anchors.fill: parent
@@ -111,8 +112,8 @@ Item {
             Layout.preferredWidth: 112 * Style.uiScaleRatio
             Layout.preferredHeight: 116 * Style.uiScaleRatio
             radius: Style.radiusS
-            color: Qt.alpha(Color.mPrimary, 0.24)
-            border.color: Color.mPrimary
+            color: Qt.alpha(Commons.Color.mPrimary, 0.24)
+            border.color: Commons.Color.mPrimary
             border.width: Style.uiScaleRatio * 2
 
             HabiticaAvatar {
@@ -128,7 +129,7 @@ Item {
               visible: !avatarImage.hasAvatarData
               icon: "sword"
               pointSize: Style.fontSizeXXL * 1.6
-              color: Color.mPrimary
+              color: Commons.Color.mPrimary
             }
           }
 
@@ -139,7 +140,7 @@ Item {
             NIcon {
               icon: "sword"
               pointSize: Style.fontSizeL
-              color: Color.mPrimary
+              color: Commons.Color.mPrimary
             }
 
             NText {
@@ -147,7 +148,7 @@ Item {
               text: root.configured ? root.main.levelText().replace("Level", "Lv.") + (root.classText() ? " " + root.classText() : "") : "Lv. --"
               pointSize: Style.fontSizeS
               font.weight: Font.Bold
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
               elide: Text.ElideRight
             }
           }
@@ -166,7 +167,7 @@ Item {
               text: root.configured ? root.main.displayName() : "Habitica"
               pointSize: Style.fontSizeXL
               font.weight: Font.Bold
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
               elide: Text.ElideRight
             }
 
@@ -191,7 +192,7 @@ Item {
             label: pluginApi?.tr("panel.health")
             value: root.main?.hpText() || "--"
             ratio: root.hpRatio()
-            fillColor: Color.mError
+            fillColor: Commons.Color.mError
           }
 
           StatBar {
@@ -199,7 +200,7 @@ Item {
             label: pluginApi?.tr("panel.experience")
             value: root.main?.xpText() || "--"
             ratio: root.xpRatio()
-            fillColor: Color.mPrimary
+            fillColor: Commons.Color.mPrimary
           }
 
           StatBar {
@@ -207,7 +208,7 @@ Item {
             label: pluginApi?.tr("panel.mana")
             value: root.mpText()
             ratio: root.mpRatio()
-            fillColor: Color.mSecondary
+            fillColor: Commons.Color.mSecondary
             visible: root.main?.stats?.mp !== undefined
           }
 
@@ -219,7 +220,7 @@ Item {
             CurrencyPill {
               icon: "coin"
               value: root.main?.goldText().replace(" gold", "") || "--"
-              colorKey: Color.mTertiary
+              colorKey: Commons.Color.mTertiary
             }
 
             Item { Layout.fillWidth: true }
@@ -227,7 +228,7 @@ Item {
             NText {
               text: root.relativeUpdateText()
               pointSize: Style.fontSizeXS
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
             }
           }
         }
@@ -238,8 +239,8 @@ Item {
         Layout.fillWidth: true
         implicitHeight: errorText.implicitHeight + Style.marginM * 2
         radius: Style.radiusM
-        color: Qt.alpha(Color.mError, 0.12)
-        border.color: Color.mError
+        color: Qt.alpha(Commons.Color.mError, 0.12)
+        border.color: Commons.Color.mError
         border.width: Style.uiScaleRatio
 
         NText {
@@ -247,7 +248,7 @@ Item {
           anchors.fill: parent
           anchors.margins: Style.marginM
           text: root.main?.errorMessage || ""
-          color: Color.mError
+          color: Commons.Color.mError
           pointSize: Style.fontSizeS
           wrapMode: Text.Wrap
         }
@@ -259,7 +260,7 @@ Item {
         horizontalPolicy: ScrollBar.AlwaysOff
         verticalPolicy: ScrollBar.AsNeeded
         reserveScrollbarSpace: false
-        gradientColor: Color.mSurface
+        gradientColor: Commons.Color.mSurface
 
         ColumnLayout {
           width: parent.width
@@ -322,7 +323,7 @@ Item {
     property string label
     property string value: ""
     property real ratio: 0
-    property color fillColor: Color.mPrimary
+    property color fillColor: Commons.Color.mPrimary
 
     implicitHeight: statLayout.implicitHeight + Style.marginXS * 2
     radius: Style.radiusS
@@ -343,7 +344,7 @@ Item {
           text: value
           pointSize: Style.fontSizeS
           font.weight: Font.Bold
-          color: Color.mOnSurface
+          color: Commons.Color.mOnSurface
           elide: Text.ElideRight
         }
 
@@ -351,7 +352,7 @@ Item {
           text: label
           pointSize: Style.fontSizeXS
           font.weight: Font.Bold
-          color: Color.mOnSurfaceVariant
+          color: Commons.Color.mOnSurfaceVariant
         }
       }
 
@@ -359,7 +360,7 @@ Item {
         Layout.fillWidth: true
         Layout.preferredHeight: 8 * Style.uiScaleRatio
         radius: height / 2
-        color: Qt.alpha(Color.mOnSurface, 0.12)
+        color: Qt.alpha(Commons.Color.mOnSurface, 0.12)
         clip: true
 
         Rectangle {
@@ -386,7 +387,7 @@ Item {
 
     property string icon: ""
     property string value: ""
-    property color colorKey: Color.mPrimary
+    property color colorKey: Commons.Color.mPrimary
 
     spacing: Style.marginXS
 
@@ -431,7 +432,7 @@ Item {
         Layout.alignment: Qt.AlignHCenter
         icon: emptyRoot.icon
         pointSize: Style.fontSizeXXL
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
       }
 
       NText {
@@ -439,14 +440,14 @@ Item {
         text: emptyRoot.title
         pointSize: Style.fontSizeM
         font.weight: Font.Bold
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
       }
 
       NText {
         Layout.fillWidth: true
         text: emptyRoot.description
         pointSize: Style.fontSizeS
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.Wrap
       }
@@ -470,7 +471,7 @@ Item {
         text: title
         pointSize: Style.fontSizeS
         font.weight: Font.Bold
-        color: Color.mSecondary
+        color: Commons.Color.mSecondary
       }
 
       Item { Layout.fillWidth: true }
@@ -479,7 +480,7 @@ Item {
         implicitWidth: countText.implicitWidth + Style.marginS * 2
         implicitHeight: countText.implicitHeight + Style.marginXS * 2
         radius: implicitHeight / 2
-        color: Qt.alpha(Color.mSecondary, 0.14)
+        color: Qt.alpha(Commons.Color.mSecondary, 0.14)
 
         NText {
           id: countText
@@ -487,7 +488,7 @@ Item {
           text: tasks.length.toString()
           pointSize: Style.fontSizeXS
           font.weight: Font.Bold
-          color: Color.mSecondary
+          color: Commons.Color.mSecondary
         }
       }
     }
@@ -502,7 +503,7 @@ Item {
         anchors.centerIn: parent
         text: emptyText
         pointSize: Style.fontSizeS
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
       }
     }
 
@@ -514,7 +515,7 @@ Item {
         Layout.fillWidth: true
         implicitHeight: taskContent.implicitHeight + Style.marginM * 2
         radius: Style.radiusM
-        color: taskMouse.containsMouse ? Qt.alpha(root.taskToneColor(taskCard.task), 0.12) : Color.mSurface
+        color: taskMouse.containsMouse ? Qt.alpha(root.taskToneColor(taskCard.task), 0.12) : Commons.Color.mSurface
         border.color: Qt.alpha(root.taskToneColor(taskCard.task), taskMouse.containsMouse ? 0.42 : 0.22)
         border.width: Style.uiScaleRatio
 
@@ -552,10 +553,10 @@ Item {
             icon: taskCard.task?.completed ? "check-check" : "check"
             tooltipText: pluginApi?.tr("panel.complete")
             baseSize: Style.baseWidgetSize * 0.78
-            colorBg: Qt.alpha(Color.mSurface, 0.78)
+            colorBg: Qt.alpha(Commons.Color.mSurface, 0.78)
             colorFg: taskCard.toneColor
-            colorBgHover: Color.mHover
-            colorFgHover: Color.mOnHover
+            colorBgHover: Commons.Color.mHover
+            colorFgHover: Commons.Color.mOnHover
             onClicked: main.completeTask(taskCard.task)
           }
 
@@ -566,8 +567,8 @@ Item {
             icon: "plus"
             tooltipText: pluginApi?.tr("panel.scoreUpDisabled")
             baseSize: Style.baseWidgetSize * 0.78
-            colorBg: Qt.alpha(Color.mSurface, 0.26)
-            colorFg: Qt.alpha(Color.mOnSurface, 0.42)
+            colorBg: Qt.alpha(Commons.Color.mSurface, 0.26)
+            colorFg: Qt.alpha(Commons.Color.mOnSurface, 0.42)
           }
 
           ColumnLayout {
@@ -581,10 +582,10 @@ Item {
               icon: "plus"
               tooltipText: pluginApi?.tr("panel.scoreUp")
               baseSize: Style.baseWidgetSize * 0.58
-              colorBg: Qt.alpha(Color.mSurface, 0.78)
+              colorBg: Qt.alpha(Commons.Color.mSurface, 0.78)
               colorFg: taskCard.toneColor
-              colorBgHover: Color.mHover
-              colorFgHover: Color.mOnHover
+              colorBgHover: Commons.Color.mHover
+              colorFgHover: Commons.Color.mOnHover
               onClicked: main.scoreHabit(taskCard.task, "up")
             }
 
@@ -599,7 +600,7 @@ Item {
           width: kind === "habit" ? 52 * Style.uiScaleRatio : 0
           visible: kind === "habit"
           radius: Style.radiusM
-          color: (taskCard.task?.down ?? false) ? Qt.alpha(taskCard.toneColor, 0.82) : Qt.alpha(Color.mOnSurfaceVariant, 0.18)
+          color: (taskCard.task?.down ?? false) ? Qt.alpha(taskCard.toneColor, 0.82) : Qt.alpha(Commons.Color.mOnSurfaceVariant, 0.18)
 
           Rectangle {
             anchors.left: parent.left
@@ -615,10 +616,10 @@ Item {
             icon: "minus"
             tooltipText: (taskCard.task?.down ?? false) ? pluginApi?.tr("panel.scoreDown") : pluginApi?.tr("panel.scoreDownDisabled")
             baseSize: Style.baseWidgetSize * 0.78
-            colorBg: Qt.alpha(Color.mSurface, enabled ? 0.78 : 0.16)
-            colorFg: enabled ? taskCard.toneColor : Qt.alpha(Color.mOnSurface, 0.42)
-            colorBgHover: Color.mHover
-            colorFgHover: Color.mOnHover
+            colorBg: Qt.alpha(Commons.Color.mSurface, enabled ? 0.78 : 0.16)
+            colorFg: enabled ? taskCard.toneColor : Qt.alpha(Commons.Color.mOnSurface, 0.42)
+            colorBgHover: Commons.Color.mHover
+            colorFgHover: Commons.Color.mOnHover
             onClicked: main.scoreHabit(taskCard.task, "down")
           }
         }
@@ -652,7 +653,7 @@ Item {
                 text: taskCard.task?.text || pluginApi?.tr("panel.untitledTask")
                 pointSize: Style.fontSizeS
                 font.weight: Font.Medium
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 wrapMode: Text.Wrap
               }
 
@@ -661,7 +662,7 @@ Item {
                 visible: (taskCard.task?.notes || "") !== "" || (main?.taskSummary(taskCard.task) || "") !== ""
                 text: (main?.taskSummary(taskCard.task) || "") || taskCard.task.notes
                 pointSize: Style.fontSizeXS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 elide: Text.ElideRight
               }
             }
@@ -706,7 +707,7 @@ Item {
                   Layout.fillWidth: true
                   text: modelData.text || ""
                   pointSize: Style.fontSizeXS
-                  color: modelData.completed ? Color.mOnSurfaceVariant : Color.mOnSurface
+                  color: modelData.completed ? Commons.Color.mOnSurfaceVariant : Commons.Color.mOnSurface
                   font.strikeout: modelData.completed
                   elide: Text.ElideRight
                 }

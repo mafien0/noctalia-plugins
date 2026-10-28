@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.Theming
 import qs.Services.UI
 import qs.Widgets
@@ -198,22 +199,22 @@ Item {
   // ── Logic ─────────────────────────────────────────────────────
   function seedColors() {
     return {
-      mPrimary: Color.mPrimary.toString(),
-      mOnPrimary: Color.mOnPrimary.toString(),
-      mSecondary: Color.mSecondary.toString(),
-      mOnSecondary: Color.mOnSecondary.toString(),
-      mTertiary: Color.mTertiary.toString(),
-      mOnTertiary: Color.mOnTertiary.toString(),
-      mError: Color.mError.toString(),
-      mOnError: Color.mOnError.toString(),
-      mSurface: Color.mSurface.toString(),
-      mOnSurface: Color.mOnSurface.toString(),
-      mSurfaceVariant: Color.mSurfaceVariant.toString(),
-      mOnSurfaceVariant: Color.mOnSurfaceVariant.toString(),
-      mOutline: Color.mOutline.toString(),
-      mShadow: Color.mShadow.toString(),
-      mHover: Color.mHover.toString(),
-      mOnHover: Color.mOnHover.toString()
+      mPrimary: Commons.Color.mPrimary.toString(),
+      mOnPrimary: Commons.Color.mOnPrimary.toString(),
+      mSecondary: Commons.Color.mSecondary.toString(),
+      mOnSecondary: Commons.Color.mOnSecondary.toString(),
+      mTertiary: Commons.Color.mTertiary.toString(),
+      mOnTertiary: Commons.Color.mOnTertiary.toString(),
+      mError: Commons.Color.mError.toString(),
+      mOnError: Commons.Color.mOnError.toString(),
+      mSurface: Commons.Color.mSurface.toString(),
+      mOnSurface: Commons.Color.mOnSurface.toString(),
+      mSurfaceVariant: Commons.Color.mSurfaceVariant.toString(),
+      mOnSurfaceVariant: Commons.Color.mOnSurfaceVariant.toString(),
+      mOutline: Commons.Color.mOutline.toString(),
+      mShadow: Commons.Color.mShadow.toString(),
+      mHover: Commons.Color.mHover.toString(),
+      mOnHover: Commons.Color.mOnHover.toString()
     };
   }
 
@@ -376,14 +377,14 @@ Item {
           NIcon {
             icon: "palette"
             pointSize: Style.fontSizeXXL
-            color: Color.mPrimary
+            color: Commons.Color.mPrimary
           }
 
           NText {
             text: pluginApi?.tr("panel.title")
             pointSize: Style.fontSizeL
             font.weight: Style.fontWeightBold
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
             Layout.fillWidth: true
           }
 
@@ -422,7 +423,7 @@ Item {
 
             NText {
               text: pluginApi?.tr("panel.dark")
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               pointSize: Style.fontSizeS
               font.weight: Font.Medium
               horizontalAlignment: Text.AlignHCenter
@@ -431,7 +432,7 @@ Item {
 
             NText {
               text: pluginApi?.tr("panel.light")
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               pointSize: Style.fontSizeS
               font.weight: Font.Medium
               horizontalAlignment: Text.AlignHCenter
@@ -449,7 +450,7 @@ Item {
 
               NText {
                 text: modelData.label
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 Layout.preferredWidth: 150 * Style.uiScaleRatio
                 elide: Text.ElideRight
               }
@@ -465,7 +466,7 @@ Item {
                   height: 25 * Style.uiScaleRatio
                   radius: Style.radiusS
                   color: root.editingScheme?.dark?.[modelData.key] ?? "#000000"
-                  border.color: Color.mOutline
+                  border.color: Commons.Color.mOutline
                   border.width: Style.borderS
 
                   MouseArea {
@@ -492,7 +493,7 @@ Item {
                   height: 25 * Style.uiScaleRatio
                   radius: Style.radiusS
                   color: root.editingScheme?.light?.[modelData.key] ?? "#000000"
-                  border.color: Color.mOutline
+                  border.color: Commons.Color.mOutline
                   border.width: Style.borderS
 
                   MouseArea {

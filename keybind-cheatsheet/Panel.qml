@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Services.Compositor
 import qs.Widgets
@@ -143,7 +144,7 @@ Item {
   // Empty string = theme-aware fallback (Color.mOnSurface). Any non-empty
   // value is treated as an explicit user override.
   readonly property string descriptionColorOverride: cfg.descriptionTextColor || defaults.descriptionTextColor || ""
-  readonly property color descriptionTextColor: descriptionColorOverride !== "" ? descriptionColorOverride : Color.mOnSurface
+  readonly property color descriptionTextColor: descriptionColorOverride !== "" ? descriptionColorOverride : Commons.Color.mOnSurface
 
   // Per-category text color overrides (empty = fall back to keyLabelColor)
   readonly property string keyTextSuperOverride:   cfg.keyTextSuper   ?? defaults.keyTextSuper   ?? ""
@@ -229,7 +230,7 @@ Item {
       anchors.left: parent.left
       anchors.right: parent.right
       height: 45
-      color: Color.mSurfaceVariant
+      color: Commons.Color.mSurfaceVariant
       radius: Style.radiusL
 
       RowLayout {
@@ -244,7 +245,7 @@ Item {
         NIcon {
           icon: "keyboard"
           pointSize: Style.fontSizeM
-          color: Color.mPrimary
+          color: Commons.Color.mPrimary
         }
         NText {
           text: CompositorService.isHyprland ? pluginApi?.tr("panel.title-hyprland") :
@@ -253,7 +254,7 @@ Item {
                                                pluginApi?.tr("panel.title")
           font.pointSize: Style.fontSizeM
           font.weight: Font.Bold
-          color: Color.mPrimary
+          color: Commons.Color.mPrimary
         }
 
         NTextInput {
@@ -297,7 +298,7 @@ Item {
       text: root.loadingTimedOut ? pluginApi?.tr("panel.loading-timeout") : pluginApi?.tr("panel.loading")
       visible: root.isLoading
       font.pointSize: Style.fontSizeL
-      color: Color.mOnSurface
+      color: Commons.Color.mOnSurface
     }
 
     NScrollView {
@@ -365,7 +366,7 @@ Item {
         text: itemData.title
         font.pointSize: Style.fontSizeM
         font.weight: Font.Bold
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
       }
 
       Item { Layout.fillWidth: true; height: 1 }
@@ -433,7 +434,7 @@ Item {
         text: pluginApi?.tr("panel.no-description")
         font.pointSize: Style.fontSizeXS
         font.italic: true
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         elide: Text.ElideRight
 
         MouseArea {
@@ -489,9 +490,9 @@ Item {
   }
 
   function getKeyColor(keyName) {
-    if (keyName === "Super") return root.keyColorSuperOverride || Color.mPrimary;
-    if (keyName === "Ctrl")  return root.keyColorCtrlOverride  || Color.mSecondary;
-    if (keyName === "Shift") return root.keyColorShiftOverride || Color.mTertiary;
+    if (keyName === "Super") return root.keyColorSuperOverride || Commons.Color.mPrimary;
+    if (keyName === "Ctrl")  return root.keyColorCtrlOverride  || Commons.Color.mSecondary;
+    if (keyName === "Shift") return root.keyColorShiftOverride || Commons.Color.mTertiary;
     if (keyName === "Alt") return root.keyColorAlt;
     if (keyName.startsWith("XF86")) return root.keyColorXF86;
     if (keyName === "PRINT" || keyName === "Print") return root.keyColorPrint;

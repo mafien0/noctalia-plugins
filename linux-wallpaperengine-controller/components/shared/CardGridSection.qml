@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -59,12 +60,12 @@ ColumnLayout {
           Layout.alignment: Qt.AlignHCenter
           icon: root.emptyIcon
           pointSize: Style.fontSizeXL
-          color: Color.mOnSurfaceVariant
+          color: Commons.Color.mOnSurfaceVariant
         }
 
         NText {
           text: root.emptyText
-          color: Color.mOnSurfaceVariant
+          color: Commons.Color.mOnSurfaceVariant
           horizontalAlignment: Text.AlignHCenter
           wrapMode: Text.Wrap
         }
@@ -77,9 +78,9 @@ ColumnLayout {
     visible: root.paginationVisible
     implicitHeight: paginationRow.implicitHeight + Style.marginS * 2
     radius: Style.radiusM
-    color: Qt.alpha(Color.mSurface, 0.78)
+    color: Qt.alpha(Commons.Color.mSurface, 0.78)
     border.width: Style.borderS
-    border.color: Qt.alpha(Color.mOutline, 0.3)
+    border.color: Qt.alpha(Commons.Color.mOutline, 0.3)
 
     RowLayout {
       id: paginationRow
@@ -99,7 +100,7 @@ ColumnLayout {
           current: root.currentPageDisplay,
           total: root.pageCount
         })
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
         font.weight: Font.Medium
       }
 
@@ -109,7 +110,7 @@ ColumnLayout {
           end: root.currentPageEndIndex,
           total: root.totalVisibleCount
         })
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
       }
 
       Item { Layout.fillWidth: true }

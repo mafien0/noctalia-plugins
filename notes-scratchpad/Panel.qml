@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -187,9 +188,9 @@ Item {
       Rectangle {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
         radius: Style.radiusM
-        border.color: Color.mOutline
+        border.color: Commons.Color.mOutline
         border.width: 1
 
         NScrollView {
@@ -211,7 +212,7 @@ Item {
             placeholderText: pluginApi?.tr("panel.placeholder") || "Start typing your notes here..."
             wrapMode: TextArea.Wrap
             selectByMouse: true
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
             font.pixelSize: root.fontSize
             font.family: root.useMonospace ? Settings.data.ui.fontFixed : Settings.data.ui.fontDefault
             background: Item {}
@@ -240,7 +241,7 @@ Item {
           return chars + " " + charText + " · " + words + " " + wordText;
         }
         pointSize: Style.fontSizeS
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         Layout.alignment: Qt.AlignRight
       }
     }

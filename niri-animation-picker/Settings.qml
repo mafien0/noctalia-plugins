@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -36,7 +37,7 @@ ColumnLayout {
 
                 NText {
                     text: root.valueAnimationsFolder
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     pointSize: Style.fontSizeS
                     elide: Text.ElideLeft
                     Layout.fillWidth: true

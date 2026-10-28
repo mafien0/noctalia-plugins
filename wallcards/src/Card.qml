@@ -1,4 +1,5 @@
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import QtQuick
 import QtMultimedia
@@ -44,7 +45,7 @@ Item {
     id: border
 
     anchors.fill: parent
-    border.color: isCenter ? Color.mOutline : Qt.alpha(Color.mOutlineVariant, 0.5)
+    border.color: isCenter ? Commons.Color.mOutline : Qt.alpha(Commons.Color.mOutlineVariant, 0.5)
     border.width: Style.borderS
     color: "transparent"
     opacity: 0.75

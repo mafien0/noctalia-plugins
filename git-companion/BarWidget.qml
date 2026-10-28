@@ -1,5 +1,6 @@
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Modules.Bar.Extras
 import qs.Services.UI
 import qs.Widgets
@@ -53,8 +54,8 @@ Item {
         id: pill
 
         autoHide: false
-        customIconColor: Color.resolveColorKeyOptional(root.iconColorKey)
-        customTextColor: Color.resolveColorKeyOptional(root.textColorKey)
+        customIconColor: Commons.Color.resolveColorKeyOptional(root.iconColorKey)
+        customTextColor: Commons.Color.resolveColorKeyOptional(root.textColorKey)
         forceClose: isBarVertical || root.displayMode === "alwaysHide" || text === ""
         forceOpen: !isBarVertical && root.displayMode === "alwaysShow"
         icon: platform === 'gitlab' ? 'brand-gitlab' : "brand-github"

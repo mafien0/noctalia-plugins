@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -21,7 +22,7 @@ NIconButton {
     tooltipDirection: BarService.getTooltipDirection(screen?.name)
     baseSize: Style.getCapsuleHeightForScreen(screen?.name)
     applyUiScale: false
-    colorFg: Color.resolveColorKey(iconColorKey)
+    colorFg: Commons.Color.resolveColorKey(iconColorKey)
     customRadius: Style.radiusL
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth

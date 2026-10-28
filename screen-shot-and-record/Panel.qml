@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import Quickshell.Io
 import qs.Services.UI
@@ -66,14 +67,14 @@ Item {
               NIcon {
                   icon: "screenshot"
                   pointSize: Style.fontSizeL
-                  color: Color.mPrimary
+                  color: Commons.Color.mPrimary
               }
 
               NText {
                   text: pluginApi?.tr("panel.title")
                   pointSize: Style.fontSizeL
                   font.weight: Style.fontWeightBold
-                  color: Color.mOnSurface
+                  color: Commons.Color.mOnSurface
                   Layout.fillWidth: true
                   wrapMode: Text.WordWrap
               }
@@ -87,8 +88,8 @@ Item {
               NButton {
                   icon: "screenshot"
                   text: pluginApi?.tr("panel.target.screenshot")
-                  backgroundColor: Color.mPrimary
-                  textColor: Color.mOnPrimary
+                  backgroundColor: Commons.Color.mPrimary
+                  textColor: Commons.Color.mOnPrimary
                   Layout.fillWidth: true
                   onClicked: {
                       root.target = "screenshot"
@@ -98,8 +99,8 @@ Item {
               NButton {
                   icon: "text-recognition"
                   text: pluginApi?.tr("panel.target.ocr")
-                  backgroundColor: Color.mPrimary
-                  textColor: Color.mOnPrimary
+                  backgroundColor: Commons.Color.mPrimary
+                  textColor: Commons.Color.mOnPrimary
                   Layout.fillWidth: true
                   onClicked: {
                       root.target = "ocr"
@@ -109,8 +110,8 @@ Item {
               NButton {
                   icon: "photo-search"
                   text: pluginApi?.tr("panel.target.search")
-                  backgroundColor: Color.mPrimary
-                  textColor: Color.mOnPrimary
+                  backgroundColor: Commons.Color.mPrimary
+                  textColor: Commons.Color.mOnPrimary
                   Layout.fillWidth: true
                   onClicked: {
                       root.target = "search"
@@ -120,8 +121,8 @@ Item {
               NButton {
                   icon: "camera"
                   text: pluginApi?.tr("panel.target.record")
-                  backgroundColor: Color.mPrimary
-                  textColor: Color.mOnPrimary
+                  backgroundColor: Commons.Color.mPrimary
+                  textColor: Commons.Color.mOnPrimary
                   Layout.fillWidth: true
                   visible: !root.recording
                   onClicked: {
@@ -132,8 +133,8 @@ Item {
               NButton {
                   icon: "camera-spark"
                   text: pluginApi?.tr("panel.target.recordsound")
-                  backgroundColor: Color.mPrimary
-                  textColor: Color.mOnPrimary
+                  backgroundColor: Commons.Color.mPrimary
+                  textColor: Commons.Color.mOnPrimary
                   Layout.fillWidth: true
                   visible: !root.recording
                   onClicked: {
@@ -144,8 +145,8 @@ Item {
               NButton {
                   icon: "close"
                   text: pluginApi?.tr("panel.target.stop")
-                  backgroundColor: Color.mError
-                  textColor: Color.mOnError
+                  backgroundColor: Commons.Color.mError
+                  textColor: Commons.Color.mOnError
                   Layout.fillWidth: true
                   visible: root.recording
                   onClicked: {

@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -41,7 +42,7 @@ NBox {
     anchors.leftMargin: -Style.borderS
     width: 3
     radius: Style.radiusXS
-    color: Color.mPrimary
+    color: Commons.Color.mPrimary
     visible: root.isActive
 
     Behavior on opacity {
@@ -99,9 +100,9 @@ NBox {
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
 
     background: Rectangle {
-      color: Color.mSurface
+      color: Commons.Color.mSurface
       radius: Style.radiusM
-      border.color: Color.mOutline
+      border.color: Commons.Color.mOutline
       border.width: Style.borderS
     }
 
@@ -111,7 +112,7 @@ NBox {
       NIcon {
         icon: "trash"
         pointSize: Style.fontSizeXXL * 1.5
-        color: Color.mError
+        color: Commons.Color.mError
         Layout.alignment: Qt.AlignHCenter
       }
 
@@ -123,7 +124,7 @@ NBox {
       NText {
         text: (pluginApi?.tr("panel.delete-confirm-message")).replace("{name}", root.profileName)
         pointSize: Style.fontSizeS
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         wrapMode: Text.WordWrap
         horizontalAlignment: Text.AlignHCenter
         Layout.fillWidth: true
@@ -143,8 +144,8 @@ NBox {
 
         NButton {
           text: pluginApi?.tr("panel.action-delete")
-          backgroundColor: Color.mError
-          textColor: Color.mOnError
+          backgroundColor: Commons.Color.mError
+          textColor: Commons.Color.mOnError
           Layout.fillWidth: true
           onClicked: {
             deleteDialog.close();
@@ -167,9 +168,9 @@ NBox {
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
 
     background: Rectangle {
-      color: Color.mSurface
+      color: Commons.Color.mSurface
       radius: Style.radiusM
-      border.color: Color.mOutline
+      border.color: Commons.Color.mOutline
       border.width: Style.borderS
     }
 
@@ -190,7 +191,7 @@ NBox {
       NText {
         id: renameError
         visible: text !== ""
-        color: Color.mError
+        color: Commons.Color.mError
         pointSize: Style.fontSizeS
         wrapMode: Text.WordWrap
         Layout.fillWidth: true
@@ -249,7 +250,7 @@ NBox {
       width: root.isActive ? Math.round(Style.baseWidgetSize * 0.45) : 0
       height: Math.round(Style.baseWidgetSize * 0.45)
       radius: height / 2
-      color: Color.mPrimary
+      color: Commons.Color.mPrimary
       opacity: root.isActive ? 1 : 0
       visible: root.isActive
       Layout.alignment: Qt.AlignVCenter
@@ -268,7 +269,7 @@ NBox {
       NIcon {
         anchors.centerIn: parent
         icon: "check"
-        color: Color.mOnPrimary
+        color: Commons.Color.mOnPrimary
         pointSize: Style.fontSizeS
       }
     }
@@ -285,7 +286,7 @@ NBox {
         text: root.profileName
         pointSize: Style.fontSizeM
         font.weight: Style.fontWeightSemiBold
-        color: root.isActive ? Color.mPrimary : Color.mOnSurface
+        color: root.isActive ? Commons.Color.mPrimary : Commons.Color.mOnSurface
         elide: Text.ElideRight
 
         Behavior on color {
@@ -300,7 +301,7 @@ NBox {
         text: root.savedAtFormatted
         visible: root.savedAtFormatted !== ""
         pointSize: Style.fontSizeXS
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         elide: Text.ElideRight
       }
     }
@@ -324,7 +325,7 @@ NBox {
       tooltipText: pluginApi?.tr("panel.include-wallpapers")
       baseSize: Math.round(Style.fontSizeXXL * Style.uiScaleRatio)
       colorBg: "transparent"
-      colorFg: root.includeWallpapers ? Color.mPrimary : Color.mOnSurfaceVariant
+      colorFg: root.includeWallpapers ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
       Layout.alignment: Qt.AlignVCenter
       onClicked: root.includeWallpapers = !root.includeWallpapers
     }
@@ -335,7 +336,7 @@ NBox {
       tooltipText: pluginApi?.tr("panel.more-actions")
       baseSize: Math.round(Style.fontSizeXXL * Style.uiScaleRatio)
       colorBg: "transparent"
-      colorFg: Color.mOnSurfaceVariant
+      colorFg: Commons.Color.mOnSurfaceVariant
       Layout.alignment: Qt.AlignVCenter
       onClicked: contextMenu.openAtItem(this, width / 2, height / 2)
     }

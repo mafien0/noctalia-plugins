@@ -1,4 +1,5 @@
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import QtQuick
 
@@ -119,7 +120,7 @@ Item {
 
       signal applyRequested
 
-      border.color: isCenter ? Color.mOutline : Color.mSurface
+      border.color: isCenter ? Commons.Color.mOutline : Commons.Color.mSurface
       border.width: isCenter ? Style.borderM : Style.borderS
       color: "transparent"
       height: cardDeck.height

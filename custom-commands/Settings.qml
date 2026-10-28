@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -69,7 +70,7 @@ ColumnLayout {
 
     NText {
         text: pluginApi.tr("settings.description")
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         Layout.fillWidth: true
         wrapMode: Text.Wrap
     }

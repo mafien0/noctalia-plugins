@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -63,7 +64,7 @@ ColumnLayout {
                 text: pluginApi?.tr("settings.maxResults.label")
                 font.pointSize: Style.fontSizeL
                 font.weight: Font.Medium
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 Layout.fillWidth: true
             }
 
@@ -71,14 +72,14 @@ ColumnLayout {
                 text: root.valueMaxResults.toString()
                 font.pointSize: Style.fontSizeM
                 font.weight: Font.Medium
-                color: Color.mPrimary
+                color: Commons.Color.mPrimary
             }
         }
 
         NText {
             text: pluginApi?.tr("settings.maxResults.description")
             font.pointSize: Style.fontSizeS
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }

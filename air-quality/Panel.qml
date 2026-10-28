@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -17,7 +18,7 @@ Item {
   readonly property var mainInstance: pluginApi?.mainInstance
   readonly property bool hasData: mainInstance?.hasData ?? false
   readonly property int aqi: hasData ? mainInstance.getAqi() : 0
-  readonly property string aqiColor: hasData ? mainInstance.getAqiColor(aqi) : Color.mOnSurfaceVariant
+  readonly property string aqiColor: hasData ? mainInstance.getAqiColor(aqi) : Commons.Color.mOnSurfaceVariant
   readonly property string levelKey: hasData ? mainInstance.getAqiLevel(aqi) : "levels.unknown"
 
   anchors.fill: parent
@@ -68,7 +69,7 @@ Item {
           Layout.alignment: Qt.AlignHCenter
           text: pluginApi?.tr(root.mainInstance?.aqiScale === "eu" ? "scale.eu" : "scale.us")
           pointSize: Style.fontSizeS
-          color: Color.mOnSurfaceVariant
+          color: Commons.Color.mOnSurfaceVariant
         }
 
         Item { Layout.preferredHeight: Style.marginM }
@@ -79,7 +80,7 @@ Item {
           Layout.preferredWidth: locationText.implicitWidth + Style.marginL * 2
           Layout.preferredHeight: locationText.implicitHeight + Style.marginS * 2
           radius: height / 2
-          color: Color.mSurfaceVariant
+          color: Commons.Color.mSurfaceVariant
 
           NText {
             id: locationText
@@ -93,7 +94,7 @@ Item {
               return parts.join(" · ")
             }
             pointSize: Style.fontSizeS
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
           }
         }
 
@@ -120,7 +121,7 @@ Item {
               visible: index > 0
               Layout.fillWidth: true
               height: 1
-              color: Color.mOutline
+              color: Commons.Color.mOutline
               opacity: 0.3
             }
 
@@ -136,7 +137,7 @@ Item {
                 width: 6 * Style.uiScaleRatio
                 height: width
                 radius: width / 2
-                color: root.mainInstance?.getPollutantColor(modelData.pollutant, modelData.value) ?? Color.mOnSurfaceVariant
+                color: root.mainInstance?.getPollutantColor(modelData.pollutant, modelData.value) ?? Commons.Color.mOnSurfaceVariant
                 Layout.alignment: Qt.AlignVCenter
               }
 
@@ -145,7 +146,7 @@ Item {
                 Layout.fillWidth: true
                 text: pluginApi?.tr("pollutants." + modelData.key)
                 pointSize: Style.fontSizeM
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
               }
 
               // Value
@@ -153,14 +154,14 @@ Item {
                 text: Math.round(modelData.value * 10) / 10
                 pointSize: Style.fontSizeM
                 font.weight: Font.DemiBold
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
               }
 
               // Unit
               NText {
                 text: pluginApi?.tr("unit.ugm3")
                 pointSize: Style.fontSizeXS
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 Layout.alignment: Qt.AlignBaseline
               }
             }
@@ -184,7 +185,7 @@ Item {
             return pluginApi?.tr("panel.noData")
           }
           pointSize: Style.fontSizeL
-          color: Color.mOnSurfaceVariant
+          color: Commons.Color.mOnSurfaceVariant
           horizontalAlignment: Text.AlignHCenter
           wrapMode: Text.WordWrap
           Layout.fillWidth: true

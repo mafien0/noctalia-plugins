@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -39,7 +40,7 @@ ColumnLayout {
     Layout.fillWidth: true
     text: pluginApi?.tr("settings.githubToken.help")
     pointSize: Style.fontSizeS
-    color: Color.mOnSurfaceVariant
+    color: Commons.Color.mOnSurfaceVariant
     wrapMode: Text.Wrap
     textFormat: Text.MarkdownText
   }
@@ -69,7 +70,7 @@ ColumnLayout {
         }
         return mainInstance?.lastSyncMessage || "";
       }
-      color: mainInstance?.lastSyncOk ? Color.mPrimary : Color.mOnSurfaceVariant
+      color: mainInstance?.lastSyncOk ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
       pointSize: Style.fontSizeS
       wrapMode: Text.Wrap
       Layout.fillWidth: true

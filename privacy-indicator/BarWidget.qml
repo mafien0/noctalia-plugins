@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -45,8 +46,8 @@ Item {
   property string activeColorKey: cfg.activeColor ?? defaults.activeColor ?? "primary"
   property string inactiveColorKey: cfg.inactiveColor ?? defaults.inactiveColor ?? "none"
 
-  readonly property color activeColor: Color.resolveColorKey(activeColorKey)
-  readonly property color inactiveColor: inactiveColorKey === "none" ? Qt.alpha(Color.mOnSurfaceVariant, 0.3) : Color.resolveColorKey(inactiveColorKey)
+  readonly property color activeColor: Commons.Color.resolveColorKey(activeColorKey)
+  readonly property color inactiveColor: inactiveColorKey === "none" ? Qt.alpha(Commons.Color.mOnSurfaceVariant, 0.3) : Commons.Color.resolveColorKey(inactiveColorKey)
   readonly property color micColor: micActive ? activeColor : inactiveColor
   readonly property color camColor: camActive ? activeColor : inactiveColor
   readonly property color scrColor: scrActive ? activeColor : inactiveColor

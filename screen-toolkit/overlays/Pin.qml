@@ -4,6 +4,7 @@ import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 Item {
@@ -242,8 +243,8 @@ Item {
                         Column {
                             anchors.centerIn: parent; spacing: Style.marginS
                             visible: pinDelegate.pinImgPath === ""
-                            NIcon { anchors.horizontalCenter: parent.horizontalCenter; icon: "photo-off"; color: Color.mOnSurfaceVariant }
-                            NText { anchors.horizontalCenter: parent.horizontalCenter; text: root.pluginApi?.tr("pin.noFile"); color: Color.mOnSurfaceVariant; pointSize: Style.fontSizeXS }
+                            NIcon { anchors.horizontalCenter: parent.horizontalCenter; icon: "photo-off"; color: Commons.Color.mOnSurfaceVariant }
+                            NText { anchors.horizontalCenter: parent.horizontalCenter; text: root.pluginApi?.tr("pin.noFile"); color: Commons.Color.mOnSurfaceVariant; pointSize: Style.fontSizeXS }
                         }
                         HoverHandler { id: cardHover }
                         MouseArea {
@@ -443,7 +444,7 @@ Item {
                             implicitWidth:  menuCol.implicitWidth  + Style.marginS * 2
                             implicitHeight: menuCol.implicitHeight + Style.marginS * 2
                             width: implicitWidth; height: implicitHeight
-                            radius: Style.radiusM; color: Color.mSurface
+                            radius: Style.radiusM; color: Commons.Color.mSurface
                             border.color: Qt.rgba(1,1,1,0.12); border.width: Style.capsuleBorderWidth
                             Column {
                                 id: menuCol
@@ -453,13 +454,13 @@ Item {
                                     property string mIcon: ""; property string mLabel: ""; property bool mEnabled: true
                                     signal activated()
                                     width: parent.width; height: 32; radius: Style.radiusS
-                                    color:   miMA.containsMouse && mEnabled ? Color.mHover : "transparent"
+                                    color:   miMA.containsMouse && mEnabled ? Commons.Color.mHover : "transparent"
                                     opacity: mEnabled ? 1.0 : 0.38
                                     Row {
                                         anchors { fill: parent; leftMargin: Style.marginS; rightMargin: Style.marginS }
                                         spacing: Style.marginS
-                                        NIcon { icon: mIcon;  color: Color.mOnSurface; scale: 0.85; anchors.verticalCenter: parent.verticalCenter }
-                                        NText { text: mLabel; color: Color.mOnSurface; pointSize: Style.fontSizeS; anchors.verticalCenter: parent.verticalCenter }
+                                        NIcon { icon: mIcon;  color: Commons.Color.mOnSurface; scale: 0.85; anchors.verticalCenter: parent.verticalCenter }
+                                        NText { text: mLabel; color: Commons.Color.mOnSurface; pointSize: Style.fontSizeS; anchors.verticalCenter: parent.verticalCenter }
                                     }
                                     MouseArea {
                                         id: miMA; anchors.fill: parent

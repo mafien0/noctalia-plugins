@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -76,7 +77,7 @@ Item {
         }
         pointSize: Style.fontSizeL
         font.weight: Font.DemiBold
-        color: root.activeCount > 0 ? Color.mPrimary : Color.mOnSurfaceVariant
+        color: root.activeCount > 0 ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
       }
 
       // ======== Search input ========
@@ -133,7 +134,7 @@ Item {
               required property int index
               Layout.fillWidth: true
               Layout.preferredHeight: hostRow.implicitHeight + Style.marginM * 2
-              color: index === root.selectedIndex ? Qt.alpha(Color.mPrimary, 0.15) : Color.mSurfaceVariant
+              color: index === root.selectedIndex ? Qt.alpha(Commons.Color.mPrimary, 0.15) : Commons.Color.mSurfaceVariant
 
               RowLayout {
                 id: hostRow
@@ -146,9 +147,9 @@ Item {
                   width: 8 * Style.uiScaleRatio
                   height: width
                   radius: width / 2
-                  color: modelData.isActive ? Color.mPrimary : "transparent"
+                  color: modelData.isActive ? Commons.Color.mPrimary : "transparent"
                   border.width: modelData.isActive ? 0 : 1.5 * Style.uiScaleRatio
-                  border.color: Color.mOnSurfaceVariant
+                  border.color: Commons.Color.mOnSurfaceVariant
                   opacity: modelData.isActive ? 1.0 : 0.5
                   Layout.alignment: Qt.AlignVCenter
                 }
@@ -162,7 +163,7 @@ Item {
                     text: modelData.host.name
                     pointSize: Style.fontSizeM
                     font.weight: modelData.isActive ? Font.DemiBold : Font.Normal
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                   }
@@ -170,7 +171,7 @@ Item {
                   NText {
                     text: root.mainInstance?.getHostDescription(modelData.host) ?? ""
                     pointSize: Style.fontSizeS
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                   }
@@ -180,7 +181,7 @@ Item {
                 NIcon {
                   icon: "terminal"
                   pointSize: Style.fontSizeM
-                  color: connectArea.containsMouse ? Color.mPrimary : Color.mOnSurfaceVariant
+                  color: connectArea.containsMouse ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
                   Layout.alignment: Qt.AlignVCenter
 
                   MouseArea {
@@ -204,7 +205,7 @@ Item {
             Layout.bottomMargin: Style.marginXL
             text: pluginApi?.tr("panel.noHosts")
             pointSize: Style.fontSizeM
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
           }
         }
       }

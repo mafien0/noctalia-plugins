@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 import "CurrencyData.js" as CurrencyData
@@ -80,13 +81,13 @@ Item {
           spacing: Style.marginM
 
           NIcon {
-            color: Color.mPrimary
+            color: Commons.Color.mPrimary
             icon: "currency-dollar"
             pointSize: Style.fontSizeXXL
           }
           NText {
             Layout.fillWidth: true
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
             font.weight: Style.fontWeightBold
             pointSize: Style.fontSizeL
             text: pluginApi?.tr("panel.title") || "Currency Converter"
@@ -130,7 +131,7 @@ Item {
       NBox {
         Layout.fillHeight: true
         Layout.fillWidth: true
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
         radius: Style.radiusM
 
         ColumnLayout {
@@ -149,9 +150,9 @@ Item {
               Layout.fillWidth: true
               Layout.preferredHeight: Style.baseWidgetSize
               Layout.preferredWidth: 100
-              border.color: fromInput.activeFocus ? Color.mPrimary : Color.mOutline
+              border.color: fromInput.activeFocus ? Commons.Color.mPrimary : Commons.Color.mOutline
               border.width: fromInput.activeFocus ? 2 : Style.borderS
-              color: Color.mSurfaceVariant
+              color: Commons.Color.mSurfaceVariant
               radius: Style.iRadiusM
 
               TextInput {
@@ -160,7 +161,7 @@ Item {
                 anchors.fill: parent
                 anchors.leftMargin: Style.marginL
                 anchors.rightMargin: Style.marginL
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 font.pointSize: Style.fontSizeM
                 font.weight: Font.Medium
                 horizontalAlignment: Text.AlignRight
@@ -228,7 +229,7 @@ Item {
               Layout.fillWidth: true
               Layout.preferredHeight: Style.baseWidgetSize
               Layout.preferredWidth: 100
-              color: Color.mPrimary
+              color: Commons.Color.mPrimary
               radius: Style.iRadiusM
 
               RowLayout {
@@ -240,7 +241,7 @@ Item {
                 NText {
                   Layout.fillHeight: true
                   Layout.fillWidth: true
-                  color: Color.mOnPrimary
+                  color: Commons.Color.mOnPrimary
                   font.weight: Style.fontWeightBold
                   horizontalAlignment: Text.AlignRight
                   pointSize: Style.fontSizeM
@@ -281,7 +282,7 @@ Item {
           // Rate info
           NText {
             Layout.fillWidth: true
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             horizontalAlignment: Text.AlignHCenter
             pointSize: Style.fontSizeS
             text: {
@@ -300,7 +301,7 @@ Item {
           // Last update time
           NText {
             Layout.fillWidth: true
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             horizontalAlignment: Text.AlignHCenter
             opacity: 0.6
             pointSize: Style.fontSizeXS

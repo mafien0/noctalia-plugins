@@ -5,6 +5,7 @@ import Qt5Compat.GraphicalEffects
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Modules.DesktopWidgets
 import qs.Widgets
 
@@ -44,20 +45,20 @@ DraggableDesktopWidget {
 
     // ---- Colors (from Noctalia theme) ----
     readonly property bool isDark: typeof Settings !== "undefined" && Settings.data && Settings.data.colorSchemes ? Settings.data.colorSchemes.darkMode : true
-    readonly property color colBackground: Color.mSurfaceVariant
-    readonly property color colOnBackground: Color.mOnSurfaceVariant
-    readonly property color colHourHand: Color.mPrimary
-    readonly property color colMinuteHand: Color.mTertiary
-    readonly property color colSecondHand: Color.mPrimary
-    readonly property color colBackgroundInfo: Color.mOnSurfaceVariant
+    readonly property color colBackground: Commons.Color.mSurfaceVariant
+    readonly property color colOnBackground: Commons.Color.mOnSurfaceVariant
+    readonly property color colHourHand: Commons.Color.mPrimary
+    readonly property color colMinuteHand: Commons.Color.mTertiary
+    readonly property color colSecondHand: Commons.Color.mPrimary
+    readonly property color colBackgroundInfo: Commons.Color.mOnSurfaceVariant
     
     // Container colors
-    readonly property color colTertiaryContainer: Color.mTertiary
-    readonly property color colOnTertiaryContainer: Color.mOnTertiary
-    readonly property color colSecondaryContainer: Color.mSecondary
-    readonly property color colOnSecondaryContainer: Color.mOnSecondary
-    readonly property color colSurfaceContainerHighest: Color.mSurfaceVariant
-    readonly property color colOnSurface: Color.mOnSurface
+    readonly property color colTertiaryContainer: Commons.Color.mTertiary
+    readonly property color colOnTertiaryContainer: Commons.Color.mOnTertiary
+    readonly property color colSecondaryContainer: Commons.Color.mSecondary
+    readonly property color colOnSecondaryContainer: Commons.Color.mOnSecondary
+    readonly property color colSurfaceContainerHighest: Commons.Color.mSurfaceVariant
+    readonly property color colOnSurface: Commons.Color.mOnSurface
 
     // Transparent background - the cookie shape IS the background
     showBackground: false

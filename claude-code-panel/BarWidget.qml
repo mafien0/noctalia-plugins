@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import qs.Services.System
@@ -36,12 +37,12 @@ Item {
   implicitHeight: contentHeight
 
   function accentColor() {
-    if (!binaryAvailable) { return Color.mOnSurfaceVariant; }
-    if (dangerouslySkip || permissionMode === "bypassPermissions") { return Color.mError; }
-    if (permissionMode === "acceptEdits") { return Color.mSecondary; }
-    if (permissionMode === "plan") { return Color.mTertiary; }
-    if (isGenerating) { return Color.mPrimary; }
-    return Color.mOnSurface;
+    if (!binaryAvailable) { return Commons.Color.mOnSurfaceVariant; }
+    if (dangerouslySkip || permissionMode === "bypassPermissions") { return Commons.Color.mError; }
+    if (permissionMode === "acceptEdits") { return Commons.Color.mSecondary; }
+    if (permissionMode === "plan") { return Commons.Color.mTertiary; }
+    if (isGenerating) { return Commons.Color.mPrimary; }
+    return Commons.Color.mOnSurface;
   }
 
   Rectangle {
@@ -50,7 +51,7 @@ Item {
     y: Style.pixelAlignCenter(parent.height, height)
     width: root.contentWidth
     height: root.contentHeight
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     radius: Style.radiusL
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
@@ -77,7 +78,7 @@ Item {
       visible: root.sessionId !== ""
       width: Style.marginS; height: Style.marginS; radius: Style.radiusXXXS
       color: root.dangerouslySkip || root.permissionMode === "bypassPermissions"
-             ? Color.mError : Color.mPrimary
+             ? Commons.Color.mError : Commons.Color.mPrimary
       anchors.top: parent.top
       anchors.right: parent.right
       anchors.margins: Style.radiusXXXS

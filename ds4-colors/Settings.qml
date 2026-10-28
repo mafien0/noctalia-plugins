@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -21,7 +22,7 @@ ColumnLayout {
         text: pluginApi?.tr("settings.lightbar_color")
         pointSize: Style.fontSizeM
         font.weight: Font.Bold
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
     }
 
     NColorPicker {
@@ -40,7 +41,7 @@ ColumnLayout {
             text: pluginApi?.tr("settings.recent_colors")
             pointSize: Style.fontSizeS
             font.weight: Font.Bold
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
         }
 
         GridLayout {
@@ -57,7 +58,7 @@ ColumnLayout {
                     Layout.preferredHeight: 32
                     radius: Style.radiusS
                     color: modelData
-                    border.color: root.valueColor === modelData ? Color.mPrimary : Color.mOutline
+                    border.color: root.valueColor === modelData ? Commons.Color.mPrimary : Commons.Color.mOutline
                     border.width: root.valueColor === modelData ? Style.borderS * 2 : Style.borderS
 
                     MouseArea {
@@ -78,7 +79,7 @@ ColumnLayout {
         text: pluginApi?.tr("settings.widget_settings")
         pointSize: Style.fontSizeM
         font.weight: Font.Bold
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
     }
 
     NToggle {
@@ -105,7 +106,7 @@ ColumnLayout {
         text: pluginApi?.tr("settings.info")
         pointSize: Style.fontSizeM
         font.weight: Font.Bold
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
     }
 
     NBox {
@@ -124,7 +125,7 @@ ColumnLayout {
             NText {
                 text: pluginApi?.tr("settings.info_desc1")
                 pointSize: Style.fontSizeS
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 wrapMode: Text.Wrap
                 Layout.fillWidth: true
             }
@@ -132,7 +133,7 @@ ColumnLayout {
             NText {
                 text: pluginApi?.tr("settings.info_desc2")
                 pointSize: Style.fontSizeS
-                color: Color.mSecondary
+                color: Commons.Color.mSecondary
                 wrapMode: Text.Wrap
                 Layout.fillWidth: true
             }

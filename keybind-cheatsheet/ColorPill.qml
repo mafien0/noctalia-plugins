@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 // Compact color pill: circle + hex code + optional paste icon.
@@ -28,8 +29,8 @@ Rectangle {
   implicitHeight: Math.round(Style.baseWidgetSize * 1.1)
 
   radius: Style.iRadiusM
-  color: Color.mSurface
-  border.color: mouseArea.containsMouse ? Color.mPrimary : Color.mOutline
+  color: Commons.Color.mSurface
+  border.color: mouseArea.containsMouse ? Commons.Color.mPrimary : Commons.Color.mOutline
   border.width: Style.borderS
 
   MouseArea {
@@ -67,7 +68,7 @@ Rectangle {
       Layout.preferredHeight: pill.height * 0.62
       radius: width / 2
       color: pill.textMode ? pill.textModeBg : pill.displayColor
-      border.color: Color.mOutline
+      border.color: Commons.Color.mOutline
       border.width: Style.borderS
 
       NText {
@@ -87,7 +88,7 @@ Rectangle {
             ? pill.hexValue.toUpperCase()
             : (pill.placeholderText.length > 0 ? pill.placeholderText : "auto")
       family: Settings.data.ui.fontFixed
-      color: pill.hexValue.length > 0 ? Color.mOnSurface : Color.mOnSurfaceVariant
+      color: pill.hexValue.length > 0 ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant
       pointSize: Style.fontSizeXS
       elide: Text.ElideRight
     }
@@ -97,14 +98,14 @@ Rectangle {
       Layout.preferredHeight: pill.height * 0.62
       visible: pill.hasClipboardColor
       radius: width / 2
-      color: pasteArea.containsMouse ? Color.mPrimary : Color.mSurfaceVariant
-      border.color: Color.mOutline
+      color: pasteArea.containsMouse ? Commons.Color.mPrimary : Commons.Color.mSurfaceVariant
+      border.color: Commons.Color.mOutline
       border.width: Style.borderS
 
       NIcon {
         anchors.centerIn: parent
         icon: "clipboard"
-        color: pasteArea.containsMouse ? Color.mOnPrimary : Color.mOnSurfaceVariant
+        color: pasteArea.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mOnSurfaceVariant
         pointSize: Style.fontSizeS
       }
 

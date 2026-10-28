@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -82,13 +83,13 @@ ColumnLayout {
               ? root.pluginApi.tr("settings.runtime.qt_websockets_missing_title")
               : root.pluginApi.tr("settings.runtime.websocket_config_missing_title")
         font.weight: Style.fontWeightSemiBold
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
       }
 
       NText {
         Layout.fillWidth: true
         wrapMode: Text.WordWrap
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         text: root.service?.websocketSupportMissing
               ? root.pluginApi.tr("settings.runtime.qt_websockets_missing")
               : root.pluginApi.tr("settings.runtime.websocket_config_missing")
@@ -113,13 +114,13 @@ ColumnLayout {
         text: root.pluginApi.tr("settings.sections.behavior.label")
         pointSize: Style.fontSizeL
         font.weight: Style.fontWeightSemiBold
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
       }
 
       NText {
         Layout.fillWidth: true
         wrapMode: Text.WordWrap
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         text: root.pluginApi.tr("settings.sections.behavior.description")
       }
 
@@ -180,13 +181,13 @@ ColumnLayout {
         text: root.pluginApi.tr("settings.sections.bar.label")
         pointSize: Style.fontSizeL
         font.weight: Style.fontWeightSemiBold
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
       }
 
       NText {
         Layout.fillWidth: true
         wrapMode: Text.WordWrap
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         text: root.pluginApi.tr("settings.sections.bar.description")
       }
 
@@ -264,13 +265,13 @@ ColumnLayout {
         text: root.pluginApi.tr("settings.sections.control_center.label")
         pointSize: Style.fontSizeL
         font.weight: Style.fontWeightSemiBold
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
       }
 
       NText {
         Layout.fillWidth: true
         wrapMode: Text.WordWrap
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         text: root.pluginApi.tr("settings.sections.control_center.description")
       }
 
@@ -325,13 +326,13 @@ ColumnLayout {
         text: root.pluginApi.tr("settings.sections.videos.label")
         pointSize: Style.fontSizeL
         font.weight: Style.fontWeightSemiBold
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
       }
 
       NText {
         Layout.fillWidth: true
         wrapMode: Text.WordWrap
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         text: root.pluginApi.tr("settings.sections.videos.description")
       }
 

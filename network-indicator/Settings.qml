@@ -1,4 +1,5 @@
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.System
 import QtQuick
@@ -70,10 +71,10 @@ ColumnLayout {
   property bool editCustomFontItalic: cfg.customFontItalic ?? defaults.customFontItalic
 
   property bool editUseCustomColors: cfg.useCustomColors ?? defaults.useCustomColors
-  property color editColorTx: editUseCustomColors && cfg.colorTx || Color.mSecondary
-  property color editColorRx: editUseCustomColors && cfg.colorRx || Color.mPrimary
-  property color editColorSilent: editUseCustomColors && cfg.colorSilent || Color.mSurfaceVariant
-  property color editColorText: editUseCustomColors && cfg.colorText || Color.mOnSurfaceVariant
+  property color editColorTx: editUseCustomColors && cfg.colorTx || Commons.Color.mSecondary
+  property color editColorRx: editUseCustomColors && cfg.colorRx || Commons.Color.mPrimary
+  property color editColorSilent: editUseCustomColors && cfg.colorSilent || Commons.Color.mSurfaceVariant
+  property color editColorText: editUseCustomColors && cfg.colorText || Commons.Color.mOnSurfaceVariant
 
   // ── Helpers ──
 

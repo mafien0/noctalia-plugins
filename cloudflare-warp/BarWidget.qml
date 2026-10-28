@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -24,10 +25,10 @@ Item {
 
   readonly property color resolvedIconColor: {
     var key = (mainInstance?.warpConnected ?? false) ? connectedColorKey : disconnectedColorKey;
-    var resolved = Color.resolveColorKeyOptional(key);
+    var resolved = Commons.Color.resolveColorKeyOptional(key);
     // resolveColorKeyOptional ritorna "transparent" per "none" — fallback al colore neutro
     if (!resolved || resolved === "transparent" || resolved.a === 0)
-      return mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface;
+      return mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface;
     return resolved;
   }
 
@@ -51,7 +52,7 @@ Item {
     y: Style.pixelAlignCenter(parent.height, height)
     width: root.contentWidth
     height: root.contentHeight
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     radius: Style.radiusL
 
     RowLayout {

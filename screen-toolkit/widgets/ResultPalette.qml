@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import "../utils/utils.js" as U
@@ -33,19 +34,19 @@ Item {
             width: parent.width
             height: 36
             radius: Style.radiusM
-            color: emptyPalBtn.containsMouse ? Color.mPrimary : Color.mSurface
-            border.color: Color.mPrimary
+            color: emptyPalBtn.containsMouse ? Commons.Color.mPrimary : Commons.Color.mSurface
+            border.color: Commons.Color.mPrimary
             border.width: Style.capsuleBorderWidth
             Row {
                 anchors.centerIn: parent
                 spacing: Style.marginS
                 NIcon {
                     icon: "palette"
-                    color: emptyPalBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary
+                    color: emptyPalBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary
                 }
                 NText {
                     text: pluginApi?.tr("panel.pickAgain")
-                    color: emptyPalBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary
+                    color: emptyPalBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary
                     pointSize: Style.fontSizeS
                 }
             }
@@ -65,19 +66,19 @@ Item {
                 width: parent.width
                 height: 36
                 radius: Style.radiusM
-                color: pickAgainPalBtn.containsMouse ? Color.mPrimary : Color.mSurface
-                border.color: Color.mPrimary
+                color: pickAgainPalBtn.containsMouse ? Commons.Color.mPrimary : Commons.Color.mSurface
+                border.color: Commons.Color.mPrimary
                 border.width: Style.capsuleBorderWidth
                 Row {
                     anchors.centerIn: parent
                     spacing: Style.marginS
                     NIcon {
                         icon: "palette"
-                        color: pickAgainPalBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary
+                        color: pickAgainPalBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary
                     }
                     NText {
                         text: pluginApi?.tr("panel.pickAgain")
-                        color: pickAgainPalBtn.containsMouse ? Color.mOnPrimary : Color.mPrimary
+                        color: pickAgainPalBtn.containsMouse ? Commons.Color.mOnPrimary : Commons.Color.mPrimary
                         pointSize: Style.fontSizeS
                     }
                 }
@@ -99,7 +100,7 @@ Item {
                         height: width * 0.7
                         radius: Style.radiusM
                         color: modelData
-                        border.color: swatchBtn.containsMouse ? Color.mPrimary : Style.capsuleBorderColor
+                        border.color: swatchBtn.containsMouse ? Commons.Color.mPrimary : Style.capsuleBorderColor
                         border.width: swatchBtn.containsMouse ? 2 : Style.capsuleBorderWidth
                         NText {
                             anchors.bottom: parent.bottom
@@ -130,7 +131,7 @@ Item {
                 width: parent.width
                 height: 36
                 radius: Style.radiusM
-                color: cssBtn.containsMouse ? Color.mSurfaceVariant : Color.mSurface
+                color: cssBtn.containsMouse ? Commons.Color.mSurfaceVariant : Commons.Color.mSurface
                 border.color: Style.capsuleBorderColor
                 border.width: Style.capsuleBorderWidth
                 Row {
@@ -138,11 +139,11 @@ Item {
                     spacing: Style.marginS
                     NIcon {
                         icon: "copy"
-                        color: cssBtn.containsMouse ? Color.mOnSurface : Color.mOnSurfaceVariant
+                        color: cssBtn.containsMouse ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant
                     }
                     NText {
                         text: pluginApi?.tr("palette.cssVars")
-                        color: cssBtn.containsMouse ? Color.mOnSurface : Color.mOnSurfaceVariant
+                        color: cssBtn.containsMouse ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant
                         pointSize: Style.fontSizeS
                     }
                 }
@@ -164,7 +165,7 @@ Item {
                 width: parent.width
                 height: 36
                 radius: Style.radiusM
-                color: hexBtn.containsMouse ? Color.mSurfaceVariant : Color.mSurface
+                color: hexBtn.containsMouse ? Commons.Color.mSurfaceVariant : Commons.Color.mSurface
                 border.color: Style.capsuleBorderColor
                 border.width: Style.capsuleBorderWidth
                 Row {
@@ -172,11 +173,11 @@ Item {
                     spacing: Style.marginS
                     NIcon {
                         icon: "list"
-                        color: hexBtn.containsMouse ? Color.mOnSurface : Color.mOnSurfaceVariant
+                        color: hexBtn.containsMouse ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant
                     }
                     NText {
                         text: pluginApi?.tr("palette.hexList")
-                        color: hexBtn.containsMouse ? Color.mOnSurface : Color.mOnSurfaceVariant
+                        color: hexBtn.containsMouse ? Commons.Color.mOnSurface : Commons.Color.mOnSurfaceVariant
                         pointSize: Style.fontSizeS
                     }
                 }
@@ -195,19 +196,19 @@ Item {
                 width: parent.width
                 height: 36
                 radius: Style.radiusM
-                color: palClr.containsMouse ? Qt.alpha(Color.mError, 0.15) : Color.mSurface
-                border.color: palClr.containsMouse ? Color.mError : Style.capsuleBorderColor
+                color: palClr.containsMouse ? Qt.alpha(Commons.Color.mError, 0.15) : Commons.Color.mSurface
+                border.color: palClr.containsMouse ? Commons.Color.mError : Style.capsuleBorderColor
                 border.width: Style.capsuleBorderWidth
                 Row {
                     anchors.centerIn: parent
                     spacing: Style.marginS
                     NIcon {
                         icon: "trash"
-                        color: palClr.containsMouse ? Color.mError : Color.mOnSurfaceVariant
+                        color: palClr.containsMouse ? Commons.Color.mError : Commons.Color.mOnSurfaceVariant
                     }
                     NText {
                         text: pluginApi?.tr("panel.clearResult")
-                        color: palClr.containsMouse ? Color.mError : Color.mOnSurfaceVariant
+                        color: palClr.containsMouse ? Commons.Color.mError : Commons.Color.mOnSurfaceVariant
                         pointSize: Style.fontSizeS
                     }
                 }

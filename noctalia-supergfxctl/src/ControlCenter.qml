@@ -9,6 +9,7 @@ import QtQuick
 import Quickshell
 
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Modules.Bar.Extras
 import qs.Services.UI
@@ -49,8 +50,8 @@ NIconButton {
         height: 8
         width: 8
         radius: Style.radiusXS
-        color: Color.mTertiary
-        border.color: Color.mSurface
+        color: Commons.Color.mTertiary
+        border.color: Commons.Color.mSurface
         border.width: Style.borderS
     }
 }

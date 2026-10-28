@@ -1,5 +1,6 @@
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -25,12 +26,12 @@ NIconButton {
     : pluginApi?.tr("bar.tooltip.inactive")
   tooltipDirection: BarService.getTooltipDirection(screenName)
 
-  colorBg: mirroring ? Color.mError : Style.capsuleColor
-  colorFg: mirroring ? Color.mOnError : Color.mOnSurface
-  colorBgHover: mirroring ? Color.mError : Color.mHover
-  colorFgHover: mirroring ? Color.mOnError : Color.mOnHover
-  colorBorder: mirroring ? Color.mError : Style.capsuleBorderColor
-  colorBorderHover: mirroring ? Color.mError : Style.capsuleBorderColor
+  colorBg: mirroring ? Commons.Color.mError : Style.capsuleColor
+  colorFg: mirroring ? Commons.Color.mOnError : Commons.Color.mOnSurface
+  colorBgHover: mirroring ? Commons.Color.mError : Commons.Color.mHover
+  colorFgHover: mirroring ? Commons.Color.mOnError : Commons.Color.mOnHover
+  colorBorder: mirroring ? Commons.Color.mError : Style.capsuleBorderColor
+  colorBorderHover: mirroring ? Commons.Color.mError : Style.capsuleBorderColor
 
   onClicked: {
     pluginApi?.openPanel(root.screen, root);

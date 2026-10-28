@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -25,9 +26,9 @@ ColumnLayout {
     Layout.fillWidth: true
     Layout.fillHeight: true
     radius: Style.radiusL
-    color: Qt.alpha(Color.mSurfaceVariant, 0.35)
+    color: Qt.alpha(Commons.Color.mSurfaceVariant, 0.35)
     border.width: Style.borderS
-    border.color: Qt.alpha(Color.mOutline, 0.35)
+    border.color: Qt.alpha(Commons.Color.mOutline, 0.35)
     clip: true
 
     NScrollView {
@@ -55,7 +56,7 @@ ColumnLayout {
       gradient: Gradient {
         orientation: Gradient.Vertical
         GradientStop { position: 0.0; color: Qt.rgba(0, 0, 0, 0) }
-        GradientStop { position: 1.0; color: Qt.alpha(Color.mSurface, 0.32) }
+        GradientStop { position: 1.0; color: Qt.alpha(Commons.Color.mSurface, 0.32) }
       }
 
       RowLayout {

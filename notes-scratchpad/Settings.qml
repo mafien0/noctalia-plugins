@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -134,7 +135,7 @@ ColumnLayout {
       visible: root.filePath !== "" && !root.filePathWritable
       text: pluginApi?.tr("settings.file_storage.not_writable") || "⚠ Warning: No write permission for this location"
       pointSize: Style.fontSizeS
-      color: Color.mError
+      color: Commons.Color.mError
       Layout.fillWidth: true
     }
   }
@@ -189,7 +190,7 @@ ColumnLayout {
     Rectangle {
       Layout.fillWidth: true
       Layout.preferredHeight: commandText.implicitHeight + Style.marginM * 2
-      color: Color.mSurfaceVariant
+      color: Commons.Color.mSurfaceVariant
       radius: Style.radiusM
 
       TextEdit {
@@ -199,12 +200,12 @@ ColumnLayout {
         text: "qs -c noctalia-shell ipc call plugin:notes-scratchpad togglePanel"
         font.pointSize: Style.fontSizeS
         font.family: Settings.data.ui.fontFixed
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
         wrapMode: TextEdit.WrapAnywhere
         readOnly: true
         selectByMouse: true
-        selectionColor: Color.mPrimary
-        selectedTextColor: Color.mOnPrimary
+        selectionColor: Commons.Color.mPrimary
+        selectedTextColor: Commons.Color.mOnPrimary
       }
     }
   }

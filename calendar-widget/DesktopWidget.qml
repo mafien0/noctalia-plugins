@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Effects
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Modules.DesktopWidgets
 import qs.Widgets
 
@@ -87,7 +88,7 @@ DraggableDesktopWidget {
 
     NText {
       text: currentDate.toLocaleDateString(Qt.locale(), "MMMM yyyy").toUpperCase()
-      color: Color.mPrimary
+      color: Commons.Color.mPrimary
       font.weight: Font.Bold
       font.letterSpacing: Math.round(Style.marginS * widgetScale)
       font.pointSize: Math.round(Style.fontSizeL * widgetScale)
@@ -118,7 +119,7 @@ DraggableDesktopWidget {
         model: root.days
         NText {
           text: modelData
-          color: Color.mPrimary
+          color: Commons.Color.mPrimary
           font.weight: Font.Bold
           font.pointSize: Math.round(Style.fontSizeS * widgetScale)
           Layout.fillWidth: true
@@ -147,13 +148,13 @@ DraggableDesktopWidget {
           Layout.preferredWidth: 28 * widgetScale
           Layout.preferredHeight: 28 * widgetScale
 
-          color: isActuallyToday ? Color.mSecondary : "transparent"
+          color: isActuallyToday ? Commons.Color.mSecondary : "transparent"
           radius: Math.round(Style.radiusS * widgetScale)
 
           NText {
             anchors.centerIn: parent
             text: dayNum
-            color: isActuallyToday ? Color.mOnPrimary : Color.mOnSurface
+            color: isActuallyToday ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface
             font.weight: isActuallyToday ? Font.Bold : Font.Light
             font.pointSize: Math.round(Style.fontSizeS * widgetScale)
           }

@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import "." as Local
@@ -167,13 +168,13 @@ ColumnLayout {
         text: pluginApi?.tr("settings.title")
         pointSize: Style.fontSizeXXL
         font.weight: Style.fontWeightBold
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
       }
 
       NText {
         Layout.fillWidth: true
         text: pluginApi?.tr("settings.description")
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         pointSize: Style.fontSizeM
         wrapMode: Text.WordWrap
       }
@@ -182,7 +183,7 @@ ColumnLayout {
       NBox {
         Layout.fillWidth: true
         Layout.preferredHeight: sizeContent.implicitHeight + Style.marginM * 2
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
 
         ColumnLayout {
           id: sizeContent
@@ -195,7 +196,7 @@ ColumnLayout {
             text: pluginApi?.tr("settings.window-size")
             pointSize: Style.fontSizeL
             font.weight: Style.fontWeightBold
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
           }
 
           RowLayout {
@@ -203,7 +204,7 @@ ColumnLayout {
 
             NText {
               text: pluginApi?.tr("settings.width")
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
               pointSize: Style.fontSizeM
               Layout.preferredWidth: 120
             }
@@ -223,7 +224,7 @@ ColumnLayout {
 
             NText {
               text: pluginApi?.tr("settings.width-range")
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               pointSize: Style.fontSizeS
             }
           }
@@ -233,7 +234,7 @@ ColumnLayout {
 
             NText {
               text: pluginApi?.tr("settings.height")
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
               pointSize: Style.fontSizeM
               Layout.preferredWidth: 120
             }
@@ -264,7 +265,7 @@ ColumnLayout {
 
             NText {
               text: pluginApi?.tr("settings.height-range")
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               pointSize: Style.fontSizeS
               opacity: autoHeightToggle.checked ? 0.5 : 1.0
             }
@@ -273,7 +274,7 @@ ColumnLayout {
           NText {
             Layout.fillWidth: true
             text: pluginApi?.tr("settings.auto-height-hint")
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             pointSize: Style.fontSizeS
             wrapMode: Text.WordWrap
           }
@@ -284,7 +285,7 @@ ColumnLayout {
       NBox {
         Layout.fillWidth: true
         Layout.preferredHeight: columnContent.implicitHeight + Style.marginM * 2
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
 
         ColumnLayout {
           id: columnContent
@@ -297,7 +298,7 @@ ColumnLayout {
             text: pluginApi?.tr("settings.layout")
             pointSize: Style.fontSizeL
             font.weight: Style.fontWeightBold
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
           }
 
           RowLayout {
@@ -305,7 +306,7 @@ ColumnLayout {
 
             NText {
               text: pluginApi?.tr("settings.columns")
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
               pointSize: Style.fontSizeM
             }
 
@@ -329,7 +330,7 @@ ColumnLayout {
           NText {
             Layout.fillWidth: true
             text: pluginApi?.tr("settings.columns-hint")
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             pointSize: Style.fontSizeS
             wrapMode: Text.WordWrap
           }
@@ -340,7 +341,7 @@ ColumnLayout {
       NBox {
         Layout.fillWidth: true
         Layout.preferredHeight: parsingContent.implicitHeight + Style.marginM * 2
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
 
         ColumnLayout {
           id: parsingContent
@@ -353,7 +354,7 @@ ColumnLayout {
             text: pluginApi?.tr("settings.parsing-options")
             pointSize: Style.fontSizeL
             font.weight: Style.fontWeightBold
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
           }
 
           NToggle {
@@ -397,7 +398,7 @@ ColumnLayout {
                 "hidden": parent.overrideCount("hidden"),
                 "custom": parent.overrideCount("desc")
               })
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               pointSize: Style.fontSizeXS
               wrapMode: Text.WordWrap
             }
@@ -456,7 +457,7 @@ ColumnLayout {
 
             NText {
               text: pluginApi?.tr("settings.split-threshold")
-              color: Color.mOnSurface
+              color: Commons.Color.mOnSurface
               pointSize: Style.fontSizeM
               Layout.fillWidth: true
             }
@@ -479,7 +480,7 @@ ColumnLayout {
       NBox {
         Layout.fillWidth: true
         Layout.preferredHeight: pathsContent.implicitHeight + Style.marginM * 2
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
 
         ColumnLayout {
           id: pathsContent
@@ -492,13 +493,13 @@ ColumnLayout {
             text: pluginApi?.tr("settings.config-paths")
             pointSize: Style.fontSizeL
             font.weight: Style.fontWeightBold
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
           }
 
           NText {
             Layout.fillWidth: true
             text: pluginApi?.tr("settings.config-paths-description")
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             pointSize: Style.fontSizeS
             wrapMode: Text.WordWrap
           }
@@ -511,11 +512,11 @@ ColumnLayout {
               NIcon {
                 icon: "keyboard"
                 pointSize: Style.fontSizeM
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
               }
               NText {
                 text: pluginApi?.tr("settings.mod-var")
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 pointSize: Style.fontSizeM
                 font.weight: Style.fontWeightBold
               }
@@ -535,7 +536,7 @@ ColumnLayout {
             NText {
               Layout.fillWidth: true
               text: pluginApi?.tr("settings.mod-var-hint")
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               pointSize: Style.fontSizeXS
               wrapMode: Text.WordWrap
             }
@@ -544,7 +545,7 @@ ColumnLayout {
           Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 1
-            color: Color.mOutline
+            color: Commons.Color.mOutline
             opacity: 0.3
           }
 
@@ -556,11 +557,11 @@ ColumnLayout {
               NIcon {
                 icon: "terminal"
                 pointSize: Style.fontSizeM
-                color: Color.mPrimary
+                color: Commons.Color.mPrimary
               }
               NText {
                 text: pluginApi?.tr("settings.hyprland-path")
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 pointSize: Style.fontSizeM
                 font.weight: Style.fontWeightBold
               }
@@ -580,7 +581,7 @@ ColumnLayout {
             NText {
               Layout.fillWidth: true
               text: pluginApi?.tr("settings.hyprland-format-hint")
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               pointSize: Style.fontSizeXS
               wrapMode: Text.WordWrap
             }
@@ -589,7 +590,7 @@ ColumnLayout {
           Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 1
-            color: Color.mOutline
+            color: Commons.Color.mOutline
             opacity: 0.3
           }
 
@@ -602,11 +603,11 @@ ColumnLayout {
               NIcon {
                 icon: "terminal"
                 pointSize: Style.fontSizeM
-                color: Color.mPrimary
+                color: Commons.Color.mPrimary
               }
               NText {
                 text: pluginApi?.tr("settings.hyprland-lua-path")
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 pointSize: Style.fontSizeM
                 font.weight: Style.fontWeightBold
               }
@@ -627,7 +628,7 @@ ColumnLayout {
               spacing: Style.marginM
               NText {
                 text: pluginApi?.tr("settings.hyprland-parser-mode")
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 pointSize: Style.fontSizeM
               }
               NComboBox {
@@ -647,7 +648,7 @@ ColumnLayout {
             NText {
               Layout.fillWidth: true
               text: pluginApi?.tr("settings.hyprland-lua-hint")
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               pointSize: Style.fontSizeXS
               wrapMode: Text.WordWrap
             }
@@ -656,7 +657,7 @@ ColumnLayout {
           Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 1
-            color: Color.mOutline
+            color: Commons.Color.mOutline
             opacity: 0.3
           }
 
@@ -668,11 +669,11 @@ ColumnLayout {
               NIcon {
                 icon: "layout"
                 pointSize: Style.fontSizeM
-                color: Color.mSecondary
+                color: Commons.Color.mSecondary
               }
               NText {
                 text: pluginApi?.tr("settings.niri-path")
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 pointSize: Style.fontSizeM
                 font.weight: Style.fontWeightBold
               }
@@ -692,7 +693,7 @@ ColumnLayout {
             NText {
               Layout.fillWidth: true
               text: pluginApi?.tr("settings.niri-format-hint")
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               pointSize: Style.fontSizeXS
               wrapMode: Text.WordWrap
             }
@@ -701,7 +702,7 @@ ColumnLayout {
           Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 1
-            color: Color.mOutline
+            color: Commons.Color.mOutline
             opacity: 0.3
           }
 
@@ -713,11 +714,11 @@ ColumnLayout {
               NIcon {
                 icon: "terminal"
                 pointSize: Style.fontSizeM
-                color: Color.mTertiary
+                color: Commons.Color.mTertiary
               }
               NText {
                 text: pluginApi?.tr("settings.mango-path")
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
                 pointSize: Style.fontSizeM
                 font.weight: Style.fontWeightBold
               }
@@ -737,7 +738,7 @@ ColumnLayout {
             NText {
               Layout.fillWidth: true
               text: pluginApi?.tr("settings.mango-format-hint")
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               pointSize: Style.fontSizeXS
               wrapMode: Text.WordWrap
             }
@@ -749,7 +750,7 @@ ColumnLayout {
       NBox {
         Layout.fillWidth: true
         Layout.preferredHeight: actionsContent.implicitHeight + Style.marginM * 2
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
 
         ColumnLayout {
           id: actionsContent
@@ -762,7 +763,7 @@ ColumnLayout {
             text: pluginApi?.tr("settings.actions")
             pointSize: Style.fontSizeL
             font.weight: Style.fontWeightBold
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
           }
 
           RowLayout {
@@ -820,7 +821,7 @@ ColumnLayout {
       NBox {
         Layout.fillWidth: true
         Layout.preferredHeight: keybindContent.implicitHeight + Style.marginM * 2
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
 
         ColumnLayout {
           id: keybindContent
@@ -833,13 +834,13 @@ ColumnLayout {
             text: pluginApi?.tr("settings.keybind-setup")
             pointSize: Style.fontSizeL
             font.weight: Style.fontWeightBold
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
           }
 
           NText {
             Layout.fillWidth: true
             text: pluginApi?.tr("settings.keybind-setup-description")
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             pointSize: Style.fontSizeS
             wrapMode: Text.WordWrap
           }
@@ -847,7 +848,7 @@ ColumnLayout {
           Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: commandText.implicitHeight + Style.marginS * 2
-            color: Color.mSurface
+            color: Commons.Color.mSurface
             radius: Style.radiusS
 
             NText {
@@ -857,7 +858,7 @@ ColumnLayout {
               text: pluginApi?.tr("settings.keybind-ipc-command")
               font.family: "monospace"
               pointSize: Style.fontSizeS
-              color: Color.mPrimary
+              color: Commons.Color.mPrimary
               wrapMode: Text.WrapAnywhere
             }
           }
@@ -865,7 +866,7 @@ ColumnLayout {
           NText {
             Layout.fillWidth: true
             text: pluginApi?.tr("settings.keybind-example-hyprland")
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             pointSize: Style.fontSizeXS
             wrapMode: Text.WordWrap
           }
@@ -873,7 +874,7 @@ ColumnLayout {
           NText {
             Layout.fillWidth: true
             text: pluginApi?.tr("settings.keybind-example-niri")
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             pointSize: Style.fontSizeXS
             wrapMode: Text.WordWrap
           }
@@ -881,7 +882,7 @@ ColumnLayout {
           NText {
             Layout.fillWidth: true
             text: pluginApi?.tr("settings.keybind-example-mango")
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             pointSize: Style.fontSizeXS
             wrapMode: Text.WordWrap
           }
@@ -905,13 +906,13 @@ ColumnLayout {
         text: pluginApi?.tr("settings.appearance-section")
         pointSize: Style.fontSizeXXL
         font.weight: Style.fontWeightBold
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
       }
 
       NText {
         Layout.fillWidth: true
         text: pluginApi?.tr("settings.appearance-description")
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         pointSize: Style.fontSizeM
         wrapMode: Text.WordWrap
       }
@@ -920,7 +921,7 @@ ColumnLayout {
       NBox {
         Layout.fillWidth: true
         Layout.preferredHeight: previewContent.implicitHeight + Style.marginM * 2
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
 
         ColumnLayout {
           id: previewContent
@@ -933,7 +934,7 @@ ColumnLayout {
             text: pluginApi?.tr("settings.preview-section")
             pointSize: Style.fontSizeL
             font.weight: Style.fontWeightBold
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
           }
 
           Flow {
@@ -966,17 +967,17 @@ ColumnLayout {
 
             Loader { sourceComponent: previewBadge; onLoaded: {
               item.label = "Super";
-              item.bg = Qt.binding(function() { return root.valueKeyColorSuper || Color.mPrimary });
+              item.bg = Qt.binding(function() { return root.valueKeyColorSuper || Commons.Color.mPrimary });
               item.fg = Qt.binding(function() { return root.valueKeyTextSuper || root.valueKeyLabelColor });
             } }
             Loader { sourceComponent: previewBadge; onLoaded: {
               item.label = "Ctrl";
-              item.bg = Qt.binding(function() { return root.valueKeyColorCtrl || Color.mSecondary });
+              item.bg = Qt.binding(function() { return root.valueKeyColorCtrl || Commons.Color.mSecondary });
               item.fg = Qt.binding(function() { return root.valueKeyTextCtrl || root.valueKeyLabelColor });
             } }
             Loader { sourceComponent: previewBadge; onLoaded: {
               item.label = "Shift";
-              item.bg = Qt.binding(function() { return root.valueKeyColorShift || Color.mTertiary });
+              item.bg = Qt.binding(function() { return root.valueKeyColorShift || Commons.Color.mTertiary });
               item.fg = Qt.binding(function() { return root.valueKeyTextShift || root.valueKeyLabelColor });
             } }
             Loader { sourceComponent: previewBadge; onLoaded: {
@@ -1041,7 +1042,7 @@ ColumnLayout {
       NBox {
         Layout.fillWidth: true
         Layout.preferredHeight: colorContent.implicitHeight + Style.marginM * 2
-        color: Color.mSurfaceVariant
+        color: Commons.Color.mSurfaceVariant
 
         ColumnLayout {
           id: colorContent
@@ -1054,13 +1055,13 @@ ColumnLayout {
             text: pluginApi?.tr("settings.color-pickers")
             pointSize: Style.fontSizeL
             font.weight: Style.fontWeightBold
-            color: Color.mOnSurface
+            color: Commons.Color.mOnSurface
           }
 
           NText {
             Layout.fillWidth: true
             text: pluginApi?.tr("settings.color-theme-hint")
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             pointSize: Style.fontSizeS
             wrapMode: Text.WordWrap
           }
@@ -1071,12 +1072,12 @@ ColumnLayout {
             NIcon {
               icon: "clipboard"
               pointSize: Style.fontSizeM
-              color: root.clipboardHex.length > 0 ? Color.mPrimary : Color.mOnSurfaceVariant
+              color: root.clipboardHex.length > 0 ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
             }
             NText {
               Layout.fillWidth: true
               text: pluginApi?.tr("settings.color-paste-hint")
-              color: Color.mOnSurfaceVariant
+              color: Commons.Color.mOnSurfaceVariant
               pointSize: Style.fontSizeS
               wrapMode: Text.WordWrap
             }
@@ -1089,7 +1090,7 @@ ColumnLayout {
             letter: "S"
             bgValue: root.valueKeyColorSuper
             textValue: root.valueKeyTextSuper
-            bgFallback: Color.mPrimary
+            bgFallback: Commons.Color.mPrimary
             textFallback: root.valueKeyLabelColor
             clipboardHex: root.clipboardHex
             onBgPicked: c => { root.valueKeyColorSuper = c.toString(); root._applyPreview("keyColorSuper", c.toString()); }
@@ -1109,7 +1110,7 @@ ColumnLayout {
             letter: "C"
             bgValue: root.valueKeyColorCtrl
             textValue: root.valueKeyTextCtrl
-            bgFallback: Color.mSecondary
+            bgFallback: Commons.Color.mSecondary
             textFallback: root.valueKeyLabelColor
             clipboardHex: root.clipboardHex
             onBgPicked: c => { root.valueKeyColorCtrl = c.toString(); root._applyPreview("keyColorCtrl", c.toString()); }
@@ -1129,7 +1130,7 @@ ColumnLayout {
             letter: "⇧"
             bgValue: root.valueKeyColorShift
             textValue: root.valueKeyTextShift
-            bgFallback: Color.mTertiary
+            bgFallback: Commons.Color.mTertiary
             textFallback: root.valueKeyLabelColor
             clipboardHex: root.clipboardHex
             onBgPicked: c => { root.valueKeyColorShift = c.toString(); root._applyPreview("keyColorShift", c.toString()); }
@@ -1168,7 +1169,7 @@ ColumnLayout {
           NText {
             Layout.fillWidth: true
             text: pluginApi?.tr("settings.mod-label-hint")
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
             pointSize: Style.fontSizeS
             wrapMode: Text.WordWrap
           }
@@ -1359,7 +1360,7 @@ ColumnLayout {
             showBg: false
             bgValue: ""
             textValue: root.valueDescriptionTextColor
-            textFallback: Color.mOnSurface
+            textFallback: Commons.Color.mOnSurface
             clipboardHex: root.clipboardHex
             onTextPicked: c => { root.valueDescriptionTextColor = c.toString(); root._applyPreview("descriptionTextColor", c.toString()); }
             onTextPasted: hex => { root.valueDescriptionTextColor = hex; root._applyPreview("descriptionTextColor", hex); }
@@ -1371,7 +1372,7 @@ ColumnLayout {
           Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 1
-            color: Color.mOutline
+            color: Commons.Color.mOutline
             opacity: 0.3
           }
 

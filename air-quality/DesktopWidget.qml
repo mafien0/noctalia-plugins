@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 import qs.Modules.DesktopWidgets
@@ -17,7 +18,7 @@ DraggableDesktopWidget {
   readonly property var mainInstance: pluginApi?.mainInstance
   readonly property bool hasData: mainInstance?.hasData ?? false
   readonly property int aqi: hasData ? mainInstance.getAqi() : 0
-  readonly property string aqiColor: hasData ? mainInstance.getAqiColor(aqi) : Color.mOnSurfaceVariant
+  readonly property string aqiColor: hasData ? mainInstance.getAqiColor(aqi) : Commons.Color.mOnSurfaceVariant
 
   ColumnLayout {
     anchors {
@@ -49,7 +50,7 @@ DraggableDesktopWidget {
       visible: root.hasData
       text: root.mainInstance?.getLocationName() ?? ""
       pointSize: Style.fontSizeS
-      color: Color.mOnSurfaceVariant
+      color: Commons.Color.mOnSurfaceVariant
     }
 
     // PM2.5 / PM10 row
@@ -61,13 +62,13 @@ DraggableDesktopWidget {
       NText {
         text: pluginApi?.tr("pollutants.pm25Short", { value: root.hasData ? Math.round(root.mainInstance.pm25 * 10) / 10 : "--" })
         pointSize: Style.fontSizeS
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
       }
 
       NText {
         text: pluginApi?.tr("pollutants.pm10Short", { value: root.hasData ? Math.round(root.mainInstance.pm10 * 10) / 10 : "--" })
         pointSize: Style.fontSizeS
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
       }
     }
   }
@@ -79,7 +80,7 @@ DraggableDesktopWidget {
     height: root.height - (Style.marginL * root.widgetScale)
     anchors.centerIn: parent
     radius: Style.radiusL
-    color: Color.mShadow
+    color: Commons.Color.mShadow
     visible: false
     opacity: 0
 
@@ -94,7 +95,7 @@ DraggableDesktopWidget {
       anchors.centerIn: parent
       text: pluginApi?.tr("desktop.tipLeft") + "\n" + pluginApi?.tr("desktop.tipMiddle") + "\n" + pluginApi?.tr("desktop.tipRight")
       pointSize: Style.fontSizeS
-      color: Color.mOnSurface
+      color: Commons.Color.mOnSurface
       horizontalAlignment: Text.AlignHCenter
     }
   }

@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -33,7 +34,7 @@ Item {
                     width: parent.width
                     wrapMode: Text.Wrap
                     font.pointSize: Style.fontSizeM
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                     font.family: Settings.data.ui.fontFixed
                 }
             }

@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Dialogs
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -18,12 +19,12 @@ ColumnLayout {
     property string editColorPowerSaver:
         pluginApi?.pluginSettings?.colorPowerSaver ??
         pluginApi?.manifest?.metadata?.defaultSettings?.colorPowerSaver ??
-        Color.mSecondary
+        Commons.Color.mSecondary
 
     property string editColorPerformance:
         pluginApi?.pluginSettings?.colorPerformance ??
         pluginApi?.manifest?.metadata?.defaultSettings?.colorPerformance ??
-        Color.mError
+        Commons.Color.mError
 
     property bool editShowProfile:
         pluginApi?.pluginSettings?.showProfile  ??
@@ -47,8 +48,8 @@ ColumnLayout {
 
     // All palette colors
     readonly property var noctaliaPalette: [
-        Color.mPrimary, Color.mSecondary, Color.mTertiary, Color.mError,
-        Color.mSurface, Color.mSurfaceVariant, Color.mOutline
+        Commons.Color.mPrimary, Commons.Color.mSecondary, Commons.Color.mTertiary, Commons.Color.mError,
+        Commons.Color.mSurface, Commons.Color.mSurfaceVariant, Commons.Color.mOutline
     ]
 
     Component.onCompleted: {
@@ -86,7 +87,7 @@ ColumnLayout {
             NText {
                 text: pluginApi?.tr("settings.color-powersaver-desc")
                 font.pointSize: Style.fontSizeSmall
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
             }
 
             RowLayout {
@@ -101,7 +102,7 @@ ColumnLayout {
                         //height: 28
                         radius: Style.radiusL
                         color: modelData
-                        border.color: Qt.colorEqual(root.editColorPowerSaver, modelData) ? Color.mOnSurface : Color.mOutline
+                        border.color: Qt.colorEqual(root.editColorPowerSaver, modelData) ? Commons.Color.mOnSurface : Commons.Color.mOutline
                         border.width: Qt.colorEqual(root.editColorPowerSaver, modelData) ? 3 : 1
 
                         MouseArea {
@@ -133,7 +134,7 @@ ColumnLayout {
             NText {
                 text: pluginApi?.tr("settings.color-performance-desc")
                 font.pointSize: Style.fontSizeSmall
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
             }
 
             RowLayout {
@@ -148,7 +149,7 @@ ColumnLayout {
                         //height: 28
                         radius: Style.radiusL
                         color: modelData
-                        border.color: Qt.colorEqual(root.editColorPerformance, modelData) ? Color.mOnSurface : Color.mOutline
+                        border.color: Qt.colorEqual(root.editColorPerformance, modelData) ? Commons.Color.mOnSurface : Commons.Color.mOutline
                         border.width: Qt.colorEqual(root.editColorPerformance, modelData) ? 3 : 1
 
                         MouseArea {

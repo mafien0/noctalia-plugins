@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -69,7 +70,7 @@ ColumnLayout {
         text: pluginApi?.tr("settings.section-bar")
         pointSize: Style.fontSizeM
         font.weight: Font.Bold
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
     }
 
     NToggle {
@@ -101,7 +102,7 @@ ColumnLayout {
         text: pluginApi?.tr("settings.section-behavior")
         pointSize: Style.fontSizeM
         font.weight: Font.Bold
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
     }
 
     NToggle {
@@ -133,7 +134,7 @@ ColumnLayout {
         text: pluginApi?.tr("settings.section-browser")
         pointSize: Style.fontSizeM
         font.weight: Font.Bold
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
     }
 
     NComboBox {
@@ -182,7 +183,7 @@ ColumnLayout {
         text: pluginApi?.tr("settings.icon-color")
         pointSize: Style.fontSizeM
         font.weight: Font.Bold
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
     }
     NColorChoice {
         currentKey: root.iconColor

@@ -4,6 +4,7 @@ import QtQuick.Controls
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -234,21 +235,21 @@ Item {
                         NIcon {
                             icon: "network"
                             pointSize: Style.fontSizeL
-                            color: Color.mPrimary
+                            color: Commons.Color.mPrimary
                         }
 
                         NText {
                             text: pluginApi?.tr("panel.title") || "NetBird Network"
                             pointSize: Style.fontSizeL
                             font.weight: Style.fontWeightBold
-                            color: Color.mOnSurface
+                            color: Commons.Color.mOnSurface
                             Layout.fillWidth: true
                         }
 
                         NText {
                             text: mainInstance?.netbirdRunning ? (mainInstance?.peerConnected || 0) + "/" + (mainInstance?.peerCount || 0) + " " + (pluginApi?.tr("panel.peers") || "peers") : (pluginApi?.tr("panel.not-connected") || "Not connected")
                             pointSize: Style.fontSizeS
-                            color: Color.mOnSurfaceVariant
+                            color: Commons.Color.mOnSurfaceVariant
                         }
                     }
 
@@ -257,7 +258,7 @@ Item {
                         text: mainInstance?.netbirdIp || ""
                         visible: (mainInstance?.netbirdRunning ?? false) && (mainInstance?.netbirdIp ?? false)
                         pointSize: Style.fontSizeS
-                        color: mainIpMouseArea.containsMouse ? Color.mPrimary : Color.mOnSurfaceVariant
+                        color: mainIpMouseArea.containsMouse ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
                         font.family: Settings.data.ui.fontFixed
 
                         MouseArea {
@@ -279,7 +280,7 @@ Item {
                         text: mainInstance?.netbirdFqdn || ""
                         visible: (mainInstance?.netbirdRunning ?? false) && (mainInstance?.netbirdFqdn ?? false)
                         pointSize: Style.fontSizeXS
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         font.family: Settings.data.ui.fontFixed
                         elide: Text.ElideRight
                     }
@@ -288,10 +289,10 @@ Item {
                         Layout.fillWidth: true
                         Layout.preferredHeight: connectionStatusLayout.implicitHeight + Style.marginS * 2
                         visible: (mainInstance?.netbirdRunning ?? false)
-                        color: Qt.alpha(Color.mPrimary, 0.1)
+                        color: Qt.alpha(Commons.Color.mPrimary, 0.1)
                         radius: Style.radiusS
                         border.width: 1
-                        border.color: Qt.alpha(Color.mPrimary, 0.3)
+                        border.color: Qt.alpha(Commons.Color.mPrimary, 0.3)
 
                         RowLayout {
                             id: connectionStatusLayout
@@ -305,13 +306,13 @@ Item {
                                 NIcon {
                                     icon: "server"
                                     pointSize: Style.fontSizeXS
-                                    color: (mainInstance?.managementConnected ?? false) ? Color.mPrimary : Color.mError
+                                    color: (mainInstance?.managementConnected ?? false) ? Commons.Color.mPrimary : Commons.Color.mError
                                 }
 
                                 NText {
                                     text: pluginApi?.tr("panel.management") || "Management"
                                     pointSize: Style.fontSizeXS
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                 }
                             }
 
@@ -321,13 +322,13 @@ Item {
                                 NIcon {
                                     icon: "antenna-bars-5"
                                     pointSize: Style.fontSizeXS
-                                    color: (mainInstance?.signalConnected ?? false) ? Color.mPrimary : Color.mError
+                                    color: (mainInstance?.signalConnected ?? false) ? Commons.Color.mPrimary : Commons.Color.mError
                                 }
 
                                 NText {
                                     text: pluginApi?.tr("panel.signal") || "Signal"
                                     pointSize: Style.fontSizeXS
-                                    color: Color.mOnSurfaceVariant
+                                    color: Commons.Color.mOnSurfaceVariant
                                 }
                             }
                         }
@@ -336,7 +337,7 @@ Item {
                     Rectangle {
                         Layout.fillWidth: true
                         Layout.preferredHeight: 1
-                        color: Qt.alpha(Color.mOnSurface, 0.1)
+                        color: Qt.alpha(Commons.Color.mOnSurface, 0.1)
                         visible: (mainInstance?.netbirdRunning ?? false) && (mainInstance?.peerList?.length ?? 0) > 0
                     }
 
@@ -377,10 +378,10 @@ Item {
 
                                     background: Rectangle {
                                         anchors.fill: parent
-                                        color: peerDelegate.hovered ? Qt.alpha(Color.mPrimary, 0.1) : "transparent"
+                                        color: peerDelegate.hovered ? Qt.alpha(Commons.Color.mPrimary, 0.1) : "transparent"
                                         radius: Style.radiusM
                                         border.width: peerDelegate.hovered ? 1 : 0
-                                        border.color: Qt.alpha(Color.mPrimary, 0.3)
+                                        border.color: Qt.alpha(Commons.Color.mPrimary, 0.3)
                                     }
 
                                     contentItem: RowLayout {
@@ -389,7 +390,7 @@ Item {
                                         NIcon {
                                             icon: root.getConnectionIcon(peerDelegate.peerData.connectionType)
                                             pointSize: Style.fontSizeM
-                                            color: peerDelegate.peerConnected ? Color.mPrimary : Color.mOnSurfaceVariant
+                                            color: peerDelegate.peerConnected ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant
                                         }
 
                                         ColumnLayout {
@@ -398,7 +399,7 @@ Item {
 
                                             NText {
                                                 text: peerDelegate.peerHostname
-                                                color: Color.mOnSurface
+                                                color: Commons.Color.mOnSurface
                                                 font.weight: Style.fontWeightMedium
                                                 elide: Text.ElideRight
                                                 Layout.fillWidth: true
@@ -408,7 +409,7 @@ Item {
                                                 visible: peerDelegate.peerData.connectionType !== ""
                                                 text: peerDelegate.peerData.connectionType || ""
                                                 pointSize: Style.fontSizeXS
-                                                color: Color.mOnSurfaceVariant
+                                                color: Commons.Color.mOnSurfaceVariant
                                             }
                                         }
 
@@ -420,7 +421,7 @@ Item {
                                             NText {
                                                 text: peerDelegate.peerIp
                                                 pointSize: Style.fontSizeS
-                                                color: Color.mOnSurfaceVariant
+                                                color: Commons.Color.mOnSurfaceVariant
                                                 font.family: Settings.data.ui.fontFixed
                                                 Layout.alignment: Qt.AlignRight
                                             }
@@ -441,13 +442,13 @@ Item {
                                                 color: {
                                                     var pingVal = mainInstance?.peerPings?.[peerDelegate.peerIp] ?? "";
                                                     if (pingVal === "" || pingVal === "timeout")
-                                                        return Color.mError;
+                                                        return Commons.Color.mError;
                                                     var ms = parseFloat(pingVal);
                                                     if (ms < 50)
-                                                        return Color.mPrimary;
+                                                        return Commons.Color.mPrimary;
                                                     if (ms < 150)
-                                                        return Color.mWarning || "#FF9800";
-                                                    return Color.mError;
+                                                        return Commons.Color.mWarning || "#FF9800";
+                                                    return Commons.Color.mError;
                                                 }
                                             }
                                         }
@@ -473,7 +474,7 @@ Item {
                                 text: pluginApi?.tr("panel.no-peers") || "No connected peers"
                                 visible: !(mainInstance?.netbirdRunning ?? false) || (mainInstance?.peerList?.length ?? 0) === 0
                                 pointSize: Style.fontSizeM
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                                 horizontalAlignment: Text.AlignHCenter
                             }
                         }
@@ -498,8 +499,8 @@ Item {
                 Layout.fillWidth: true
                 text: mainInstance?.netbirdRunning ? (pluginApi?.tr("context.disconnect") || "Disconnect") : (pluginApi?.tr("context.connect") || "Connect")
                 icon: mainInstance?.netbirdRunning ? "plug-x" : "plug"
-                backgroundColor: mainInstance?.netbirdRunning ? Color.mError : Color.mPrimary
-                textColor: mainInstance?.netbirdRunning ? Color.mOnError : Color.mOnPrimary
+                backgroundColor: mainInstance?.netbirdRunning ? Commons.Color.mError : Commons.Color.mPrimary
+                textColor: mainInstance?.netbirdRunning ? Commons.Color.mOnError : Commons.Color.mOnPrimary
                 enabled: mainInstance?.netbirdInstalled ?? false
                 onClicked: {
                     if (mainInstance) {

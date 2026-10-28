@@ -5,6 +5,7 @@ import QtQuick.Layouts
 import "."
 
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -143,7 +144,7 @@ ColumnLayout {
 
   NText {
     text: pluginApi?.tr("panel.sectionAudio")
-    color: Color.mOnSurface
+    color: Commons.Color.mOnSurface
     font.weight: Font.Bold
     font.pointSize: Style.fontSizeM
   }
@@ -200,7 +201,7 @@ ColumnLayout {
 
   NText {
     text: pluginApi?.tr("panel.sectionFeatures")
-    color: Color.mOnSurface
+    color: Commons.Color.mOnSurface
     font.weight: Font.Bold
     font.pointSize: Style.fontSizeM
   }

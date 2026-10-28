@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -170,7 +171,7 @@ Item {
     width: root.contentWidth
     height: root.contentHeight
     radius: Style.radiusM
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
 
@@ -186,7 +187,7 @@ Item {
 
       NIcon {
         icon: "history"
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         pointSize: Style.toOdd(Style.capsuleHeight * 0.5)
         Layout.alignment: Qt.AlignVCenter
       }
@@ -194,7 +195,7 @@ Item {
       NText {
         id: cityText
         text: root.currentCity
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         pointSize: root.barFontSize
         applyUiScale: false
         Layout.alignment: Qt.AlignVCenter
@@ -203,7 +204,7 @@ Item {
       NText {
         id: timeText
         text: root.currentTime
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         pointSize: root.barFontSize
         font.weight: Font.Bold
         applyUiScale: false
@@ -220,13 +221,13 @@ Item {
       NIcon {
         icon: "history"
         pointSize: Style.toOdd(root.capsuleHeight * 0.45)
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         Layout.alignment: Qt.AlignHCenter
       }
 
       NText {
         text: root.currentTime.substring(0, 5)
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         pointSize: root.barFontSize * 0.65
         applyUiScale: false
         Layout.alignment: Qt.AlignHCenter

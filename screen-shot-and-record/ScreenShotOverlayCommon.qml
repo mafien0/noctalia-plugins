@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Wayland
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -149,7 +150,7 @@ Item {
 
     NBox {
         id: rowBackground
-        color: Color.mPrimary
+        color: Commons.Color.mPrimary
         radius: Style.radiusM
         width: rowLayout.implicitWidth + Style.marginL * 2
         height: rowLayout.implicitHeight + Style.marginM * 2
@@ -169,19 +170,19 @@ Item {
 
             NIcon {
                 icon: host?.targetMeta?.iconForTarget(host?.target)
-                color: Color.mOnPrimary
+                color: Commons.Color.mOnPrimary
             }
 
             NText {
                 text: host?.targetMeta?.labelForTarget(host?.pluginApi, host?.target)
-                color: Color.mOnPrimary
+                color: Commons.Color.mOnPrimary
             }
 
             NButton {
                 z: 20
                 icon: "close"
-                backgroundColor: Color.mError
-                textColor: Color.mOnError
+                backgroundColor: Commons.Color.mError
+                textColor: Commons.Color.mOnError
                 onClicked: {
                     host?.closeSelector()
                 }

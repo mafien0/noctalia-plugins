@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -129,7 +130,7 @@ Item {
     width: root.contentWidth
     height: root.contentHeight
     radius: Style.radiusL
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
 
@@ -147,7 +148,7 @@ Item {
       NIcon {
         icon: "moon-stars"
         pointSize: root.iconSize
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mPrimary
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mPrimary
         Layout.alignment: Qt.AlignVCenter
       }
 
@@ -156,7 +157,7 @@ Item {
         text: root.displayText
         pointSize: root.barFontSize
         applyUiScale: false
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         Layout.alignment: Qt.AlignVCenter
       }
     }
@@ -170,7 +171,7 @@ Item {
       NIcon {
         icon: "moon-stars"
         pointSize: Style.toOdd(root.capsuleHeight * 0.45)
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mPrimary
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mPrimary
         Layout.alignment: Qt.AlignHCenter
       }
 
@@ -178,7 +179,7 @@ Item {
         text: root.displayText
         pointSize: root.barFontSize * 0.65
         applyUiScale: false
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         Layout.alignment: Qt.AlignHCenter
       }
     }

@@ -4,6 +4,7 @@ import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import "../utils/utils.js" as U
@@ -569,7 +570,7 @@ Item {
                     Rectangle {
                         anchors.centerIn: parent
                         width: Style.marginXS * 2; height: Style.marginXS * 2; radius: Style.radiusXXS
-                        color: Color.mPrimary
+                        color: Commons.Color.mPrimary
                         opacity: parent.containsMouse || parent.pressed ? 1.0 : 0.4
                         Behavior on opacity { NumberAnimation { duration: 120 } }
                     }

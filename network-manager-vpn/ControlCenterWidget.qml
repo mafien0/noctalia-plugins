@@ -3,6 +3,7 @@ import Quickshell
 import qs.Widgets
 import qs.Commons
 
+import qs.Commons as Commons
 NIconButtonHot {
     property ShellScreen screen
     property var pluginApi: null
@@ -21,8 +22,8 @@ NIconButtonHot {
 
     colorFg: {
         const key = connectedCount > 0 ? connectedColor : disconnectedColor;
-        if (!key || key === "none") return Color.mPrimary;
-        return Color.resolveColorKeyOptional(key) ?? Color.mPrimary;
+        if (!key || key === "none") return Commons.Color.mPrimary;
+        return Commons.Color.resolveColorKeyOptional(key) ?? Commons.Color.mPrimary;
     }
 
     onClicked: pluginApi?.togglePanel(screen, this)

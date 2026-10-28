@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -95,7 +96,7 @@ Item {
                 NIcon {
                     Layout.alignment: Qt.AlignHCenter
                     icon: "loader"
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
 
                     RotationAnimation on rotation {
                         running: root._loading
@@ -109,7 +110,7 @@ Item {
                 NText {
                     Layout.alignment: Qt.AlignHCenter
                     text: pluginApi?.tr("browser.loading")
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                     pointSize: Style.fontSizeM
                 }
             }
@@ -134,7 +135,7 @@ Item {
                     id: entityRow
                     width: ListView.view.width
                     height: Math.round(56 * Style.uiScaleRatio)
-                    color: Color.mSurfaceVariant
+                    color: Commons.Color.mSurfaceVariant
                     radius: Style.radiusM
 
                     readonly property bool pinned: {
@@ -155,7 +156,7 @@ Item {
 
                             NText {
                                 text: model.friendly_name
-                                color: Color.mOnSurface
+                                color: Commons.Color.mOnSurface
                                 pointSize: Style.fontSizeM
                                 elide: Text.ElideRight
                                 Layout.fillWidth: true
@@ -163,7 +164,7 @@ Item {
 
                             NText {
                                 text: model.entity_id
-                                color: Color.mOnSurfaceVariant
+                                color: Commons.Color.mOnSurfaceVariant
                                 pointSize: Style.fontSizeS
                                 elide: Text.ElideRight
                                 Layout.fillWidth: true
@@ -172,7 +173,7 @@ Item {
 
                         NIconButton {
                             icon: entityRow.pinned ? "pin-filled" : "pin"
-                            color: entityRow.pinned ? Color.mTertiary : Color.mOutline
+                            color: entityRow.pinned ? Commons.Color.mTertiary : Commons.Color.mOutline
 
                             onClicked: root._togglePin(model.entity_id)
                         }

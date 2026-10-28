@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -57,7 +58,7 @@ Item {
                     text: "Battery Preservation"
                     pointSize: Style.fontSizeL
                     font.weight: Font.DemiBold
-                    color: Color.mOnSurface
+                    color: Commons.Color.mOnSurface
                 }
 
                 NText {
@@ -65,14 +66,14 @@ Item {
                              || root.batteryModelName !== ""
                     text: !service.isAvailable ? "Not available on this system" : root.batteryModelName
                     pointSize: Style.fontSizeM
-                    color: Color.mOnSurfaceVariant
+                    color: Commons.Color.mOnSurfaceVariant
                 }
             }
 
             Rectangle {
                 Layout.fillWidth: true
                 height: 1
-                color: Color.mOutline
+                color: Commons.Color.mOutline
                 opacity: 0.3
             }
 
@@ -88,7 +89,7 @@ Item {
                     NText {
                         text: "Full Capacity"
                         pointSize: Style.fontSizeXS
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                     }
 
                     NToggle {
@@ -102,7 +103,7 @@ Item {
                     NText {
                         text: "Battery Preservation"
                         pointSize: Style.fontSizeXS
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                     }
                 }
             }

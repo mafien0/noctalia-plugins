@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import Quickshell.Io
@@ -30,9 +31,9 @@ Item {
   readonly property bool hasActiveProfile: (mainInstance?.activeProfile ?? "") !== ""
 
   readonly property color resolvedIconColor: {
-    var resolved = Color.resolveColorKeyOptional(activeColorKey)
+    var resolved = Commons.Color.resolveColorKeyOptional(activeColorKey)
     if (!resolved || resolved === "transparent" || resolved.a === 0)
-      return mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+      return mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
     return resolved
   }
 
@@ -56,7 +57,7 @@ Item {
     y: Style.pixelAlignCenter(parent.height, height)
     width: root.contentWidth
     height: root.contentHeight
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     radius: Style.radiusL
 
     RowLayout {

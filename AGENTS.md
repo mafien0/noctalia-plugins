@@ -298,7 +298,8 @@ Do **not** add fallback text after `tr()` calls — the translation system handl
 ## Code Style
 
 - **Use Noctalia widgets** (`NButton`, `NLabel`, `NBox`, `NSlider`, etc.) instead of raw Qt types (`Text`, `Rectangle`, `Button`). This ensures correct theming.
-- **Use `Style` constants** for margins, radii, colors: `Style.marginL`, `Style.radiusM`, `Color.mPrimary`
+- **Use `Style` constants** for margins, radii, colors: `Style.marginL`, `Style.radiusM`, `Commons.Color.mPrimary`
+- **Qualify the `Color` singleton** — Qt 6.12 added a `Color` singleton to `QtQuick`, which shadows `qs.Commons`' `Color` in any file importing `QtQuick`. Always `import qs.Commons as Commons` and write `Commons.Color.mPrimary`; bare `Color.mPrimary` resolves to the Qt type and yields undefined colors (black on black)
 - **Use `Logger`** for logging (`Logger.i`, `Logger.d`, `Logger.w`, `Logger.e`), not `console.log`
 - **Always null-coalesce** pluginApi access: `pluginApi?.tr(...)`, `pluginApi?.pluginSettings || ({})`
 - **camelCase** for variables/functions, **PascalCase** for component files
@@ -311,7 +312,8 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell           // ShellScreen, IpcHandler
 import Quickshell.Io        // FileView, Process
-import qs.Commons           // Settings, Style, Color, Logger, I18n, Icons
+import qs.Commons           // Settings, Style, Logger, I18n, Icons
+import qs.Commons as Commons // Color (must be qualified, see Code Style)
 import qs.Services.UI       // PanelService, BarService
 import qs.Widgets           // N* components
 ```

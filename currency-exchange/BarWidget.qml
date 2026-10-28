@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -92,7 +93,7 @@ Item {
     y: Style.pixelAlignCenter(parent.height, height)
     width: root.contentWidth
     height: root.contentHeight
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     radius: Style.radiusM
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
@@ -108,7 +109,7 @@ Item {
       // Loading spinner
       NIcon {
         Layout.alignment: Qt.AlignVCenter
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         icon: "loader"
         visible: loading
 
@@ -124,14 +125,14 @@ Item {
         applyUiScale: false
         icon: "currency-dollar"
         visible: !loading
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
       }
       NText {
         id: rateText
 
         Layout.alignment: Qt.AlignVCenter
         applyUiScale: false
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
         font.weight: Font.Medium
         pointSize: Style.getBarFontSizeForScreen(screen?.name)
         text: displayText
@@ -148,7 +149,7 @@ Item {
       // Loading spinner
       NIcon {
         Layout.alignment: Qt.AlignVCenter
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         icon: "loader"
         visible: loading
 
@@ -163,7 +164,7 @@ Item {
         Layout.alignment: Qt.AlignHCenter
         icon: "currency-dollar"
         visible: !loading
-        color: mouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : Commons.Color.mOnSurface
       }
     }
   }

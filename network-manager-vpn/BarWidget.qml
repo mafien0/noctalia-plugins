@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Modules.Bar.Extras
 import qs.Services.UI
 import qs.Widgets
@@ -71,8 +72,8 @@ Item {
                 pluginApi.closePanel(root.screen);
             PanelService.showContextMenu(contextMenu, pill, screen);
         }
-        customIconColor: Color.resolveColorKeyOptional(root.connectedCount > 0 ? root.connectedColor : root.disconnectedColor)
-        customTextColor: Color.resolveColorKeyOptional(root.connectedCount > 0 ? root.connectedColor : root.disconnectedColor)
+        customIconColor: Commons.Color.resolveColorKeyOptional(root.connectedCount > 0 ? root.connectedColor : root.disconnectedColor)
+        customTextColor: Commons.Color.resolveColorKeyOptional(root.connectedCount > 0 ? root.connectedColor : root.disconnectedColor)
         forceOpen: root.displayMode === "alwaysShow"
         forceClose: root.displayMode === "alwaysHide"
     }

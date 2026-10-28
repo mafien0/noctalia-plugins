@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -57,7 +58,7 @@ Item {
     y: Style.pixelAlignCenter(parent.height, height)
     width: root.contentWidth
     height: root.contentHeight
-    color: mouseArea.containsMouse ? Color.mHover : Style.capsuleColor
+    color: mouseArea.containsMouse ? Commons.Color.mHover : Style.capsuleColor
     radius: Style.radiusL
     border.color: Style.capsuleBorderColor
     border.width: Style.capsuleBorderWidth
@@ -69,13 +70,13 @@ Item {
 
       NIcon {
         icon: root.runningCount > 0 ? "bot" : "bot-off"
-        color: mouseArea.containsMouse ? Color.mOnHover : (root.runningCount > 0 ? Color.mPrimary : Color.mOnSurfaceVariant)
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : (root.runningCount > 0 ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant)
         applyUiScale: true
       }
 
       NText {
         text: root.runningCount.toString()
-        color: mouseArea.containsMouse ? Color.mOnHover : (root.runningCount > 0 ? Color.mPrimary : Color.mOnSurfaceVariant)
+        color: mouseArea.containsMouse ? Commons.Color.mOnHover : (root.runningCount > 0 ? Commons.Color.mPrimary : Commons.Color.mOnSurfaceVariant)
         pointSize: root.barFontSize
         applyUiScale: false
       }

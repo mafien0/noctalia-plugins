@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -56,7 +57,7 @@ Item {
           NIcon {
             icon: pluginApi?.pluginSettings?.icon || "bookmark"
             pointSize: Style.fontSizeXXL
-            color: Color.mPrimary
+            color: Commons.Color.mPrimary
           }
 
           NLabel {
@@ -129,7 +130,7 @@ Item {
       NText {
         id: saveError
         visible: text !== ""
-        color: Color.mError
+        color: Commons.Color.mError
         pointSize: Style.fontSizeS
         wrapMode: Text.WordWrap
         Layout.fillWidth: true
@@ -153,7 +154,7 @@ Item {
         horizontalPolicy: ScrollBar.AlwaysOff
         verticalPolicy: ScrollBar.AsNeeded
         reserveScrollbarSpace: false
-        gradientColor: Color.mSurface
+        gradientColor: Commons.Color.mSurface
 
         ColumnLayout {
           id: listColumn
@@ -174,14 +175,14 @@ Item {
               NIcon {
                 icon: "bookmark-off"
                 pointSize: Style.fontSizeXXL * 2
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 Layout.alignment: Qt.AlignHCenter
               }
 
               NText {
                 text: pluginApi?.tr("panel.empty")
                 pointSize: Style.fontSizeM
-                color: Color.mOnSurfaceVariant
+                color: Commons.Color.mOnSurfaceVariant
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true

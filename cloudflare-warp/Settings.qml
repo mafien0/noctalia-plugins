@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -34,7 +35,7 @@ ColumnLayout {
 
   NText {
     text: pluginApi?.tr("settings.description")
-    color: Color.mSecondary
+    color: Commons.Color.mSecondary
     Layout.fillWidth: true
     wrapMode: Text.Wrap
   }

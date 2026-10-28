@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -81,7 +82,7 @@ Item {
         id: musicIcon
         icon: isActive ? "music" : "music-off"
         applyUiScale: false
-        color: isActive ? Color.mPrimary : Color.mOnSurface
+        color: isActive ? Commons.Color.mPrimary : Commons.Color.mOnSurface
       }
 
       // Lyric container with scroll
@@ -100,7 +101,7 @@ Item {
           family: Settings.data.ui.font || ""
           pointSize: Style.barFontSize
           text: displayText
-          color: isActive ? Color.mPrimary : Color.mOnSurface
+          color: isActive ? Commons.Color.mPrimary : Commons.Color.mOnSurface
 
           x: 0
 

@@ -1,4 +1,5 @@
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 import qs.Services.System
@@ -39,10 +40,10 @@ Item {
   property real paddingRight: cfg.paddingRight ?? defaults.paddingRight
 
   property bool useCustomColors: cfg.useCustomColors ?? defaults.useCustomColors
-  property color colorSilent: root.useCustomColors && cfg.colorSilent || Color.mSurfaceVariant
-  property color colorTx: root.useCustomColors && cfg.colorTx || Color.mSecondary
-  property color colorRx: root.useCustomColors && cfg.colorRx || Color.mPrimary
-  property color colorText: root.useCustomColors && cfg.colorText || Color.mOnSurfaceVariant
+  property color colorSilent: root.useCustomColors && cfg.colorSilent || Commons.Color.mSurfaceVariant
+  property color colorTx: root.useCustomColors && cfg.colorTx || Commons.Color.mSecondary
+  property color colorRx: root.useCustomColors && cfg.colorRx || Commons.Color.mPrimary
+  property color colorText: root.useCustomColors && cfg.colorText || Commons.Color.mOnSurfaceVariant
 
   property bool useCustomFont: cfg.useCustomFont ?? defaults.useCustomFont
   property string customFontFamily: cfg.customFontFamily ?? defaults.customFontFamily

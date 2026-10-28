@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -61,12 +62,12 @@ Item {
 
           NText {
             text: pluginApi?.tr("panel.title")
-            pointSize: Style.fontSizeL; font.weight: Font.Bold; color: Color.mOnSurface
+            pointSize: Style.fontSizeL; font.weight: Font.Bold; color: Commons.Color.mOnSurface
             Layout.fillWidth: true
           }
           NText {
             text: root.subtitleText
-            pointSize: Style.fontSizeXS; color: Color.mOnSurfaceVariant
+            pointSize: Style.fontSizeXS; color: Commons.Color.mOnSurfaceVariant
           }
         }
 
@@ -104,12 +105,12 @@ Item {
             spacing: Style.marginM
 
             NIcon {
-              icon: "loader"; color: Color.mPrimary; pointSize: Style.fontSizeXXL
+              icon: "loader"; color: Commons.Color.mPrimary; pointSize: Style.fontSizeXXL
               Layout.alignment: Qt.AlignHCenter
             }
             NText {
               text: pluginApi?.tr("panel.loading")
-              color: Color.mOnSurfaceVariant; pointSize: Style.fontSizeM
+              color: Commons.Color.mOnSurfaceVariant; pointSize: Style.fontSizeM
               Layout.alignment: Qt.AlignHCenter
             }
           }
@@ -121,12 +122,12 @@ Item {
             spacing: Style.marginM
 
             NIcon {
-              icon: "device-desktop-off"; color: Color.mOnSurfaceVariant; pointSize: Style.fontSizeXXL
+              icon: "device-desktop-off"; color: Commons.Color.mOnSurfaceVariant; pointSize: Style.fontSizeXXL
               Layout.alignment: Qt.AlignHCenter
             }
             NText {
               text: pluginApi?.tr("panel.noOutputs")
-              color: Color.mOnSurfaceVariant; pointSize: Style.fontSizeM
+              color: Commons.Color.mOnSurfaceVariant; pointSize: Style.fontSizeM
               Layout.alignment: Qt.AlignHCenter
             }
           }
@@ -138,10 +139,10 @@ Item {
 
             RowLayout {
               spacing: Style.marginS
-              NIcon { icon: "activity"; color: Color.mPrimary; pointSize: Style.fontSizeS }
+              NIcon { icon: "activity"; color: Commons.Color.mPrimary; pointSize: Style.fontSizeS }
               NText {
                 text: pluginApi?.tr("panel.liveSection")
-                pointSize: Style.fontSizeM; font.weight: Font.DemiBold; color: Color.mOnSurface
+                pointSize: Style.fontSizeM; font.weight: Font.DemiBold; color: Commons.Color.mOnSurface
               }
             }
 
@@ -169,16 +170,16 @@ Item {
 
             RowLayout {
               spacing: Style.marginS
-              NIcon { icon: "activity"; color: Color.mPrimary; pointSize: Style.fontSizeS }
+              NIcon { icon: "activity"; color: Commons.Color.mPrimary; pointSize: Style.fontSizeS }
               NText {
                 text: pluginApi?.tr("panel.liveSection")
-                pointSize: Style.fontSizeM; font.weight: Font.DemiBold; color: Color.mOnSurface
+                pointSize: Style.fontSizeM; font.weight: Font.DemiBold; color: Commons.Color.mOnSurface
               }
             }
 
             NText {
               text: pluginApi?.tr("panel.liveDescriptionWlr")
-              pointSize: Style.fontSizeXS; color: Color.mOnSurfaceVariant
+              pointSize: Style.fontSizeXS; color: Commons.Color.mOnSurfaceVariant
               Layout.fillWidth: true
             }
 
@@ -200,12 +201,12 @@ Item {
 
             NText {
               text: pluginApi?.tr("panel.niriSection")
-              pointSize: Style.fontSizeM; font.weight: Font.DemiBold; color: Color.mOnSurface
+              pointSize: Style.fontSizeM; font.weight: Font.DemiBold; color: Commons.Color.mOnSurface
             }
 
             NText {
               text: pluginApi?.tr("panel.niriDescription")
-              pointSize: Style.fontSizeXS; color: Color.mOnSurfaceVariant
+              pointSize: Style.fontSizeXS; color: Commons.Color.mOnSurfaceVariant
               Layout.fillWidth: true
             }
 
@@ -227,11 +228,11 @@ Item {
 
             NText {
               text: pluginApi?.tr("panel.niriSection")
-              pointSize: Style.fontSizeM; font.weight: Font.DemiBold; color: Color.mOnSurfaceVariant
+              pointSize: Style.fontSizeM; font.weight: Font.DemiBold; color: Commons.Color.mOnSurfaceVariant
             }
             NText {
               text: pluginApi?.tr("panel.noNiriOutputs")
-              pointSize: Style.fontSizeXS; color: Color.mOnSurfaceVariant
+              pointSize: Style.fontSizeXS; color: Commons.Color.mOnSurfaceVariant
               Layout.fillWidth: true
             }
           }

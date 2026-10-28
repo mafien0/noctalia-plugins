@@ -4,6 +4,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -183,9 +184,9 @@ ColumnLayout {
         closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
 
         background: Rectangle {
-            color: Color.mSurfaceVariant
+            color: Commons.Color.mSurfaceVariant
             radius: Style.iRadiusL
-            border.color: Color.mOutline
+            border.color: Commons.Color.mOutline
             border.width: Style.borderS
         }
 

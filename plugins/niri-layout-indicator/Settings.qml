@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -33,13 +34,13 @@ ColumnLayout {
     text: root.tr("settings.title")
     pointSize: Style.fontSizeXXL
     font.weight: Style.fontWeightBold
-    color: Color.mOnSurface
+    color: Commons.Color.mOnSurface
   }
 
   NText {
     Layout.fillWidth: true
     text: root.tr("settings.description")
-    color: Color.mOnSurfaceVariant
+    color: Commons.Color.mOnSurfaceVariant
     pointSize: Style.fontSizeM
     wrapMode: Text.WordWrap
   }

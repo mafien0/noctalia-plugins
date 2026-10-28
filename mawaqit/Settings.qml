@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -282,7 +283,7 @@ ColumnLayout {
     NIcon {
       icon: root.valueWidgetIcon || "building-mosque"
       pointSize: Style.fontSizeXL
-      color: Color.mPrimary
+      color: Commons.Color.mPrimary
       Layout.alignment: Qt.AlignBottom
       Layout.bottomMargin: Style.marginM
     }

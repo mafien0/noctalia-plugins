@@ -6,6 +6,7 @@ import Quickshell
 import Quickshell.Io
 
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Services.UI
 
@@ -99,7 +100,7 @@ Item {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
-                color: Color.mSurfaceVariant;
+                color: Commons.Color.mSurfaceVariant;
                 radius: Style.iRadiusS;
 
                 ColumnLayout {
@@ -154,7 +155,7 @@ Item {
                                 radius: Style.iRadiusXS
 
                                 borderWidth: root.thumbCacheReady && root.currentWallpaper == wallpapersFolderModel.get(index, "filePath") ? Style.borderM : 0
-                                borderColor: Color.mPrimary;
+                                borderColor: Commons.Color.mPrimary;
 
                                 imagePath: root.thumbCacheReady ? pluginApi.mainInstance.getThumbUrl(wallpaper.path) : "";
                                 fallbackIcon: "alert-circle"

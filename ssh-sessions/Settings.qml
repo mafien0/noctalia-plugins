@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -26,7 +27,7 @@ ColumnLayout {
   NText {
     Layout.fillWidth: true
     text: root.detectedTerminal !== "" ? pluginApi?.tr("settings.terminalDetected", { terminal: root.detectedTerminal }) : pluginApi?.tr("settings.terminalNone")
-    color: root.detectedTerminal !== "" ? Color.mPrimary : Color.mError
+    color: root.detectedTerminal !== "" ? Commons.Color.mPrimary : Commons.Color.mError
     pointSize: Style.fontSizeS
     wrapMode: Text.Wrap
   }

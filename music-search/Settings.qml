@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -193,7 +194,7 @@ ColumnLayout {
     text: pluginApi?.tr("settings.downloads.title")
     pointSize: Style.fontSizeM
     font.weight: Style.fontWeightBold
-    color: Color.mOnSurface
+    color: Commons.Color.mOnSurface
   }
 
   NText {
@@ -201,7 +202,7 @@ ColumnLayout {
     text: pluginApi?.tr("settings.downloads.currentFolder", {"path": root.editDownloadDirectory})
     wrapMode: Text.Wrap
     pointSize: Style.fontSizeS
-    color: Color.mOnSurfaceVariant
+    color: Commons.Color.mOnSurfaceVariant
   }
 
   RowLayout {
@@ -260,7 +261,7 @@ ColumnLayout {
     text: pluginApi?.tr("settings.home.title")
     pointSize: Style.fontSizeM
     font.weight: Style.fontWeightBold
-    color: Color.mOnSurface
+    color: Commons.Color.mOnSurface
   }
 
   NToggle {
@@ -312,7 +313,7 @@ ColumnLayout {
     text: pluginApi?.tr("settings.panel.title")
     pointSize: Style.fontSizeM
     font.weight: Style.fontWeightBold
-    color: Color.mOnSurface
+    color: Commons.Color.mOnSurface
   }
 
   NComboBox {
@@ -455,7 +456,7 @@ ColumnLayout {
     text: pluginApi?.tr("settings.bar.title")
     pointSize: Style.fontSizeM
     font.weight: Style.fontWeightBold
-    color: Color.mOnSurface
+    color: Commons.Color.mOnSurface
   }
 
   NToggle {
@@ -475,7 +476,7 @@ ColumnLayout {
     text: pluginApi?.tr("settings.preview.title")
     pointSize: Style.fontSizeM
     font.weight: Style.fontWeightBold
-    color: Color.mOnSurface
+    color: Commons.Color.mOnSurface
   }
 
   NComboBox {
@@ -505,7 +506,7 @@ ColumnLayout {
     }
     wrapMode: Text.Wrap
     pointSize: Style.fontSizeS
-    color: Color.mOnSurfaceVariant
+    color: Commons.Color.mOnSurfaceVariant
   }
 
   NComboBox {
@@ -539,7 +540,7 @@ ColumnLayout {
     text: pluginApi?.tr("settings.metadata.title")
     pointSize: Style.fontSizeM
     font.weight: Style.fontWeightBold
-    color: Color.mOnSurface
+    color: Commons.Color.mOnSurface
   }
 
   NToggle {

@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 ColumnLayout {
@@ -31,8 +32,8 @@ ColumnLayout {
       icon: root.editIcon
       pointSize: Style.fontSizeXXL * 2
       color: {
-        let res = Color.resolveColorKeyOptional(root.editIconColor);
-        return res.a > 0 ? res : Color.mOnSurface;
+        let res = Commons.Color.resolveColorKeyOptional(root.editIconColor);
+        return res.a > 0 ? res : Commons.Color.mOnSurface;
       }
     }
     

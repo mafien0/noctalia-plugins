@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import qs.Modules.Bar.Extras
 import qs.Services.UI
@@ -36,7 +37,7 @@ Item {
     Rectangle {
         visible: root._isRecording
         width: 8; height: 8; radius: Style.radiusXXS
-        color: Color.mError
+        color: Commons.Color.mError
         anchors { top: pill.top; right: pill.right; topMargin: Style.marginXS; rightMargin: Style.marginXS }
         SequentialAnimation on opacity {
             running: root._isRecording; loops: Animation.Infinite

@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.Compositor
 import qs.Services.UI
 import qs.Widgets
@@ -93,11 +94,11 @@ Item {
             height: root.contentPreferredHeight
             color: {
                 if (!root.panelBackgroundEnabled) return "transparent";
-                if (root.panelBackgroundColor === "none") return Color.mOnSurface;
-                return Color.resolveColorKey(root.panelBackgroundColor);
+                if (root.panelBackgroundColor === "none") return Commons.Color.mOnSurface;
+                return Commons.Color.resolveColorKey(root.panelBackgroundColor);
             }
             radius: Style.radiusL
-            border.color: root.panelBackgroundEnabled ? Color.mOutline : "transparent"
+            border.color: root.panelBackgroundEnabled ? Commons.Color.mOutline : "transparent"
             border.width: root.panelBackgroundEnabled ? Style.borderS : 0
 
             // Render either row or column based on direction
@@ -148,14 +149,14 @@ Item {
         implicitHeight: wsPillSize
         radius: wsPillSize / 2 * wsBorderRadius
         color: {
-            if (wsPillMouse.containsMouse) return hasPill ? Color.mHover : Color.mTertiary;
+            if (wsPillMouse.containsMouse) return hasPill ? Commons.Color.mHover : Commons.Color.mTertiary;
             if (isFocused) {
-                if (wsFocusColor === "none") return Color.mOnSurface;
-                return Color.resolveColorKey(wsFocusColor);
+                if (wsFocusColor === "none") return Commons.Color.mOnSurface;
+                return Commons.Color.resolveColorKey(wsFocusColor);
             }
             if (!hasPill) return "transparent";
-            if (wsPillColor === "none") return Color.mOnSurface;
-            return Color.resolveColorKey(wsPillColor);
+            if (wsPillColor === "none") return Commons.Color.mOnSurface;
+            return Commons.Color.resolveColorKey(wsPillColor);
         }
 
         readonly property bool isActive: root.activeWorkspaceNames[modelData.name] === true
@@ -170,18 +171,18 @@ Item {
             pointSize: wsPill.wsIconSize
             applyUiScale: false
             color: {
-                if (wsPillMouse.containsMouse) return wsPill.hasPill ? Color.mOnHover : Color.mOnTertiary;
-                if (!wsPill.isActive) return Color.mOnSurface;
-                if (wsPill.wsSymbolColor !== "none") return Color.resolveColorKey(wsPill.wsSymbolColor);
+                if (wsPillMouse.containsMouse) return wsPill.hasPill ? Commons.Color.mOnHover : Commons.Color.mOnTertiary;
+                if (!wsPill.isActive) return Commons.Color.mOnSurface;
+                if (wsPill.wsSymbolColor !== "none") return Commons.Color.resolveColorKey(wsPill.wsSymbolColor);
                 if (wsPill.isFocused) {
-                    if (wsPill.wsFocusColor === "none") return Color.mSurface;
-                    return Color.resolveOnColorKey(wsPill.wsFocusColor);
+                    if (wsPill.wsFocusColor === "none") return Commons.Color.mSurface;
+                    return Commons.Color.resolveOnColorKey(wsPill.wsFocusColor);
                 }
                 if (wsPill.hasPill) {
-                    if (wsPill.wsPillColor === "none") return Color.mSurface;
-                    return Color.resolveOnColorKey(wsPill.wsPillColor);
+                    if (wsPill.wsPillColor === "none") return Commons.Color.mSurface;
+                    return Commons.Color.resolveOnColorKey(wsPill.wsPillColor);
                 }
-                return Color.mOnSurface;
+                return Commons.Color.mOnSurface;
             }
             anchors.centerIn: parent
         }

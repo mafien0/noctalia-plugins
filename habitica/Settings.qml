@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Widgets
 
@@ -247,7 +248,7 @@ ColumnLayout {
   Rectangle {
     Layout.fillWidth: true
     implicitHeight: infoColumn.implicitHeight + Style.marginM * 2
-    color: Color.mSurfaceVariant
+    color: Commons.Color.mSurfaceVariant
     radius: Style.radiusM
 
     ColumnLayout {
@@ -261,7 +262,7 @@ ColumnLayout {
         text: pluginApi?.tr("settings.ipc.title")
         pointSize: Style.fontSizeS
         font.weight: Font.Bold
-        color: Color.mOnSurface
+        color: Commons.Color.mOnSurface
       }
 
       NText {
@@ -269,7 +270,7 @@ ColumnLayout {
         text: pluginApi?.tr("settings.ipc.refresh")
         pointSize: Style.fontSizeXS
         font.family: Settings.data.ui.fontFixed
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         wrapMode: Text.WrapAnywhere
       }
     }

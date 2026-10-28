@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 
 Item {
@@ -453,7 +454,7 @@ Item {
           text: pluginApi?.tr("panel.title")
           pointSize: Style.fontSizeL
           font.weight: Font.DemiBold
-          color: Color.mOnSurface
+          color: Commons.Color.mOnSurface
         }
       }
 
@@ -461,7 +462,7 @@ Item {
         Layout.fillWidth: true
         text: pluginApi?.tr("panel.subtitle")
         pointSize: Style.fontSizeS
-        color: Color.mOnSurfaceVariant
+        color: Commons.Color.mOnSurfaceVariant
         wrapMode: Text.WordWrap
       }
 
@@ -474,7 +475,7 @@ Item {
           Layout.preferredWidth: 220 * Style.uiScaleRatio
           Layout.fillHeight: true
           radius: Style.radiusM
-          color: Color.mSurfaceVariant
+          color: Commons.Color.mSurfaceVariant
           visible: root.groupTabs.length > 1
 
           ScrollView {
@@ -494,7 +495,7 @@ Item {
 
                 width: groupListView.width
                 radius: Style.radiusS
-                color: index === root.selectedGroupIndex ? Color.mPrimary : Color.mSurface
+                color: index === root.selectedGroupIndex ? Commons.Color.mPrimary : Commons.Color.mSurface
                 implicitHeight: groupText.implicitHeight + (Style.marginS * 2)
 
                 NText {
@@ -502,7 +503,7 @@ Item {
                   anchors.fill: parent
                   anchors.margins: Style.marginS
                   text: modelData.name + " (" + modelData.count + ")"
-                  color: index === root.selectedGroupIndex ? Color.mOnPrimary : Color.mOnSurface
+                  color: index === root.selectedGroupIndex ? Commons.Color.mOnPrimary : Commons.Color.mOnSurface
                   pointSize: Style.fontSizeS
                   font.weight: index === root.selectedGroupIndex ? Font.Medium : Font.Normal
                   wrapMode: Text.WordWrap
@@ -532,7 +533,7 @@ Item {
             visible: root.loading
             text: pluginApi?.tr("panel.loading")
             pointSize: Style.fontSizeS
-            color: Color.mOnSurfaceVariant
+            color: Commons.Color.mOnSurfaceVariant
           }
 
           NText {
@@ -540,7 +541,7 @@ Item {
             visible: root.statusMessage !== ""
             text: root.statusMessage
             pointSize: Style.fontSizeS
-            color: root.statusMessage.toLowerCase().indexOf("failed") !== -1 ? Color.mError : Color.mOnSurfaceVariant
+            color: root.statusMessage.toLowerCase().indexOf("failed") !== -1 ? Commons.Color.mError : Commons.Color.mOnSurfaceVariant
             wrapMode: Text.WordWrap
           }
 
@@ -573,7 +574,7 @@ Item {
                   required property string applyError
 
                   width: listView.width
-                  color: Color.mSurfaceVariant
+                  color: Commons.Color.mSurfaceVariant
                   radius: Style.radiusM
                   implicitHeight: cardLayout.implicitHeight + (Style.marginM * 2)
 
@@ -588,7 +589,7 @@ Item {
                       text: mimeType
                       pointSize: Style.fontSizeM
                       font.weight: Font.Medium
-                      color: Color.mOnSurface
+                      color: Commons.Color.mOnSurface
                       wrapMode: Text.WordWrap
                     }
 
@@ -596,7 +597,7 @@ Item {
                       Layout.fillWidth: true
                       text: `${pluginApi?.tr("panel.current")}${currentDefaultName || currentDefault || pluginApi?.tr("panel.none")}`
                       pointSize: Style.fontSizeS
-                      color: Color.mOnSurfaceVariant
+                      color: Commons.Color.mOnSurfaceVariant
                       wrapMode: Text.WordWrap
                     }
 
@@ -604,7 +605,7 @@ Item {
                       Layout.fillWidth: true
                       text: `${pluginApi?.tr("panel.source")}${defaultSource || pluginApi?.tr("panel.notConfigured")}`
                       pointSize: Style.fontSizeS
-                      color: Color.mOnSurfaceVariant
+                      color: Commons.Color.mOnSurfaceVariant
                       wrapMode: Text.WordWrap
                     }
 
@@ -640,7 +641,7 @@ Item {
                       visible: applyError !== ""
                       text: applyError
                       pointSize: Style.fontSizeS
-                      color: Color.mError
+                      color: Commons.Color.mError
                       wrapMode: Text.WordWrap
                     }
                   }
@@ -675,7 +676,7 @@ Item {
                       text: section
                       pointSize: Style.fontSizeM
                       font.weight: Font.DemiBold
-                      color: Color.mOnSurface
+                      color: Commons.Color.mOnSurface
                     }
                   }
 
@@ -703,7 +704,7 @@ Item {
                         Layout.preferredWidth: 180 * Style.uiScaleRatio
                         text: friendlyLabel + ":"
                         horizontalAlignment: Text.AlignRight
-                        color: Color.mOnSurfaceVariant
+                        color: Commons.Color.mOnSurfaceVariant
                         pointSize: Style.fontSizeS
                       }
 

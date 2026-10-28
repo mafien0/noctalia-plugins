@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Widgets
 import "../lib/Ui.js" as Ui
 
@@ -33,8 +34,8 @@ NIconButtonHot {
 
   icon: ""
   hot: root.hasActiveOutput
-  colorBgHot: Ui.accentBackgroundColor(root.outputState, Color, Color.mSecondary)
-  colorFgHot: Ui.accentForegroundColor(root.outputState, Color, Color.mOnSecondary)
+  colorBgHot: Ui.accentBackgroundColor(root.outputState, Commons.Color, Commons.Color.mSecondary)
+  colorFgHot: Ui.accentForegroundColor(root.outputState, Commons.Color, Commons.Color.mOnSecondary)
   tooltipText: Ui.quickActionTooltip(root.pluginApi, root.outputState, root.connected, root.obsRunning, root.primaryActionText)
 
   NIcon {
@@ -44,10 +45,10 @@ NIconButtonHot {
     pointSize: Math.max(1, Math.round(root.width * 0.48))
     color: {
       if ((root.enabled && root.hovering) || root.pressed) {
-        return Color.mOnHover
+        return Commons.Color.mOnHover
       }
 
-      return Ui.accentForegroundColor(root.outputState, Color, Color.mOnSecondary)
+      return Ui.accentForegroundColor(root.outputState, Commons.Color, Commons.Color.mOnSecondary)
     }
   }
 
@@ -56,7 +57,7 @@ NIconButtonHot {
     visible: root.currentIconName === ""
     icon: "camera-video"
     pointSize: Math.max(1, Math.round(root.width * 0.42))
-    color: ((root.enabled && root.hovering) || root.pressed) ? Color.mOnHover : Color.mOnSurfaceVariant
+    color: ((root.enabled && root.hovering) || root.pressed) ? Commons.Color.mOnHover : Commons.Color.mOnSurfaceVariant
   }
 
   onClicked: {
@@ -91,8 +92,8 @@ NIconButtonHot {
     width: Math.max(14, Math.round(root.width * 0.3))
     height: width
     radius: width / 2
-    color: Color.mSurface
-    border.color: Color.mOutline
+    color: Commons.Color.mSurface
+    border.color: Commons.Color.mOutline
     border.width: 1
 
     NText {
@@ -100,7 +101,7 @@ NIconButtonHot {
       text: String(root.activeOutputs.length)
       pointSize: Math.max(1, Math.round(Style.fontSizeXS))
       font.weight: Style.fontWeightBold
-      color: Color.mOnSurface
+      color: Commons.Color.mOnSurface
     }
   }
 }

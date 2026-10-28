@@ -2,12 +2,13 @@ import QtQuick
 import QtQuick.Effects
 import qs.Commons
 
+import qs.Commons as Commons
 Item {
   id: root
 
   property real pointSize: Style.fontSizeL
   property bool applyUiScale: true
-  property color color: Color.mOnSurface
+  property color color: Commons.Color.mOnSurface
   property bool crossed: false
 
   implicitWidth: Math.max(1, applyUiScale ? root.pointSize * Style.uiScaleRatio : root.pointSize)

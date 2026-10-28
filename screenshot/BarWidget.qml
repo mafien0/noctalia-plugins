@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Services.System
 import qs.Services.Compositor
@@ -24,7 +25,7 @@ NIconButton {
     applyUiScale: false
     customRadius: Style.radiusL
     colorBg: Style.capsuleColor
-    colorFg: Color.mOnSurface
+    colorFg: Commons.Color.mOnSurface
     colorBorder: "transparent"
     colorBorderHover: "transparent"
     border.color: Style.capsuleBorderColor

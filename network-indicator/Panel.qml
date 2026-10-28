@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Services.UI
 import qs.Services.System
 import qs.Widgets
@@ -21,8 +22,8 @@ Item {
   property real contentPreferredHeight: Math.min(contentColumn.implicitHeight + Style.marginL * 2, 600 * Style.uiScaleRatio)
 
   property bool useCustomColors: cfg.useCustomColors ?? defaults.useCustomColors
-  property color colorTx: root.useCustomColors && cfg.colorTx || Color.mSecondary
-  property color colorRx: root.useCustomColors && cfg.colorRx || Color.mPrimary
+  property color colorTx: root.useCustomColors && cfg.colorTx || Commons.Color.mSecondary
+  property color colorRx: root.useCustomColors && cfg.colorRx || Commons.Color.mPrimary
 
   anchors.fill: parent
 
@@ -52,7 +53,7 @@ Item {
         NIcon {
           icon: "activity"
           pointSize: Style.fontSizeXL
-          color: Color.mPrimary
+          color: Commons.Color.mPrimary
           Layout.alignment: Qt.AlignVCenter
         }
 
@@ -60,7 +61,7 @@ Item {
           text: root.pluginApi?.tr("panel.title")
           pointSize: Style.fontSizeL
           font.weight: Font.Bold
-          color: Color.mOnSurface
+          color: Commons.Color.mOnSurface
           Layout.alignment: Qt.AlignVCenter
         }
 
@@ -71,7 +72,7 @@ Item {
         NText {
           text: `Interval ${(SystemStatService.networkIntervalMs / 1000)}s`
           pointSize: Style.fontSizeXXS
-          color: Qt.alpha(Color.mOnSurface, 0.5)
+          color: Qt.alpha(Commons.Color.mOnSurface, 0.5)
           Layout.alignment: Qt.AlignVCenter
         }
 
@@ -267,7 +268,7 @@ Item {
               anchors.right: yLabel.left
               anchors.rightMargin: Style.marginXS
               height: 1
-              color: Qt.alpha(Color.mOnSurface, 0.08)
+              color: Qt.alpha(Commons.Color.mOnSurface, 0.08)
             }
 
             Rectangle {
@@ -320,7 +321,7 @@ Item {
             }
             width: Style.borderS
             height: parent.height
-            color: Qt.alpha(Color.mOnSurface, 0.25)
+            color: Qt.alpha(Commons.Color.mOnSurface, 0.25)
 
             Rectangle {
               readonly property real posX: -implicitWidth / 2
@@ -338,8 +339,8 @@ Item {
               implicitWidth: bubbleText.implicitWidth + Style.marginS * 2
               implicitHeight: bubbleText.implicitHeight + Style.marginXS * 2
               radius: Style.radiusS
-              color: Color.mSurfaceVariant
-              border.color: Qt.alpha(Color.mOnSurface, 0.15)
+              color: Commons.Color.mSurfaceVariant
+              border.color: Qt.alpha(Commons.Color.mOnSurface, 0.15)
               border.width: Style.borderS
 
               NText {
@@ -347,7 +348,7 @@ Item {
                 anchors.centerIn: parent
                 text: parent._label
                 pointSize: Style.fontSizeXS
-                color: Color.mOnSurface
+                color: Commons.Color.mOnSurface
               }
             }
           }
